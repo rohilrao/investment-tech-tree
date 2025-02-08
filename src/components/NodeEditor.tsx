@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { SkillTreeNode } from '@/libs/types';
+import { SkillTreeNode } from '@/lib/types';
 
 interface NodeEditorProps {
   node: SkillTreeNode | null;

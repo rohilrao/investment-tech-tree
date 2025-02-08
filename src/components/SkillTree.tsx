@@ -15,7 +15,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import NodeEditor from './NodeEditor';
-import {SkillTreeNode, SkillTreeNodeNeo} from '@/libs/types';
+import {SkillTreeNode, SkillTreeNodeNeo} from '@/lib/types';
 import {
     createRelationship,
     createTechnology,

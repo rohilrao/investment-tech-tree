@@ -1,10 +1,9 @@
 'use server'
 
-import {session} from '@/libs/neo4j';
-import {EdgeProps, SkillTreeNodeNeo} from '@/libs/types';
+import {session} from '@/lib/neo4j';
+import {EdgeProps, SkillTreeNodeNeo} from '@/lib/types';
 import {revalidatePath} from "next/cache";
 import {Edge} from "reactflow";
-import neo4j from "neo4j-driver";
 
 export async function getTechnologies() {
     try {
