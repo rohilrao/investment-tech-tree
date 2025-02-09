@@ -1,131 +1,187 @@
-'use server'
+'use server';
 
-import {session} from '@/lib/neo4j';
-import {EdgeProps, SkillTreeNodeNeo} from '@/lib/types';
-import {revalidatePath} from "next/cache";
-import {Edge} from "reactflow";
+import { readQuery, writeQuery } from '@/lib/neo4j';
+import { createEmbedding } from '@/lib/rag';
+import { Neo4jTriple, NodeLabel, UiNode } from '@/lib/types';
+import { Edge } from '@xyflow/react';
 
-export async function getTechnologies() {
-    try {
-        const result = await session.run(
-            'MATCH (n:Technology) OPTIONAL MATCH (n)-[r]->(m) RETURN n, r, m'
-        );
+export async function getNodesAndEdges(): Promise<{
+  nodes: UiNode[];
+  edges: Edge[];
+}> {
+  try {
+    const result = (await readQuery(
+      'MATCH (source) OPTIONAL MATCH (source)-[relationship]->(target) RETURN source, relationship, target',
+    )) as Array<Neo4jTriple>;
 
-        const nodesMap = new Map<string, SkillTreeNodeNeo>();
-        const edges: EdgeProps[] = [];
+    const nodesMap = new Map<string, UiNode>();
+    const edges: Edge[] = [];
 
-        result.records.forEach((record) => {
-            const node = record.get('n');
-            if (node && !nodesMap.has(node.identity.toString())) {
-                nodesMap.set(node.identity.toString(), {
-                    id: node.identity.toString(),
-                    data: { label: node.properties.name, level: node.properties.level },
-                    position: { x: node.properties.x, y: node.properties.y },
-                });
-            }
-
-            const targetNode = record.get('m');
-            const edge = record.get('r');
-            if (edge && targetNode) {
-                edges.push({
-                    id: edge.identity.toString(),
-                    source: edge.start.toString(),
-                    target: edge.end.toString(),
-                    type: edge.type,
-                });
-            }
+    result.forEach((record) => {
+      const node = record.source;
+      if (node && !nodesMap.has(node.identity.toString())) {
+        nodesMap.set(node.identity.toString(), {
+          id: node.identity.toString(),
+          data: {
+            label: node.properties.name,
+            description: node.properties.description,
+            nodeLabel: node.labels[0] as NodeLabel,
+          },
+          position: {
+            x: node.properties.x as number,
+            y: node.properties.y as number,
+          },
+          type: 'custom',
         });
+      }
 
-        return { nodes: Array.from(nodesMap.values()), edges };
-    } catch (error) {
-        throw new Error((error as Error).message);
-    }
+      const targetNode = record.target;
+      const relationship = record.relationship;
+      if (relationship && targetNode) {
+        edges.push({
+          id: relationship.identity.toString(),
+          source: relationship.start.toString(),
+          target: relationship.end.toString(),
+          // type: 'smoothstep',
+          // label: relationship.type,
+        });
+      }
+    });
+
+    return { nodes: Array.from(nodesMap.values()), edges };
+  } catch (error) {
+    throw new Error('Failed to get edges & nodes from server', {
+      cause: error,
+    });
+  }
 }
 
-export async function createTechnology(name: string, level: number, x: number, y: number): Promise<SkillTreeNodeNeo> {
-    try {
-        if (!name) {
-            throw new Error('Name is required');
-        }
+export async function createNode({
+  data: { label, description, nodeLabel },
+  position: { x, y },
+}: UiNode): Promise<UiNode> {
+  try {
+    const NEW_NODE_ALIAS = 'newNode';
+    const embedding = await createEmbedding(description);
 
-        const result = await session.run(
-            'CREATE (n:Technology {name: $name, level: $level, x: $x, y:$y}) RETURN n',
-            { name, level, x, y }
-        );
-        const node = result.records[0].get('n');
+    const result = await writeQuery(
+      `CREATE (n {name: $label, description: $description, x: $x, y: $y, embedding: $embedding}) SET n:${nodeLabel} RETURN n as ${NEW_NODE_ALIAS}`,
+      { label, description, x, y, embedding },
+    );
 
-        revalidatePath('/tech-tree');
+    const node = result[0][NEW_NODE_ALIAS];
 
-        return {
-            id: node.identity.toString(),
-            data: { label: node.properties.name, level: node.properties.level },
-            position: { x: node.properties.x, y: node.properties.y },
-        };
-    } catch (error) {
-        throw new Error((error as Error).message);
-    }
+    return {
+      id: node.identity.toString(),
+      data: {
+        label: node.properties.name as string,
+        nodeLabel: node.labels[0] as NodeLabel,
+        description: node.properties.description as string,
+      },
+      position: { x: node.properties.x, y: node.properties.y },
+      type: 'custom',
+    };
+  } catch (error) {
+    throw new Error('Failed to create node', { cause: error });
+  }
 }
 
-export async function deleteTechnology(id: string) {
-    try {
-        await session.run(
-            'MATCH (n:Technology) WHERE ID(n) = $id DETACH DELETE n',
-            { id: Number(id) }
-        );
-    } catch (error) {
-        throw new Error(error.message);
+export async function updateNode(
+  id: string,
+  name: string,
+  label: NodeLabel,
+  description: string,
+  descriptionChanged: boolean,
+): Promise<UiNode> {
+  try {
+    const NODE_ALIAS = 'updatedNode';
+    let embedding = null;
+
+    if (descriptionChanged) {
+      embedding = await createEmbedding(description);
     }
+
+    const query = `
+      MATCH (n) WHERE id(n) = toInteger($id)
+      WITH n, labels(n) AS oldLabels
+      CALL {
+        WITH n, oldLabels
+        UNWIND oldLabels AS oldLabel
+        CALL apoc.create.removeLabels(n, [oldLabel]) YIELD node
+        RETURN node
+      }
+      SET n.name = $name, n.description = $description
+          ${descriptionChanged ? ',n.embedding = $embedding' : ''}
+      SET n:${label}
+      RETURN n AS ${NODE_ALIAS}
+    `;
+
+    const params: Record<string, unknown> = { id, name, description };
+    if (descriptionChanged) {
+      params.embedding = embedding;
+    }
+
+    const result = await writeQuery(query, params);
+    const node = result[0][NODE_ALIAS];
+
+    return {
+      id: node.identity.toString(),
+      data: {
+        ...node.properties,
+        label: node.properties.name,
+        nodeLabel: node.labels[0] as NodeLabel,
+      },
+      position: { x: node.properties.x, y: node.properties.y },
+    };
+  } catch (error) {
+    throw new Error('Failed to update node', { cause: error });
+  }
 }
 
-export async function createRelationship(source: number, target: number): Promise<{edge?: Edge, status: number, error?: string}> {
-    if (!source || !target) {
-        return { error: 'Missing parameters', status: 400 };
-    }
+export async function deleteNode(id: string) {
+  try {
+    await writeQuery('MATCH (n) WHERE ID(n) = $id DETACH DELETE n', {
+      id: Number(id),
+    });
+  } catch (error) {
+    throw new Error('Failed to delete node', { cause: error });
+  }
+}
 
-    try {
-        const result = await session.run(
-            `MATCH (a:Technology), (b:Technology) 
+export async function createRelationship(
+  source: number,
+  target: number,
+): Promise<Edge> {
+  try {
+    const ID_ALIAS = 'id';
+    const LABEL = 'CONNECTED_TO';
+    const result = await writeQuery(
+      `MATCH (a), (b) 
        WHERE ID(a) = $source AND ID(b) = $target 
-       CREATE (a)-[r:RELATIONSHIP]->(b) 
-       RETURN ID(r) AS id, ID(a) AS source, ID(b) AS target`,
-            { source, target }
-        );
+       CREATE (a)-[r:${LABEL}]->(b) 
+       RETURN ID(r) AS ${ID_ALIAS}`,
+      { source, target },
+    );
 
-
-        const record = result.records[0];
-        if (!record) {
-            return { error: 'Failed to create relationship', status: 500 };
-        }
-
-        const newEdge = {
-            id: (record.get('id')).toNumber(),
-            source: (record.get('source')).toNumber(),
-            target: (record.get('target')).toNumber(),
-        };
-
-        if (!newEdge) {
-            return { error: 'Failed to create relationship', status: 500 };
-        }
-
-        return { edge: newEdge as Edge, status: 201 };
-    } catch (error) {
-        return { error: error.message, status: 500 };
-    }
+    return {
+      id: result[0][ID_ALIAS].toNumber().toString(),
+      source: source.toString(),
+      target: target.toString(),
+      // type: 'smoothstep',
+      // label: LABEL,
+    };
+  } catch (error) {
+    throw new Error('Failed to create relationship', { cause: error });
+  }
 }
 
-export async function deleteRelationship(fromId: number, toId: number): Promise<{error?: string, message?: string, status: number}> {
-    if (!fromId || !toId) {
-        return { error: 'Missing fromId or toId', status: 400 };
-    }
-
-    try {
-        await session.run(
-            'MATCH (a)-[r]->(b) WHERE ID(a) = $fromId AND ID(b) = $toId DELETE r',
-            { fromId, toId }
-        );
-
-        return { message: 'Relationship deleted', status: 204 };
-    } catch (error) {
-        return { error: error.message, status: 500 };
-    }
+export async function deleteRelationship(fromId: number, toId: number) {
+  try {
+    await writeQuery(
+      'MATCH (a)-[r]->(b) WHERE ID(a) = $fromId AND ID(b) = $toId DELETE r',
+      { fromId, toId },
+    );
+  } catch (error) {
+    throw new Error('Failed to delete relationship', { cause: error });
+  }
 }

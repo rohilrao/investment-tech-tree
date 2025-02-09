@@ -5,18 +5,27 @@ const driver = neo4j.driver(
   neo4j.auth.basic(process.env.NEO4J_USER!, process.env.NEO4J_PASSWORD!),
 );
 
-export const session = driver.session();
 
-export async function closeSession() {
-  await session.close();
-  await driver.close();
+export async function readQuery(query: string, params: Record<string, unknown> = {}) {
+  const session = driver.session();
+
+  try {
+    const res = await session.executeRead(tx => tx.run(query, params));
+    return res.records.map(record => record.toObject());
+  }
+  finally {
+    await session.close();
+  }
 }
 
-process.on('SIGINT', async () => {
-  await closeSession();
-  process.exit(0);
-});
+export async function writeQuery(query: string, params = {}) {
+  const session = driver.session()
 
-process.on('SIGTERM', async () => {
-  await closeSession();
-});
+  try {
+    const res = await session.executeWrite(tx => tx.run(query, params));
+    return res.records.map(record => record.toObject());
+  }
+  finally {
+    await session.close();
+  }
+}

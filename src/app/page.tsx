@@ -1,5 +1,5 @@
-import SkillTree from '@/components/SkillTree';
+import { TechTreeContainer } from '@/components/TechTreeContainer';
 
 export default function Home() {
-  return <SkillTree />;
+  return <TechTreeContainer />;
 }
