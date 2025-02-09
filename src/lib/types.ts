@@ -25,8 +25,8 @@ export enum NodeLabel {
 }
 
 export const LABEL_COLORS: Record<NodeLabel, string> = {
-  [NodeLabel.Technology]: 'bg-blue-500 text-white',
-  [NodeLabel.Method]: 'bg-green-500 text-white',
+  [NodeLabel.Technology]: 'blue-500',
+  [NodeLabel.Method]: 'green-500',
 };
 
 export const NODE_TYPES: NodeTypes = {

@@ -12,10 +12,12 @@ import { NODE_TYPES, NodeLabel, UiNode } from '@/lib/types';
 import {
   applyEdgeChanges,
   applyNodeChanges,
+  Background,
   Connection,
   Controls,
   Edge,
   EdgeChange,
+  MiniMap,
   NodeChange,
   Panel,
   ReactFlow,
@@ -179,12 +181,14 @@ const TechTree: React.FC<TechTreeProps> = ({
           onEdgesChange={isEditable ? onEdgesChange : undefined}
           onConnect={isEditable ? onConnect : undefined}
           onNodeClick={onNodeClick}
-          colorMode={'dark'}
+          colorMode={'light'}
           fitView
           nodeTypes={NODE_TYPES}
           nodesDraggable={isEditable}
           nodesConnectable={isEditable}
         >
+          <Background />
+          <MiniMap />
           <Controls showInteractive={false} />
           <Panel position="top-right">
             <div className="flex space-x-10">

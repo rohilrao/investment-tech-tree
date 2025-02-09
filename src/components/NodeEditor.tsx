@@ -122,7 +122,7 @@ const NodeEditor: React.FC<NodeEditorProps> = ({
         <h3 className="text-lg font-bold">{isEditable ? 'Edit Node' : name}</h3>
         {!isEditable && (
           <span
-            className={`inline-block px-3 py-1 text-sm font-semibold rounded ${LABEL_COLORS[label]}`}
+            className={`inline-block px-3 py-1 text-sm font-semibold rounded bg-${LABEL_COLORS[label]}`}
           >
             {label}
           </span>
