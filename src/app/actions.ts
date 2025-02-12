@@ -2,7 +2,7 @@
 
 import { readQuery, writeQuery } from '@/lib/neo4j';
 import { createEmbedding } from '@/lib/rag';
-import { Neo4jTriple, NodeLabel, UiNode } from '@/lib/types';
+import { LABEL_COLORS, Neo4jTriple, NodeLabel, UiNode } from '@/lib/types';
 import { Edge } from '@xyflow/react';
 
 export async function getNodesAndEdges(): Promise<{
@@ -31,6 +31,9 @@ export async function getNodesAndEdges(): Promise<{
             x: node.properties.x as number,
             y: node.properties.y as number,
           },
+          width: node.properties.width as number,
+          height: node.properties.height as number,
+          className: `border-${LABEL_COLORS[node.labels[0] as NodeLabel]}`,
           type: 'custom',
         });
       }
@@ -80,12 +83,14 @@ export async function createNode({
       },
       position: { x: node.properties.x, y: node.properties.y },
       type: 'custom',
+      className: `border-${LABEL_COLORS[node.labels[0] as NodeLabel]}`,
     };
   } catch (error) {
     throw new Error('Failed to create node', { cause: error });
   }
 }
 
+// TODO: combine all nodeUpdaters in one function
 export async function updateNode(
   id: string,
   name: string,
@@ -132,9 +137,70 @@ export async function updateNode(
         nodeLabel: node.labels[0] as NodeLabel,
       },
       position: { x: node.properties.x, y: node.properties.y },
+      className: `border-${LABEL_COLORS[node.labels[0] as NodeLabel]}`,
     };
   } catch (error) {
     throw new Error('Failed to update node', { cause: error });
+  }
+}
+
+export async function updateNodePosition(
+  id: string,
+  x: number,
+  y: number,
+): Promise<UiNode> {
+  try {
+    const NODE_ALIAS = 'updatedNode';
+
+    const query = `
+      MATCH (n) WHERE id(n) = toInteger($id)
+      SET n.x = $x, n.y = $y
+      RETURN n AS ${NODE_ALIAS}
+    `;
+
+    const params: Record<string, unknown> = { id, x, y };
+
+    const result = await writeQuery(query, params);
+    const node = result[0][NODE_ALIAS];
+
+    return {
+      id: node.identity.toString(),
+      data: node.properties,
+      position: { x: node.properties.x, y: node.properties.y },
+    };
+  } catch (error) {
+    throw new Error('Failed to update node position', { cause: error });
+  }
+}
+
+export async function updateNodeSize(
+  id: string,
+  width: number,
+  height: number,
+): Promise<UiNode> {
+  try {
+    const NODE_ALIAS = 'updatedNode';
+
+    const query = `
+      MATCH (n) WHERE id(n) = toInteger($id)
+      SET n.width = $width, n.height = $height
+      RETURN n AS ${NODE_ALIAS}
+    `;
+
+    const params: Record<string, unknown> = { id, width, height };
+
+    const result = await writeQuery(query, params);
+    const node = result[0][NODE_ALIAS];
+
+    return {
+      id: node.identity.toString(),
+      data: node.properties,
+      position: { x: node.properties.x, y: node.properties.y },
+      width: node.properties.width,
+      height: node.properties.height,
+    };
+  } catch (error) {
+    throw new Error('Failed to update node size', { cause: error });
   }
 }
 

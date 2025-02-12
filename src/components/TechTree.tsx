@@ -6,8 +6,9 @@ import {
   deleteNode,
   deleteRelationship,
   getNodesAndEdges,
+  updateNodePosition,
 } from '@/app/actions';
-import { getLayoutedElements } from '@/lib/dagrejs';
+import { useGraphContext } from '@/app/GraphContext';
 import { NODE_TYPES, NodeLabel, UiNode } from '@/lib/types';
 import {
   applyEdgeChanges,
@@ -21,52 +22,43 @@ import {
   NodeChange,
   Panel,
   ReactFlow,
+  useReactFlow,
 } from '@xyflow/react';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Legend } from './Legend';
 import NodeEditor from './NodeEditor';
 
 interface TechTreeProps {
-  isEditable: boolean;
   loginForEdit: () => void;
 }
 
-const TechTree: React.FC<TechTreeProps> = ({
-  isEditable,
-  loginForEdit: loginForEdit,
-}: TechTreeProps) => {
+const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
   const [loading, setLoading] = useState(true);
+  const {
+    nodes,
+    setNodes,
+    edges,
+    setEdges,
+    selectedNode,
+    setSelectedNode,
+    isEditable,
+  } = useGraphContext();
 
-  const [nodes, setNodes] = useState<UiNode[]>([]);
-  const [edges, setEdges] = useState<Edge[]>([]);
-
-  const [direction, setDirection] = useState<string>('LR');
-
-  const [selectedNode, setSelectedNode] = useState<UiNode | null>(null);
+  const { screenToFlowPosition } = useReactFlow();
 
   /**
    * Initial get
    */
   useEffect(() => {
     getNodesAndEdges().then((data) => {
-      layoutGraph(data.nodes, data.edges);
+      updateGraph(data.nodes, data.edges);
       setLoading(false);
     });
   }, []);
 
-  const layoutGraph = (
-    nodesToLayout: UiNode[],
-    edgesToLayout: Edge[],
-    newDirection = direction,
-  ) => {
-    const { layoutedNodes, layoutedEdges } = getLayoutedElements(
-      nodesToLayout,
-      edgesToLayout,
-      newDirection,
-    );
-    setNodes([...layoutedNodes]);
-    setEdges([...layoutedEdges]);
-    setDirection(newDirection);
+  const updateGraph = (nodesToLayout: UiNode[], edgesToLayout: Edge[]) => {
+    setNodes([...nodesToLayout]);
+    setEdges([...edgesToLayout]);
   };
 
   /**
@@ -80,11 +72,16 @@ const TechTree: React.FC<TechTreeProps> = ({
         description: '',
         nodeLabel: NodeLabel.Technology,
       },
-      position: { x: 0, y: 0 },
+      // centered position
+      position: screenToFlowPosition({
+        x: window.innerWidth / 2.5,
+        y: window.innerHeight / 2,
+      }),
     };
 
     createNode(newNode).then((savedNode) => {
-      layoutGraph([...nodes, savedNode], edges);
+      updateGraph([...nodes, savedNode], edges);
+      setSelectedNode(savedNode);
     });
   }, [edges, nodes]);
 
@@ -101,7 +98,6 @@ const TechTree: React.FC<TechTreeProps> = ({
   const onNodesChange = useCallback(
     (changes: NodeChange[]) => {
       setNodes((nds) => applyNodeChanges(changes, nds) as UiNode[]);
-
       changes.forEach((change) => {
         if (change.type === 'remove' && change.id) {
           removeNode(change.id);
@@ -110,6 +106,20 @@ const TechTree: React.FC<TechTreeProps> = ({
     },
     [removeNode],
   );
+
+  /* Change position */
+  const onNodeDragStop = async (_: React.MouseEvent, node: UiNode) => {
+    const updatedNode = await updateNodePosition(
+      node.id,
+      node.position.x,
+      node.position.y,
+    );
+    setNodes((prevNodes) =>
+      prevNodes.map((n) =>
+        n.id === node.id ? { ...n, position: updatedNode.position } : n,
+      ),
+    );
+  };
 
   const onNodeClick = useCallback((_: React.MouseEvent, node: UiNode) => {
     setSelectedNode(node);
@@ -124,7 +134,7 @@ const TechTree: React.FC<TechTreeProps> = ({
         Number(connection.source),
         Number(connection.target),
       ).then((newEdge) => {
-        layoutGraph([...nodes], [...edges, newEdge]);
+        updateGraph([...nodes], [...edges, newEdge]);
       });
     },
     [nodes, edges],
@@ -156,13 +166,6 @@ const TechTree: React.FC<TechTreeProps> = ({
     });
   }, []);
 
-  const onLayout = useCallback(
-    (direction: string) => {
-      layoutGraph(nodes, edges, direction);
-    },
-    [nodes, edges],
-  );
-
   if (loading) {
     return (
       <div className="flex items-center justify-center w-full h-screen">
@@ -181,6 +184,7 @@ const TechTree: React.FC<TechTreeProps> = ({
           onEdgesChange={isEditable ? onEdgesChange : undefined}
           onConnect={isEditable ? onConnect : undefined}
           onNodeClick={onNodeClick}
+          onNodeDragStop={isEditable ? onNodeDragStop : undefined}
           colorMode={'light'}
           fitView
           nodeTypes={NODE_TYPES}
@@ -193,8 +197,6 @@ const TechTree: React.FC<TechTreeProps> = ({
           <Panel position="top-right">
             <div className="flex space-x-10">
               {isEditable && <button onClick={addNode}>add node</button>}
-              <button onClick={() => onLayout('TB')}>vertical layout</button>
-              <button onClick={() => onLayout('LR')}>horizontal layout</button>
               <button onClick={() => loginForEdit()}>
                 {isEditable ? 'exit edit-mode' : 'edit-mode'}
               </button>

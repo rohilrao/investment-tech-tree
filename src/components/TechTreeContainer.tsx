@@ -1,20 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useGraphContext } from '@/app/GraphContext';
 import { ReactFlowProvider } from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
+import { useState } from 'react';
 import PasswordModal from './LoginModal';
 import TechTree from './TechTree';
-import '@xyflow/react/dist/style.css';
 
 export const TechTreeContainer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEditable, setIsEditable] = useState(
-    false || process.env.NEXT_PUBLIC_STAGE === 'dev',
-  );
+  const { isEditable, setIsEditable } = useGraphContext();
 
   const handleLoginForEdit = () => {
     if (isEditable) {
-      setIsEditable(false);
+      setIsEditable(false); //logout if logged in
     } else {
       setIsModalOpen(true);
     }
@@ -36,7 +35,7 @@ export const TechTreeContainer = () => {
           onSubmit={handlePasswordSubmit}
           onClose={() => setIsModalOpen(false)}
         />
-        <TechTree isEditable={isEditable} loginForEdit={handleLoginForEdit} />
+        <TechTree loginForEdit={handleLoginForEdit} />
       </div>
     </ReactFlowProvider>
   );

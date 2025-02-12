@@ -1,19 +1,23 @@
-import { LABEL_COLORS, NodeLabel } from '@/lib/types';
-import { Handle, NodeProps, Position } from '@xyflow/react';
-import { clsx } from 'clsx';
+import { updateNodeSize } from '@/app/actions';
+import { useGraphContext } from '@/app/GraphContext';
+import { Handle, NodeProps, NodeResizer, Position } from '@xyflow/react';
 
-const CustomNode = ({ data, sourcePosition, targetPosition }: NodeProps) => {
+const CustomNode = ({ id, data }: NodeProps) => {
+  const { isEditable } = useGraphContext();
+
   return (
-    <div
-      className={clsx(
-        'p-2',
-        'rounded',
-        `bg-${LABEL_COLORS[data.nodeLabel as NodeLabel]}`,
-      )}
-    >
-      <Handle type="target" position={targetPosition as Position} />
+    <div className="p-1">
+      <NodeResizer
+        onResizeEnd={(_, params) =>
+          updateNodeSize(id, params.width, params.height)
+        }
+        isVisible={isEditable}
+        color="transparent"
+      />
+
+      <Handle type="source" position={Position.Left} />
       <div className="text-center">{data.label as string}</div>
-      <Handle type="source" position={sourcePosition as Position} />
+      <Handle type="target" position={Position.Right} />
     </div>
   );
 };

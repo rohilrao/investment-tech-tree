@@ -21,12 +21,12 @@ export interface Neo4jTriple {
 
 export enum NodeLabel {
   'Technology' = 'Technology',
-  'Method' = 'Method',
+  'Target' = 'Target',
 }
 
 export const LABEL_COLORS: Record<NodeLabel, string> = {
   [NodeLabel.Technology]: 'blue-500',
-  [NodeLabel.Method]: 'green-500',
+  [NodeLabel.Target]: 'green-500',
 };
 
 export const NODE_TYPES: NodeTypes = {

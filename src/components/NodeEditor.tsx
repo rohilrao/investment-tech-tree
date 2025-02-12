@@ -55,6 +55,7 @@ const NodeEditor: React.FC<NodeEditorProps> = ({
                   description: updatedNode.data.description,
                   nodeLabel: updatedNode.data.nodeLabel,
                 },
+                className: updatedNode.className,
               }
             : n,
         ),
@@ -86,7 +87,7 @@ const NodeEditor: React.FC<NodeEditorProps> = ({
 
   if (!node)
     return (
-      <div className="p-6 bg-white shadow-lg rounded-lg">
+      <div className="p-6">
         <h2 className="text-xl font-bold text-gray-800 mb-2">Manual</h2>
 
         <h3 className="mt-4 text-lg font-semibold text-gray-700">
@@ -116,9 +117,9 @@ const NodeEditor: React.FC<NodeEditorProps> = ({
     );
 
   return (
-    <div className="p-4 mb">
+    <div className="p-4 mb h-[90vh] max-h-[90vh] overflow-hidden">
       <ToastContainer />
-      <div className="flex justify-between items-center border-b border-gray-300 pb-2">
+      <div className="flex justify-between items-end border-b border-gray-300 pb-2 gap-4">
         <h3 className="text-lg font-bold">{isEditable ? 'Edit Node' : name}</h3>
         {!isEditable && (
           <span
@@ -182,8 +183,10 @@ const NodeEditor: React.FC<NodeEditorProps> = ({
         </div>
       ) : (
         <>
-          {newDescription && (
-            <p className="p-2 w-full mt-2">{newDescription}</p>
+          {oldDescription && (
+            <div className="overflow-auto max-h-full">
+              <p className="p-2 w-full mt-2">{oldDescription}</p>
+            </div>
           )}
         </>
       )}
