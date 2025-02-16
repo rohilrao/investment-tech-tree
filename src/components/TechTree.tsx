@@ -1,15 +1,16 @@
 'use client';
 
 import {
+  createEdge,
   createNode,
-  createRelationship,
+  deleteEdge,
   deleteNode,
-  deleteRelationship,
   getNodesAndEdges,
   updateNodePosition,
-} from '@/app/actions';
+} from '@/app/actions/server';
 import { useGraphContext } from '@/app/GraphContext';
-import { NODE_TYPES, NodeLabel, UiNode } from '@/lib/types';
+import { toastError, toastSuccess } from '@/lib/toast';
+import { NODE_TYPES, QueryTypeMessage, UiNode } from '@/lib/types';
 import {
   applyEdgeChanges,
   applyNodeChanges,
@@ -25,7 +26,11 @@ import {
   useReactFlow,
 } from '@xyflow/react';
 import React, { useCallback, useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ExportButton from './ExportButton';
 import { Legend } from './Legend';
+import { LoadingSpinner } from './LoadingSpinner';
 import NodeEditor from './NodeEditor';
 
 interface TechTreeProps {
@@ -33,146 +38,172 @@ interface TechTreeProps {
 }
 
 const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
+  const [edges, setEdges] = useState<Edge[]>([]);
   const [loading, setLoading] = useState(true);
-  const {
-    nodes,
-    setNodes,
-    edges,
-    setEdges,
-    selectedNode,
-    setSelectedNode,
-    isEditable,
-  } = useGraphContext();
+  const { nodes, setNodes, selectedNode, setSelectedNode, isEditable } =
+    useGraphContext();
 
   const { screenToFlowPosition } = useReactFlow();
 
-  /**
-   * Initial get
-   */
+  // Initial get
   useEffect(() => {
-    getNodesAndEdges().then((data) => {
-      updateGraph(data.nodes, data.edges);
-      setLoading(false);
-    });
-  }, []);
-
-  const updateGraph = (nodesToLayout: UiNode[], edgesToLayout: Edge[]) => {
-    setNodes([...nodesToLayout]);
-    setEdges([...edgesToLayout]);
-  };
-
-  /**
-   * Edit nodes
-   */
-  const addNode = useCallback(() => {
-    const newNode: UiNode = {
-      id: 'will be ignored',
-      data: {
-        label: 'New Node',
-        description: '',
-        nodeLabel: NodeLabel.Technology,
-      },
-      // centered position
-      position: screenToFlowPosition({
-        x: window.innerWidth / 2.5,
-        y: window.innerHeight / 2,
-      }),
+    const fetchData = async () => {
+      try {
+        const { nodes, edges } = await getNodesAndEdges();
+        setNodes(() => [...nodes]);
+        setEdges(() => [...edges]);
+        setLoading(false);
+      } catch (err) {
+        toastError(QueryTypeMessage.GET_NODES_AND_EDGES, err as Error);
+        setLoading(false);
+      }
     };
 
-    createNode(newNode).then((savedNode) => {
-      updateGraph([...nodes, savedNode], edges);
-      setSelectedNode(savedNode);
-    });
-  }, [edges, nodes]);
+    fetchData();
+  }, [setEdges, setNodes]);
 
-  const removeNode = useCallback((id: string) => {
-    deleteNode(id).then(() => {
-      setNodes((nds) => nds.filter((node) => node.id !== id));
-      setEdges((eds) =>
-        eds.filter((edge) => edge.source !== id && edge.target !== id),
-      );
-      setSelectedNode(null);
+  /**
+   * NODES
+   */
+
+  const addNode = useCallback(async () => {
+    const centeredPosition = screenToFlowPosition({
+      x: window.innerWidth / 2.5,
+      y: window.innerHeight / 2,
     });
-  }, []);
+
+    try {
+      const createdNode = await createNode(centeredPosition);
+
+      setNodes((prevNodes) => [...prevNodes, { ...createdNode }]);
+      setSelectedNode({ ...createdNode });
+      toastSuccess('Created node!');
+    } catch (err) {
+      toastError(QueryTypeMessage.CREATE_NODE, err as Error);
+    }
+  }, [screenToFlowPosition, setNodes, setSelectedNode]);
+
+  // Delete node
+  const onNodesDelete = useCallback(
+    async (nodesToDelete: UiNode[]) => {
+      for (const nodeToDelete of nodesToDelete) {
+        const prevState = [...nodes];
+        try {
+          await deleteNode(nodeToDelete.id);
+          setNodes((prevNodes) => [
+            ...prevNodes.filter((n) => n.id !== nodeToDelete.id),
+          ]);
+          setSelectedNode(null);
+          toastSuccess(
+            `Deleted node '${nodeToDelete.data.label.slice(0, 10)}'!`,
+          );
+        } catch (err) {
+          // setNodes((prevNodes) => [...prevNodes, nodeToDelete]);
+          setNodes([...prevState]);
+          toastError(QueryTypeMessage.DELETE_NODE, err as Error);
+        }
+      }
+    },
+    [setNodes, setSelectedNode, nodes],
+  );
+
+  // Change position of node
+  const onNodeDragStop = useCallback(
+    async (_: React.MouseEvent, draggedNode: UiNode) => {
+      try {
+        const updatedNode = await updateNodePosition(
+          draggedNode.id,
+          draggedNode.position.x,
+          draggedNode.position.y,
+        );
+        setNodes((prevNodes) => [
+          ...prevNodes.map((n) =>
+            n.id === draggedNode.id ? { ...updatedNode } : n,
+          ),
+        ]);
+      } catch (err) {
+        toastError(QueryTypeMessage.UPDATE_NODE_POSITION, err as Error);
+      }
+    },
+    [setNodes],
+  );
+
+  // Select node
+  const onNodeClick = useCallback(
+    (_: React.MouseEvent, newSelectedNode: UiNode) => {
+      if (!selectedNode || selectedNode.id != newSelectedNode.id) {
+        setSelectedNode(() => ({ ...newSelectedNode }));
+      }
+    },
+    [selectedNode, setSelectedNode],
+  );
+
+  /**
+   * EDGES
+   */
+
+  // Add edge
+  const onConnect = useCallback(
+    async (connection: Connection) => {
+      const prevState = [...edges];
+      try {
+        const newEdge = await createEdge(connection.source, connection.target);
+        setEdges((prevEdges) => [...prevEdges, { ...newEdge }]);
+        toastSuccess('Created edge!');
+      } catch (err) {
+        setEdges([...prevState]);
+        toastError(QueryTypeMessage.CREATE_EDGE, err as Error);
+      }
+    },
+    [setEdges, edges],
+  );
+
+  // Delete edge
+  const onEdgesDelete = useCallback(
+    async (edgesToDelete: Edge[]) => {
+      for (const edgeToDelete of edgesToDelete) {
+        try {
+          await deleteEdge(edgeToDelete.source, edgeToDelete.target);
+          setEdges((prevEdges) => [
+            ...prevEdges.filter(
+              (e) =>
+                !(
+                  e.source === edgeToDelete.source &&
+                  e.target === edgeToDelete.target
+                ),
+            ),
+          ]);
+          toastSuccess(`Deleted edge!`);
+        } catch (err) {
+          setEdges((prevEdges) => [...prevEdges, edgeToDelete]);
+          toastError(QueryTypeMessage.DELETE_EDGE, err as Error);
+        }
+      }
+    },
+    [setEdges],
+  );
 
   const onNodesChange = useCallback(
     (changes: NodeChange[]) => {
-      setNodes((nds) => applyNodeChanges(changes, nds) as UiNode[]);
-      changes.forEach((change) => {
-        if (change.type === 'remove' && change.id) {
-          removeNode(change.id);
-        }
-      });
+      if (isEditable) {
+        setNodes(
+          (prevNodes) => applyNodeChanges(changes, prevNodes) as UiNode[],
+        );
+      }
     },
-    [removeNode],
-  );
-
-  /* Change position */
-  const onNodeDragStop = async (_: React.MouseEvent, node: UiNode) => {
-    const updatedNode = await updateNodePosition(
-      node.id,
-      node.position.x,
-      node.position.y,
-    );
-    setNodes((prevNodes) =>
-      prevNodes.map((n) =>
-        n.id === node.id ? { ...n, position: updatedNode.position } : n,
-      ),
-    );
-  };
-
-  const onNodeClick = useCallback((_: React.MouseEvent, node: UiNode) => {
-    setSelectedNode(node);
-  }, []);
-
-  /**
-   * Edit edges
-   */
-  const onConnect = useCallback(
-    (connection: Connection) => {
-      createRelationship(
-        Number(connection.source),
-        Number(connection.target),
-      ).then((newEdge) => {
-        updateGraph([...nodes], [...edges, newEdge]);
-      });
-    },
-    [nodes, edges],
+    [setNodes, isEditable],
   );
 
   const onEdgesChange = useCallback(
     (changes: EdgeChange[]) => {
-      setEdges((eds) => applyEdgeChanges(changes, eds));
-
-      changes.forEach((change) => {
-        if (change.type === 'remove') {
-          const edgeToDelete = edges.find((edge) => edge.id === change.id);
-          if (edgeToDelete) {
-            onEdgeDelete(edgeToDelete);
-          }
-        }
-      });
+      if (isEditable) {
+        setEdges((prevEdges) => applyEdgeChanges(changes, prevEdges) as Edge[]);
+      }
     },
-    [edges],
+    [setEdges, isEditable],
   );
 
-  const onEdgeDelete = useCallback((edge: Edge) => {
-    deleteRelationship(Number(edge.source), Number(edge.target)).then(() => {
-      setEdges((prevEdges) =>
-        prevEdges.filter(
-          (e) => !(e.source === edge.source && e.target === edge.target),
-        ),
-      );
-    });
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center w-full h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500"></div>
-      </div>
-    );
-  }
+  if (loading) return <LoadingSpinner />;
 
   return (
     <div className="w-full h-screen bg-gray-100 flex">
@@ -180,24 +211,39 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
         <ReactFlow
           nodes={nodes}
           edges={edges}
-          onNodesChange={isEditable ? onNodesChange : undefined}
-          onEdgesChange={isEditable ? onEdgesChange : undefined}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
           onConnect={isEditable ? onConnect : undefined}
           onNodeClick={onNodeClick}
           onNodeDragStop={isEditable ? onNodeDragStop : undefined}
+          onEdgesDelete={isEditable ? onEdgesDelete : undefined}
+          onNodesDelete={isEditable ? onNodesDelete : undefined}
           colorMode={'light'}
           fitView
+          fitViewOptions={{ padding: 0.1 }}
           nodeTypes={NODE_TYPES}
           nodesDraggable={isEditable}
           nodesConnectable={isEditable}
+          minZoom={0.3}
         >
           <Background />
           <MiniMap />
           <Controls showInteractive={false} />
           <Panel position="top-right">
             <div className="flex space-x-10">
-              {isEditable && <button onClick={addNode}>add node</button>}
-              <button onClick={() => loginForEdit()}>
+              {isEditable && (
+                <button
+                  className="p-2 bg-blue-500 text-white rounded h-10"
+                  onClick={addNode}
+                >
+                  add node
+                </button>
+              )}
+              {isEditable && <ExportButton />}
+              <button
+                className="p-2 bg-blue-500 text-white rounded h-10"
+                onClick={loginForEdit}
+              >
                 {isEditable ? 'exit edit-mode' : 'edit-mode'}
               </button>
             </div>
@@ -207,11 +253,8 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
       </div>
       {
         <div className="w-1/4 p-4 bg-white shadow-lg">
-          <NodeEditor
-            node={selectedNode}
-            setNodes={setNodes}
-            isEditable={isEditable}
-          />
+          <NodeEditor />
+          <ToastContainer />
         </div>
       }
     </div>

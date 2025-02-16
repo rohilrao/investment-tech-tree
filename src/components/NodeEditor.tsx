@@ -1,21 +1,18 @@
 'use client';
 
-import { updateNode } from '@/app/actions';
-import { LABEL_COLORS, NodeLabel, UiNode } from '@/lib/types';
+import {
+  updateNodeContent,
+  updateNodeContentAndEmbedding,
+} from '@/app/actions/server';
+import { useGraphContext } from '@/app/GraphContext';
+import { toastError, toastSuccess } from '@/lib/toast';
+import { LABEL_COLORS, NodeLabel, QueryTypeMessage } from '@/lib/types';
 import React, { useEffect, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { Manual } from './Manual';
 
-interface NodeEditorProps {
-  node: UiNode | null;
-  setNodes: React.Dispatch<React.SetStateAction<UiNode[]>>;
-  isEditable: boolean;
-}
+const NodeEditor = () => {
+  const { selectedNode, setNodes, isEditable } = useGraphContext();
 
-const NodeEditor: React.FC<NodeEditorProps> = ({
-  node,
-  setNodes,
-  isEditable,
-}) => {
   const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState(''); // neo4j's name = reactflow's label
@@ -24,101 +21,58 @@ const NodeEditor: React.FC<NodeEditorProps> = ({
   const [oldDescription, setOldDescription] = useState('');
 
   useEffect(() => {
-    if (node) {
-      setName(node.data.label);
-      setNewDescription(node.data.description);
-      setOldDescription(node.data.description);
-      setLabel(node.data.nodeLabel);
+    if (selectedNode) {
+      setName(selectedNode.data.label);
+      setNewDescription(selectedNode.data.description);
+      setOldDescription(selectedNode.data.description);
+      setLabel(selectedNode.data.nodeLabel);
     }
-  }, [node]);
+  }, [selectedNode]);
+
+  const onLabelChange = (e: React.ChangeEvent<HTMLSelectElement>): void =>
+    setLabel(e.target.value as NodeLabel);
+  const onNameChange = (e: React.ChangeEvent<HTMLInputElement>): void =>
+    setName(e.target.value);
+  const onDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+  ): void => setNewDescription(e.target.value);
 
   const updateNodeData = async () => {
     setLoading(true);
     try {
       const descriptionChanged = newDescription !== oldDescription;
 
-      const updatedNode = await updateNode(
-        node!.id,
-        name,
-        label,
-        newDescription,
-        descriptionChanged,
-      );
-      setNodes((prevNodes) =>
-        prevNodes.map((n) =>
-          n.id === updatedNode.id
-            ? {
-                ...n,
-                data: {
-                  ...n.data,
-                  label: updatedNode.data.label,
-                  description: updatedNode.data.description,
-                  nodeLabel: updatedNode.data.nodeLabel,
-                },
-                className: updatedNode.className,
-              }
-            : n,
-        ),
-      );
+      const updatedNode = descriptionChanged
+        ? await updateNodeContentAndEmbedding(
+            selectedNode!.id,
+            name,
+            label,
+            newDescription,
+          )
+        : await updateNodeContent(
+            selectedNode!.id,
+            name,
+            label,
+            newDescription,
+          );
 
-      toast.success('Update successful!', {
-        position: 'bottom-right',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    } catch (error) {
-      toast.error(`Update error: ${error}`, {
-        position: 'bottom-right',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      setNodes((prevNodes) => [
+        ...prevNodes.map((n) =>
+          n.id === updatedNode.id ? { ...updatedNode } : n,
+        ),
+      ]);
+      toastSuccess('Updated node content!');
+    } catch (err: unknown) {
+      toastError(QueryTypeMessage.UPDATE_NODE_CONTENT, err as Error);
     } finally {
       setLoading(false);
     }
   };
 
-  if (!node)
-    return (
-      <div className="p-6">
-        <h2 className="text-xl font-bold text-gray-800 mb-2">Manual</h2>
-
-        <h3 className="mt-4 text-lg font-semibold text-gray-700">
-          Select a node
-        </h3>
-        <p className="text-gray-600">
-          Explore the selected node's properties and relationships.
-        </p>
-
-        <h3 className="mt-4 text-lg font-semibold text-gray-700">
-          React Flow Basics
-        </h3>
-        <ul className="list-disc text-gray-600">
-          <li>
-            <strong>Zoom:</strong> Use the mouse wheel or +/- at the bottom left
-            corner.
-          </li>
-          <li>
-            <strong>Pan:</strong> Click and drag to move the view.
-          </li>
-          <li>
-            <strong>Fit View:</strong> Use the control panel button at the
-            bottom left corner to center all nodes.
-          </li>
-        </ul>
-      </div>
-    );
+  if (!selectedNode) return <Manual />;
 
   return (
     <div className="p-4 mb h-[90vh] max-h-[90vh] overflow-hidden">
-      <ToastContainer />
       <div className="flex justify-between items-end border-b border-gray-300 pb-2 gap-4">
         <h3 className="text-lg font-bold">{isEditable ? 'Edit Node' : name}</h3>
         {!isEditable && (
@@ -136,7 +90,7 @@ const NodeEditor: React.FC<NodeEditorProps> = ({
             <label className="font-semibold">Type</label>
             <select
               value={label}
-              onChange={(e) => setLabel(e.target.value as NodeLabel)}
+              onChange={onLabelChange}
               className="border p-2 w-full mt-2"
             >
               {Object.entries(NodeLabel).map(([key, value]) => (
@@ -152,7 +106,7 @@ const NodeEditor: React.FC<NodeEditorProps> = ({
             <input
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={onNameChange}
               className="border p-2 w-full mt-2"
               placeholder="Node Name"
             />
@@ -162,7 +116,7 @@ const NodeEditor: React.FC<NodeEditorProps> = ({
             <label className="font-semibold">Description</label>
             <textarea
               value={newDescription}
-              onChange={(e) => setNewDescription(e.target.value)}
+              onChange={onDescriptionChange}
               className="border p-2 w-full mt-2"
               placeholder="Node Description"
               rows={12}

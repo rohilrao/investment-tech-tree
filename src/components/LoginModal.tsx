@@ -1,23 +1,29 @@
+'use client';
+
+import { useGraphContext } from '@/app/GraphContext';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 const PasswordModal: React.FC<{
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (password: string) => boolean;
-}> = ({ isOpen, onClose, onSubmit }) => {
+}> = ({ isOpen, onClose }) => {
   const [password, setPassword] = useState('');
   const [shake, setShake] = useState(false);
+  const { setIsEditable } = useGraphContext();
+
+  const onPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setPassword(e.target.value);
 
   const handleSubmit = () => {
-    const success = onSubmit(password);
-    if (!success) {
+    if (password === process.env.NEXT_PUBLIC_EDIT_PASSWORD) {
+      setIsEditable(true);
+      setPassword('');
+      onClose();
+    } else {
       setShake(true);
       setTimeout(() => setShake(false), 500);
-    } else {
-      onClose();
     }
-    setPassword('');
   };
 
   if (!isOpen) return null;
@@ -29,7 +35,7 @@ const PasswordModal: React.FC<{
         <input
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={onPasswordChange}
           className="border p-2 w-full mb-4"
           placeholder="Password"
         />

@@ -1,3 +1,5 @@
+'use server';
+
 import { HfInference } from '@huggingface/inference';
 
 export async function createEmbedding(
@@ -14,7 +16,8 @@ export async function createEmbedding(
     });
 
     return result as number[];
-  } catch (error) {
-    throw new Error('Failed to embed text', { cause: error });
+  } catch (err) {
+    console.error(`Error during createEmbedding:`);
+    throw err;
   }
 }
