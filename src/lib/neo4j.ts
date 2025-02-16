@@ -57,6 +57,6 @@ export const convertDbNodeToUiNode = (dbNode: DbNode): UiNode => ({
   },
   width: dbNode.properties.width as number,
   height: dbNode.properties.height as number,
-  className: `border-${LABEL_COLORS[dbNode.labels[0] as NodeLabel]}`,
+  className: `border-${LABEL_COLORS[dbNode.labels[0] as NodeLabel]} !rounded-lg`,
   type: 'custom',
 });

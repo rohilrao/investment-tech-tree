@@ -2,7 +2,7 @@
 
 export const Manual = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 shadow-md">
       <h2 className="text-xl font-bold text-gray-800 mb-2">Manual</h2>
 
       <h3 className="mt-4 text-lg font-semibold text-gray-700">
@@ -12,9 +12,7 @@ export const Manual = () => {
         Explore the selected node&apos;s properties and relationships.
       </p>
 
-      <h3 className="mt-4 text-lg font-semibold text-gray-700">
-        React Flow Basics
-      </h3>
+      <h3 className="mt-4 text-lg font-semibold text-gray-700">Navigation</h3>
       <ul className="list-disc text-gray-600">
         <li>
           <strong>Zoom:</strong> Use the mouse wheel or +/- at the bottom left

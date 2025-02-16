@@ -72,75 +72,83 @@ const NodeEditor = () => {
   if (!selectedNode) return <Manual />;
 
   return (
-    <div className="p-4 mb h-[90vh] max-h-[90vh] overflow-hidden">
-      <div className="flex justify-between items-end border-b border-gray-300 pb-2 gap-4">
-        <h3 className="text-lg font-bold">{isEditable ? 'Edit Node' : name}</h3>
-        {!isEditable && (
-          <span
-            className={`inline-block px-3 py-1 text-sm font-semibold rounded bg-${LABEL_COLORS[label]}`}
-          >
-            {label}
-          </span>
-        )}
-      </div>
-
-      {isEditable ? (
-        <div className="flex flex-col">
-          <div className="mb-4">
-            <label className="font-semibold">Type</label>
-            <select
-              value={label}
-              onChange={onLabelChange}
-              className="border p-2 w-full mt-2"
-            >
-              {Object.entries(NodeLabel).map(([key, value]) => (
-                <option key={key} value={key}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="mb-4">
-            <label className="font-semibold">Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={onNameChange}
-              className="border p-2 w-full mt-2"
-              placeholder="Node Name"
-            />
-          </div>
-
-          <div>
-            <label className="font-semibold">Description</label>
-            <textarea
-              value={newDescription}
-              onChange={onDescriptionChange}
-              className="border p-2 w-full mt-2"
-              placeholder="Node Description"
-              rows={12}
-            />
-          </div>
-
-          <button
-            disabled={!name || loading}
-            onClick={updateNodeData}
-            className="mt-2 p-2 bg-blue-500 text-white rounded w-full disabled:bg-gray-400 disabled:cursor-not-allowed flex justify-center items-center"
-          >
-            {loading ? (
-              <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-white"></div>
-            ) : (
-              'Save'
-            )}
-          </button>
-        </div>
+    <div className="p-4 mb h-[95vh] max-h-[95vh] overflow-hidden shadow-md">
+      {!selectedNode ? (
+        <Manual />
       ) : (
         <>
-          {oldDescription && (
-            <div className="overflow-auto max-h-full">
-              <p className="p-2 w-full mt-2">{oldDescription}</p>
+          <div className="flex justify-between items-end border-b border-gray-300 pb-2 gap-4">
+            <h3 className="text-lg font-bold">
+              {isEditable ? 'Edit Node' : name}
+            </h3>
+            {!isEditable && (
+              <span
+                className={`inline-block px-3 py-1 text-sm font-semibold rounded bg-${LABEL_COLORS[label]}`}
+              >
+                {label}
+              </span>
+            )}
+          </div>
+
+          {isEditable ? (
+            <div className="flex flex-col">
+              <div className="mb-4">
+                <label className="font-semibold">Type</label>
+                <select
+                  value={label}
+                  onChange={onLabelChange}
+                  className="border p-2 w-full mt-2"
+                >
+                  {Object.entries(NodeLabel).map(([key, value]) => (
+                    <option key={key} value={key}>
+                      {value}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="mb-4">
+                <label className="font-semibold">Name</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={onNameChange}
+                  className="border p-2 w-full mt-2"
+                  placeholder="Node Name"
+                />
+              </div>
+
+              <div>
+                <label className="font-semibold">Description</label>
+                <textarea
+                  value={newDescription}
+                  onChange={onDescriptionChange}
+                  className="border p-2 w-full mt-2"
+                  placeholder="Node Description"
+                  rows={12}
+                />
+              </div>
+
+              <button
+                disabled={!name || loading}
+                onClick={updateNodeData}
+                className="mt-2 p-2 bg-blue-500 text-white rounded w-full disabled:bg-gray-400 disabled:cursor-not-allowed flex justify-center items-center"
+              >
+                {loading ? (
+                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-white"></div>
+                ) : (
+                  'Save'
+                )}
+              </button>
             </div>
+          ) : (
+            <>
+              {oldDescription && (
+                <div className="overflow-auto max-h-full">
+                  <p className="p-2 w-full mt-2">{oldDescription}</p>
+                </div>
+              )}
+            </>
           )}
         </>
       )}

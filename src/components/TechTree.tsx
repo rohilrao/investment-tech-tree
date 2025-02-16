@@ -15,6 +15,7 @@ import {
   applyEdgeChanges,
   applyNodeChanges,
   Background,
+  BackgroundVariant,
   Connection,
   Controls,
   Edge,
@@ -226,7 +227,7 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
           nodesConnectable={isEditable}
           minZoom={0.3}
         >
-          <Background />
+          <Background bgColor="white" variant={BackgroundVariant.Dots} />
           <MiniMap />
           <Controls showInteractive={false} />
           <Panel position="top-right">

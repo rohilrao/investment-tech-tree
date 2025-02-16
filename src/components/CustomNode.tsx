@@ -63,7 +63,7 @@ const CustomNode = ({ id, data }: NodeProps) => {
         position={Position.Left}
         className={isEditable ? '!w-3 !h-3' : ''}
       />
-      <div className="text-center text-lg">{data.label as string}</div>
+      <div className="text-center text-base Roboto">{data.label as string}</div>
       <Handle
         type="target"
         position={Position.Right}
