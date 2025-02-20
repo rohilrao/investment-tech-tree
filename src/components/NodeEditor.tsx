@@ -72,7 +72,7 @@ const NodeEditor = () => {
   if (!selectedNode) return <Manual />;
 
   return (
-    <div className="p-4 mb h-[95vh] max-h-[95vh] overflow-hidden shadow-md">
+    <div className="p-4 mb flex flex-col h-full shadow-md">
       {!selectedNode ? (
         <Manual />
       ) : (
@@ -144,7 +144,7 @@ const NodeEditor = () => {
           ) : (
             <>
               {oldDescription && (
-                <div className="overflow-auto max-h-full">
+                <div className="overflow-auto flex-grow">
                   <p className="p-2 w-full mt-2">{oldDescription}</p>
                 </div>
               )}

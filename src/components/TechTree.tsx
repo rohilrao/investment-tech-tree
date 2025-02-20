@@ -78,7 +78,7 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
 
       setNodes((prevNodes) => [...prevNodes, { ...createdNode }]);
       setSelectedNode({ ...createdNode });
-      toastSuccess('Created node!');
+      toastSuccess('Node created!');
     } catch (err) {
       toastError(QueryTypeMessage.CREATE_NODE, err as Error);
     }
@@ -150,7 +150,6 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
       try {
         const newEdge = await createEdge(connection.source, connection.target);
         setEdges((prevEdges) => [...prevEdges, { ...newEdge }]);
-        toastSuccess('Created edge!');
       } catch (err) {
         setEdges([...prevState]);
         toastError(QueryTypeMessage.CREATE_EDGE, err as Error);
@@ -174,7 +173,7 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
                 ),
             ),
           ]);
-          toastSuccess(`Deleted edge!`);
+          toastSuccess(`Edge deleted!`);
         } catch (err) {
           setEdges((prevEdges) => [...prevEdges, edgeToDelete]);
           toastError(QueryTypeMessage.DELETE_EDGE, err as Error);
