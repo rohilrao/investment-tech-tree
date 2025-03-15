@@ -1,4 +1,4 @@
-import { createEdge } from '@/lib/data';
+import { createEdgeFromNodes } from '@/lib/data';
 import { Edge } from '@xyflow/react';
 import {
   ChallengingScenariosModelsCompeteNode,
@@ -16,43 +16,53 @@ import {
 } from './level-4-nodes';
 
 const GaiaNodesUpdateStateFromGaiaUsefulRepresentationDecisionsEdge: Edge =
-  createEdge(GaiaNodesUpdateStateNode, GaiaUsefulRepresentationDecisionsNode);
+  createEdgeFromNodes(
+    GaiaNodesUpdateStateNode,
+    GaiaUsefulRepresentationDecisionsNode,
+  );
 
 const GaiaNodesInstantiateLocalModelsFromGaiaUsefulRepresentationDecisionsEdge: Edge =
-  createEdge(
+  createEdgeFromNodes(
     GaiaNodesInstantiateLocalModelsNode,
     GaiaUsefulRepresentationDecisionsNode,
   );
 
 const GaiaEfficientlyQueriedAppsFromGaiaUsefulRepresentationDecisionsEdge: Edge =
-  createEdge(
+  createEdgeFromNodes(
     GaiaEfficientlyQueriedAppsNode,
     GaiaUsefulRepresentationDecisionsNode,
   );
 
 const CriticalMassRepoFromGaiaUsefulRepresentationDecisionsEdge: Edge =
-  createEdge(CriticalMassRepoNode, GaiaUsefulRepresentationDecisionsNode);
+  createEdgeFromNodes(
+    CriticalMassRepoNode,
+    GaiaUsefulRepresentationDecisionsNode,
+  );
 
-const CriticalMassRepoFromGaiaVetOwnModelsEdge: Edge = createEdge(
+const CriticalMassRepoFromGaiaVetOwnModelsEdge: Edge = createEdgeFromNodes(
   CriticalMassRepoNode,
   GaiaVetOwnModelsNode,
 );
 
 const CriticalMassRepoFromChallengingScenariosModelsCompeteEdge: Edge =
-  createEdge(CriticalMassRepoNode, ChallengingScenariosModelsCompeteNode);
+  createEdgeFromNodes(
+    CriticalMassRepoNode,
+    ChallengingScenariosModelsCompeteNode,
+  );
 
-const CriticalMassRepoFromGaiaOpenAiBlackBoxesEdge: Edge = createEdge(
+const CriticalMassRepoFromGaiaOpenAiBlackBoxesEdge: Edge = createEdgeFromNodes(
   CriticalMassRepoNode,
   GaiaOpenAiBlackBoxesNode,
 );
 
-const CriticalMassRepoFromEnvironmentsTestHumanForEvalEdge: Edge = createEdge(
-  CriticalMassRepoNode,
-  EnvironmentsTestHumanForEvalNode,
-);
+const CriticalMassRepoFromEnvironmentsTestHumanForEvalEdge: Edge =
+  createEdgeFromNodes(CriticalMassRepoNode, EnvironmentsTestHumanForEvalNode);
 
 const CriticalMassRepoFromEnvironmentsTestAgentAgentForEvalEdge: Edge =
-  createEdge(CriticalMassRepoNode, EnvironmentsTestAgentAgentForEvalNode);
+  createEdgeFromNodes(
+    CriticalMassRepoNode,
+    EnvironmentsTestAgentAgentForEvalNode,
+  );
 
 export const LEVEL_4_EDGES: Edge[] = [
   GaiaNodesUpdateStateFromGaiaUsefulRepresentationDecisionsEdge,

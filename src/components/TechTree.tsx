@@ -1,16 +1,11 @@
 'use client';
 
-import {
-  createEdge,
-  deleteEdge,
-  deleteNode,
-  updateNodePosition,
-} from '@/app/actions/server';
 import { useGraphContext } from '@/app/GraphContext';
 import { EDGES } from '@/data/edges';
-import { NODES } from '@/data/nodes';
-import { toastError, toastSuccess } from '@/lib/toast';
-import { NODE_TYPES, QueryTypeMessage, UiNode } from '@/lib/types';
+import { createEdgeFromIds } from '@/lib/data';
+import { createNode } from '@/lib/reactflow';
+import { toastSuccess } from '@/lib/toast';
+import { NODE_TYPES, UiNode } from '@/lib/types';
 import {
   applyEdgeChanges,
   applyNodeChanges,
@@ -26,13 +21,11 @@ import {
   ReactFlow,
   useReactFlow,
 } from '@xyflow/react';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ExportButton from './ExportButton';
 import { Legend } from './Legend';
-import { LoadingSpinner } from './LoadingSpinner';
-import { createNode } from '@/lib/reactflow';
 import NodeDetails from './NodeDetails';
 
 interface TechTreeProps {
@@ -40,30 +33,11 @@ interface TechTreeProps {
 }
 
 const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
-  const [edges, setEdges] = useState<Edge[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [edges, setEdges] = useState<Edge[]>([...EDGES]);
   const { nodes, setNodes, selectedNode, setSelectedNode, isEditable } =
     useGraphContext();
 
   const { screenToFlowPosition } = useReactFlow();
-
-  // Initial get
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // const { nodes, edges } = await getNodesAndEdges();
-        setNodes(() => [...NODES]);
-        setEdges(() => [...EDGES]);
-        setLoading(false);
-      } catch (err) {
-        toastError(QueryTypeMessage.GET_NODES_AND_EDGES, err as Error);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [setEdges, setNodes]);
-
   /**
    * NODES
    */
@@ -74,61 +48,12 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
       y: window.innerHeight / 2,
     });
 
-    try {
-      const createdNode = createNode(centeredPosition);
+    const createdNode = createNode(centeredPosition);
 
-      setNodes((prevNodes) => [...prevNodes, { ...createdNode }]);
-      setSelectedNode({ ...createdNode });
-      toastSuccess('Node created!');
-    } catch (err) {
-      toastError(QueryTypeMessage.CREATE_NODE, err as Error);
-    }
+    setNodes((prevNodes) => [...prevNodes, { ...createdNode }]);
+    setSelectedNode({ ...createdNode });
+    toastSuccess('Node created!');
   }, [screenToFlowPosition, setNodes, setSelectedNode]);
-
-  // Delete node
-  const onNodesDelete = useCallback(
-    async (nodesToDelete: UiNode[]) => {
-      for (const nodeToDelete of nodesToDelete) {
-        const prevState = [...nodes];
-        try {
-          await deleteNode(nodeToDelete.id);
-          setNodes((prevNodes) => [
-            ...prevNodes.filter((n) => n.id !== nodeToDelete.id),
-          ]);
-          setSelectedNode(null);
-          toastSuccess(
-            `Deleted node '${nodeToDelete.data.label.slice(0, 10)}'!`,
-          );
-        } catch (err) {
-          // setNodes((prevNodes) => [...prevNodes, nodeToDelete]);
-          setNodes([...prevState]);
-          toastError(QueryTypeMessage.DELETE_NODE, err as Error);
-        }
-      }
-    },
-    [setNodes, setSelectedNode, nodes],
-  );
-
-  // Change position of node
-  const onNodeDragStop = useCallback(
-    async (_: React.MouseEvent, draggedNode: UiNode) => {
-      try {
-        const updatedNode = await updateNodePosition(
-          draggedNode.id,
-          draggedNode.position.x,
-          draggedNode.position.y,
-        );
-        setNodes((prevNodes) => [
-          ...prevNodes.map((n) =>
-            n.id === draggedNode.id ? { ...updatedNode } : n,
-          ),
-        ]);
-      } catch (err) {
-        toastError(QueryTypeMessage.UPDATE_NODE_POSITION, err as Error);
-      }
-    },
-    [setNodes],
-  );
 
   // Select node
   const onNodeClick = useCallback(
@@ -140,53 +65,35 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
     [selectedNode, setSelectedNode],
   );
 
+  // TODO: Remove if it's working without
+  const onNodeDragStop = useCallback(
+    (_: React.MouseEvent, draggedNode: UiNode) => {
+      setSelectedNode((prevNode) => ({
+        ...prevNode!,
+        position: draggedNode.position,
+      }));
+      setNodes((prevNodes) => [
+        ...prevNodes.map((n) =>
+          n.id === draggedNode.id ? { ...draggedNode } : n,
+        ),
+      ]);
+    },
+    [setNodes, setSelectedNode],
+  );
+
   /**
    * EDGES
    */
 
   // Add edge
-  const onConnect = useCallback(
-    async (connection: Connection) => {
-      const prevState = [...edges];
-      try {
-        const newEdge = await createEdge(connection.source, connection.target);
-        setEdges((prevEdges) => [...prevEdges, { ...newEdge }]);
-      } catch (err) {
-        setEdges([...prevState]);
-        toastError(QueryTypeMessage.CREATE_EDGE, err as Error);
-      }
-    },
-    [setEdges, edges],
-  );
-
-  // Delete edge
-  const onEdgesDelete = useCallback(
-    async (edgesToDelete: Edge[]) => {
-      for (const edgeToDelete of edgesToDelete) {
-        try {
-          await deleteEdge(edgeToDelete.source, edgeToDelete.target);
-          setEdges((prevEdges) => [
-            ...prevEdges.filter(
-              (e) =>
-                !(
-                  e.source === edgeToDelete.source &&
-                  e.target === edgeToDelete.target
-                ),
-            ),
-          ]);
-          toastSuccess(`Edge deleted!`);
-        } catch (err) {
-          setEdges((prevEdges) => [...prevEdges, edgeToDelete]);
-          toastError(QueryTypeMessage.DELETE_EDGE, err as Error);
-        }
-      }
-    },
-    [setEdges],
-  );
+  const onConnect = useCallback((connection: Connection) => {
+    const newEdge = createEdgeFromIds(connection.source, connection.target);
+    setEdges((prevEdges) => [...prevEdges, { ...newEdge }]);
+  }, []);
 
   const onNodesChange = useCallback(
     (changes: NodeChange[]) => {
-      if (isEditable) {
+      if (isEditable && changes[0].type != 'remove') {
         setNodes(
           (prevNodes) => applyNodeChanges(changes, prevNodes) as UiNode[],
         );
@@ -197,14 +104,12 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
 
   const onEdgesChange = useCallback(
     (changes: EdgeChange[]) => {
-      if (isEditable) {
+      if (isEditable && changes[0].type != 'remove') {
         setEdges((prevEdges) => applyEdgeChanges(changes, prevEdges) as Edge[]);
       }
     },
     [setEdges, isEditable],
   );
-
-  if (loading) return <LoadingSpinner />;
 
   return (
     <div className="w-full h-screen bg-gray-100 flex">
@@ -217,8 +122,6 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
           onConnect={isEditable ? onConnect : undefined}
           onNodeClick={onNodeClick}
           onNodeDragStop={isEditable ? onNodeDragStop : undefined}
-          onEdgesDelete={isEditable ? onEdgesDelete : undefined}
-          onNodesDelete={isEditable ? onNodesDelete : undefined}
           colorMode={'light'}
           fitView
           fitViewOptions={{ padding: 0.1 }}

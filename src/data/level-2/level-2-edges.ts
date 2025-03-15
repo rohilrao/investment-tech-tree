@@ -1,4 +1,4 @@
-import { createEdge } from '@/lib/data';
+import { createEdgeFromNodes } from '@/lib/data';
 import { Edge } from '@xyflow/react';
 import {
   AlgorithmicContributionsRepoNode,
@@ -12,22 +12,25 @@ import {
 } from './level-2-nodes';
 
 const ContributionsIncentivizedReflectsDecisionValueFromAlgorithmicContributionsRepoEdge: Edge =
-  createEdge(
+  createEdgeFromNodes(
     ContributionsIncentivizedReflectsDecisionValueNode,
     AlgorithmicContributionsRepoNode,
   );
 
 const ContributionsIncentivizedReflectsDecisionValueFromModelRepoRobustAdversarialEdge: Edge =
-  createEdge(
+  createEdgeFromNodes(
     ContributionsIncentivizedReflectsDecisionValueNode,
     ModelRepoRobustAdversarialNode,
   );
 
 const PlugPlaySystemTestingFeedbackingFromCriticalMassRepoEdge: Edge =
-  createEdge(PlugPlaySystemTestingFeedbackingNode, CriticalMassRepoNode);
+  createEdgeFromNodes(
+    PlugPlaySystemTestingFeedbackingNode,
+    CriticalMassRepoNode,
+  );
 
 const PlugPlaySystemTestingFeedbackingFromNonExpertsContributeModelsValidationEdge: Edge =
-  createEdge(
+  createEdgeFromNodes(
     PlugPlaySystemTestingFeedbackingNode,
     NonExpertsContributeModelsValidationNode,
   );

@@ -1,4 +1,4 @@
-import { createEdge } from '@/lib/data';
+import { createEdgeFromNodes } from '@/lib/data';
 import { Edge } from '@xyflow/react';
 import {
   CriticalMassRepoNode,
@@ -12,26 +12,28 @@ import {
 } from './level-3-nodes';
 
 const QueryUpdateProtocolValueMetricsFromGaiaEfficientlyQueriedAppsEdge: Edge =
-  createEdge(
+  createEdgeFromNodes(
     QueryUpdateProtocolValueMetricsNode,
     GaiaEfficientlyQueriedAppsNode,
   );
 
 const QueryUpdateProtocolValueMetricsFromCriticalMassRepoEdge: Edge =
-  createEdge(QueryUpdateProtocolValueMetricsNode, CriticalMassRepoNode);
+  createEdgeFromNodes(
+    QueryUpdateProtocolValueMetricsNode,
+    CriticalMassRepoNode,
+  );
 
-const ModelRepoRobustAdversarialFromCriticalMassRepoEdge: Edge = createEdge(
-  ModelRepoRobustAdversarialNode,
-  CriticalMassRepoNode,
-);
+const ModelRepoRobustAdversarialFromCriticalMassRepoEdge: Edge =
+  createEdgeFromNodes(ModelRepoRobustAdversarialNode, CriticalMassRepoNode);
 
-const AlgorithmicContributionsRepoFromCriticalMassRepoEdge: Edge = createEdge(
-  AlgorithmicContributionsRepoNode,
-  CriticalMassRepoNode,
-);
+const AlgorithmicContributionsRepoFromCriticalMassRepoEdge: Edge =
+  createEdgeFromNodes(AlgorithmicContributionsRepoNode, CriticalMassRepoNode);
 
 const NonExpertsContributeModelsValidationFromCriticalMassRepoEdge: Edge =
-  createEdge(NonExpertsContributeModelsValidationNode, CriticalMassRepoNode);
+  createEdgeFromNodes(
+    NonExpertsContributeModelsValidationNode,
+    CriticalMassRepoNode,
+  );
 
 export const LEVEL_3_EDGES: Edge[] = [
   QueryUpdateProtocolValueMetricsFromGaiaEfficientlyQueriedAppsEdge,

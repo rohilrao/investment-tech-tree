@@ -1,5 +1,6 @@
 'use client';
 
+import { NODES } from '@/data/nodes';
 import { UiNode } from '@/lib/types';
 import { createContext, ReactNode, useContext, useState } from 'react';
 
@@ -15,7 +16,7 @@ interface GraphContextType {
 const GraphContext = createContext<GraphContextType | undefined>(undefined);
 
 export const GraphProvider = ({ children }: { children: ReactNode }) => {
-  const [nodes, setNodes] = useState<UiNode[]>([]);
+  const [nodes, setNodes] = useState<UiNode[]>([...NODES]);
   const [selectedNode, setSelectedNode] = useState<UiNode | null>(null);
   const [isEditable, setIsEditable] = useState(false);
 

@@ -1,19 +1,14 @@
 'use client';
 
-import {
-  updateNodeContent,
-  updateNodeContentAndEmbedding,
-} from '@/app/actions/server';
 import { useGraphContext } from '@/app/GraphContext';
-import { toastError, toastSuccess } from '@/lib/toast';
-import { LABEL_COLORS, NodeLabel, QueryTypeMessage } from '@/lib/types';
+import { toastSuccess } from '@/lib/toast';
+import { LABEL_COLORS, NodeLabel } from '@/lib/types';
 import React, { useEffect, useState } from 'react';
 import { Manual } from './Manual';
 
 const NodeDetails = () => {
-  const { selectedNode, setNodes, isEditable } = useGraphContext();
-
-  const [loading, setLoading] = useState(false);
+  const { selectedNode, setNodes, setSelectedNode, isEditable } =
+    useGraphContext();
 
   const [name, setName] = useState(''); // neo4j's name = reactflow's label
   const [label, setLabel] = useState<NodeLabel>(NodeLabel.Technology);
@@ -54,43 +49,33 @@ const NodeDetails = () => {
       });
   };
 
-  const updateNodeData = async () => {
-    setLoading(true);
-    try {
-      const descriptionChanged = newDescription !== oldDescription;
-
-      const updatedNode = descriptionChanged
-        ? await updateNodeContentAndEmbedding(
-            selectedNode!.id,
-            name,
-            label,
-            newDescription,
-          )
-        : await updateNodeContent(
-            selectedNode!.id,
-            name,
-            label,
-            newDescription,
-          );
-
-      setNodes((prevNodes) => [
-        ...prevNodes.map((n) =>
-          n.id === updatedNode.id ? { ...updatedNode } : n,
-        ),
-      ]);
-      toastSuccess('Updated node content!');
-    } catch (err: unknown) {
-      toastError(QueryTypeMessage.UPDATE_NODE_CONTENT, err as Error);
-    } finally {
-      setLoading(false);
-    }
+  const updateNodeData = () => {
+    setSelectedNode((prevNode) => ({
+      ...prevNode!,
+      data: { label: name, description: newDescription, nodeLabel: label },
+    }));
+    
+    setNodes((prevNodes) => [
+      ...prevNodes.map((n) =>
+        n.id === selectedNode!.id
+          ? {
+              ...n,
+              data: {
+                description: newDescription,
+                label: name,
+                nodeLabel: label,
+              },
+            }
+          : n,
+      ),
+    ]);
+    toastSuccess('Updated node content!');
   };
 
   if (!selectedNode) return <Manual />;
 
   return (
     <div className="p-4 mb flex flex-col h-full shadow-md">
-
       {!selectedNode && <Manual />}
 
       {selectedNode && (
@@ -167,15 +152,11 @@ const NodeDetails = () => {
               </div>
 
               <button
-                disabled={!name || loading}
+                disabled={!name}
                 onClick={updateNodeData}
                 className="mt-2 p-2 bg-blue-500 text-white rounded w-full disabled:bg-gray-400 disabled:cursor-not-allowed flex justify-center items-center"
               >
-                {loading ? (
-                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-white"></div>
-                ) : (
-                  'Save'
-                )}
+                Save
               </button>
             </div>
           )}
