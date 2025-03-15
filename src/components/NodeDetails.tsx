@@ -10,7 +10,7 @@ import { LABEL_COLORS, NodeLabel, QueryTypeMessage } from '@/lib/types';
 import React, { useEffect, useState } from 'react';
 import { Manual } from './Manual';
 
-const NodeEditor = () => {
+const NodeDetails = () => {
   const { selectedNode, setNodes, isEditable } = useGraphContext();
 
   const [loading, setLoading] = useState(false);
@@ -19,6 +19,8 @@ const NodeEditor = () => {
   const [label, setLabel] = useState<NodeLabel>(NodeLabel.Technology);
   const [newDescription, setNewDescription] = useState('');
   const [oldDescription, setOldDescription] = useState('');
+
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (selectedNode) {
@@ -36,6 +38,21 @@ const NodeEditor = () => {
   const onDescriptionChange = (
     e: React.ChangeEvent<HTMLTextAreaElement>,
   ): void => setNewDescription(e.target.value);
+
+  const handleCopyClick = () => {
+    if (!selectedNode) return;
+    const nodeAsString = JSON.stringify(selectedNode, null, 2);
+
+    navigator.clipboard
+      .writeText(nodeAsString)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch((error) => {
+        console.error('Fehler beim Kopieren:', error);
+      });
+  };
 
   const updateNodeData = async () => {
     setLoading(true);
@@ -78,9 +95,28 @@ const NodeEditor = () => {
       ) : (
         <>
           <div className="flex justify-between items-end border-b border-gray-300 pb-2 gap-4">
-            <h3 className="text-lg font-bold">
-              {isEditable ? 'Edit Node' : name}
-            </h3>
+            {isEditable ? (
+              <h3 className="text-lg font-bold">Edit Node</h3>
+            ) : (
+              <h3 className="text-lg font-bold">{name}</h3>
+            )}
+
+            {isEditable && (
+              <div className="relative flex items-center">
+                <button
+                  onClick={handleCopyClick}
+                  className="flex items-center gap-2 px-3 py-2 bg-gray-200 rounded hover:bg-gray-300 active:scale-95"
+                >
+                  <span>JSON to clipboard</span>
+                </button>
+                {copied && (
+                  <span className="absolute right-0 top-[-1.5rem] text-xs text-green-600 whitespace-nowrap">
+                    Copied!
+                  </span>
+                )}
+              </div>
+            )}
+
             {!isEditable && (
               <span
                 className={`inline-block px-3 py-1 text-sm font-semibold rounded bg-${LABEL_COLORS[label]}`}
@@ -156,4 +192,4 @@ const NodeEditor = () => {
   );
 };
 
-export default NodeEditor;
+export default NodeDetails;

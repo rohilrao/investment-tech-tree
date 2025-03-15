@@ -2,10 +2,9 @@
 
 import {
   createEdge,
-  createNode,
   deleteEdge,
   deleteNode,
-  updateNodePosition
+  updateNodePosition,
 } from '@/app/actions/server';
 import { useGraphContext } from '@/app/GraphContext';
 import { EDGES } from '@/data/edges';
@@ -33,7 +32,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import ExportButton from './ExportButton';
 import { Legend } from './Legend';
 import { LoadingSpinner } from './LoadingSpinner';
-import NodeEditor from './NodeEditor';
+import { createNode } from '@/lib/reactflow';
+import NodeDetails from './NodeDetails';
 
 interface TechTreeProps {
   loginForEdit: () => void;
@@ -75,7 +75,7 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
     });
 
     try {
-      const createdNode = await createNode(centeredPosition);
+      const createdNode = createNode(centeredPosition);
 
       setNodes((prevNodes) => [...prevNodes, { ...createdNode }]);
       setSelectedNode({ ...createdNode });
@@ -254,7 +254,7 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
       </div>
       {
         <div className="w-1/4 p-4 bg-white shadow-lg">
-          <NodeEditor />
+          <NodeDetails />
           <ToastContainer />
         </div>
       }

@@ -32,7 +32,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ExportButton from '../components/ExportButton';
 import { Legend } from '../components/Legend';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import NodeEditor from '../components/NodeEditor';
+import NodeDetails from '@/components/NodeDetails.1';
 
 interface TechTreeProps {
   loginForEdit: () => void;
@@ -253,7 +253,7 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
       </div>
       {
         <div className="w-1/4 p-4 bg-white shadow-lg">
-          <NodeEditor />
+          <NodeDetails />
           <ToastContainer />
         </div>
       }
