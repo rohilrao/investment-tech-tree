@@ -1,35 +1,37 @@
+import { createEdge } from '@/lib/data';
 import { Edge } from '@xyflow/react';
+import {
+  CriticalMassRepoNode,
+  GaiaEfficientlyQueriedAppsNode,
+} from '../level-4/level-4-nodes';
+import {
+  AlgorithmicContributionsRepoNode,
+  ModelRepoRobustAdversarialNode,
+  NonExpertsContributeModelsValidationNode,
+  QueryUpdateProtocolValueMetricsNode,
+} from './level-3-nodes';
 
 const QueryUpdateProtocolValueMetricsFromGaiaEfficientlyQueriedAppsEdge: Edge =
-  {
-    id: 'query-update-protocol-value-metrics-FROM-gaia-efficiently-queried-apps',
-    source: 'gaia-efficiently-queried-apps',
-    target: 'query-update-protocol-value-metrics',
-  };
+  createEdge(
+    QueryUpdateProtocolValueMetricsNode,
+    GaiaEfficientlyQueriedAppsNode,
+  );
 
-const QueryUpdateProtocolValueMetricsFromCriticalMassRepoEdge: Edge = {
-  id: 'query-update-protocol-value-metrics-FROM-critical-mass-repo',
-  source: 'critical-mass-repo',
-  target: 'query-update-protocol-value-metrics',
-};
+const QueryUpdateProtocolValueMetricsFromCriticalMassRepoEdge: Edge =
+  createEdge(QueryUpdateProtocolValueMetricsNode, CriticalMassRepoNode);
 
-const ModelRepoRobustAdversarialFromCriticalMassRepoEdge: Edge = {
-  id: 'model-repo-robust-adversarial-FROM-critical-mass-repo',
-  source: 'critical-mass-repo',
-  target: 'model-repo-robust-adversarial',
-};
+const ModelRepoRobustAdversarialFromCriticalMassRepoEdge: Edge = createEdge(
+  ModelRepoRobustAdversarialNode,
+  CriticalMassRepoNode,
+);
 
-const AlgorithmicContributionsRepoFromCriticalMassRepoEdge: Edge = {
-  id: 'algorithmic-contributions-repo-FROM-critical-mass-repo',
-  source: 'critical-mass-repo',
-  target: 'algorithmic-contributions-repo',
-};
+const AlgorithmicContributionsRepoFromCriticalMassRepoEdge: Edge = createEdge(
+  AlgorithmicContributionsRepoNode,
+  CriticalMassRepoNode,
+);
 
-const NonExpertsContributeModelsValidationFromCriticalMassRepoEdge: Edge = {
-  id: 'non-experts-contribute-models-validation-FROM-critical-mass-repo',
-  source: 'critical-mass-repo',
-  target: 'non-experts-contribute-models-validation',
-};
+const NonExpertsContributeModelsValidationFromCriticalMassRepoEdge: Edge =
+  createEdge(NonExpertsContributeModelsValidationNode, CriticalMassRepoNode);
 
 export const LEVEL_3_EDGES: Edge[] = [
   QueryUpdateProtocolValueMetricsFromGaiaEfficientlyQueriedAppsEdge,

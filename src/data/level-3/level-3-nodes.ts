@@ -1,6 +1,6 @@
 import { NodeLabel, UiNode } from '@/lib/types';
 
-const QueryUpdateProtocolValueMetricsNode: UiNode = {
+export const QueryUpdateProtocolValueMetricsNode: UiNode = {
   id: 'query-update-protocol-value-metrics',
   data: {
     label: 'Query and update protocol with built-in value metrics',
@@ -17,7 +17,7 @@ const QueryUpdateProtocolValueMetricsNode: UiNode = {
   type: 'custom',
 };
 
-const ModelRepoRobustAdversarialNode: UiNode = {
+export const ModelRepoRobustAdversarialNode: UiNode = {
   id: 'model-repo-robust-adversarial',
   data: {
     label: 'Model repository is robust to adversarial behavior',
@@ -34,7 +34,7 @@ const ModelRepoRobustAdversarialNode: UiNode = {
   type: 'custom',
 };
 
-const AlgorithmicContributionsRepoNode: UiNode = {
+export const AlgorithmicContributionsRepoNode: UiNode = {
   id: 'algorithmic-contributions-repo',
   data: {
     label: 'Algorithmic contributions to repository',
@@ -51,7 +51,7 @@ const AlgorithmicContributionsRepoNode: UiNode = {
   type: 'custom',
 };
 
-const NonExpertsContributeModelsValidationNode: UiNode = {
+export const NonExpertsContributeModelsValidationNode: UiNode = {
   id: 'non-experts-contribute-models-validation',
   data: {
     label: 'Non-experts can contribute to model development and validation',

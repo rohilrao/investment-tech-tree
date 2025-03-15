@@ -1,17 +1,17 @@
+import { createEdge } from '@/lib/data';
 import { Edge } from '@xyflow/react';
+import { PlugPlaySystemTestingFeedbackingNode } from '../level-2/level-2-nodes';
+import { AlgorithmicContributionsRepoNode } from '../level-3/level-3-nodes';
+import { MiniGaiaRepoDefinedDomainNode } from './level-1-nodes';
 
-const MiniGaiaRepoDefinedDomainFromAlgorithmicContributionsRepoEdge: Edge = {
-  id: 'mini-gaia-repo-defined-domain-FROM-algorithmic-contributions-repo',
-  source: 'algorithmic-contributions-repo',
-  target: 'mini-gaia-repo-defined-domain',
-};
+const MiniGaiaRepoDefinedDomainFromAlgorithmicContributionsRepoEdge: Edge =
+  createEdge(MiniGaiaRepoDefinedDomainNode, AlgorithmicContributionsRepoNode);
 
 const MiniGaiaRepoDefinedDomainFromPlugPlaySystemTestingFeedbackingEdge: Edge =
-  {
-    id: 'mini-gaia-repo-defined-domain-FROM-plug-play-system-testing-feedbacking',
-    source: 'plug-play-system-testing-feedbacking',
-    target: 'mini-gaia-repo-defined-domain',
-  };
+  createEdge(
+    MiniGaiaRepoDefinedDomainNode,
+    PlugPlaySystemTestingFeedbackingNode,
+  );
 
 export const LEVEL_1_EDGES = [
   MiniGaiaRepoDefinedDomainFromAlgorithmicContributionsRepoEdge,

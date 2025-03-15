@@ -1,6 +1,6 @@
 import { NodeLabel, UiNode } from '@/lib/types';
 
-const GaiaUsefulRepresentationDecisionsNode: UiNode = {
+export const GaiaUsefulRepresentationDecisionsNode: UiNode = {
   id: 'gaia-useful-representation-decisions',
   data: {
     label:
@@ -18,7 +18,7 @@ const GaiaUsefulRepresentationDecisionsNode: UiNode = {
   type: 'custom',
 };
 
-const GaiaVetOwnModelsNode: UiNode = {
+export const GaiaVetOwnModelsNode: UiNode = {
   id: 'gaia-vet-own-models',
   data: {
     label: 'Gaia allows to vet own models',
@@ -35,7 +35,7 @@ const GaiaVetOwnModelsNode: UiNode = {
   type: 'custom',
 };
 
-const ChallengingScenariosModelsCompeteNode: UiNode = {
+export const ChallengingScenariosModelsCompeteNode: UiNode = {
   id: 'challenging-scenarios-models-compete',
   data: {
     label: 'Create challenging scenarios for models to compete vs. each other',
@@ -52,7 +52,7 @@ const ChallengingScenariosModelsCompeteNode: UiNode = {
   type: 'custom',
 };
 
-const GaiaOpenAiBlackBoxesNode: UiNode = {
+export const GaiaOpenAiBlackBoxesNode: UiNode = {
   id: 'gaia-open-ai-black-boxes',
   data: {
     label: 'Gaia allows to open AI Black Boxes',
@@ -69,7 +69,7 @@ const GaiaOpenAiBlackBoxesNode: UiNode = {
   type: 'custom',
 };
 
-const EnvironmentsTestHumanForEvalNode: UiNode = {
+export const EnvironmentsTestHumanForEvalNode: UiNode = {
   id: 'environments-test-human-for-eval',
   data: {
     label:
@@ -87,7 +87,7 @@ const EnvironmentsTestHumanForEvalNode: UiNode = {
   type: 'custom',
 };
 
-const EnvironmentsTestAgentAgentForEvalNode: UiNode = {
+export const EnvironmentsTestAgentAgentForEvalNode: UiNode = {
   id: 'environments-test-agent-agent-for-eval',
   data: {
     label:

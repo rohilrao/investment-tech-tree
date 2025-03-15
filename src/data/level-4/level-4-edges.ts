@@ -1,60 +1,58 @@
+import { createEdge } from '@/lib/data';
 import { Edge } from '@xyflow/react';
+import {
+  ChallengingScenariosModelsCompeteNode,
+  EnvironmentsTestAgentAgentForEvalNode,
+  EnvironmentsTestHumanForEvalNode,
+  GaiaOpenAiBlackBoxesNode,
+  GaiaUsefulRepresentationDecisionsNode,
+  GaiaVetOwnModelsNode,
+} from '../level-5/level-5-nodes';
+import {
+  CriticalMassRepoNode,
+  GaiaEfficientlyQueriedAppsNode,
+  GaiaNodesInstantiateLocalModelsNode,
+  GaiaNodesUpdateStateNode,
+} from './level-4-nodes';
 
-const GaiaNodesUpdateStateFromGaiaUsefulRepresentationDecisionsEdge: Edge = {
-  id: 'gaia-nodes-update-state-FROM-gaia-useful-representation-decisions',
-  source: 'gaia-useful-representation-decisions',
-  target: 'gaia-nodes-update-state',
-};
+const GaiaNodesUpdateStateFromGaiaUsefulRepresentationDecisionsEdge: Edge =
+  createEdge(GaiaNodesUpdateStateNode, GaiaUsefulRepresentationDecisionsNode);
 
 const GaiaNodesInstantiateLocalModelsFromGaiaUsefulRepresentationDecisionsEdge: Edge =
-  {
-    id: 'gaia-nodes-instantiate-local-models-FROM-gaia-useful-representation-decisions',
-    source: 'gaia-useful-representation-decisions',
-    target: 'gaia-nodes-instantiate-local-models',
-  };
+  createEdge(
+    GaiaNodesInstantiateLocalModelsNode,
+    GaiaUsefulRepresentationDecisionsNode,
+  );
 
 const GaiaEfficientlyQueriedAppsFromGaiaUsefulRepresentationDecisionsEdge: Edge =
-  {
-    id: 'gaia-efficiently-queried-apps-FROM-gaia-useful-representation-decisions',
-    source: 'gaia-useful-representation-decisions',
-    target: 'gaia-efficiently-queried-apps',
-  };
+  createEdge(
+    GaiaEfficientlyQueriedAppsNode,
+    GaiaUsefulRepresentationDecisionsNode,
+  );
 
-const CriticalMassRepoFromGaiaUsefulRepresentationDecisionsEdge: Edge = {
-  id: 'critical-mass-repo-FROM-gaia-useful-representation-decisions',
-  source: 'gaia-useful-representation-decisions',
-  target: 'critical-mass-repo',
-};
+const CriticalMassRepoFromGaiaUsefulRepresentationDecisionsEdge: Edge =
+  createEdge(CriticalMassRepoNode, GaiaUsefulRepresentationDecisionsNode);
 
-const CriticalMassRepoFromGaiaVetOwnModelsEdge: Edge = {
-  id: 'critical-mass-repo-FROM-gaia-vet-own-models',
-  source: 'gaia-vet-own-models',
-  target: 'critical-mass-repo',
-};
+const CriticalMassRepoFromGaiaVetOwnModelsEdge: Edge = createEdge(
+  CriticalMassRepoNode,
+  GaiaVetOwnModelsNode,
+);
 
-const CriticalMassRepoFromChallengingScenariosModelsCompeteEdge: Edge = {
-  id: 'critical-mass-repo-FROM-challenging-scenarios-models-compete',
-  source: 'challenging-scenarios-models-compete',
-  target: 'critical-mass-repo',
-};
+const CriticalMassRepoFromChallengingScenariosModelsCompeteEdge: Edge =
+  createEdge(CriticalMassRepoNode, ChallengingScenariosModelsCompeteNode);
 
-const CriticalMassRepoFromGaiaOpenAiBlackBoxesEdge: Edge = {
-  id: 'critical-mass-repo-FROM-gaia-open-ai-black-boxes',
-  source: 'gaia-open-ai-black-boxes',
-  target: 'critical-mass-repo',
-};
+const CriticalMassRepoFromGaiaOpenAiBlackBoxesEdge: Edge = createEdge(
+  CriticalMassRepoNode,
+  GaiaOpenAiBlackBoxesNode,
+);
 
-const CriticalMassRepoFromEnvironmentsTestHumanForEvalEdge: Edge = {
-  id: 'critical-mass-repo-FROM-environments-test-human-for-eval',
-  source: 'environments-test-human-for-eval',
-  target: 'critical-mass-repo',
-};
+const CriticalMassRepoFromEnvironmentsTestHumanForEvalEdge: Edge = createEdge(
+  CriticalMassRepoNode,
+  EnvironmentsTestHumanForEvalNode,
+);
 
-const CriticalMassRepoFromEnvironmentsTestAgentAgentForEvalEdge: Edge = {
-  id: 'critical-mass-repo-FROM-environments-test-agent-agent-for-eval',
-  source: 'environments-test-agent-agent-for-eval',
-  target: 'critical-mass-repo',
-};
+const CriticalMassRepoFromEnvironmentsTestAgentAgentForEvalEdge: Edge =
+  createEdge(CriticalMassRepoNode, EnvironmentsTestAgentAgentForEvalNode);
 
 export const LEVEL_4_EDGES: Edge[] = [
   GaiaNodesUpdateStateFromGaiaUsefulRepresentationDecisionsEdge,

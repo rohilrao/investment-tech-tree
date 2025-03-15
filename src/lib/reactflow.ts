@@ -2,7 +2,7 @@ import { XYPosition } from '@xyflow/react';
 import { LABEL_COLORS, NodeLabel, UiNode } from './types';
 
 export const createNode = ({ x, y }: XYPosition): UiNode => ({
-  id: 'new-node',
+  id: `REPLACE_WITH_HUMAN_READABLE_ID_${new Date()}`,
   data: {
     label: 'New node',
     description: '',

@@ -1,6 +1,6 @@
 import { NodeLabel, UiNode } from '@/lib/types';
 
-const MiniGaiaRepoDefinedDomainNode: UiNode = {
+export const MiniGaiaRepoDefinedDomainNode: UiNode = {
   id: 'mini-gaia-repo-defined-domain',
   data: {
     label: 'Mini-Gaia repo for a defined domain',

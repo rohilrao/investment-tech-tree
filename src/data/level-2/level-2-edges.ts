@@ -1,31 +1,36 @@
+import { createEdge } from '@/lib/data';
 import { Edge } from '@xyflow/react';
+import {
+  AlgorithmicContributionsRepoNode,
+  ModelRepoRobustAdversarialNode,
+  NonExpertsContributeModelsValidationNode,
+} from '../level-3/level-3-nodes';
+import { CriticalMassRepoNode } from '../level-4/level-4-nodes';
+import {
+  ContributionsIncentivizedReflectsDecisionValueNode,
+  PlugPlaySystemTestingFeedbackingNode,
+} from './level-2-nodes';
 
 const ContributionsIncentivizedReflectsDecisionValueFromAlgorithmicContributionsRepoEdge: Edge =
-  {
-    id: 'FROM-contributions-incentivized-reflects-decision-value-TO-algorithmic-contributions-repo',
-    source: 'algorithmic-contributions-repo',
-    target: 'contributions-incentivized-reflects-decision-value',
-  };
+  createEdge(
+    ContributionsIncentivizedReflectsDecisionValueNode,
+    AlgorithmicContributionsRepoNode,
+  );
 
 const ContributionsIncentivizedReflectsDecisionValueFromModelRepoRobustAdversarialEdge: Edge =
-  {
-    id: 'FROM-contributions-incentivized-reflects-decision-value-TO-model-repo-robust-adversarial',
-    source: 'model-repo-robust-adversarial',
-    target: 'contributions-incentivized-reflects-decision-value',
-  };
+  createEdge(
+    ContributionsIncentivizedReflectsDecisionValueNode,
+    ModelRepoRobustAdversarialNode,
+  );
 
-const PlugPlaySystemTestingFeedbackingFromCriticalMassRepoEdge: Edge = {
-  id: 'FROM-plug-play-system-testing-feedbacking-TO-critical-mass-repo',
-  source: 'critical-mass-repo',
-  target: 'plug-play-system-testing-feedbacking',
-};
+const PlugPlaySystemTestingFeedbackingFromCriticalMassRepoEdge: Edge =
+  createEdge(PlugPlaySystemTestingFeedbackingNode, CriticalMassRepoNode);
 
 const PlugPlaySystemTestingFeedbackingFromNonExpertsContributeModelsValidationEdge: Edge =
-  {
-    id: 'plug-play-system-testing-feedbacking-FROM-non-experts-contribute-models-validation',
-    target: 'non-experts-contribute-models-validation',
-    source: 'plug-play-system-testing-feedbacking',
-  };
+  createEdge(
+    PlugPlaySystemTestingFeedbackingNode,
+    NonExpertsContributeModelsValidationNode,
+  );
 
 export const LEVEL_2_EDGES: Edge[] = [
   ContributionsIncentivizedReflectsDecisionValueFromAlgorithmicContributionsRepoEdge,

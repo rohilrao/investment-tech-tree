@@ -1,6 +1,6 @@
 import { NodeLabel, UiNode } from '@/lib/types';
 
-const ContributionsIncentivizedReflectsDecisionValueNode: UiNode = {
+export const ContributionsIncentivizedReflectsDecisionValueNode: UiNode = {
   id: 'contributions-incentivized-reflects-decision-value',
   data: {
     label:

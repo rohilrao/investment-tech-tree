@@ -1,6 +1,6 @@
 import { NodeLabel, UiNode } from '@/lib/types';
 
-const GaiaNodesUpdateStateNode: UiNode = {
+export const GaiaNodesUpdateStateNode: UiNode = {
   id: 'gaia-nodes-update-state',
   data: {
     label: 'Gaia nodes update state based on observations',
@@ -17,7 +17,7 @@ const GaiaNodesUpdateStateNode: UiNode = {
   type: 'custom',
 };
 
-const GaiaNodesInstantiateLocalModelsNode: UiNode = {
+export const GaiaNodesInstantiateLocalModelsNode: UiNode = {
   id: 'gaia-nodes-instantiate-local-models',
   data: {
     label:
@@ -35,7 +35,7 @@ const GaiaNodesInstantiateLocalModelsNode: UiNode = {
   type: 'custom',
 };
 
-const GaiaEfficientlyQueriedAppsNode: UiNode = {
+export const GaiaEfficientlyQueriedAppsNode: UiNode = {
   id: 'gaia-efficiently-queried-apps',
   data: {
     label:
@@ -53,7 +53,7 @@ const GaiaEfficientlyQueriedAppsNode: UiNode = {
   type: 'custom',
 };
 
-const CriticalMassRepoNode: UiNode = {
+export const CriticalMassRepoNode: UiNode = {
   id: 'critical-mass-repo',
   data: {
     label: 'Critical mass repo',
