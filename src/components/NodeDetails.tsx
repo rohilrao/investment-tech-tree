@@ -39,7 +39,7 @@ const NodeDetails = () => {
     e: React.ChangeEvent<HTMLTextAreaElement>,
   ): void => setNewDescription(e.target.value);
 
-  const handleCopyClick = () => {
+  const onCopyNodeInClipboard = () => {
     if (!selectedNode) return;
     const nodeAsString = JSON.stringify(selectedNode, null, 2);
 
@@ -50,7 +50,7 @@ const NodeDetails = () => {
         setTimeout(() => setCopied(false), 2000);
       })
       .catch((error) => {
-        console.error('Fehler beim Kopieren:', error);
+        console.error('Error while coping node:', error);
       });
   };
 
@@ -90,9 +90,10 @@ const NodeDetails = () => {
 
   return (
     <div className="p-4 mb flex flex-col h-full shadow-md">
-      {!selectedNode ? (
-        <Manual />
-      ) : (
+
+      {!selectedNode && <Manual />}
+
+      {selectedNode && (
         <>
           <div className="flex justify-between items-end border-b border-gray-300 pb-2 gap-4">
             {isEditable ? (
@@ -104,7 +105,7 @@ const NodeDetails = () => {
             {isEditable && (
               <div className="relative flex items-center">
                 <button
-                  onClick={handleCopyClick}
+                  onClick={onCopyNodeInClipboard}
                   className="flex items-center gap-2 px-3 py-2 bg-gray-200 rounded hover:bg-gray-300 active:scale-95"
                 >
                   <span>JSON to clipboard</span>
@@ -126,7 +127,7 @@ const NodeDetails = () => {
             )}
           </div>
 
-          {isEditable ? (
+          {isEditable && (
             <div className="flex flex-col">
               <div className="mb-4">
                 <label className="font-semibold">Type</label>
@@ -177,14 +178,11 @@ const NodeDetails = () => {
                 )}
               </button>
             </div>
-          ) : (
-            <>
-              {oldDescription && (
-                <div className="overflow-auto flex-grow">
-                  <p className="p-2 w-full mt-2">{oldDescription}</p>
-                </div>
-              )}
-            </>
+          )}
+          {!isEditable && oldDescription && (
+            <div className="overflow-auto flex-grow">
+              <p className="p-2 w-full mt-2">{oldDescription}</p>
+            </div>
           )}
         </>
       )}
