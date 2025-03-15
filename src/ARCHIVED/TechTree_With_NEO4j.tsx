@@ -5,11 +5,10 @@ import {
   createNode,
   deleteEdge,
   deleteNode,
-  updateNodePosition
+  getNodesAndEdges,
+  updateNodePosition,
 } from '@/app/actions/server';
 import { useGraphContext } from '@/app/GraphContext';
-import { EDGES } from '@/data/edges';
-import { NODES } from '@/data/nodes';
 import { toastError, toastSuccess } from '@/lib/toast';
 import { NODE_TYPES, QueryTypeMessage, UiNode } from '@/lib/types';
 import {
@@ -30,10 +29,10 @@ import {
 import React, { useCallback, useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ExportButton from './ExportButton';
-import { Legend } from './Legend';
-import { LoadingSpinner } from './LoadingSpinner';
-import NodeEditor from './NodeEditor';
+import ExportButton from '../components/ExportButton';
+import { Legend } from '../components/Legend';
+import { LoadingSpinner } from '../components/LoadingSpinner';
+import NodeEditor from '../components/NodeEditor';
 
 interface TechTreeProps {
   loginForEdit: () => void;
@@ -51,9 +50,9 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const { nodes, edges } = await getNodesAndEdges();
-        setNodes(() => [...NODES]);
-        setEdges(() => [...EDGES]);
+        const { nodes, edges } = await getNodesAndEdges();
+        setNodes(() => [...nodes]);
+        setEdges(() => [...edges]);
         setLoading(false);
       } catch (err) {
         toastError(QueryTypeMessage.GET_NODES_AND_EDGES, err as Error);
