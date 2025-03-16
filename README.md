@@ -27,18 +27,24 @@ If you want to add or modify a node or edge, you have two options:
    - Move the node to change its position.
    - Resize the node if needed.
 3. **Copy the JSON**
-   - Click "Copy code to clipboard" in the editor’s top-right corner.
+   - After each change the node's new code is automatically copied into your clipboard.
+   - You can also click manually on "Copy code to clipboard" in the editor’s top-right corner.
 4. **Paste the code**
    - Insert the copied code into the respective level-x-nodes.ts file in [src/data](src/data).
    - Insert the node's variable name in the array (in the same file where the node was added).
 
 ## Add edge with UI-support
 
-- TBD
+1. **Create an edge**
+   - Connect two nodes with an edge.
+   - The edge is automatically copied into your clipboard.
+   - You can also click manually on an existing edge to copy it into your clipboard.
+2. **Paste the code**
+   - Insert the copied code into the respective level-x-edges.ts file in [src/data](src/data).
+   - Insert the edges's variable name in the array (in the same file where the edge was added).
 
 ## Todos
 
 - Deploy via github pages
 - New functionalities
-  - Support for adding relationships: Connect nodes, click on edge (copy into clipboard) and then paste into data-file?
   - Add node by double click

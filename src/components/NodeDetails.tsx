@@ -51,6 +51,7 @@ const NodeDetails = () => {
   };
 
   const getNodeId = (): string => {
+    // TODO reactivate
     // if (selectedNode!.id === NEW_NODE_ID && name !== NEW_NODE_NAME) {
     return createIdFromTitle(name);
     /*     }

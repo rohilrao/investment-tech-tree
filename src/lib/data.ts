@@ -1,5 +1,5 @@
-import { Edge, XYPosition } from '@xyflow/react';
-import { toastError } from './toast';
+import { Connection, Edge, XYPosition } from '@xyflow/react';
+import { toastError, toastSuccess } from './toast';
 import { LABEL_COLORS, UiNode } from './types';
 
 export const NEW_NODE_ID =
@@ -50,6 +50,21 @@ export const copyNodeToClipboard = (nodeToCopy: UiNode) => {
     toastError('Error while copying node to clipboard!', err);
   });
 };
+export const copyEdgeToClipboard = (source: string, target: string) => {
+  const approxSourceTitle = source.replace(/-/g, ' ');
+  const sourceNodeVariableName = createNodeVariableName(approxSourceTitle);
+
+  const approxTargetTitle = target.replace(/-/g, ' ');
+  const targetNodeVariableName = createNodeVariableName(approxTargetTitle);
+
+  const edgeAsCode = `const ${targetNodeVariableName}From${sourceNodeVariableName}: Edge = createEdgeFromNodes(${targetNodeVariableName}, ${sourceNodeVariableName});`;
+
+  navigator.clipboard.writeText(edgeAsCode)
+  .then(() => toastSuccess('Edge copied to clipboard!'))
+  .catch((err) => {
+    toastError('Error while copying edge to clipboard!', err);
+  });
+};
 
 /**
  * Converts a given string into a slug-like ID.
@@ -86,7 +101,8 @@ export const createNodeVariableName = (title: string): string => {
   // 1. Clean up the title: remove non-alphanumeric characters except spaces
   // 2. Split into words
   const words = title
-    .replace(/[^a-zA-Z0-9\s]/g, '')
+    .replace(/[^a-zA-Z0-9\s-]/g, '')
+    .replace(/-/g, ' ')
     .trim()
     .split(/\s+/)
     .map((word) => word.toLowerCase());

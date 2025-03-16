@@ -2,7 +2,12 @@
 
 import { useGraphContext } from '@/app/GraphContext';
 import { EDGES } from '@/data/edges';
-import { copyNodeToClipboard, createEdgeFromIds, createNode } from '@/lib/data';
+import {
+  copyEdgeToClipboard,
+  copyNodeToClipboard,
+  createEdgeFromIds,
+  createNode,
+} from '@/lib/data';
 import { toastSuccess } from '@/lib/toast';
 import { NODE_TYPES, UiNode } from '@/lib/types';
 import {
@@ -84,10 +89,19 @@ const TechTree: React.FC = () => {
   /**
    * EDGES
    */
+  const onEdgeClick = useCallback(
+    (_: React.MouseEvent, edge: Edge) =>
+      copyEdgeToClipboard(edge.source, edge.target),
+    [],
+  );
+
   // Add edge
   const onConnect = useCallback((connection: Connection) => {
+    console.log(connection);
     const newEdge = createEdgeFromIds(connection.target, connection.source);
     setEdges((prevEdges) => [...prevEdges, { ...newEdge }]);
+    copyEdgeToClipboard(connection.source, connection.target);
+    toastSuccess('Edge copied to clipboard!');
   }, []);
 
   const onNodesChange = useCallback(
@@ -118,9 +132,9 @@ const TechTree: React.FC = () => {
           edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
-          // TODO: reactivate if required; click on edge could copy it into clipboard
-          onConnect={undefined}
+          onConnect={isEditable ? onConnect : undefined}
           onNodeClick={onNodeClick}
+          onEdgeClick={onEdgeClick}
           onNodeDragStop={isEditable ? onNodeDragStop : undefined}
           colorMode={'light'}
           fitView
