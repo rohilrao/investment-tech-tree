@@ -17,7 +17,7 @@ const GraphContext = createContext<GraphContextType | undefined>(undefined);
 export const GraphProvider = ({ children }: { children: ReactNode }) => {
   const [nodes, setNodes] = useState<UiNode[]>([...getEnrichedNodes()]);
   const [selectedNode, setSelectedNode] = useState<UiNode | null>(null);
-  const isEditable = process.env.NODE_ENV === 'development';
+  const isEditable = process.env.NEXT_PUBLIC_ENVIRONMENT === 'development';
 
   return (
     <GraphContext.Provider

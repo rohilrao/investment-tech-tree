@@ -1,11 +1,11 @@
-import { NodeLabel, UiNode } from '@/lib/types';
+import { UiNode } from '@/lib/types';
 
 export const QueryUpdateProtocolValueMetricsNode: UiNode = {
   id: 'query-update-protocol-value-metrics',
   data: {
     label: 'Query and update protocol with built-in value metrics',
     description: '',
-    nodeLabel: NodeLabel.Technology,
+    nodeLabel: 'Technology',
   },
   position: {
     x: -1447.1522064678936,
@@ -22,7 +22,7 @@ export const ModelRepoRobustAdversarialNode: UiNode = {
   data: {
     label: 'Model repository is robust to adversarial behavior',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -1438.9832465654354,
@@ -37,7 +37,7 @@ export const AlgorithmicContributionsRepoNode: UiNode = {
   data: {
     label: 'Algorithmic contributions to repository',
     description: '',
-    nodeLabel: NodeLabel.Technology,
+    nodeLabel: 'Technology',
   },
   position: {
     x: -1437.50745695191,
@@ -52,7 +52,7 @@ export const NonExpertsContributeModelsValidationNode: UiNode = {
   data: {
     label: 'Non-experts can contribute to model development and validation',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -1440.4808958342262,

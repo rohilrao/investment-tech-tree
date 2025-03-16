@@ -4,6 +4,7 @@
 
 To run this project locally:
 
+- Set NEXT_PUBLIC_ENVIRONMENT=development in .env.local
 - npm i
 - npm run dev
 
@@ -14,7 +15,7 @@ All nodes and edges are inside [src/data](src/data). They're sorted by level, st
 If you want to add or modify a node or edge, you have two options:
 
 - **Manually in the code** (e.g., directly in the files under src/data)
-- **Via UI support** (see next section)
+- **Via UI support** (see next section; until now only available vor nodes)
 
 ## Add or edit node with UI-support
 
@@ -36,7 +37,6 @@ If you want to add or modify a node or edge, you have two options:
 
 ## Todos
 
-- NodeLabel.New in clipboard instead of only New
 - Deploy via github pages
 - New functionalities
   - Support for adding relationships: Connect nodes, click on edge (copy into clipboard) and then paste into data-file?

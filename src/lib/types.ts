@@ -9,16 +9,14 @@ export interface NodeProperties {
 
 export type UiNode = ReactFlowNode<Record<string, unknown> & NodeProperties>;
 
-export enum NodeLabel {
-  'New' = 'New',
-  'Technology' = 'Technology',
-  'Target' = 'Target',
-}
+export const NODE_LABELS = ["New", "Technology", "Target"] as const;
+
+export type NodeLabel = typeof NODE_LABELS[number];
 
 export const LABEL_COLORS: Record<NodeLabel, string> = {
-  [NodeLabel.New]: 'red-500',
-  [NodeLabel.Technology]: 'blue-500',
-  [NodeLabel.Target]: 'green-500',
+  ['New']: 'red-500',
+  ['Technology']: 'blue-500',
+  ['Target']: 'green-500',
 };
 
 export const NODE_TYPES: NodeTypes = {

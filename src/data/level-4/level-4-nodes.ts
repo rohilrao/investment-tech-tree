@@ -1,11 +1,11 @@
-import { NodeLabel, UiNode } from '@/lib/types';
+import { UiNode } from '@/lib/types';
 
 export const GaiaNodesUpdateStateNode: UiNode = {
   id: 'gaia-nodes-update-state',
   data: {
     label: 'Gaia nodes update state based on observations',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -1069.6871366914304,
@@ -21,7 +21,7 @@ export const GaiaNodesInstantiateLocalModelsNode: UiNode = {
     label:
       'Gaia nodes can instantiate local models by assembling components from repository',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -1071.231682031374,
@@ -37,7 +37,7 @@ export const GaiaEfficientlyQueriedAppsNode: UiNode = {
     label:
       'Gaia can be efficiently queried in applications, including queries across nodes',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -1065.8419247062825,
@@ -53,7 +53,7 @@ export const CriticalMassRepoNode: UiNode = {
     label: 'Critical mass repo',
     description:
       'A repository of high-quality models with critical mass in terms of size and diversity',
-    nodeLabel: NodeLabel.Technology,
+    nodeLabel: 'Technology',
   },
   position: {
     x: -1030.5387088875286,

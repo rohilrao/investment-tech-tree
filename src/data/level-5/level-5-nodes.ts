@@ -1,4 +1,4 @@
-import { NodeLabel, UiNode } from '@/lib/types';
+import { UiNode } from '@/lib/types';
 
 export const GaiaUsefulRepresentationDecisionsNode: UiNode = {
   id: 'gaia-useful-representation-decisions',
@@ -6,7 +6,7 @@ export const GaiaUsefulRepresentationDecisionsNode: UiNode = {
     label:
       'Gaia is a useful representation of reality for agents to make decisions on',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -701.3772296191432,
@@ -21,7 +21,7 @@ export const GaiaVetOwnModelsNode: UiNode = {
   data: {
     label: 'Gaia allows to vet own models',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -712.7977563897704,
@@ -36,7 +36,7 @@ export const ChallengingScenariosModelsCompeteNode: UiNode = {
   data: {
     label: 'Create challenging scenarios for models to compete vs. each other',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -717.757796535813,
@@ -51,7 +51,7 @@ export const GaiaOpenAiBlackBoxesNode: UiNode = {
   data: {
     label: 'Gaia allows to open AI Black Boxes',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -716.5067159507486,
@@ -67,7 +67,7 @@ export const EnvironmentsTestHumanForEvalNode: UiNode = {
     label:
       'Create environments to test human-to-agent coordination scenarios for evaluation',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -712.4428023472274,
@@ -83,7 +83,7 @@ export const EnvironmentsTestAgentAgentForEvalNode: UiNode = {
     label:
       'Create environments to test agent-to-agent coordination scenarios for evaluation',
     description: '',
-    nodeLabel: NodeLabel.Target,
+    nodeLabel: 'Target',
   },
   position: {
     x: -712.5653116161151,

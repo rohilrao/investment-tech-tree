@@ -2,13 +2,13 @@
 
 import { useGraphContext } from '@/app/GraphContext';
 import {
-  createNodeVariableName,
   createIdFromTitle,
+  createNodeVariableName,
   NEW_NODE_ID,
   NEW_NODE_NAME,
 } from '@/lib/data';
 import { toastSuccess } from '@/lib/toast';
-import { LABEL_COLORS, NodeLabel } from '@/lib/types';
+import { LABEL_COLORS, NODE_LABELS, NodeLabel } from '@/lib/types';
 import React, { useEffect, useState } from 'react';
 import { Manual } from './Manual';
 
@@ -17,7 +17,7 @@ const NodeDetails = () => {
     useGraphContext();
 
   const [name, setName] = useState(''); // neo4j's name = reactflow's label
-  const [label, setLabel] = useState<NodeLabel>(NodeLabel.Technology);
+  const [label, setLabel] = useState<NodeLabel>('New');
   const [newDescription, setNewDescription] = useState('');
   const [oldDescription, setOldDescription] = useState('');
 
@@ -138,9 +138,9 @@ const NodeDetails = () => {
                   onChange={onLabelChange}
                   className="border p-2 w-full mt-2"
                 >
-                  {Object.entries(NodeLabel).map(([key, value]) => (
-                    <option key={key} value={key}>
-                      {value}
+                  {NODE_LABELS.map((label) => (
+                    <option key={label} value={label}>
+                      {label}
                     </option>
                   ))}
                 </select>

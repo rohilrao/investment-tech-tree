@@ -1,5 +1,5 @@
 import { Edge, XYPosition } from '@xyflow/react';
-import { LABEL_COLORS, NodeLabel, UiNode } from './types';
+import { LABEL_COLORS, UiNode } from './types';
 
 export const NEW_NODE_ID =
   'WILL_BE_REPLACED_WITH_UNIQUE_ID_AFTER_CHANGING_NODE_NAME_AND_SAVING';
@@ -11,7 +11,7 @@ export const createNode = ({ x, y }: XYPosition): UiNode => ({
   data: {
     label: NEW_NODE_NAME,
     description: '',
-    nodeLabel: NodeLabel.New,
+    nodeLabel: 'New',
   },
   position: {
     x,
@@ -19,7 +19,7 @@ export const createNode = ({ x, y }: XYPosition): UiNode => ({
   },
   width: 150,
   height: 50,
-  className: `border-${LABEL_COLORS[NodeLabel.New]} !rounded-lg`,
+  className: `border-${LABEL_COLORS['New']} !rounded-lg`,
   type: 'custom',
 });
 
