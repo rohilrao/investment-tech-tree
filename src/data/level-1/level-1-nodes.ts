@@ -13,8 +13,6 @@ export const MiniGaiaRepoDefinedDomainNode: UiNode = {
   },
   width: 198,
   height: 121,
-  className: 'border-blue-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const LEVEL_1_NODES: UiNode[] = [MiniGaiaRepoDefinedDomainNode];

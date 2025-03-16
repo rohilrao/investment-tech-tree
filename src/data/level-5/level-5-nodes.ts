@@ -14,8 +14,6 @@ export const GaiaUsefulRepresentationDecisionsNode: UiNode = {
   },
   width: 235,
   height: 135,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const GaiaVetOwnModelsNode: UiNode = {
@@ -31,8 +29,6 @@ export const GaiaVetOwnModelsNode: UiNode = {
   },
   width: 211,
   height: 104,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const ChallengingScenariosModelsCompeteNode: UiNode = {
@@ -48,8 +44,6 @@ export const ChallengingScenariosModelsCompeteNode: UiNode = {
   },
   width: 221,
   height: 111,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const GaiaOpenAiBlackBoxesNode: UiNode = {
@@ -65,8 +59,6 @@ export const GaiaOpenAiBlackBoxesNode: UiNode = {
   },
   width: 218,
   height: 90,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const EnvironmentsTestHumanForEvalNode: UiNode = {
@@ -83,8 +75,6 @@ export const EnvironmentsTestHumanForEvalNode: UiNode = {
   },
   width: 211,
   height: 115,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const EnvironmentsTestAgentAgentForEvalNode: UiNode = {
@@ -101,8 +91,6 @@ export const EnvironmentsTestAgentAgentForEvalNode: UiNode = {
   },
   width: 213,
   height: 112,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const LEVEL_5_NODES: UiNode[] = [

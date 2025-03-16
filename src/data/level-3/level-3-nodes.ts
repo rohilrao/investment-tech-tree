@@ -30,8 +30,6 @@ export const ModelRepoRobustAdversarialNode: UiNode = {
   },
   width: 187,
   height: 148,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const AlgorithmicContributionsRepoNode: UiNode = {
@@ -47,8 +45,6 @@ export const AlgorithmicContributionsRepoNode: UiNode = {
   },
   width: 182,
   height: 125,
-  className: 'border-blue-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const NonExpertsContributeModelsValidationNode: UiNode = {
@@ -64,8 +60,6 @@ export const NonExpertsContributeModelsValidationNode: UiNode = {
   },
   width: 195,
   height: 126,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const LEVEL_3_NODES: UiNode[] = [

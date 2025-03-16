@@ -1,7 +1,7 @@
 'use client';
 
 import { NODES } from '@/data/nodes';
-import { UiNode } from '@/lib/types';
+import { LABEL_COLORS, UiNode } from '@/lib/types';
 import { createContext, ReactNode, useContext, useState } from 'react';
 
 interface GraphContextType {
@@ -16,7 +16,7 @@ interface GraphContextType {
 const GraphContext = createContext<GraphContextType | undefined>(undefined);
 
 export const GraphProvider = ({ children }: { children: ReactNode }) => {
-  const [nodes, setNodes] = useState<UiNode[]>([...NODES]);
+  const [nodes, setNodes] = useState<UiNode[]>([...getEnrichedNodes()]);
   const [selectedNode, setSelectedNode] = useState<UiNode | null>(null);
   const [isEditable, setIsEditable] = useState(false);
 
@@ -43,3 +43,10 @@ export const useGraphContext = () => {
   }
   return context;
 };
+
+const getEnrichedNodes = (): UiNode[] =>
+  NODES.map((node) => ({
+    ...node,
+    className: `border-${LABEL_COLORS[node.data.nodeLabel]} !rounded-lg`,
+    type: 'custom',
+  }));

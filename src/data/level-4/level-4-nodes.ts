@@ -13,8 +13,6 @@ export const GaiaNodesUpdateStateNode: UiNode = {
   },
   width: 238,
   height: 140,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const GaiaNodesInstantiateLocalModelsNode: UiNode = {
@@ -31,8 +29,6 @@ export const GaiaNodesInstantiateLocalModelsNode: UiNode = {
   },
   width: 241,
   height: 166,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const GaiaEfficientlyQueriedAppsNode: UiNode = {
@@ -49,8 +45,6 @@ export const GaiaEfficientlyQueriedAppsNode: UiNode = {
   },
   width: 218,
   height: 124,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const CriticalMassRepoNode: UiNode = {
@@ -67,8 +61,6 @@ export const CriticalMassRepoNode: UiNode = {
   },
   width: 153,
   height: 123,
-  className: 'border-blue-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const LEVEL_4_NODES: UiNode[] = [

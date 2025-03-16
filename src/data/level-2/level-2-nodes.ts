@@ -14,8 +14,6 @@ export const ContributionsIncentivizedReflectsDecisionValueNode: UiNode = {
   },
   width: 237,
   height: 133,
-  className: 'border-green-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const PlugPlaySystemTestingFeedbackingNode: UiNode = {
@@ -32,8 +30,6 @@ export const PlugPlaySystemTestingFeedbackingNode: UiNode = {
   },
   width: 246,
   height: 164,
-  className: 'border-blue-500 !rounded-lg',
-  type: 'custom',
 };
 
 export const LEVEL_2_NODES: UiNode[] = [
