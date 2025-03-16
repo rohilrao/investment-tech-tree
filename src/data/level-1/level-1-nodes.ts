@@ -1,6 +1,6 @@
 import { UiNode } from '@/lib/types';
 
-export const MinigaiaRepoForADefinedDomainNode: UiNode = {
+export const MiniGaiaRepoForADefinedDomain: UiNode = {
   id: 'mini-gaia-repo-for-a-defined-domain',
   data: {
     label: 'Mini-Gaia repo for a defined domain',
@@ -15,4 +15,4 @@ export const MinigaiaRepoForADefinedDomainNode: UiNode = {
   height: 121,
 };
 
-export const LEVEL_1_NODES: UiNode[] = [MinigaiaRepoForADefinedDomainNode];
+export const LEVEL_1_NODES: UiNode[] = [MiniGaiaRepoForADefinedDomain];

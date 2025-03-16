@@ -1,4 +1,4 @@
-import { Connection, Edge, XYPosition } from '@xyflow/react';
+import { Edge, XYPosition } from '@xyflow/react';
 import { toastError, toastSuccess } from './toast';
 import { LABEL_COLORS, UiNode } from './types';
 
@@ -57,13 +57,14 @@ export const copyEdgeToClipboard = (source: string, target: string) => {
   const approxTargetTitle = target.replace(/-/g, ' ');
   const targetNodeVariableName = createNodeVariableName(approxTargetTitle);
 
-  const edgeAsCode = `const ${targetNodeVariableName}From${sourceNodeVariableName}: Edge = createEdgeFromNodes(${targetNodeVariableName}, ${sourceNodeVariableName});`;
+  const edgeAsCode = `const ${targetNodeVariableName}_FROM_${sourceNodeVariableName}: Edge = createEdgeFromNodes(${targetNodeVariableName}, ${sourceNodeVariableName});`;
 
-  navigator.clipboard.writeText(edgeAsCode)
-  .then(() => toastSuccess('Edge copied to clipboard!'))
-  .catch((err) => {
-    toastError('Error while copying edge to clipboard!', err);
-  });
+  navigator.clipboard
+    .writeText(edgeAsCode)
+    .then(() => toastSuccess('Edge copied to clipboard!'))
+    .catch((err) => {
+      toastError('Error while copying edge to clipboard!', err);
+    });
 };
 
 /**
@@ -110,24 +111,24 @@ export const createNodeVariableName = (title: string): string => {
   // We want the final string to always end with "Node" (4 characters)
   // Therefore, the prefix (our constructed camelCase) can be at most MAX_TOTAL_LENGTH - 4 characters.
   const MAX_TOTAL_LENGTH = 50;
-  const SUFFIX = 'Node';
-  const MAX_PREFIX_LENGTH = MAX_TOTAL_LENGTH - SUFFIX.length;
 
   let result = '';
 
   for (let i = 0; i < words.length; i++) {
-    // The first word is fully lowercased
+    const word = words[i];
+
     // Subsequent words have their first letter capitalized
-    const camelCasedWord = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    const camelCasedWord = word.charAt(0).toUpperCase() + word.slice(1);
 
     const tentative = result + camelCasedWord;
 
     // If adding the entire word fits, add it.
-    if (tentative.length <= MAX_PREFIX_LENGTH) {
+    if (tentative.length <= MAX_TOTAL_LENGTH) {
       result = tentative;
     } else {
+      // For title consisting of one word > MAX_TOTAL_LENGTH
       // If it doesn't fit entirely, check how many characters remain.
-      const remain = MAX_PREFIX_LENGTH - result.length;
+      const remain = MAX_TOTAL_LENGTH - result.length;
       if (remain > 0 && result.length == 0) {
         // Add as many characters of this word as will fit.
         result += camelCasedWord.slice(0, remain);
@@ -137,8 +138,5 @@ export const createNodeVariableName = (title: string): string => {
     }
   }
 
-  // Finally, append "Node"
-  const finalName = result + SUFFIX;
-
-  return finalName.slice(0, MAX_TOTAL_LENGTH);
+  return result.slice(0, MAX_TOTAL_LENGTH);
 };

@@ -1,50 +1,47 @@
 import { createEdgeFromNodes } from '@/lib/data';
 import { Edge } from '@xyflow/react';
 import {
-  CriticalMassRepoNode,
-  GaiaCanBeEfficientlyQueriedInApplicationsNode,
+  CriticalMassRepo,
+  GaiaCanBeEfficientlyQueriedInApplicationsIncluding,
 } from '../level-4/level-4-nodes';
 import {
-  AlgorithmicContributionsToRepositoryNode,
-  ModelRepositoryIsRobustToAdversarialBehaviorNode,
-  NonexpertsCanContributeToModelDevelopmentAndNode,
-  QueryAndUpdateProtocolWithBuiltinValueMetricsNode,
+  AlgorithmicContributionsToRepository,
+  ModelRepositoryIsRobustToAdversarialBehavior,
+  NonExpertsCanContributeToModelDevelopmentAnd,
+  QueryAndUpdateProtocolWithBuiltInValueMetrics,
 } from './level-3-nodes';
 
-const QueryUpdateProtocolValueMetricsFromGaiaEfficientlyQueriedAppsEdge: Edge =
+const QueryAndUpdateProtocolWithBuiltInValueMetrics_FROM_GaiaCanBeEfficientlyQueriedInApplicationsIncluding: Edge =
   createEdgeFromNodes(
-    QueryAndUpdateProtocolWithBuiltinValueMetricsNode,
-    GaiaCanBeEfficientlyQueriedInApplicationsNode,
+    QueryAndUpdateProtocolWithBuiltInValueMetrics,
+    GaiaCanBeEfficientlyQueriedInApplicationsIncluding,
   );
 
-const QueryUpdateProtocolValueMetricsFromCriticalMassRepoEdge: Edge =
+const QueryAndUpdateProtocolWithBuiltInValueMetrics_FROM_CriticalMassRepo: Edge =
   createEdgeFromNodes(
-    QueryAndUpdateProtocolWithBuiltinValueMetricsNode,
-    CriticalMassRepoNode,
+    QueryAndUpdateProtocolWithBuiltInValueMetrics,
+    CriticalMassRepo,
   );
 
-const ModelRepoRobustAdversarialFromCriticalMassRepoEdge: Edge =
+const ModelRepositoryIsRobustToAdversarialBehavior_FROM_CriticalMassRepo: Edge =
   createEdgeFromNodes(
-    ModelRepositoryIsRobustToAdversarialBehaviorNode,
-    CriticalMassRepoNode,
+    ModelRepositoryIsRobustToAdversarialBehavior,
+    CriticalMassRepo,
   );
 
-const AlgorithmicContributionsRepoFromCriticalMassRepoEdge: Edge =
-  createEdgeFromNodes(
-    AlgorithmicContributionsToRepositoryNode,
-    CriticalMassRepoNode,
-  );
+const AlgorithmicContributionsToRepository_FROM_CriticalMassRepo: Edge =
+  createEdgeFromNodes(AlgorithmicContributionsToRepository, CriticalMassRepo);
 
-const NonExpertsContributeModelsValidationFromCriticalMassRepoEdge: Edge =
+const NonExpertsCanContributeToModelDevelopmentAnd_FROM_CriticalMassRepo: Edge =
   createEdgeFromNodes(
-    NonexpertsCanContributeToModelDevelopmentAndNode,
-    CriticalMassRepoNode,
+    NonExpertsCanContributeToModelDevelopmentAnd,
+    CriticalMassRepo,
   );
 
 export const LEVEL_3_EDGES: Edge[] = [
-  QueryUpdateProtocolValueMetricsFromGaiaEfficientlyQueriedAppsEdge,
-  QueryUpdateProtocolValueMetricsFromCriticalMassRepoEdge,
-  ModelRepoRobustAdversarialFromCriticalMassRepoEdge,
-  AlgorithmicContributionsRepoFromCriticalMassRepoEdge,
-  NonExpertsContributeModelsValidationFromCriticalMassRepoEdge,
+  QueryAndUpdateProtocolWithBuiltInValueMetrics_FROM_GaiaCanBeEfficientlyQueriedInApplicationsIncluding,
+  QueryAndUpdateProtocolWithBuiltInValueMetrics_FROM_CriticalMassRepo,
+  ModelRepositoryIsRobustToAdversarialBehavior_FROM_CriticalMassRepo,
+  AlgorithmicContributionsToRepository_FROM_CriticalMassRepo,
+  NonExpertsCanContributeToModelDevelopmentAnd_FROM_CriticalMassRepo,
 ];

@@ -1,80 +1,76 @@
 import { createEdgeFromNodes } from '@/lib/data';
 import { Edge } from '@xyflow/react';
 import {
-  CreateChallengingScenariosForModelsToCompeteVsNode,
-  CreateEnvironmentsToTestAgenttoagentNode,
-  CreateEnvironmentsToTestHumantoagentNode,
-  GaiaAllowsToOpenAiBlackBoxesNode,
-  GaiaIsAUsefulRepresentationOfRealityForAgentsNode,
-  GaiaAllowsToVetOwnModelsNode,
+  CreateChallengingScenariosForModelsToCompeteVsEach,
+  CreateEnvironmentsToTestAgentToAgentCoordination,
+  CreateEnvironmentsToTestHumanToAgentCoordination,
+  GaiaAllowsToOpenAiBlackBoxes,
+  GaiaAllowsToVetOwnModels,
+  GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
 } from '../level-5/level-5-nodes';
 import {
-  CriticalMassRepoNode,
-  GaiaCanBeEfficientlyQueriedInApplicationsNode,
-  GaiaNodesCanInstantiateLocalModelsByAssemblingNode,
-  GaiaNodesUpdateStateBasedOnObservationsNode,
+  CriticalMassRepo,
+  GaiaCanBeEfficientlyQueriedInApplicationsIncluding,
+  GaiaNodesCanInstantiateLocalModelsByAssembling,
+  GaiaNodesUpdateStateBasedOnObservations,
 } from './level-4-nodes';
 
-const GaiaNodesUpdateStateFromGaiaUsefulRepresentationDecisionsEdge: Edge =
+const GaiaNodesUpdateStateBasedOnObservations_FROM_GaiaIsAUsefulRepresentationOfRealityForAgentsTo: Edge =
   createEdgeFromNodes(
-    GaiaNodesUpdateStateBasedOnObservationsNode,
-    GaiaIsAUsefulRepresentationOfRealityForAgentsNode,
+    GaiaNodesUpdateStateBasedOnObservations,
+    GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
   );
 
-const GaiaNodesInstantiateLocalModelsFromGaiaUsefulRepresentationDecisionsEdge: Edge =
+const GaiaNodesCanInstantiateLocalModelsByAssembling_FROM_GaiaIsAUsefulRepresentationOfRealityForAgentsTo: Edge =
   createEdgeFromNodes(
-    GaiaNodesCanInstantiateLocalModelsByAssemblingNode,
-    GaiaIsAUsefulRepresentationOfRealityForAgentsNode,
+    GaiaNodesCanInstantiateLocalModelsByAssembling,
+    GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
   );
 
-const GaiaEfficientlyQueriedAppsFromGaiaUsefulRepresentationDecisionsEdge: Edge =
+const GaiaCanBeEfficientlyQueriedInApplicationsIncluding_FROM_GaiaIsAUsefulRepresentationOfRealityForAgentsTo: Edge =
   createEdgeFromNodes(
-    GaiaCanBeEfficientlyQueriedInApplicationsNode,
-    GaiaIsAUsefulRepresentationOfRealityForAgentsNode,
+    GaiaCanBeEfficientlyQueriedInApplicationsIncluding,
+    GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
   );
 
-const CriticalMassRepoFromGaiaUsefulRepresentationDecisionsEdge: Edge =
+const CriticalMassRepo_FROM_GaiaIsAUsefulRepresentationOfRealityForAgentsTo: Edge =
   createEdgeFromNodes(
-    CriticalMassRepoNode,
-    GaiaIsAUsefulRepresentationOfRealityForAgentsNode,
+    CriticalMassRepo,
+    GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
   );
 
-const CriticalMassRepoFromGaiaVetOwnModelsEdge: Edge = createEdgeFromNodes(
-  CriticalMassRepoNode,
-  GaiaAllowsToVetOwnModelsNode,
-);
+const CriticalMassRepo_FROM_GaiaAllowsToVetOwnModels: Edge =
+  createEdgeFromNodes(CriticalMassRepo, GaiaAllowsToVetOwnModels);
 
-const CriticalMassRepoFromChallengingScenariosModelsCompeteEdge: Edge =
+const CriticalMassRepo_FROM_CreateChallengingScenariosForModelsToCompeteVsEach: Edge =
   createEdgeFromNodes(
-    CriticalMassRepoNode,
-    CreateChallengingScenariosForModelsToCompeteVsNode,
+    CriticalMassRepo,
+    CreateChallengingScenariosForModelsToCompeteVsEach,
   );
 
-const CriticalMassRepoFromGaiaOpenAiBlackBoxesEdge: Edge = createEdgeFromNodes(
-  CriticalMassRepoNode,
-  GaiaAllowsToOpenAiBlackBoxesNode,
-);
+const CriticalMassRepo_FROM_GaiaAllowsToOpenAiBlackBoxes: Edge =
+  createEdgeFromNodes(CriticalMassRepo, GaiaAllowsToOpenAiBlackBoxes);
 
-const CriticalMassRepoFromEnvironmentsTestHumanForEvalEdge: Edge =
+const CriticalMassRepo_FROM_CreateEnvironmentsToTestHumanToAgentCoordination: Edge =
   createEdgeFromNodes(
-    CriticalMassRepoNode,
-    CreateEnvironmentsToTestHumantoagentNode,
+    CriticalMassRepo,
+    CreateEnvironmentsToTestHumanToAgentCoordination,
   );
 
-const CriticalMassRepoFromEnvironmentsTestAgentAgentForEvalEdge: Edge =
+const CriticalMassRepo_FROM_CreateEnvironmentsToTestAgentToAgentCoordination: Edge =
   createEdgeFromNodes(
-    CriticalMassRepoNode,
-    CreateEnvironmentsToTestAgenttoagentNode,
+    CriticalMassRepo,
+    CreateEnvironmentsToTestAgentToAgentCoordination,
   );
 
 export const LEVEL_4_EDGES: Edge[] = [
-  GaiaNodesUpdateStateFromGaiaUsefulRepresentationDecisionsEdge,
-  GaiaNodesInstantiateLocalModelsFromGaiaUsefulRepresentationDecisionsEdge,
-  GaiaEfficientlyQueriedAppsFromGaiaUsefulRepresentationDecisionsEdge,
-  CriticalMassRepoFromGaiaUsefulRepresentationDecisionsEdge,
-  CriticalMassRepoFromGaiaVetOwnModelsEdge,
-  CriticalMassRepoFromChallengingScenariosModelsCompeteEdge,
-  CriticalMassRepoFromGaiaOpenAiBlackBoxesEdge,
-  CriticalMassRepoFromEnvironmentsTestHumanForEvalEdge,
-  CriticalMassRepoFromEnvironmentsTestAgentAgentForEvalEdge,
+  GaiaNodesUpdateStateBasedOnObservations_FROM_GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
+  GaiaNodesCanInstantiateLocalModelsByAssembling_FROM_GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
+  GaiaCanBeEfficientlyQueriedInApplicationsIncluding_FROM_GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
+  CriticalMassRepo_FROM_GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
+  CriticalMassRepo_FROM_GaiaAllowsToVetOwnModels,
+  CriticalMassRepo_FROM_CreateChallengingScenariosForModelsToCompeteVsEach,
+  CriticalMassRepo_FROM_GaiaAllowsToOpenAiBlackBoxes,
+  CriticalMassRepo_FROM_CreateEnvironmentsToTestHumanToAgentCoordination,
+  CriticalMassRepo_FROM_CreateEnvironmentsToTestAgentToAgentCoordination,
 ];

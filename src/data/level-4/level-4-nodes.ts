@@ -1,6 +1,6 @@
 import { UiNode } from '@/lib/types';
 
-export const GaiaNodesUpdateStateBasedOnObservationsNode: UiNode = {
+export const GaiaNodesUpdateStateBasedOnObservations: UiNode = {
   id: 'gaia-nodes-update-state-based-on-observations',
   data: {
     label: 'Gaia nodes update state based on observations',
@@ -15,7 +15,7 @@ export const GaiaNodesUpdateStateBasedOnObservationsNode: UiNode = {
   height: 140,
 };
 
-export const GaiaNodesCanInstantiateLocalModelsByAssemblingNode: UiNode = {
+export const GaiaNodesCanInstantiateLocalModelsByAssembling: UiNode = {
   id: 'gaia-nodes-can-instantiate-local-models-by-assembling-components-from-repository',
   data: {
     label:
@@ -31,7 +31,7 @@ export const GaiaNodesCanInstantiateLocalModelsByAssemblingNode: UiNode = {
   height: 166,
 };
 
-export const GaiaCanBeEfficientlyQueriedInApplicationsNode: UiNode = {
+export const GaiaCanBeEfficientlyQueriedInApplicationsIncluding: UiNode = {
   id: 'gaia-can-be-efficiently-queried-in-applications-including-queries-across-nodes',
   data: {
     label:
@@ -47,7 +47,7 @@ export const GaiaCanBeEfficientlyQueriedInApplicationsNode: UiNode = {
   height: 124,
 };
 
-export const CriticalMassRepoNode: UiNode = {
+export const CriticalMassRepo: UiNode = {
   id: 'critical-mass-repo',
   data: {
     label: 'Critical mass repo',
@@ -64,8 +64,8 @@ export const CriticalMassRepoNode: UiNode = {
 };
 
 export const LEVEL_4_NODES: UiNode[] = [
-  GaiaNodesUpdateStateBasedOnObservationsNode,
-  GaiaNodesCanInstantiateLocalModelsByAssemblingNode,
-  GaiaCanBeEfficientlyQueriedInApplicationsNode,
-  CriticalMassRepoNode,
+  GaiaNodesUpdateStateBasedOnObservations,
+  GaiaNodesCanInstantiateLocalModelsByAssembling,
+  GaiaCanBeEfficientlyQueriedInApplicationsIncluding,
+  CriticalMassRepo,
 ];

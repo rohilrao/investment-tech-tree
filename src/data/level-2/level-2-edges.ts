@@ -1,43 +1,43 @@
 import { createEdgeFromNodes } from '@/lib/data';
 import { Edge } from '@xyflow/react';
 import {
-  AlgorithmicContributionsToRepositoryNode,
-  ModelRepositoryIsRobustToAdversarialBehaviorNode,
-  NonexpertsCanContributeToModelDevelopmentAndNode,
+  AlgorithmicContributionsToRepository,
+  ModelRepositoryIsRobustToAdversarialBehavior,
+  NonExpertsCanContributeToModelDevelopmentAnd,
 } from '../level-3/level-3-nodes';
-import { CriticalMassRepoNode } from '../level-4/level-4-nodes';
+import { CriticalMassRepo } from '../level-4/level-4-nodes';
 import {
-  ContributionsAreIncentivizedInAWayThatReflectsNode,
-  PlugAndPlaySystemForTestingFeedbackingOnModelsNode,
+  ContributionsAreIncentivizedInAWayThatReflectsThe,
+  PlugAndPlaySystemForTestingFeedbackingOnModelsIn,
 } from './level-2-nodes';
 
-const ContributionsIncentivizedReflectsDecisionValueFromAlgorithmicContributionsRepoEdge: Edge =
+const ContributionsAreIncentivizedInAWayThatReflectsThe_FROM_ModelRepositoryIsRobustToAdversarialBehavior: Edge =
   createEdgeFromNodes(
-    ContributionsAreIncentivizedInAWayThatReflectsNode,
-    AlgorithmicContributionsToRepositoryNode,
+    ContributionsAreIncentivizedInAWayThatReflectsThe,
+    ModelRepositoryIsRobustToAdversarialBehavior,
   );
 
-const ContributionsIncentivizedReflectsDecisionValueFromModelRepoRobustAdversarialEdge: Edge =
+const ContributionsAreIncentivizedInAWayThatReflectsThe_FROM_AlgorithmicContributionsToRepository: Edge =
   createEdgeFromNodes(
-    ContributionsAreIncentivizedInAWayThatReflectsNode,
-    ModelRepositoryIsRobustToAdversarialBehaviorNode,
+    ContributionsAreIncentivizedInAWayThatReflectsThe,
+    AlgorithmicContributionsToRepository,
   );
 
-const PlugPlaySystemTestingFeedbackingFromCriticalMassRepoEdge: Edge =
+const PlugAndPlaySystemForTestingFeedbackingOnModelsIn_FROM_CriticalMassRepo: Edge =
   createEdgeFromNodes(
-    PlugAndPlaySystemForTestingFeedbackingOnModelsNode,
-    CriticalMassRepoNode,
+    PlugAndPlaySystemForTestingFeedbackingOnModelsIn,
+    CriticalMassRepo,
   );
 
-const PlugPlaySystemTestingFeedbackingFromNonExpertsContributeModelsValidationEdge: Edge =
+const PlugAndPlaySystemForTestingFeedbackingOnModelsIn_FROM_NonExpertsCanContributeToModelDevelopmentAnd: Edge =
   createEdgeFromNodes(
-    PlugAndPlaySystemForTestingFeedbackingOnModelsNode,
-    NonexpertsCanContributeToModelDevelopmentAndNode,
+    PlugAndPlaySystemForTestingFeedbackingOnModelsIn,
+    NonExpertsCanContributeToModelDevelopmentAnd,
   );
 
 export const LEVEL_2_EDGES: Edge[] = [
-  ContributionsIncentivizedReflectsDecisionValueFromAlgorithmicContributionsRepoEdge,
-  ContributionsIncentivizedReflectsDecisionValueFromModelRepoRobustAdversarialEdge,
-  PlugPlaySystemTestingFeedbackingFromCriticalMassRepoEdge,
-  PlugPlaySystemTestingFeedbackingFromNonExpertsContributeModelsValidationEdge,
+  ContributionsAreIncentivizedInAWayThatReflectsThe_FROM_ModelRepositoryIsRobustToAdversarialBehavior,
+  ContributionsAreIncentivizedInAWayThatReflectsThe_FROM_AlgorithmicContributionsToRepository,
+  PlugAndPlaySystemForTestingFeedbackingOnModelsIn_FROM_CriticalMassRepo,
+  PlugAndPlaySystemForTestingFeedbackingOnModelsIn_FROM_NonExpertsCanContributeToModelDevelopmentAnd,
 ];

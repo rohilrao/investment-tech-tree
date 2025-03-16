@@ -1,6 +1,6 @@
 import { UiNode } from '@/lib/types';
 
-export const QueryAndUpdateProtocolWithBuiltinValueMetricsNode: UiNode = {
+export const QueryAndUpdateProtocolWithBuiltInValueMetrics: UiNode = {
   id: 'query-and-update-protocol-with-built-in-value-metrics',
   data: {
     label: 'Query and update protocol with built-in value metrics',
@@ -17,7 +17,7 @@ export const QueryAndUpdateProtocolWithBuiltinValueMetricsNode: UiNode = {
   type: 'custom',
 };
 
-export const ModelRepositoryIsRobustToAdversarialBehaviorNode: UiNode = {
+export const ModelRepositoryIsRobustToAdversarialBehavior: UiNode = {
   id: 'model-repository-is-robust-to-adversarial-behavior',
   data: {
     label: 'Model repository is robust to adversarial behavior',
@@ -32,7 +32,7 @@ export const ModelRepositoryIsRobustToAdversarialBehaviorNode: UiNode = {
   height: 148,
 };
 
-export const AlgorithmicContributionsToRepositoryNode: UiNode = {
+export const AlgorithmicContributionsToRepository: UiNode = {
   id: 'algorithmic-contributions-to-repository',
   data: {
     label: 'Algorithmic contributions to repository',
@@ -47,7 +47,7 @@ export const AlgorithmicContributionsToRepositoryNode: UiNode = {
   height: 125,
 };
 
-export const NonexpertsCanContributeToModelDevelopmentAndNode: UiNode = {
+export const NonExpertsCanContributeToModelDevelopmentAnd: UiNode = {
   id: 'non-experts-can-contribute-to-model-development-and-validation',
   data: {
     label: 'Non-experts can contribute to model development and validation',
@@ -63,8 +63,8 @@ export const NonexpertsCanContributeToModelDevelopmentAndNode: UiNode = {
 };
 
 export const LEVEL_3_NODES: UiNode[] = [
-  QueryAndUpdateProtocolWithBuiltinValueMetricsNode,
-  ModelRepositoryIsRobustToAdversarialBehaviorNode,
-  AlgorithmicContributionsToRepositoryNode,
-  NonexpertsCanContributeToModelDevelopmentAndNode,
+  QueryAndUpdateProtocolWithBuiltInValueMetrics,
+  ModelRepositoryIsRobustToAdversarialBehavior,
+  AlgorithmicContributionsToRepository,
+  NonExpertsCanContributeToModelDevelopmentAnd,
 ];

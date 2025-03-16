@@ -1,6 +1,6 @@
 import { UiNode } from '@/lib/types';
 
-export const ContributionsAreIncentivizedInAWayThatReflectsNode: UiNode = {
+export const ContributionsAreIncentivizedInAWayThatReflectsThe: UiNode = {
   id: 'contributions-are-incentivized-in-a-way-that-reflects-the-contributors-decision-value',
   data: {
     label:
@@ -16,7 +16,7 @@ export const ContributionsAreIncentivizedInAWayThatReflectsNode: UiNode = {
   height: 133,
 };
 
-export const PlugAndPlaySystemForTestingFeedbackingOnModelsNode: UiNode = {
+export const PlugAndPlaySystemForTestingFeedbackingOnModelsIn: UiNode = {
   id: 'plug-and-play-system-for-testing-feedbacking-on-models-in-gaia-or-own-environments',
   data: {
     label:
@@ -33,6 +33,6 @@ export const PlugAndPlaySystemForTestingFeedbackingOnModelsNode: UiNode = {
 };
 
 export const LEVEL_2_NODES: UiNode[] = [
-  ContributionsAreIncentivizedInAWayThatReflectsNode,
-  PlugAndPlaySystemForTestingFeedbackingOnModelsNode,
+  ContributionsAreIncentivizedInAWayThatReflectsThe,
+  PlugAndPlaySystemForTestingFeedbackingOnModelsIn,
 ];

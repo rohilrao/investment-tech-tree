@@ -1,6 +1,6 @@
 import { UiNode } from '@/lib/types';
 
-export const GaiaIsAUsefulRepresentationOfRealityForAgentsNode: UiNode = {
+export const GaiaIsAUsefulRepresentationOfRealityForAgentsTo: UiNode = {
   id: 'gaia-is-a-useful-representation-of-reality-for-agents-to-make-decisions-on',
   data: {
     label:
@@ -16,7 +16,7 @@ export const GaiaIsAUsefulRepresentationOfRealityForAgentsNode: UiNode = {
   height: 135,
 };
 
-export const GaiaAllowsToVetOwnModelsNode: UiNode = {
+export const GaiaAllowsToVetOwnModels: UiNode = {
   id: 'gaia-allows-to-vet-own-models',
   data: {
     label: 'Gaia allows to vet own models',
@@ -31,7 +31,7 @@ export const GaiaAllowsToVetOwnModelsNode: UiNode = {
   height: 104,
 };
 
-export const CreateChallengingScenariosForModelsToCompeteVsNode: UiNode = {
+export const CreateChallengingScenariosForModelsToCompeteVsEach: UiNode = {
   id: 'create-challenging-scenarios-for-models-to-compete-vs-each-other',
   data: {
     label: 'Create challenging scenarios for models to compete vs. each other',
@@ -46,7 +46,7 @@ export const CreateChallengingScenariosForModelsToCompeteVsNode: UiNode = {
   height: 111,
 };
 
-export const GaiaAllowsToOpenAiBlackBoxesNode: UiNode = {
+export const GaiaAllowsToOpenAiBlackBoxes: UiNode = {
   id: 'gaia-allows-to-open-ai-black-boxes',
   data: {
     label: 'Gaia allows to open AI Black Boxes',
@@ -61,7 +61,7 @@ export const GaiaAllowsToOpenAiBlackBoxesNode: UiNode = {
   height: 90,
 };
 
-export const CreateEnvironmentsToTestHumantoagentNode: UiNode = {
+export const CreateEnvironmentsToTestHumanToAgentCoordination: UiNode = {
   id: 'create-environments-to-test-human-to-agent-coordination-scenarios-for-evaluation',
   data: {
     label:
@@ -77,7 +77,7 @@ export const CreateEnvironmentsToTestHumantoagentNode: UiNode = {
   height: 115,
 };
 
-export const CreateEnvironmentsToTestAgenttoagentNode: UiNode = {
+export const CreateEnvironmentsToTestAgentToAgentCoordination: UiNode = {
   id: 'create-environments-to-test-agent-to-agent-coordination-scenarios-for-evaluation',
   data: {
     label:
@@ -94,10 +94,10 @@ export const CreateEnvironmentsToTestAgenttoagentNode: UiNode = {
 };
 
 export const LEVEL_5_NODES: UiNode[] = [
-  GaiaIsAUsefulRepresentationOfRealityForAgentsNode,
-  GaiaAllowsToVetOwnModelsNode,
-  CreateChallengingScenariosForModelsToCompeteVsNode,
-  GaiaAllowsToOpenAiBlackBoxesNode,
-  CreateEnvironmentsToTestHumantoagentNode,
-  CreateEnvironmentsToTestAgenttoagentNode,
+  GaiaIsAUsefulRepresentationOfRealityForAgentsTo,
+  GaiaAllowsToVetOwnModels,
+  CreateChallengingScenariosForModelsToCompeteVsEach,
+  GaiaAllowsToOpenAiBlackBoxes,
+  CreateEnvironmentsToTestHumanToAgentCoordination,
+  CreateEnvironmentsToTestAgentToAgentCoordination,
 ];
