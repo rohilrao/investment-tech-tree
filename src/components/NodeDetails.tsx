@@ -1,6 +1,12 @@
 'use client';
 
 import { useGraphContext } from '@/app/GraphContext';
+import {
+  createNodeVariableName,
+  createIdFromTitle,
+  NEW_NODE_ID,
+  NEW_NODE_NAME,
+} from '@/lib/data';
 import { toastSuccess } from '@/lib/toast';
 import { LABEL_COLORS, NodeLabel } from '@/lib/types';
 import React, { useEffect, useState } from 'react';
@@ -30,16 +36,17 @@ const NodeDetails = () => {
     setLabel(e.target.value as NodeLabel);
   const onNameChange = (e: React.ChangeEvent<HTMLInputElement>): void =>
     setName(e.target.value);
+
   const onDescriptionChange = (
     e: React.ChangeEvent<HTMLTextAreaElement>,
   ): void => setNewDescription(e.target.value);
 
   const onCopyNodeInClipboard = () => {
-    if (!selectedNode) return;
     const nodeAsString = JSON.stringify(selectedNode, null, 2);
+    const nodeAsCode = `export const ${createNodeVariableName(selectedNode!.data.label)}: UiNode = ${nodeAsString};`;
 
     navigator.clipboard
-      .writeText(nodeAsString)
+      .writeText(nodeAsCode)
       .then(() => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
@@ -52,14 +59,16 @@ const NodeDetails = () => {
   const updateNodeData = () => {
     setSelectedNode((prevNode) => ({
       ...prevNode!,
+      id: getNodeId(),
       data: { label: name, description: newDescription, nodeLabel: label },
     }));
-    
+
     setNodes((prevNodes) => [
       ...prevNodes.map((n) =>
         n.id === selectedNode!.id
           ? {
               ...n,
+              id: getNodeId(),
               data: {
                 description: newDescription,
                 label: name,
@@ -70,6 +79,14 @@ const NodeDetails = () => {
       ),
     ]);
     toastSuccess('Updated node content!');
+
+    const getNodeId = (): string => {
+      if (selectedNode!.id === NEW_NODE_ID && name !== NEW_NODE_NAME) {
+        return createIdFromTitle(name);
+      }
+
+      return selectedNode!.id;
+    };
   };
 
   if (!selectedNode) return <Manual />;
