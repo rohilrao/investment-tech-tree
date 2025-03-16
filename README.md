@@ -12,10 +12,17 @@ To run this project locally:
 
 All nodes and edges are inside [src/data](src/data). They're sorted by level, starting with the lowest on the left side of the graph.
 
-If you want to add or modify a node or edge, you have two options:
+You can **find a node** in two ways:
+
+- Copy the node's name from the graph and search for this string in the IDE (shortcut: usually CTRL + SHIFT + F).
+- Check the level the node is in and navigate to the corresponding file in [src/data](src/data). Search for the node there (for example, by its name and STRG + F).
+
+If you want to **add or modify a node** or edge, you have two options:
 
 - **Manually in the code** (e.g., directly in the files under src/data)
-- **Via UI support** (see next section; until now only available vor nodes)
+- **Via UI support** (see next sections)
+
+To delete a node or edge, the corresponding object must be removed manually in the level-x-nodes.ts/level-x-edges.ts file in [src/data](src/data).
 
 ## Add or edit node with UI-support
 
