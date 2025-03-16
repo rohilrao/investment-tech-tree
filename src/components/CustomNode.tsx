@@ -1,9 +1,6 @@
 'use client';
 
-import { updateNodeSize } from '@/app/actions/server';
 import { useGraphContext } from '@/app/GraphContext';
-import { toastError } from '@/lib/toast';
-import { QueryTypeMessage } from '@/lib/types';
 import {
   Handle,
   NodeProps,
@@ -16,34 +13,34 @@ import { Scaling } from 'lucide-react';
 import { useCallback } from 'react';
 
 const CustomNode = ({ id, data }: NodeProps) => {
-  const { isEditable, nodes, setNodes } = useGraphContext();
+  const { isEditable, setNodes, selectedNode, setSelectedNode } =
+    useGraphContext();
 
   const onResizeEnd = useCallback(
-    async (_: ResizeDragEvent, params: ResizeParams) => {
-      const prevState = [...nodes];
-      try {
-        const updatedNode = await updateNodeSize(
-          id,
-          params.width,
-          params.height,
-        );
-        setNodes((prevNodes) => [
-          ...prevNodes.map((node) =>
-            node.id === id
-              ? {
-                  ...node,
-                  width: updatedNode.width,
-                  height: updatedNode.height,
-                }
-              : node,
-          ),
-        ]);
-      } catch (err) {
-        setNodes([...prevState]);
-        toastError(QueryTypeMessage.UPDATE_NODE_SIZE, err as Error);
+    (_: ResizeDragEvent, { height, width }: ResizeParams) => {
+      // Update selected node
+      if (id === selectedNode?.id) {
+        setSelectedNode((prevNode) => ({
+          ...prevNode!,
+          width,
+          height,
+        }));
       }
+
+      // Update all nodes
+      setNodes((prevNodes) => [
+        ...prevNodes.map((node) =>
+          node.id === id
+            ? {
+                ...node,
+                width,
+                height,
+              }
+            : node,
+        ),
+      ]);
     },
-    [],
+    [id, setNodes, setSelectedNode, selectedNode?.id],
   );
 
   return (

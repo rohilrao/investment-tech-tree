@@ -65,13 +65,15 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
     [selectedNode, setSelectedNode],
   );
 
-  // TODO: Remove if it's working without
   const onNodeDragStop = useCallback(
     (_: React.MouseEvent, draggedNode: UiNode) => {
+      // Update selected node
       setSelectedNode((prevNode) => ({
         ...prevNode!,
         position: draggedNode.position,
       }));
+
+      // Update all nodes
       setNodes((prevNodes) => [
         ...prevNodes.map((n) =>
           n.id === draggedNode.id ? { ...draggedNode } : n,
