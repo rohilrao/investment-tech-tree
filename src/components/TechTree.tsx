@@ -2,7 +2,7 @@
 
 import { useGraphContext } from '@/app/GraphContext';
 import { EDGES } from '@/data/edges';
-import { createEdgeFromIds, createNode } from '@/lib/data';
+import { copyNodeToClipboard, createEdgeFromIds, createNode } from '@/lib/data';
 import { toastSuccess } from '@/lib/toast';
 import { NODE_TYPES, UiNode } from '@/lib/types';
 import {
@@ -73,6 +73,8 @@ const TechTree: React.FC = () => {
           n.id === draggedNode.id ? { ...draggedNode } : n,
         ),
       ]);
+
+      copyNodeToClipboard(draggedNode);
     },
     [setNodes, setSelectedNode],
   );

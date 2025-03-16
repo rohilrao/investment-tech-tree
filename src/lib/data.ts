@@ -1,4 +1,5 @@
 import { Edge, XYPosition } from '@xyflow/react';
+import { toastError } from './toast';
 import { LABEL_COLORS, UiNode } from './types';
 
 export const NEW_NODE_ID =
@@ -34,6 +35,15 @@ export const createEdgeFromIds = (
   target: targetId,
   source: sourceId,
 });
+
+export const copyNodeToClipboard = (nodeToCopy: UiNode) => {
+  const nodeAsString = JSON.stringify(nodeToCopy, null, 2);
+  const nodeAsCode = `export const ${createNodeVariableName(nodeToCopy!.data.label)}: UiNode = ${nodeAsString};`;
+
+  navigator.clipboard.writeText(nodeAsCode).catch((err) => {
+    toastError('Error while copying node to clipboard!', err);
+  });
+};
 
 /**
  * Converts a given string into a slug-like ID.
@@ -96,7 +106,7 @@ export const createNodeVariableName = (title: string): string => {
     } else {
       // If it doesn't fit entirely, check how many characters remain.
       const remain = MAX_PREFIX_LENGTH - result.length;
-      if (remain > 0) {
+      if (remain > 0 && result.length == 0) {
         // Add as many characters of this word as will fit.
         result += camelCasedWord.slice(0, remain);
       }

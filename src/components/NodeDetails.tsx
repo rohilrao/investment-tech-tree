@@ -2,13 +2,13 @@
 
 import { useGraphContext } from '@/app/GraphContext';
 import {
+  copyNodeToClipboard,
   createIdFromTitle,
-  createNodeVariableName,
   NEW_NODE_ID,
   NEW_NODE_NAME,
 } from '@/lib/data';
 import { toastSuccess } from '@/lib/toast';
-import { LABEL_COLORS, NODE_LABELS, NodeLabel } from '@/lib/types';
+import { LABEL_COLORS, NODE_LABELS, NodeLabel, UiNode } from '@/lib/types';
 import React, { useEffect, useState } from 'react';
 import { Manual } from './Manual';
 
@@ -20,8 +20,6 @@ const NodeDetails = () => {
   const [label, setLabel] = useState<NodeLabel>('New');
   const [newDescription, setNewDescription] = useState('');
   const [oldDescription, setOldDescription] = useState('');
-
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (selectedNode) {
@@ -41,52 +39,28 @@ const NodeDetails = () => {
     e: React.ChangeEvent<HTMLTextAreaElement>,
   ): void => setNewDescription(e.target.value);
 
-  const onCopyNodeInClipboard = () => {
-    const nodeAsString = JSON.stringify(selectedNode, null, 2);
-    const nodeAsCode = `export const ${createNodeVariableName(selectedNode!.data.label)}: UiNode = ${nodeAsString};`;
-
-    navigator.clipboard
-      .writeText(nodeAsCode)
-      .then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      })
-      .catch((error) => {
-        console.error('Error while coping node:', error);
-      });
-  };
-
   const updateNodeData = () => {
-    setSelectedNode((prevNode) => ({
-      ...prevNode!,
+    const updatedNode: UiNode = {
+      ...selectedNode!,
       id: getNodeId(),
       data: { label: name, description: newDescription, nodeLabel: label },
-    }));
+    };
+
+    setSelectedNode(() => updatedNode);
 
     setNodes((prevNodes) => [
-      ...prevNodes.map((n) =>
-        n.id === selectedNode!.id
-          ? {
-              ...n,
-              id: getNodeId(),
-              data: {
-                description: newDescription,
-                label: name,
-                nodeLabel: label,
-              },
-            }
-          : n,
-      ),
+      ...prevNodes.map((n) => (n.id === selectedNode!.id ? updatedNode : n)),
     ]);
-    toastSuccess('Updated node content!');
+    copyNodeToClipboard(updatedNode);
+    toastSuccess('Node updated and copied to clipboard!');
+  };
 
-    const getNodeId = (): string => {
-      if (selectedNode!.id === NEW_NODE_ID && name !== NEW_NODE_NAME) {
-        return createIdFromTitle(name);
-      }
+  const getNodeId = (): string => {
+    if (selectedNode!.id === NEW_NODE_ID && name !== NEW_NODE_NAME) {
+      return createIdFromTitle(name);
+    }
 
-      return selectedNode!.id;
-    };
+    return selectedNode!.id;
   };
 
   if (!selectedNode) return <Manual />;
@@ -107,16 +81,11 @@ const NodeDetails = () => {
             {isEditable && (
               <div className="relative flex items-center">
                 <button
-                  onClick={onCopyNodeInClipboard}
+                  onClick={() => copyNodeToClipboard(selectedNode)}
                   className="flex items-center gap-2 px-3 py-2 bg-gray-200 rounded hover:bg-gray-300 active:scale-95"
                 >
                   <span>Copy code to clipboard</span>
                 </button>
-                {copied && (
-                  <span className="absolute right-0 top-[-1.5rem] text-xs text-green-600 whitespace-nowrap">
-                    Copied!
-                  </span>
-                )}
               </div>
             )}
 

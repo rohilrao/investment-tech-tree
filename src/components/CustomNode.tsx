@@ -1,6 +1,8 @@
 'use client';
 
 import { useGraphContext } from '@/app/GraphContext';
+import { copyNodeToClipboard } from '@/lib/data';
+import { UiNode } from '@/lib/types';
 import {
   Handle,
   NodeProps,
@@ -29,15 +31,18 @@ const CustomNode = ({ id, data }: NodeProps) => {
 
       // Update all nodes
       setNodes((prevNodes) => [
-        ...prevNodes.map((node) =>
-          node.id === id
-            ? {
-                ...node,
-                width,
-                height,
-              }
-            : node,
-        ),
+        ...prevNodes.map((node) => {
+          if (node.id === id) {
+            const resizedNode: UiNode = {
+              ...node,
+              width,
+              height,
+            };
+            copyNodeToClipboard(resizedNode);
+            return resizedNode;
+          }
+          return node;
+        }),
       ]);
     },
     [id, setNodes, setSelectedNode, selectedNode?.id],
