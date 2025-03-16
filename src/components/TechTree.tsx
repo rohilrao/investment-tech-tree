@@ -80,7 +80,6 @@ const TechTree: React.FC = () => {
   /**
    * EDGES
    */
-
   // Add edge
   const onConnect = useCallback((connection: Connection) => {
     const newEdge = createEdgeFromIds(connection.target, connection.source);
@@ -115,7 +114,8 @@ const TechTree: React.FC = () => {
           edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
-          onConnect={isEditable ? onConnect : undefined}
+          // TODO: reactivate if required; click on edge could copy it into clipboard
+          onConnect={undefined}
           onNodeClick={onNodeClick}
           onNodeDragStop={isEditable ? onNodeDragStop : undefined}
           colorMode={'light'}
@@ -136,7 +136,7 @@ const TechTree: React.FC = () => {
                   className="p-2 bg-blue-500 text-white rounded h-10"
                   onClick={addNode}
                 >
-                  add node
+                  Add node
                 </button>
               )}
             </div>

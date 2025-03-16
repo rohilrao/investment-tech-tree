@@ -110,7 +110,7 @@ const NodeDetails = () => {
                   onClick={onCopyNodeInClipboard}
                   className="flex items-center gap-2 px-3 py-2 bg-gray-200 rounded hover:bg-gray-300 active:scale-95"
                 >
-                  <span>JSON to clipboard</span>
+                  <span>Copy code to clipboard</span>
                 </button>
                 {copied && (
                   <span className="absolute right-0 top-[-1.5rem] text-xs text-green-600 whitespace-nowrap">
