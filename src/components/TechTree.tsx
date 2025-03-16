@@ -62,10 +62,12 @@ const TechTree: React.FC = () => {
   const onNodeDragStop = useCallback(
     (_: React.MouseEvent, draggedNode: UiNode) => {
       // Update selected node
-      setSelectedNode((prevNode) => ({
-        ...prevNode!,
-        position: draggedNode.position,
-      }));
+      if (draggedNode.id === selectedNode?.id) {
+        setSelectedNode((prevNode) => ({
+          ...prevNode!,
+          position: draggedNode.position,
+        }));
+      }
 
       // Update all nodes
       setNodes((prevNodes) => [
@@ -76,7 +78,7 @@ const TechTree: React.FC = () => {
 
       copyNodeToClipboard(draggedNode);
     },
-    [setNodes, setSelectedNode],
+    [setNodes, setSelectedNode, selectedNode?.id],
   );
 
   /**
