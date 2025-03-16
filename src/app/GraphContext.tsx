@@ -10,7 +10,6 @@ interface GraphContextType {
   selectedNode: UiNode | null;
   setSelectedNode: React.Dispatch<React.SetStateAction<UiNode | null>>;
   isEditable: boolean;
-  setIsEditable: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const GraphContext = createContext<GraphContextType | undefined>(undefined);
@@ -18,7 +17,7 @@ const GraphContext = createContext<GraphContextType | undefined>(undefined);
 export const GraphProvider = ({ children }: { children: ReactNode }) => {
   const [nodes, setNodes] = useState<UiNode[]>([...getEnrichedNodes()]);
   const [selectedNode, setSelectedNode] = useState<UiNode | null>(null);
-  const [isEditable, setIsEditable] = useState(false);
+  const isEditable = process.env.NODE_ENV === 'development';
 
   return (
     <GraphContext.Provider
@@ -28,7 +27,6 @@ export const GraphProvider = ({ children }: { children: ReactNode }) => {
         selectedNode,
         setSelectedNode,
         isEditable,
-        setIsEditable,
       }}
     >
       {children}

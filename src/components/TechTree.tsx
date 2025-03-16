@@ -23,15 +23,10 @@ import {
 import React, { useCallback, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ExportButton from './ExportButton';
 import { Legend } from './Legend';
 import NodeDetails from './NodeDetails';
 
-interface TechTreeProps {
-  loginForEdit: () => void;
-}
-
-const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
+const TechTree: React.FC = () => {
   const [edges, setEdges] = useState<Edge[]>([...EDGES]);
   const { nodes, setNodes, selectedNode, setSelectedNode, isEditable } =
     useGraphContext();
@@ -144,13 +139,6 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
                   add node
                 </button>
               )}
-              {isEditable && <ExportButton />}
-              <button
-                className="p-2 bg-blue-500 text-white rounded h-10"
-                onClick={loginForEdit}
-              >
-                {isEditable ? 'exit edit-mode' : 'edit-mode'}
-              </button>
             </div>
           </Panel>
         </ReactFlow>
