@@ -1,7 +1,7 @@
 import { UiNode } from '@/lib/types';
 
-export const QueryUpdateProtocolValueMetricsNode: UiNode = {
-  id: 'query-update-protocol-value-metrics',
+export const QueryAndUpdateProtocolWithBuiltinValueMetricsNode: UiNode = {
+  id: 'query-and-update-protocol-with-built-in-value-metrics',
   data: {
     label: 'Query and update protocol with built-in value metrics',
     description: '',
@@ -17,8 +17,8 @@ export const QueryUpdateProtocolValueMetricsNode: UiNode = {
   type: 'custom',
 };
 
-export const ModelRepoRobustAdversarialNode: UiNode = {
-  id: 'model-repo-robust-adversarial',
+export const ModelRepositoryIsRobustToAdversarialBehaviorNode: UiNode = {
+  id: 'model-repository-is-robust-to-adversarial-behavior',
   data: {
     label: 'Model repository is robust to adversarial behavior',
     description: '',
@@ -32,8 +32,8 @@ export const ModelRepoRobustAdversarialNode: UiNode = {
   height: 148,
 };
 
-export const AlgorithmicContributionsRepoNode: UiNode = {
-  id: 'algorithmic-contributions-repo',
+export const AlgorithmicContributionsToRepositoryNode: UiNode = {
+  id: 'algorithmic-contributions-to-repository',
   data: {
     label: 'Algorithmic contributions to repository',
     description: '',
@@ -47,8 +47,8 @@ export const AlgorithmicContributionsRepoNode: UiNode = {
   height: 125,
 };
 
-export const NonExpertsContributeModelsValidationNode: UiNode = {
-  id: 'non-experts-contribute-models-validation',
+export const NonexpertsCanContributeToModelDevelopmentAndNode: UiNode = {
+  id: 'non-experts-can-contribute-to-model-development-and-validation',
   data: {
     label: 'Non-experts can contribute to model development and validation',
     description: '',
@@ -63,8 +63,8 @@ export const NonExpertsContributeModelsValidationNode: UiNode = {
 };
 
 export const LEVEL_3_NODES: UiNode[] = [
-  QueryUpdateProtocolValueMetricsNode,
-  ModelRepoRobustAdversarialNode,
-  AlgorithmicContributionsRepoNode,
-  NonExpertsContributeModelsValidationNode,
+  QueryAndUpdateProtocolWithBuiltinValueMetricsNode,
+  ModelRepositoryIsRobustToAdversarialBehaviorNode,
+  AlgorithmicContributionsToRepositoryNode,
+  NonexpertsCanContributeToModelDevelopmentAndNode,
 ];

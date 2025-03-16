@@ -30,6 +30,7 @@ If you want to add or modify a node or edge, you have two options:
    - Click "Copy code to clipboard" in the editor’s top-right corner.
 4. **Paste the code**
    - Insert the copied code into the respective level-x-nodes.ts file in [src/data](src/data).
+   - Insert the node's variable name in the array (in the same file where the node was added).
 
 ## Add edge with UI-support
 

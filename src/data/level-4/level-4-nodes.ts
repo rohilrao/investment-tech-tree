@@ -1,7 +1,7 @@
 import { UiNode } from '@/lib/types';
 
-export const GaiaNodesUpdateStateNode: UiNode = {
-  id: 'gaia-nodes-update-state',
+export const GaiaNodesUpdateStateBasedOnObservationsNode: UiNode = {
+  id: 'gaia-nodes-update-state-based-on-observations',
   data: {
     label: 'Gaia nodes update state based on observations',
     description: '',
@@ -15,8 +15,8 @@ export const GaiaNodesUpdateStateNode: UiNode = {
   height: 140,
 };
 
-export const GaiaNodesInstantiateLocalModelsNode: UiNode = {
-  id: 'gaia-nodes-instantiate-local-models',
+export const GaiaNodesCanInstantiateLocalModelsByAssemblingNode: UiNode = {
+  id: 'gaia-nodes-can-instantiate-local-models-by-assembling-components-from-repository',
   data: {
     label:
       'Gaia nodes can instantiate local models by assembling components from repository',
@@ -31,8 +31,8 @@ export const GaiaNodesInstantiateLocalModelsNode: UiNode = {
   height: 166,
 };
 
-export const GaiaEfficientlyQueriedAppsNode: UiNode = {
-  id: 'gaia-efficiently-queried-apps',
+export const GaiaCanBeEfficientlyQueriedInApplicationsNode: UiNode = {
+  id: 'gaia-can-be-efficiently-queried-in-applications-including-queries-across-nodes',
   data: {
     label:
       'Gaia can be efficiently queried in applications, including queries across nodes',
@@ -64,8 +64,8 @@ export const CriticalMassRepoNode: UiNode = {
 };
 
 export const LEVEL_4_NODES: UiNode[] = [
-  GaiaNodesUpdateStateNode,
-  GaiaNodesInstantiateLocalModelsNode,
-  GaiaEfficientlyQueriedAppsNode,
+  GaiaNodesUpdateStateBasedOnObservationsNode,
+  GaiaNodesCanInstantiateLocalModelsByAssemblingNode,
+  GaiaCanBeEfficientlyQueriedInApplicationsNode,
   CriticalMassRepoNode,
 ];

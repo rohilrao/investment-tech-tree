@@ -37,8 +37,14 @@ export const createEdgeFromIds = (
 });
 
 export const copyNodeToClipboard = (nodeToCopy: UiNode) => {
-  const nodeAsString = JSON.stringify(nodeToCopy, null, 2);
-  const nodeAsCode = `export const ${createNodeVariableName(nodeToCopy!.data.label)}: UiNode = ${nodeAsString};`;
+  const node = { ...nodeToCopy };
+  node.className = undefined;
+  node.type = undefined;
+  node.measured = undefined;
+  node.selected = undefined;
+  node.dragging = undefined;
+  const nodeAsString = JSON.stringify(node, null, 2);
+  const nodeAsCode = `export const ${createNodeVariableName(node!.data.label)}: UiNode = ${nodeAsString};`;
 
   navigator.clipboard.writeText(nodeAsCode).catch((err) => {
     toastError('Error while copying node to clipboard!', err);

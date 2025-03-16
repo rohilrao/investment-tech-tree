@@ -1,12 +1,7 @@
 'use client';
 
 import { useGraphContext } from '@/app/GraphContext';
-import {
-  copyNodeToClipboard,
-  createIdFromTitle,
-  NEW_NODE_ID,
-  NEW_NODE_NAME,
-} from '@/lib/data';
+import { copyNodeToClipboard, createIdFromTitle } from '@/lib/data';
 import { toastSuccess } from '@/lib/toast';
 import { LABEL_COLORS, NODE_LABELS, NodeLabel, UiNode } from '@/lib/types';
 import React, { useEffect, useState } from 'react';
@@ -56,11 +51,11 @@ const NodeDetails = () => {
   };
 
   const getNodeId = (): string => {
-    if (selectedNode!.id === NEW_NODE_ID && name !== NEW_NODE_NAME) {
-      return createIdFromTitle(name);
-    }
+    // if (selectedNode!.id === NEW_NODE_ID && name !== NEW_NODE_NAME) {
+    return createIdFromTitle(name);
+    /*     }
 
-    return selectedNode!.id;
+    return selectedNode!.id; */
   };
 
   if (!selectedNode) return <Manual />;
@@ -81,7 +76,10 @@ const NodeDetails = () => {
             {isEditable && (
               <div className="relative flex items-center">
                 <button
-                  onClick={() => copyNodeToClipboard(selectedNode)}
+                  onClick={() => {
+                    copyNodeToClipboard(selectedNode);
+                    toastSuccess('Node copied to clipboard!');
+                  }}
                   className="flex items-center gap-2 px-3 py-2 bg-gray-200 rounded hover:bg-gray-300 active:scale-95"
                 >
                   <span>Copy code to clipboard</span>
