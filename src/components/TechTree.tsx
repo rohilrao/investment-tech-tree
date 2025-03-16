@@ -89,7 +89,7 @@ const TechTree: React.FC<TechTreeProps> = ({ loginForEdit }: TechTreeProps) => {
 
   // Add edge
   const onConnect = useCallback((connection: Connection) => {
-    const newEdge = createEdgeFromIds(connection.source, connection.target);
+    const newEdge = createEdgeFromIds(connection.target, connection.source);
     setEdges((prevEdges) => [...prevEdges, { ...newEdge }]);
   }, []);
 
