@@ -1,6 +1,5 @@
 'use client';
 
-import { exportGraphData } from '@/app/actions/server';
 import { toastError } from '@/lib/toast';
 import { useState } from 'react';
 
@@ -10,7 +9,8 @@ export default function ExportButton() {
   const handleExport = async () => {
     try {
       setLoading(true);
-      const result = await exportGraphData();
+      // TODO: adapt when export is required
+      const result = { file: new Blob(), fileName: '' };
 
       const url = URL.createObjectURL(result.file);
       const a = document.createElement('a');
