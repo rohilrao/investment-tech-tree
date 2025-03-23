@@ -4,9 +4,11 @@
 
 To run this project locally:
 
-- Set NEXT_PUBLIC_ENVIRONMENT=development in .env.local
+- Install Node.js (https://nodejs.org/en/download)
+- Create file tech-tree/.env.local & NEXT_PUBLIC_ENVIRONMENT=development
 - npm i
 - npm run dev
+- You'll find the tech-tree on http://localhost:3000/tech-tree
 
 ## Data structure
 
@@ -30,7 +32,7 @@ To delete a node or edge, the corresponding object must be removed manually in t
    - Click "Add node" or
    - Click on an existing one to edit it.
 2. **Make changes**
-   - Modify values in the editor (on the right) and click "Save".
+   - Modify values in the editor (on the right) and click "Save (Only temporarily)".
    - Move the node to change its position.
    - Resize the node if needed.
 3. **Copy the JSON**
@@ -39,6 +41,9 @@ To delete a node or edge, the corresponding object must be removed manually in t
 4. **Paste the code**
    - Insert the copied code into the respective level-x-nodes.ts file in [src/data](src/data).
    - Insert the node's variable name in the array (in the same file where the node was added).
+5. **Verify the node was edited/added**
+   - Find the edited/added node on http://localhost:3000/tech-tree
+   - Validate it's properties
 
 ## Add edge with UI-support
 
@@ -49,9 +54,10 @@ To delete a node or edge, the corresponding object must be removed manually in t
 2. **Paste the code**
    - Insert the copied code into the respective level-x-edges.ts file in [src/data](src/data).
    - Insert the edges's variable name in the array (in the same file where the edge was added).
+3. **Verify the edge was added**
+   - Find the added edge on http://localhost:3000/tech-tree
 
 ## Todos
 
-- Deploy via github pages
 - New functionalities
   - Add node by double click

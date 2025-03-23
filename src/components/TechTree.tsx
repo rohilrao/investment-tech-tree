@@ -134,7 +134,7 @@ const TechTree: React.FC = () => {
           onEdgesChange={onEdgesChange}
           onConnect={isEditable ? onConnect : undefined}
           onNodeClick={onNodeClick}
-          onEdgeClick={onEdgeClick}
+          onEdgeClick={isEditable ? onEdgeClick : undefined}
           onNodeDragStop={isEditable ? onNodeDragStop : undefined}
           colorMode={'light'}
           fitView

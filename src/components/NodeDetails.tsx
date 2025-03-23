@@ -27,7 +27,7 @@ const NodeDetails = () => {
 
   const onLabelChange = (e: React.ChangeEvent<HTMLSelectElement>): void =>
     setLabel(e.target.value as NodeLabel);
-  const onNameChange = (e: React.ChangeEvent<HTMLInputElement>): void =>
+  const onNameChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void =>
     setName(e.target.value);
 
   const onDescriptionChange = (
@@ -116,12 +116,12 @@ const NodeDetails = () => {
 
               <div className="mb-4">
                 <label className="font-semibold">Name</label>
-                <input
-                  type="text"
+                <textarea
                   value={name}
                   onChange={onNameChange}
                   className="border p-2 w-full mt-2"
                   placeholder="Node Name"
+                  rows={3}
                 />
               </div>
 
@@ -132,7 +132,7 @@ const NodeDetails = () => {
                   onChange={onDescriptionChange}
                   className="border p-2 w-full mt-2"
                   placeholder="Node Description"
-                  rows={12}
+                  rows={10}
                 />
               </div>
 
@@ -141,7 +141,7 @@ const NodeDetails = () => {
                 onClick={updateNodeData}
                 className="mt-2 p-2 bg-blue-500 text-white rounded w-full disabled:bg-gray-400 disabled:cursor-not-allowed flex justify-center items-center"
               >
-                Save
+                Save (Only temporarily)
               </button>
             </div>
           )}
