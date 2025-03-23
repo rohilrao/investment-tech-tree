@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'GAIA LAB | Systemically safe AI',
+  title: 'GAIA LAB | AI Safety & Collective Intelligence',
   description: 'Tech Tree',
 };
 
