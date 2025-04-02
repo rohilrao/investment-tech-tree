@@ -44,19 +44,13 @@ export const copyNodeToClipboard = (nodeToCopy: UiNode) => {
   node.selected = undefined;
   node.dragging = undefined;
   const nodeAsString = JSON.stringify(node, null, 2);
-  const nodeAsCode = `export const ${createNodeVariableName(node!.data.label)}: UiNode = ${nodeAsString};`;
 
-  navigator.clipboard.writeText(nodeAsCode).catch((err) => {
+  navigator.clipboard.writeText(nodeAsString).catch((err) => {
     toastError('Error while copying node to clipboard!', err);
   });
 };
+
 export const copyEdgeToClipboard = (source: string, target: string) => {
-  const approxSourceTitle = source.replace(/-/g, ' ');
-  const sourceNodeVariableName = createNodeVariableName(approxSourceTitle);
-
-  const approxTargetTitle = target.replace(/-/g, ' ');
-  const targetNodeVariableName = createNodeVariableName(approxTargetTitle);
-
   const edgeAsCode = `{
   id: '${target}-FROM-${source}',
   target: '${target}',
@@ -93,54 +87,4 @@ export const createIdFromTitle = (title: string): string => {
       // Remove leading or trailing hyphens
       .replace(/^-+|-+$/g, '')
   );
-};
-
-/**
- * Converts a title to a camelCase variable name ending with "Node".
- * Only adds enough words so that the total length does not exceed 30 characters.
- *
- * @param title - Any string, e.g., a title
- * @returns A camelCase variable name, max 30 characters, ending with "Node"
- */
-export const createNodeVariableName = (title: string): string => {
-  // 1. Clean up the title: remove non-alphanumeric characters except spaces
-  // 2. Split into words
-  const words = title
-    .replace(/[^a-zA-Z0-9\s-]/g, '')
-    .replace(/-/g, ' ')
-    .trim()
-    .split(/\s+/)
-    .map((word) => word.toLowerCase());
-
-  // We want the final string to always end with "Node" (4 characters)
-  // Therefore, the prefix (our constructed camelCase) can be at most MAX_TOTAL_LENGTH - 4 characters.
-  const MAX_TOTAL_LENGTH = 50;
-
-  let result = '';
-
-  for (let i = 0; i < words.length; i++) {
-    const word = words[i];
-
-    // Subsequent words have their first letter capitalized
-    const camelCasedWord = word.charAt(0).toUpperCase() + word.slice(1);
-
-    const tentative = result + camelCasedWord;
-
-    // If adding the entire word fits, add it.
-    if (tentative.length <= MAX_TOTAL_LENGTH) {
-      result = tentative;
-    } else {
-      // For title consisting of one word > MAX_TOTAL_LENGTH
-      // If it doesn't fit entirely, check how many characters remain.
-      const remain = MAX_TOTAL_LENGTH - result.length;
-      if (remain > 0 && result.length == 0) {
-        // Add as many characters of this word as will fit.
-        result += camelCasedWord.slice(0, remain);
-      }
-      // Stop adding further words.
-      break;
-    }
-  }
-
-  return result.slice(0, MAX_TOTAL_LENGTH);
 };

@@ -1,6 +1,6 @@
 'use client';
 
-import { DATA } from '@/data/DATA';
+import { DATA } from '@/DATA';
 import { LABEL_COLORS, UiNode } from '@/lib/types';
 import { createContext, ReactNode, useContext, useState } from 'react';
 

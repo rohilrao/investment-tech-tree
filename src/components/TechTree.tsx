@@ -1,7 +1,7 @@
 'use client';
 
 import { useGraphContext } from '@/app/GraphContext';
-import { DATA } from '@/data/DATA';
+import { DATA } from '@/DATA';
 import {
   copyEdgeToClipboard,
   copyNodeToClipboard,

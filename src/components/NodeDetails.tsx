@@ -1,7 +1,12 @@
 'use client';
 
 import { useGraphContext } from '@/app/GraphContext';
-import { copyNodeToClipboard, createIdFromTitle } from '@/lib/data';
+import {
+  copyNodeToClipboard,
+  createIdFromTitle,
+  NEW_NODE_ID,
+  NEW_NODE_NAME,
+} from '@/lib/data';
 import { toastSuccess } from '@/lib/toast';
 import { LABEL_COLORS, NODE_LABELS, NodeLabel, UiNode } from '@/lib/types';
 import React, { useEffect, useState } from 'react';
@@ -37,7 +42,10 @@ const NodeDetails = () => {
   const updateNodeData = () => {
     const updatedNode: UiNode = {
       ...selectedNode!,
-      id: getNodeId(),
+      id:
+        selectedNode!.id === NEW_NODE_ID && name !== NEW_NODE_NAME
+          ? createIdFromTitle(name)
+          : selectedNode!.id,
       data: { label: name, description: newDescription, nodeLabel: label },
     };
 
@@ -48,15 +56,6 @@ const NodeDetails = () => {
     ]);
     copyNodeToClipboard(updatedNode);
     toastSuccess('Node updated and copied to clipboard!');
-  };
-
-  const getNodeId = (): string => {
-    // TODO reactivate
-    // if (selectedNode!.id === NEW_NODE_ID && name !== NEW_NODE_NAME) {
-    return createIdFromTitle(name);
-    /*     }
-
-    return selectedNode!.id; */
   };
 
   if (!selectedNode) return <Manual />;
