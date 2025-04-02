@@ -1,5 +1,5 @@
 import CustomNode from '@/components/CustomNode';
-import { NodeTypes, Node as ReactFlowNode } from '@xyflow/react';
+import { Edge, NodeTypes, Node as ReactFlowNode } from '@xyflow/react';
 
 export interface NodeProperties {
   label: string;
@@ -9,9 +9,14 @@ export interface NodeProperties {
 
 export type UiNode = ReactFlowNode<Record<string, unknown> & NodeProperties>;
 
-export const NODE_LABELS = ["New", "Technology", "Target"] as const;
+export interface NodesAndEdges {
+  nodes: UiNode[];
+  edges: Edge[];
+}
 
-export type NodeLabel = typeof NODE_LABELS[number];
+export const NODE_LABELS = ['New', 'Technology', 'Target'] as const;
+
+export type NodeLabel = (typeof NODE_LABELS)[number];
 
 export const LABEL_COLORS: Record<NodeLabel, string> = {
   ['New']: 'red-500',

@@ -1,7 +1,7 @@
 'use client';
 
 import { useGraphContext } from '@/app/GraphContext';
-import { EDGES } from '@/data/edges';
+import { DATA } from '@/data/DATA';
 import {
   copyEdgeToClipboard,
   copyNodeToClipboard,
@@ -32,7 +32,7 @@ import { Legend } from './Legend';
 import NodeDetails from './NodeDetails';
 
 const TechTree: React.FC = () => {
-  const [edges, setEdges] = useState<Edge[]>([...EDGES]);
+  const [edges, setEdges] = useState<Edge[]>([...DATA.edges]);
   const { nodes, setNodes, selectedNode, setSelectedNode, isEditable } =
     useGraphContext();
 

@@ -57,7 +57,11 @@ export const copyEdgeToClipboard = (source: string, target: string) => {
   const approxTargetTitle = target.replace(/-/g, ' ');
   const targetNodeVariableName = createNodeVariableName(approxTargetTitle);
 
-  const edgeAsCode = `const ${targetNodeVariableName}_FROM_${sourceNodeVariableName}: Edge = createEdgeFromNodes(${targetNodeVariableName}, ${sourceNodeVariableName});`;
+  const edgeAsCode = `{
+  id: '${target}-FROM-${source}',
+  target: '${target}',
+  source: '${source}'
+},`;
 
   navigator.clipboard
     .writeText(edgeAsCode)

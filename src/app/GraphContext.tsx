@@ -1,6 +1,6 @@
 'use client';
 
-import { NODES } from '@/data/nodes';
+import { DATA } from '@/data/DATA';
 import { LABEL_COLORS, UiNode } from '@/lib/types';
 import { createContext, ReactNode, useContext, useState } from 'react';
 
@@ -43,7 +43,7 @@ export const useGraphContext = () => {
 };
 
 const getEnrichedNodes = (): UiNode[] =>
-  NODES.map((node) => ({
+  DATA.nodes.map((node) => ({
     ...node,
     className: `border-${LABEL_COLORS[node.data.nodeLabel]} !rounded-lg`,
     type: 'custom',
