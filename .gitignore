@@ -40,9 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Husky
-/.husky/_/
-
 # Linting & Prettier Cache
 .eslintcache
 .prettier-cache/
