@@ -1,60 +1,35 @@
 'use client';
 
-import { useGraphContext } from '@/app/GraphContext';
-import { EDGES } from '@/data/edges';
+import { getLayoutedElements } from '@/lib/dagrejs';
+import { UiNode } from '@/lib/types';
 import {
-  copyEdgeToClipboard,
-  copyNodeToClipboard,
-  createEdgeFromIds,
-  createNode,
-} from '@/lib/data';
-import { toastSuccess } from '@/lib/toast';
-import { NODE_TYPES, UiNode } from '@/lib/types';
-import {
-  applyEdgeChanges,
-  applyNodeChanges,
   Background,
   BackgroundVariant,
-  Connection,
   Controls,
   Edge,
-  EdgeChange,
   MiniMap,
-  NodeChange,
-  Panel,
   ReactFlow,
-  useReactFlow,
 } from '@xyflow/react';
-import React, { useCallback, useState } from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Legend } from './Legend';
+import { LoadingSpinner } from './LoadingSpinner';
 import NodeDetails from './NodeDetails';
 
 const TechTree: React.FC = () => {
-  const [edges, setEdges] = useState<Edge[]>([...EDGES]);
-  const { nodes, setNodes, selectedNode, setSelectedNode, isEditable } =
-    useGraphContext();
+  const [isLoading, setIsLoading] = useState(true);
+  const [nodes, setNodes] = useState<UiNode[]>([]);
+  const [edges, setEdges] = useState<Edge[]>([]);
+  const [selectedNode, setSelectedNode] = useState<UiNode | undefined>(
+    undefined,
+  );
 
-  const { screenToFlowPosition } = useReactFlow();
-  /**
-   * NODES
-   */
+  useEffect(() => {
+    const { layoutedNodes, layoutedEdges } = getLayoutedElements('LR');
+    setNodes(() => layoutedNodes);
+    setEdges(() => layoutedEdges);
+    setIsLoading(false);
+  }, []);
 
-  const addNode = useCallback(async () => {
-    const centeredPosition = screenToFlowPosition({
-      x: window.innerWidth / 2.5,
-      y: window.innerHeight / 2,
-    });
-
-    const createdNode = createNode(centeredPosition);
-
-    setNodes((prevNodes) => [...prevNodes, { ...createdNode }]);
-    setSelectedNode({ ...createdNode });
-    toastSuccess('Node created!');
-  }, [screenToFlowPosition, setNodes, setSelectedNode]);
-
-  // Select node
   const onNodeClick = useCallback(
     (_: React.MouseEvent, newSelectedNode: UiNode) => {
       if (!selectedNode || selectedNode.id != newSelectedNode.id) {
@@ -64,65 +39,7 @@ const TechTree: React.FC = () => {
     [selectedNode, setSelectedNode],
   );
 
-  const onNodeDragStop = useCallback(
-    (_: React.MouseEvent, draggedNode: UiNode) => {
-      // Update selected node
-      if (draggedNode.id === selectedNode?.id) {
-        setSelectedNode((prevNode) => ({
-          ...prevNode!,
-          position: draggedNode.position,
-        }));
-      }
-
-      // Update all nodes
-      setNodes((prevNodes) => [
-        ...prevNodes.map((n) =>
-          n.id === draggedNode.id ? { ...draggedNode } : n,
-        ),
-      ]);
-
-      copyNodeToClipboard(draggedNode);
-    },
-    [setNodes, setSelectedNode, selectedNode?.id],
-  );
-
-  /**
-   * EDGES
-   */
-  const onEdgeClick = useCallback(
-    (_: React.MouseEvent, edge: Edge) =>
-      copyEdgeToClipboard(edge.source, edge.target),
-    [],
-  );
-
-  // Add edge
-  const onConnect = useCallback((connection: Connection) => {
-    console.log(connection);
-    const newEdge = createEdgeFromIds(connection.target, connection.source);
-    setEdges((prevEdges) => [...prevEdges, { ...newEdge }]);
-    copyEdgeToClipboard(connection.source, connection.target);
-    toastSuccess('Edge copied to clipboard!');
-  }, []);
-
-  const onNodesChange = useCallback(
-    (changes: NodeChange[]) => {
-      if (isEditable && changes[0].type != 'remove') {
-        setNodes(
-          (prevNodes) => applyNodeChanges(changes, prevNodes) as UiNode[],
-        );
-      }
-    },
-    [setNodes, isEditable],
-  );
-
-  const onEdgesChange = useCallback(
-    (changes: EdgeChange[]) => {
-      if (isEditable && changes[0].type != 'remove') {
-        setEdges((prevEdges) => applyEdgeChanges(changes, prevEdges) as Edge[]);
-      }
-    },
-    [setEdges, isEditable],
-  );
+  if (isLoading) return <LoadingSpinner />;
 
   return (
     <div className="w-full h-screen bg-gray-100 flex">
@@ -130,42 +47,28 @@ const TechTree: React.FC = () => {
         <ReactFlow
           nodes={nodes}
           edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onConnect={isEditable ? onConnect : undefined}
+          onNodesChange={undefined}
+          onEdgesChange={undefined}
+          onConnect={undefined}
           onNodeClick={onNodeClick}
-          onEdgeClick={isEditable ? onEdgeClick : undefined}
-          onNodeDragStop={isEditable ? onNodeDragStop : undefined}
+          onEdgeClick={undefined}
+          onNodeDragStop={undefined}
+          draggable={false}
+          nodesConnectable={false}
           colorMode={'light'}
           fitView
           fitViewOptions={{ padding: 0.1 }}
-          nodeTypes={NODE_TYPES}
-          nodesDraggable={isEditable}
-          nodesConnectable={isEditable}
           minZoom={0.3}
         >
           <Background bgColor="white" variant={BackgroundVariant.Dots} />
           <MiniMap />
           <Controls showInteractive={false} />
-          <Panel position="top-right">
-            <div className="flex space-x-10">
-              {isEditable && (
-                <button
-                  className="p-2 bg-blue-500 text-white rounded h-10"
-                  onClick={addNode}
-                >
-                  Add node
-                </button>
-              )}
-            </div>
-          </Panel>
         </ReactFlow>
         <Legend />
       </div>
       {
         <div className="w-1/4 p-4 bg-white shadow-lg">
-          <NodeDetails />
-          <ToastContainer />
+          <NodeDetails selectedNode={selectedNode} />
         </div>
       }
     </div>

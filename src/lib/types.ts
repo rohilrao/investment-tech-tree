@@ -1,5 +1,4 @@
-import CustomNode from '@/components/CustomNode';
-import { NodeTypes, Node as ReactFlowNode } from '@xyflow/react';
+import { Edge, Node } from '@xyflow/react';
 
 export interface NodeProperties {
   label: string;
@@ -7,18 +6,25 @@ export interface NodeProperties {
   description: string;
 }
 
-export type UiNode = ReactFlowNode<Record<string, unknown> & NodeProperties>;
+export type UiNode = Node<Record<string, unknown> & NodeProperties>;
 
-export const NODE_LABELS = ["New", "Technology", "Target"] as const;
+export type DataNode = Pick<UiNode, 'id' | 'data'>;
 
-export type NodeLabel = typeof NODE_LABELS[number];
+export interface NodesAndEdges {
+  nodes: DataNode[];
+  edges: Edge[];
+}
+
+export const NODE_LABELS = ['Technology', 'Target'] as const;
+
+export type NodeLabel = (typeof NODE_LABELS)[number];
 
 export const LABEL_COLORS: Record<NodeLabel, string> = {
-  ['New']: 'red-500',
   ['Technology']: 'blue-500',
   ['Target']: 'green-500',
 };
 
-export const NODE_TYPES: NodeTypes = {
-  custom: CustomNode,
+export const LABEL_COLORS_VARIABLES: Record<NodeLabel, string> = {
+  ['Technology']: 'oklch(62.3% 0.214 259.815)',
+  ['Target']: 'oklch(72.3% 0.219 149.579)',
 };
