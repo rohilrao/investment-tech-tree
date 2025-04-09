@@ -10,16 +10,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@huggingface/inference": "^3.3.0",
+    "@dagrejs/dagre": "^1.1.4",
     "@xyflow/react": "^12.4.2",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "framer-motion": "^12.4.1",
     "lucide-react": "^0.475.0",
     "next": "^15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-toastify": "^11.0.3"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -31,7 +29,6 @@
     "eslint-config-next": "^15.1.7",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
-    "husky": "^8.0.0",
     "lint-staged": "^15.4.3",
     "postcss": "^8",
     "prettier": "^3.4.2",
