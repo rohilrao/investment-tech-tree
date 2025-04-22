@@ -133,7 +133,7 @@ export const DATA: NodesAndEdges = {
       id: 'create-environments-human-agent',
       data: {
         label:
-          'Create environments to test human-to-agent coordination scenarios for evaluation',
+          'Create environments for testing human-to-agent coordination scenarios for evaluation',
         description: '',
         nodeLabel: 'Target',
       },
