@@ -138,15 +138,6 @@ export const DATA: NodesAndEdges = {
         nodeLabel: 'Target',
       },
     },
-    {
-      id: 'create-environments-agent-agent',
-      data: {
-        label:
-          'Create environments to test agent-to-agent coordination scenarios for evaluation',
-        description: '',
-        nodeLabel: 'Target',
-      },
-    },
   ],
   edges: [
     {
