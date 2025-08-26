@@ -9,7 +9,6 @@ import {
   Edge,
   MarkerType,
   MiniMap,
-  Position,
   ReactFlow,
   useReactFlow,
 } from '@xyflow/react';

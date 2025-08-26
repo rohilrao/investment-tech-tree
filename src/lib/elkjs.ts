@@ -1,6 +1,6 @@
 import { DATA } from '@/DATA';
 import { LABEL_COLORS_VARIABLES, UiNode } from '@/lib/types';
-import { Edge, MarkerType, Position } from '@xyflow/react';
+import { Edge, MarkerType } from '@xyflow/react';
 import ELK from 'elkjs/lib/elk.bundled.js';
 
 const elk = new ELK();
