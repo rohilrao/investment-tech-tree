@@ -17,7 +17,7 @@ export class GeminiChatClient {
       throw new Error('Message is required');
     }
 
-    const model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-pro-latest' });
 
     // Build context string from nodes and edges
     const nodesContext = context.nodes
