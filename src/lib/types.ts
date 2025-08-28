@@ -4,6 +4,7 @@ export interface NodeProperties {
   label: string;
   nodeLabel: NodeLabel;
   description: string;
+  detailedDescription?: string; // Detailed description for AI context
 }
 
 export type UiNode = Node<Record<string, unknown> & NodeProperties>;
@@ -48,6 +49,7 @@ export interface InvestTechTreeNode {
   subtype?: string;
   trl_current?: string;
   trl_projected_5_10_years?: string;
+  detailedDescription?: string;
 }
 
 export interface InvestTechTreeEdge {
@@ -60,4 +62,17 @@ export interface InvestTechTreeEdge {
 export interface InvestTechTreeGraph {
   nodes: InvestTechTreeNode[];
   edges: InvestTechTreeEdge[];
+}
+
+// Chat-related types
+export interface ChatMessage {
+  id: string;
+  type: 'user' | 'assistant';
+  content: string;
+  timestamp: number;
+}
+
+export interface ChatHistory {
+  messages: ChatMessage[];
+  lastUpdated: number;
 }

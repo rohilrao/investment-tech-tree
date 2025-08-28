@@ -8,14 +8,13 @@ import {
   Controls,
   Edge,
   MarkerType,
-  MiniMap,
   ReactFlow,
   useReactFlow,
 } from '@xyflow/react';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Legend } from './Legend';
 import { LoadingSpinner } from './LoadingSpinner';
-import NodeDetails from './NodeDetails';
+import TabPanel from './TabPanel';
 
 const TechTree: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -69,7 +68,7 @@ const TechTree: React.FC = () => {
     };
 
     loadLayout();
-  }, []);
+  }, [fitView]);
 
   // Update node and edge styles based on highlighted elements
   useEffect(() => {
@@ -127,7 +126,7 @@ const TechTree: React.FC = () => {
 
   return (
     <div className="w-full h-screen bg-gray-100 flex">
-      <div className="w-3/4 relative">
+      <div className="w-2/4 relative">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -145,16 +144,14 @@ const TechTree: React.FC = () => {
           minZoom={0.3}
         >
           <Background bgColor="white" variant={BackgroundVariant.Dots} />
-          <MiniMap />
+          {/* <MiniMap /> */}
           <Controls showInteractive={false} />
         </ReactFlow>
         <Legend />
       </div>
-      {
-        <div className="w-1/4 p-4 bg-white shadow-lg">
-          <NodeDetails selectedNode={selectedNode} />
-        </div>
-      }
+      <div className="w-2/4 bg-white shadow-lg">
+        <TabPanel selectedNode={selectedNode} />
+      </div>
     </div>
   );
 };
