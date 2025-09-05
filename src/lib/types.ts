@@ -5,6 +5,11 @@ export interface NodeProperties {
   nodeLabel: NodeLabel;
   description: string;
   detailedDescription?: string; // Detailed description for AI context
+  references?: string[];
+  // Group-related properties
+  isGroup?: boolean;
+  isExpanded?: boolean;
+  childNodeIds?: string[];
 }
 
 export type UiNode = Node<Record<string, unknown> & NodeProperties>;
@@ -49,7 +54,9 @@ export interface InvestTechTreeNode {
   subtype?: string;
   trl_current?: string;
   trl_projected_5_10_years?: string;
+  references: string[];
   detailedDescription?: string;
+  subTypeOf?: string;
 }
 
 export interface InvestTechTreeEdge {
@@ -75,4 +82,20 @@ export interface ChatMessage {
 export interface ChatHistory {
   messages: ChatMessage[];
   lastUpdated: number;
+}
+
+// Grouping-related types
+export type GroupingMode = NodeLabel | 'None';
+
+export interface GroupNode {
+  id: string;
+  type: 'group';
+  groupType: NodeLabel;
+  isExpanded: boolean;
+  childNodeIds: string[];
+}
+
+export interface GroupState {
+  mode: GroupingMode;
+  expandedGroups: Set<string>;
 }

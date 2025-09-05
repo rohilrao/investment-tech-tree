@@ -513,6 +513,214 @@ const tech_tree: InvestTechTreeGraph = {
         'https://www.igi.cnr.it/en/research/magnetic-confinement-research-in-padova/dtt/',
       ],
     },
+
+    /* ADDED NODES */
+
+    {
+      id: 'magnetized_target_fusion',
+      label: 'Magnetized Target Fusion',
+      type: 'ReactorConcept',
+      category: 'Fusion',
+
+      trl_current: '3-4',
+      trl_projected_5_10_years: '5',
+      references: [
+        'https://www.generalfusion.com/technology/',
+        'https://aip.scitation.org/doi/10.1063/1.873601',
+        'https://en.wikipedia.org/wiki/Magnetized_target_fusion',
+      ],
+    },
+    {
+      id: 'laser_driven_fusion',
+      label: 'Laser-Driven Fusion',
+      type: 'ReactorConcept',
+      category: 'Fusion',
+
+      trl_current: '2-3',
+      trl_projected_5_10_years: '4',
+      references: [
+        'https://lasers.llnl.gov/science/how-nif-works',
+        'https://www.iaea.org/bulletin/burning-plasma',
+      ],
+      subTypeOf: 'concept_icf',
+    },
+    {
+      id: 'compact_fusion_reactors',
+      label: 'Compact Fusion Reactors',
+      type: 'ReactorConcept',
+      category: 'Fusion',
+
+      trl_current: '2-4',
+      trl_projected_5_10_years: '5-6',
+      references: [
+        'https://www.type-one.energy/technology/',
+        'https://tokamakenergy.com/',
+      ],
+      subTypeOf: 'concept_hts_tokamak',
+    },
+    {
+      id: 'thorium_molten_salt_reactor',
+      label: 'Thorium Molten Salt Reactor',
+      type: 'ReactorConcept',
+      category: 'Fission',
+
+      trl_current: '3-4',
+      trl_projected_5_10_years: '5',
+      references: [
+        'https://www.thorconenergy.com/technology/',
+        'https://en.wikipedia.org/wiki/Thorium-based_nuclear_power',
+      ],
+      subTypeOf: 'concept_msr',
+    },
+    {
+      id: 'dual_fluid_reactor',
+      label: 'Dual Fluid Reactor',
+      type: 'ReactorConcept',
+      category: 'Fission',
+
+      trl_current: '2-3',
+      trl_projected_5_10_years: '4-5',
+      references: [
+        'https://dual-fluid-reaktor.de/technology/',
+        'https://en.wikipedia.org/wiki/Dual_fluid_reactor',
+      ],
+    },
+    {
+      id: 'pebble_bed_reactor',
+      label: 'Pebble-Bed Reactor',
+      type: 'ReactorConcept',
+      category: 'Fission',
+
+      trl_current: '6-7',
+      trl_projected_5_10_years: '8',
+      references: [
+        'https://www.iaea.org/topics/high-temperature-gas-cooled-reactors-htgrs',
+        'https://en.wikipedia.org/wiki/Pebble-bed_reactor',
+      ],
+      subTypeOf: 'concept_htgr',
+    },
+    {
+      id: 'gas_cooled_fast_reactor',
+      label: 'Gas-Cooled Fast Reactor',
+      type: 'ReactorConcept',
+      category: 'Fission',
+
+      trl_current: '2-3',
+      trl_projected_5_10_years: '5',
+      references: [
+        'https://www.gen-4.org/gif/jcms/c_42151/gas-cooled-fast-reactor-gfr',
+        'https://en.wikipedia.org/wiki/Gas-cooled_fast_reactor',
+      ],
+    },
+    {
+      id: 'supercritical_water_reactor',
+      label: 'Supercritical Water Reactor',
+      type: 'ReactorConcept',
+      category: 'Fission',
+
+      trl_current: '3-4',
+      trl_projected_5_10_years: '5-6',
+      references: [
+        'https://www.gen-4.org/gif/jcms/c_42155/supercritical-water-cooled-reactor-scwr',
+        'https://en.wikipedia.org/wiki/Supercritical_water_reactor',
+      ],
+    },
+    {
+      id: 'molten_chloride_fast_reactor',
+      label: 'Molten Chloride Fast Reactor',
+      type: 'ReactorConcept',
+      category: 'Fission',
+
+      trl_current: '3-4',
+      trl_projected_5_10_years: '5-6',
+      references: [
+        'https://www.southerncompany.com/innovation/molten-chloride-fast-reactor.html',
+        'https://en.wikipedia.org/wiki/Molten_chloride_fast_reactor',
+      ],
+      subTypeOf: 'concept_msr',
+    },
+    {
+      id: 'fusion_fission_hybrid',
+      label: 'Fusion-Fission Hybrid',
+      type: 'ReactorConcept',
+      category: 'Fusion',
+
+      trl_current: '2-3',
+      trl_projected_5_10_years: '4',
+      references: [
+        'https://en.wikipedia.org/wiki/Fusion-fission_hybrid',
+        'https://www.iaea.org/topics/fusion-fission-hybrid-systems',
+      ],
+    },
+    {
+      id: 'tokamak_pilot_plants',
+      label: 'Tokamak Pilot Plants',
+      type: 'Milestone',
+      category: 'Fusion',
+      subtype: 'PrototypeConstruction',
+      trl_current: '5-6',
+      trl_projected_5_10_years: '7',
+      references: [
+        'https://www.iter.org/',
+        'https://cfs.energy/technology/sparc/',
+      ],
+      subTypeOf: 'concept_lts_tokamak',
+    },
+    {
+      id: 'microreactors',
+      label: 'Microreactors',
+      type: 'ReactorConcept',
+      category: 'Fission',
+
+      trl_current: '6-7',
+      trl_projected_5_10_years: '8-9',
+      references: [
+        'https://world-nuclear.org/information-library/current-and-future-generation/microreactors',
+        'https://www.energy.gov/ne/articles/microreactors',
+      ],
+      subTypeOf: 'concept_lwr_smr',
+    },
+    {
+      id: 'traveling_mirror_fusion',
+      label: 'Traveling Mirror Fusion',
+      type: 'ReactorConcept',
+      category: 'Fusion',
+
+      trl_current: '2-3',
+      trl_projected_5_10_years: '4',
+      references: [
+        'https://www.researchgate.net/publication/261960197_The_traveling_wave_mirror_as_a_new_way_for_laser-driven_inertial_fusion',
+        'https://en.wikipedia.org/wiki/Inertial_confinement_fusion',
+      ],
+      subTypeOf: 'concept_icf',
+    },
+    {
+      id: 'helion_dd_direct',
+      label: 'Helion Fusion (DD Direct)',
+      type: 'ReactorConcept',
+      category: 'Fusion',
+
+      trl_current: '3-4',
+      trl_projected_5_10_years: '5',
+      references: [
+        'https://www.helionenergy.com/',
+        'https://en.wikipedia.org/wiki/Field-reversed_configuration',
+      ],
+      subTypeOf: 'concept_frc',
+    },
+    {
+      id: 'proton_boron_fusion',
+      label: 'Proton-Boron Fusion (p-11B)',
+      type: 'EnablingTechnology',
+      category: 'Fusion',
+
+      trl_current: '2-3',
+      trl_projected_5_10_years: '4',
+      references: [
+        'https://aip.scitation.org/doi/10.1063/1.5000791',
+        'https://en.wikipedia.org/wiki/Aneutronic_fusion',
+      ],
+    },
   ],
   edges: [
     {
@@ -742,6 +950,144 @@ const tech_tree: InvestTechTreeGraph = {
         'concept_lfr',
         'concept_twr',
       ],
+    },
+
+    /* NEW EDGES */
+    {
+      id: 'dep_laser_to_icf',
+      source: 'laser_driven_fusion',
+      target: 'concept_icf',
+    },
+    {
+      id: 'dep_compact_to_hts_tokamak',
+      source: 'compact_fusion_reactors',
+      target: 'concept_hts_tokamak',
+    },
+    {
+      id: 'dep_tmsr_to_msr',
+      source: 'thorium_molten_salt_reactor',
+      target: 'concept_msr',
+    },
+    {
+      id: 'dep_pbr_to_htgr',
+      source: 'pebble_bed_reactor',
+      target: 'concept_htgr',
+    },
+    {
+      id: 'dep_mcfr_to_msr',
+      source: 'molten_chloride_fast_reactor',
+      target: 'concept_msr',
+    },
+    {
+      id: 'dep_tokamak_pilot_to_lts',
+      source: 'tokamak_pilot_plants',
+      target: 'concept_lts_tokamak',
+    },
+    {
+      id: 'dep_microreactors_to_smr',
+      source: 'microreactors',
+      target: 'concept_lwr_smr',
+    },
+    {
+      id: 'dep_traveling_mirror_to_icf',
+      source: 'traveling_mirror_fusion',
+      target: 'concept_icf',
+    },
+    {
+      id: 'dep_helion_to_frc',
+      source: 'helion_dd_direct',
+      target: 'concept_frc',
+    },
+    {
+      id: 'dep_pboron_to_fusion',
+      source: 'proton_boron_fusion',
+      targets: [
+        'concept_lts_tokamak',
+        'concept_hts_tokamak',
+        'concept_stellarator',
+        'concept_frc',
+        'concept_icf',
+        'concept_z_pinch',
+      ],
+    },
+    {
+      id: 'dep_icf_to_mtf',
+      source: 'concept_icf',
+      target: 'magnetized_target_fusion',
+    },
+    {
+      id: 'dep_lts_tokamak_to_mtf',
+      source: 'concept_lts_tokamak',
+      target: 'magnetized_target_fusion',
+    },
+    {
+      id: 'dep_hts_tokamak_to_mtf',
+      source: 'concept_hts_tokamak',
+      target: 'magnetized_target_fusion',
+    },
+
+    {
+      id: 'dep_msr_to_dfr',
+      source: 'concept_msr',
+      target: 'dual_fluid_reactor',
+    },
+    {
+      id: 'dep_sfr_to_dfr',
+      source: 'concept_sfr',
+      target: 'dual_fluid_reactor',
+    },
+    {
+      id: 'dep_lfr_to_dfr',
+      source: 'concept_lfr',
+      target: 'dual_fluid_reactor',
+    },
+
+    {
+      id: 'dep_htgr_to_gfr',
+      source: 'concept_htgr',
+      target: 'gas_cooled_fast_reactor',
+    },
+    {
+      id: 'dep_sfr_to_gfr',
+      source: 'concept_sfr',
+      target: 'gas_cooled_fast_reactor',
+    },
+
+    {
+      id: 'dep_lwr_smr_to_scwr',
+      source: 'concept_lwr_smr',
+      target: 'supercritical_water_reactor',
+    },
+
+    {
+      id: 'dep_lts_tokamak_to_hybrid',
+      source: 'concept_lts_tokamak',
+      target: 'fusion_fission_hybrid',
+    },
+    {
+      id: 'dep_hts_tokamak_to_hybrid',
+      source: 'concept_hts_tokamak',
+      target: 'fusion_fission_hybrid',
+    },
+    {
+      id: 'dep_icf_to_hybrid',
+      source: 'concept_icf',
+      target: 'fusion_fission_hybrid',
+    },
+    {
+      id: 'dep_msr_to_hybrid',
+      source: 'concept_msr',
+      target: 'fusion_fission_hybrid',
+    },
+    {
+      id: 'dep_sfr_to_hybrid',
+      source: 'concept_sfr',
+      target: 'fusion_fission_hybrid',
+    },
+    {
+      id: 'dep_lfr_to_hybrid',
+      source: 'concept_lfr',
+      target: 'fusion_fission_hybrid',
     },
   ],
 };
