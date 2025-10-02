@@ -17,8 +17,10 @@ import { LoadingSpinner } from './LoadingSpinner';
 import { GroupSelector } from './GroupSelector';
 import { CustomNode } from './CustomNode';
 import TabPanel from './TabPanel';
+import { useTechTree } from '@/hooks/useTechTree';
 
 const TechTree: React.FC = () => {
+  const { techTree, isLoading: isLoadingData, error } = useTechTree();
   const [isLoading, setIsLoading] = useState(true);
   const [nodes, setNodes] = useState<UiNode[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
@@ -30,7 +32,6 @@ const TechTree: React.FC = () => {
       nodeIds: new Set(),
       edgeIds: new Set(),
     });
-  // Grouping state
   const [groupingMode, setGroupingMode] = useState<GroupingMode>('Milestone');
   const [showingRelatedNodes, setShowingRelatedNodes] = useState<string | null>(
     null,
@@ -40,20 +41,35 @@ const TechTree: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const { fitView } = useReactFlow();
 
+  // Show error state
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-100">
+        <div className="text-center p-8 bg-white rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold text-red-600 mb-4">Error Loading Data</h2>
+          <p className="text-gray-600">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   // Function to find connected nodes and edges
   const findConnectedElements = useCallback(
     (nodeId: string, allEdges: Edge[]) => {
       const connectedNodeIds = new Set<string>();
       const connectedEdgeIds = new Set<string>();
 
-      // Add the selected node itself
       connectedNodeIds.add(nodeId);
 
-      // Find all edges connected to this node
       allEdges.forEach((edge) => {
         if (edge.source === nodeId || edge.target === nodeId) {
           connectedEdgeIds.add(edge.id);
-          // Add connected nodes
           if (edge.source === nodeId) {
             connectedNodeIds.add(edge.target);
           }
@@ -73,6 +89,8 @@ const TechTree: React.FC = () => {
   }, [searchInput, searchTerm]);
 
   useEffect(() => {
+    if (!techTree) return;
+
     const loadLayout = async () => {
       setIsLoading(true);
       const { layoutedNodes, layoutedEdges } = await getLayoutedElements(
@@ -80,6 +98,7 @@ const TechTree: React.FC = () => {
         showingRelatedNodes,
         showOnlyConnected,
         searchTerm,
+        techTree, // Pass techTree data
       );
       setNodes(() => layoutedNodes);
       setEdges(() => layoutedEdges);
@@ -94,6 +113,7 @@ const TechTree: React.FC = () => {
     showingRelatedNodes,
     showOnlyConnected,
     searchTerm,
+    techTree,
   ]);
 
   // Update node and edge styles based on highlighted elements
@@ -136,7 +156,6 @@ const TechTree: React.FC = () => {
     );
   }, [highlightedElements]);
 
-  // Handle showing node details
   const handleShowDetails = useCallback(
     (nodeId: string) => {
       const node = nodes.find((n) => n.id === nodeId);
@@ -149,34 +168,29 @@ const TechTree: React.FC = () => {
     [nodes, edges, findConnectedElements],
   );
 
-  // Handle showing connected nodes only
   const handleShowConnected = useCallback(
     (nodeId: string) => {
       const node = nodes.find((n) => n.id === nodeId);
       if (node) {
         setSelectedNode(() => ({ ...node }));
         setShowingRelatedNodes(nodeId);
-        setShowOnlyConnected(true); // Show only connected nodes
-        // Clear search when showing connected nodes to avoid conflicts
+        setShowOnlyConnected(true);
         setSearchInput('');
         setSearchTerm('');
-        // Find and set highlighted elements
-        setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() }); // Clear highlights
+        setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() });
       }
     },
     [nodes],
   );
 
-  // Handle grouping mode changes
   const handleGroupingModeChange = useCallback((mode: GroupingMode) => {
     setGroupingMode(mode);
-    setSelectedNode(undefined); // Clear selection
-    setShowingRelatedNodes(null); // Clear related nodes
-    setShowOnlyConnected(false); // Show all nodes
-    setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() }); // Clear highlights
+    setSelectedNode(undefined);
+    setShowingRelatedNodes(null);
+    setShowOnlyConnected(false);
+    setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() });
   }, []);
 
-  // Handle reset to show all nodes
   const handleReset = useCallback(() => {
     setSelectedNode(undefined);
     setShowingRelatedNodes(null);
@@ -186,10 +200,8 @@ const TechTree: React.FC = () => {
     setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() });
   }, []);
 
-  // Handle search input changes
   const handleSearchChange = useCallback((value: string) => {
     setSearchInput(value);
-    // Clear selection when searching
     setSelectedNode(undefined);
     setShowingRelatedNodes(null);
     setShowOnlyConnected(false);
@@ -208,7 +220,7 @@ const TechTree: React.FC = () => {
           searchInput={searchInput}
           onSearchChange={handleSearchChange}
         />
-        {isLoading ? (
+        {isLoadingData || isLoading ? (
           <div className="flex items-center justify-center h-full">
             <LoadingSpinner />
           </div>
@@ -239,7 +251,6 @@ const TechTree: React.FC = () => {
               minZoom={0.3}
             >
               <Background bgColor="white" variant={BackgroundVariant.Dots} />
-              {/* <MiniMap /> */}
               <Controls showInteractive={false} />
             </ReactFlow>
             <Legend />
@@ -247,7 +258,7 @@ const TechTree: React.FC = () => {
         )}
       </div>
       <div className="w-2/4 bg-white shadow-lg">
-        <TabPanel selectedNode={selectedNode} />
+        <TabPanel selectedNode={selectedNode} techTree={techTree} />
       </div>
     </div>
   );

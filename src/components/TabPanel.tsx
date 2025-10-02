@@ -5,21 +5,20 @@ import { MessageSquare, Info, BarChart3 } from 'lucide-react';
 import NodeDetails from './NodeDetails';
 import Chat from './Chat';
 import Simulations from './Simulations';
-import { UiNode } from '@/lib/types';
+import { UiNode, TechTree } from '@/lib/types';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { DATA } from '@/DATA';
 
 interface TabPanelProps {
   selectedNode?: UiNode;
+  techTree: TechTree | null;
 }
 
 type TabType = 'details' | 'chat' | 'simulations';
 
-const TabPanel = ({ selectedNode }: TabPanelProps) => {
+const TabPanel = ({ selectedNode, techTree }: TabPanelProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('chat');
   const previousNodeIdRef = useRef<string | undefined>(undefined);
 
-  // Switch to details tab when a new node is selected while chat is active
   useEffect(() => {
     if (
       selectedNode &&
@@ -62,7 +61,13 @@ const TabPanel = ({ selectedNode }: TabPanelProps) => {
         </TabsContent>
 
         <TabsContent value="simulations" className="flex-1 overflow-y-auto mt-0">
-          <Simulations techTree={DATA} />
+          {techTree ? (
+            <Simulations techTree={techTree} />
+          ) : (
+            <div className="flex items-center justify-center h-full">
+              <p className="text-gray-500">Loading simulation data...</p>
+            </div>
+          )}
         </TabsContent>
       </Tabs>
     </div>

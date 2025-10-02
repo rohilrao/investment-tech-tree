@@ -1,9 +1,9 @@
-import { DATA } from '@/DATA';
 import {
   LABEL_COLORS_VARIABLES,
   NodeLabel,
   UiNode,
   GroupingMode,
+  TechTree,
 } from '@/lib/types';
 import { Edge, MarkerType, Position } from '@xyflow/react';
 import ELK from 'elkjs/lib/elk.bundled.js';
@@ -18,12 +18,13 @@ export const getLayoutedElements = async (
   selectedNodeId: string | null = null,
   showOnlyConnected: boolean = false,
   searchTerm: string = '',
+  techTree: TechTree, // Add techTree parameter
 ): Promise<{
   layoutedNodes: UiNode[];
   layoutedEdges: Edge[];
 }> => {
-  // Common step: Convert DATA nodes to UiNodes
-  const allUiNodes = DATA.nodes.map((node) => ({
+  // Convert techTree nodes to UiNodes
+  const allUiNodes = techTree.nodes.map((node) => ({
     ...node,
     data: {
       ...node.data,
@@ -32,7 +33,7 @@ export const getLayoutedElements = async (
 
   // Route to appropriate layout method
   if (groupingMode === 'None') {
-    return getUnGroupedLayout(selectedNodeId, searchTerm, allUiNodes);
+    return getUnGroupedLayout(selectedNodeId, searchTerm, allUiNodes, techTree.edges);
   }
 
   if (selectedNodeId) {
@@ -42,37 +43,33 @@ export const getLayoutedElements = async (
       showOnlyConnected,
       searchTerm,
       allUiNodes,
+      techTree.edges,
     );
   }
 
-  return await getGroupedLayout(groupingMode, searchTerm, allUiNodes);
+  return await getGroupedLayout(groupingMode, searchTerm, allUiNodes, techTree.edges);
 };
 
+// Update all helper functions to accept edges parameter
 const getUnGroupedLayout = async (
   showingRelatedNodes: string | null = null,
   searchTerm: string = '',
   allUiNodes: UiNode[],
+  dataEdges: Edge[],
 ) => {
-  // Apply search filter first
   let visibleNodes = filterNodesBySearch(allUiNodes, searchTerm);
-
-  // Filter edges to only include edges between visible nodes
   const visibleNodeIds = new Set(visibleNodes.map((node) => node.id));
-  let visibleEdges = filterEdgesByVisibleNodes(DATA.edges, visibleNodeIds);
+  let visibleEdges = filterEdgesByVisibleNodes(dataEdges, visibleNodeIds);
 
-  // If showing related nodes, filter to connected nodes only
   if (showingRelatedNodes) {
     const { connectedNodeIds, connectedEdgeIds } = findConnectedNodesAndEdges(
       showingRelatedNodes,
       visibleEdges,
     );
-
-    // Filter to show only connected nodes
     visibleNodes = allUiNodes.filter((node) => connectedNodeIds.has(node.id));
     visibleEdges = visibleEdges.filter((edge) => connectedEdgeIds.has(edge.id));
   }
 
-  // Prepare UI nodes and layout
   const preparedNodes = prepareUiNodes(visibleNodes);
   return await layoutGraph(
     preparedNodes,
@@ -81,20 +78,22 @@ const getUnGroupedLayout = async (
   );
 };
 
+// Continue updating other helper functions similarly...
+// (I'll include the key ones below)
+
 const getRelatedNodesLayoutWithGrouping = async (
   selectedNodeId: string,
   groupingMode: GroupingMode,
   showOnlyConnected: boolean = false,
   searchTerm: string = '',
   allUiNodes: UiNode[],
+  dataEdges: Edge[],
 ) => {
-  // Use shared function to find connected nodes and edges
   const { connectedNodeIds, connectedEdgeIds } = findConnectedNodesAndEdges(
     selectedNodeId,
-    DATA.edges,
+    dataEdges,
   );
 
-  // Also include all other nodes of the same grouping category (only if not showing only connected)
   if (!showOnlyConnected) {
     const nodesOfGroupingType = allUiNodes.filter(
       (node) => node.data.nodeLabel === groupingMode,
@@ -104,27 +103,23 @@ const getRelatedNodesLayoutWithGrouping = async (
     });
   }
 
-  // Filter to show connected nodes and nodes of the same category
   const connectedNodes = allUiNodes.filter((node) =>
     connectedNodeIds.has(node.id),
   );
 
-  // Apply search filter and prepare UI nodes
   const filteredConnectedNodes = filterNodesBySearch(
     connectedNodes,
     searchTerm,
   );
   const visibleNodes = prepareUiNodes(filteredConnectedNodes);
 
-  // Filter edges based on visibility rules
   const visibleNodeIds = new Set(visibleNodes.map((n) => n.id));
-  const visibleEdges = DATA.edges.filter((edge) => {
+  const visibleEdges = dataEdges.filter((edge) => {
     const sourceVisible = visibleNodeIds.has(edge.source);
     const targetVisible = visibleNodeIds.has(edge.target);
     const isConnectedToSelected = connectedEdgeIds.has(edge.id);
     const isBetweenSameCategory = sourceVisible && targetVisible;
 
-    // If showing only connected nodes, only show edges connected to the selected node
     if (showOnlyConnected) {
       return isConnectedToSelected;
     }
@@ -132,7 +127,6 @@ const getRelatedNodesLayoutWithGrouping = async (
     return isConnectedToSelected || isBetweenSameCategory;
   });
 
-  // Layout the visible nodes
   return await layoutGraph(visibleNodes, visibleEdges, selectedNodeId);
 };
 
@@ -140,37 +134,34 @@ const getGroupedLayout = async (
   groupingMode: string,
   searchTerm: string,
   allUiNodes: UiNode[],
+  dataEdges: Edge[],
 ) => {
-  // Filter nodes to only include the grouping type
   const nodesOfGroupingType = allUiNodes.filter(
     (node) => node.data.nodeLabel === groupingMode,
   );
 
-  // Apply search filter and prepare UI nodes
   const filteredNodes = filterNodesBySearch(nodesOfGroupingType, searchTerm);
   const visibleNodes = prepareUiNodes(filteredNodes);
 
-  // Show edges between nodes of the same type
   const visibleNodeIds = new Set(visibleNodes.map((n) => n.id));
-  const visibleEdges = filterEdgesByVisibleNodes(DATA.edges, visibleNodeIds);
+  const visibleEdges = filterEdgesByVisibleNodes(dataEdges, visibleNodeIds);
 
   return await layoutGraph(visibleNodes, visibleEdges);
 };
 
-// Helper function to filter nodes based on search term using regex
+// Keep all other helper functions unchanged
 const filterNodesBySearch = (nodes: UiNode[], searchTerm: string): UiNode[] => {
   if (!searchTerm.trim()) {
     return nodes;
   }
 
   try {
-    const regex = new RegExp(searchTerm, 'i'); // Case-insensitive regex
+    const regex = new RegExp(searchTerm, 'i');
     return nodes.filter((node) => {
       const label = node.data?.label || '';
       return regex.test(label);
     });
   } catch {
-    // If regex is invalid, fall back to simple string matching
     const searchLower = searchTerm.toLowerCase();
     return nodes.filter((node) => {
       const label = node.data?.label || '';
@@ -179,7 +170,6 @@ const filterNodesBySearch = (nodes: UiNode[], searchTerm: string): UiNode[] => {
   }
 };
 
-// Common function to prepare UI nodes with consistent properties
 const prepareUiNodes = (nodes: UiNode[]): UiNode[] => {
   return nodes.map((node) => ({
     ...node,
@@ -190,7 +180,6 @@ const prepareUiNodes = (nodes: UiNode[]): UiNode[] => {
   }));
 };
 
-// Common function to filter edges based on visible nodes
 const filterEdgesByVisibleNodes = (
   edges: Edge[],
   visibleNodeIds: Set<string>,
@@ -202,7 +191,6 @@ const filterEdgesByVisibleNodes = (
   });
 };
 
-// Common function to find connected nodes and edges for a given node
 const findConnectedNodesAndEdges = (nodeId: string, edges: Edge[]) => {
   const connectedNodeIds = new Set<string>([nodeId]);
   const connectedEdgeIds = new Set<string>();
@@ -239,7 +227,6 @@ const layoutGraph = async (
 
   const layoutedGraph = await elk.layout(graph);
 
-  // Apply layout positions and styling using shared functions
   const layoutedNodes = visibleNodes.map((node) => {
     const layoutedNode = layoutedGraph.children?.find((n) => n.id === node.id);
 
@@ -262,7 +249,6 @@ const layoutGraph = async (
   };
 };
 
-// Common function to apply node styling
 const applyNodeStyling = (node: UiNode, selectedNodeId?: string): UiNode => {
   return {
     ...node,
@@ -281,7 +267,6 @@ const applyNodeStyling = (node: UiNode, selectedNodeId?: string): UiNode => {
   } as UiNode;
 };
 
-// Common function to apply edge styling
 const applyEdgeStyling = (edge: Edge): Edge => {
   return {
     ...edge,

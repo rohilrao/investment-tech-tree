@@ -1,7 +1,6 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  //output: 'export',
   basePath: '/investment-tech-tree',
   images: {
     unoptimized: true,
@@ -11,6 +10,15 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  // Ensure API routes work properly
+  async rewrites() {
+    return [
+      {
+        source: '/investment-tech-tree/api/:path*',
+        destination: '/api/:path*',
+      },
+    ];
   },
 };
 

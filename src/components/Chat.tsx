@@ -4,14 +4,15 @@ import { useState, useEffect, useRef } from 'react';
 import { Send, Loader2, Trash2 } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { ChatMessage, ChatHistory } from '@/lib/types';
-import { DATA } from '@/DATA';
 import { GeminiChatClient } from '@/lib/geminiClient';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useTechTree } from '@/hooks/useTechTree';
 
 const Chat = () => {
+  const { techTree } = useTechTree();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -184,10 +185,10 @@ const Chat = () => {
 
     try {
       const response = await geminiClient.sendMessage(
-        userMessage.content,
-        DATA,
-        messages,
-      );
+    userMessage.content,
+    techTree || { nodes: [], edges: [] }, // Use fetched data
+    messages,
+  );
 
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
