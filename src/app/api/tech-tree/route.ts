@@ -39,23 +39,11 @@ export async function GET() {
           references: node.references || [],
         },
       })),
-      edges: edges.flatMap((edge) => {
-        // Handle both single target and multiple targets
-        if (edge.targets && Array.isArray(edge.targets)) {
-          return edge.targets.map((target: string, idx: number) => ({
-            id: `${edge.id}_${idx}`,
-            source: edge.source,
-            target: target,
-          }));
-        }
-        return [
-          {
-            id: edge.id,
-            source: edge.source,
-            target: edge.target,
-          },
-        ];
-      }),
+      edges: edges.map((edge) => ({
+        id: edge.id,
+        source: edge.source,
+        target: edge.target,
+      })),
     };
 
     return NextResponse.json(techTree);
