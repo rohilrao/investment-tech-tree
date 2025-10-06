@@ -4,6 +4,15 @@ import { TechTree } from '@/lib/types';
 
 export async function GET() {
   try {
+    // Check if we're in a build environment and MongoDB URI is not available
+    if (!process.env.MONGODB_URI && process.env.NODE_ENV === 'production') {
+      console.warn('MongoDB URI not available during build, returning empty tech tree');
+      return NextResponse.json({
+        nodes: [],
+        edges: []
+      });
+    }
+
     const client = await clientPromise;
     const db = client.db('tech_tree_db');
 
