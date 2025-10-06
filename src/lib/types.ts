@@ -62,8 +62,7 @@ export interface InvestTechTreeNode {
 export interface InvestTechTreeEdge {
   id: string;
   source: string;
-  target?: string;
-  targets?: string[];
+  target: string;
 }
 
 export interface InvestTechTreeGraph {

@@ -39,21 +39,18 @@ class NuclearScheduler:
     def _build_dependency_map(self):
         deps = {node_id: [] for node_id in self.nodes}
         for edge in self.edges:
-            source_id = edge['source']
-            targets = edge.get('targets', [edge.get('target')])
-            for target_id in targets:
-                if target_id and target_id in deps:
-                    deps[target_id].append(source_id)
+            target_id = edge.get('target')
+            if target_id and target_id in deps:
+                deps[target_id].append(edge['source'])
         return deps
 
     def _build_successor_map(self):
         succ = {node_id: [] for node_id in self.nodes}
         for edge in self.edges:
             source_id = edge['source']
-            targets = edge.get('targets', [edge.get('target')])
-            for target_id in targets:
-                 if source_id and source_id in succ:
-                    succ[source_id].append(target_id)
+            target_id = edge.get('target')
+            if source_id and target_id and source_id in succ:
+                succ[source_id].append(target_id)
         return succ
 
     def _get_downstream_concepts(self, start_node_id):

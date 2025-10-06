@@ -18,7 +18,7 @@ export class GeminiChatClient {
     }
 
     const model = this.genAI.getGenerativeModel({
-      model: 'gemini-2.0-flash-lite',
+      model: 'gemini-2.0-flash',
     });
 
     // Build context string from nodes and edges
