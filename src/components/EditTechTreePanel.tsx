@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Accordion,
   AccordionContent,
@@ -10,8 +10,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Loader2 } from 'lucide-react';
 import { NODE_LABELS, NodeLabel } from '@/lib/types';
@@ -33,10 +32,12 @@ const EditTechTreePanel: React.FC = () => {
     trl_projected_5_10_years: '',
     detailedDescription: '',
     references: '',
+    edgeSource: '',
+    edgeTarget: '',
   });
 
   // Edit Node State
-  const [editNodeId, setEditNodeId] = useState('');
+  const [editNodeSelection, setEditNodeSelection] = useState('');
   const [editNode, setEditNode] = useState({
     label: '',
     type: 'Milestone' as NodeLabel,
@@ -49,14 +50,33 @@ const EditTechTreePanel: React.FC = () => {
   });
 
   // Delete Node State
-  const [deleteNodeId, setDeleteNodeId] = useState('');
+  const [deleteNodeSelection, setDeleteNodeSelection] = useState('');
 
   // Edge State
   const [newEdge, setNewEdge] = useState({
     source: '',
     target: '',
   });
-  const [deleteEdgeId, setDeleteEdgeId] = useState('');
+  const [deleteEdgeSelection, setDeleteEdgeSelection] = useState('');
+
+  // Create node options for dropdowns
+  const nodeOptions = useMemo(() => {
+    if (!techTree) return [];
+    return techTree.nodes.map(node => ({
+      id: node.id,
+      label: node.data.label,
+      displayText: `${node.data.label} (${node.id})`,
+    }));
+  }, [techTree]);
+
+  // Create edge options for dropdowns
+  const edgeOptions = useMemo(() => {
+    if (!techTree) return [];
+    return techTree.edges.map(edge => ({
+      id: edge.id,
+      displayText: `${edge.source} → ${edge.target}`,
+    }));
+  }, [techTree]);
 
   const handleAddNode = async () => {
     if (!newNode.id || !newNode.label) {
@@ -64,25 +84,67 @@ const EditTechTreePanel: React.FC = () => {
       return;
     }
 
+    if (!newNode.edgeSource && !newNode.edgeTarget) {
+      setMessage({ type: 'error', text: 'At least one edge connection is required' });
+      return;
+    }
+
     setIsLoading(true);
     setMessage(null);
 
     try {
-      const response = await fetch('/investment-tech-tree/api/nodes', {
+      // First, create the node
+      const nodeResponse = await fetch('/investment-tech-tree/api/nodes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...newNode,
+          id: newNode.id,
+          label: newNode.label,
+          type: newNode.type,
+          category: newNode.category,
+          subtype: newNode.subtype,
+          trl_current: newNode.trl_current,
+          trl_projected_5_10_years: newNode.trl_projected_5_10_years,
+          detailedDescription: newNode.detailedDescription,
           references: newNode.references.split('\n').filter(r => r.trim()),
         }),
       });
 
-      if (!response.ok) {
-        const error = await response.json();
+      if (!nodeResponse.ok) {
+        const error = await nodeResponse.json();
         throw new Error(error.error || 'Failed to add node');
       }
 
-      setMessage({ type: 'success', text: 'Node added successfully' });
+      // Then, create edges
+      if (newNode.edgeSource) {
+        const edgeResponse = await fetch('/investment-tech-tree/api/edges', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: newNode.edgeSource,
+            target: newNode.id,
+          }),
+        });
+        if (!edgeResponse.ok) {
+          throw new Error('Failed to create source edge');
+        }
+      }
+
+      if (newNode.edgeTarget) {
+        const edgeResponse = await fetch('/investment-tech-tree/api/edges', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: newNode.id,
+            target: newNode.edgeTarget,
+          }),
+        });
+        if (!edgeResponse.ok) {
+          throw new Error('Failed to create target edge');
+        }
+      }
+
+      setMessage({ type: 'success', text: 'Node and edges added successfully' });
       setNewNode({
         id: '',
         label: '',
@@ -93,9 +155,10 @@ const EditTechTreePanel: React.FC = () => {
         trl_projected_5_10_years: '',
         detailedDescription: '',
         references: '',
+        edgeSource: '',
+        edgeTarget: '',
       });
 
-      // Trigger data refresh
       window.location.reload();
     } catch (error) {
       setMessage({
@@ -109,7 +172,7 @@ const EditTechTreePanel: React.FC = () => {
 
   const handleLoadNode = () => {
     if (!techTree) return;
-    const node = techTree.nodes.find(n => n.id === editNodeId);
+    const node = techTree.nodes.find(n => n.id === editNodeSelection);
     if (!node) {
       setMessage({ type: 'error', text: 'Node not found' });
       return;
@@ -128,8 +191,8 @@ const EditTechTreePanel: React.FC = () => {
   };
 
   const handleUpdateNode = async () => {
-    if (!editNodeId) {
-      setMessage({ type: 'error', text: 'Please load a node first' });
+    if (!editNodeSelection) {
+      setMessage({ type: 'error', text: 'Please select a node first' });
       return;
     }
 
@@ -137,7 +200,7 @@ const EditTechTreePanel: React.FC = () => {
     setMessage(null);
 
     try {
-      const response = await fetch(`/investment-tech-tree/api/nodes/${editNodeId}`, {
+      const response = await fetch(`/investment-tech-tree/api/nodes/${editNodeSelection}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -164,12 +227,13 @@ const EditTechTreePanel: React.FC = () => {
   };
 
   const handleDeleteNode = async () => {
-    if (!deleteNodeId) {
-      setMessage({ type: 'error', text: 'Please enter a node ID' });
+    if (!deleteNodeSelection) {
+      setMessage({ type: 'error', text: 'Please select a node' });
       return;
     }
 
-    if (!window.confirm(`Are you sure you want to delete node ${deleteNodeId}?`)) {
+    const node = nodeOptions.find(n => n.id === deleteNodeSelection);
+    if (!window.confirm(`Are you sure you want to delete "${node?.label}"?`)) {
       return;
     }
 
@@ -177,7 +241,7 @@ const EditTechTreePanel: React.FC = () => {
     setMessage(null);
 
     try {
-      const response = await fetch(`/investment-tech-tree/api/nodes/${deleteNodeId}`, {
+      const response = await fetch(`/investment-tech-tree/api/nodes/${deleteNodeSelection}`, {
         method: 'DELETE',
       });
 
@@ -187,7 +251,7 @@ const EditTechTreePanel: React.FC = () => {
       }
 
       setMessage({ type: 'success', text: 'Node deleted successfully' });
-      setDeleteNodeId('');
+      setDeleteNodeSelection('');
       window.location.reload();
     } catch (error) {
       setMessage({
@@ -234,12 +298,12 @@ const EditTechTreePanel: React.FC = () => {
   };
 
   const handleDeleteEdge = async () => {
-    if (!deleteEdgeId) {
-      setMessage({ type: 'error', text: 'Please enter an edge ID' });
+    if (!deleteEdgeSelection) {
+      setMessage({ type: 'error', text: 'Please select an edge' });
       return;
     }
 
-    if (!window.confirm(`Are you sure you want to delete edge ${deleteEdgeId}?`)) {
+    if (!window.confirm(`Are you sure you want to delete this edge?`)) {
       return;
     }
 
@@ -247,7 +311,7 @@ const EditTechTreePanel: React.FC = () => {
     setMessage(null);
 
     try {
-      const response = await fetch(`/investment-tech-tree/api/edges/${deleteEdgeId}`, {
+      const response = await fetch(`/investment-tech-tree/api/edges/${deleteEdgeSelection}`, {
         method: 'DELETE',
       });
 
@@ -257,7 +321,7 @@ const EditTechTreePanel: React.FC = () => {
       }
 
       setMessage({ type: 'success', text: 'Edge deleted successfully' });
-      setDeleteEdgeId('');
+      setDeleteEdgeSelection('');
       window.location.reload();
     } catch (error) {
       setMessage({
@@ -350,6 +414,37 @@ const EditTechTreePanel: React.FC = () => {
                   rows={3}
                 />
               </div>
+              <div className="border-t pt-3">
+                <label className="text-sm font-medium">Required: Connect to Existing Node(s)</label>
+                <div className="space-y-2 mt-2">
+                  <div>
+                    <label className="text-xs text-gray-600">Incoming Edge (Node → This Node)</label>
+                    <Select value={newNode.edgeSource} onValueChange={(value) => setNewNode({ ...newNode, edgeSource: value })}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select source node (optional)" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {nodeOptions.map(node => (
+                          <SelectItem key={node.id} value={node.id}>{node.displayText}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <label className="text-xs text-gray-600">Outgoing Edge (This Node → Node)</label>
+                    <Select value={newNode.edgeTarget} onValueChange={(value) => setNewNode({ ...newNode, edgeTarget: value })}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select target node (optional)" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {nodeOptions.map(node => (
+                          <SelectItem key={node.id} value={node.id}>{node.displayText}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </div>
               <Button onClick={handleAddNode} disabled={isLoading} className="w-full">
                 {isLoading ? <Loader2 className="animate-spin" size={16} /> : 'Add Node'}
               </Button>
@@ -363,74 +458,79 @@ const EditTechTreePanel: React.FC = () => {
           <AccordionContent>
             <div className="space-y-3">
               <div className="flex gap-2">
-                <Input
-                  value={editNodeId}
-                  onChange={(e) => setEditNodeId(e.target.value)}
-                  placeholder="Enter node ID to edit"
-                  className="flex-1"
-                />
-                <Button onClick={handleLoadNode} variant="outline">
-                  Load
-                </Button>
-              </div>
-              <div>
-                <label className="text-sm font-medium">Label</label>
-                <Input
-                  value={editNode.label}
-                  onChange={(e) => setEditNode({ ...editNode, label: e.target.value })}
-                  placeholder="Display name"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium">Type</label>
-                <Select value={editNode.type} onValueChange={(value: NodeLabel) => setEditNode({ ...editNode, type: value })}>
-                  <SelectTrigger>
-                    <SelectValue />
+                <Select value={editNodeSelection} onValueChange={(value) => { setEditNodeSelection(value); handleLoadNode(); }}>
+                  <SelectTrigger className="flex-1">
+                    <SelectValue placeholder="Select node to edit" />
                   </SelectTrigger>
                   <SelectContent>
-                    {NODE_LABELS.map(label => (
-                      <SelectItem key={label} value={label}>{label}</SelectItem>
+                    {nodeOptions.map(node => (
+                      <SelectItem key={node.id} value={node.id}>{node.displayText}</SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
-              <div>
-                <label className="text-sm font-medium">Category</label>
-                <Input
-                  value={editNode.category}
-                  onChange={(e) => setEditNode({ ...editNode, category: e.target.value })}
-                  placeholder="Optional"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium">TRL Current</label>
-                <Input
-                  value={editNode.trl_current}
-                  onChange={(e) => setEditNode({ ...editNode, trl_current: e.target.value })}
-                  placeholder="e.g., 3-4"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium">Description</label>
-                <Textarea
-                  value={editNode.detailedDescription}
-                  onChange={(e) => setEditNode({ ...editNode, detailedDescription: e.target.value })}
-                  placeholder="Detailed description"
-                  rows={4}
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium">References (one per line)</label>
-                <Textarea
-                  value={editNode.references}
-                  onChange={(e) => setEditNode({ ...editNode, references: e.target.value })}
-                  placeholder="Reference URLs or citations"
-                  rows={3}
-                />
-              </div>
-              <Button onClick={handleUpdateNode} disabled={isLoading} className="w-full">
-                {isLoading ? <Loader2 className="animate-spin" size={16} /> : 'Update Node'}
-              </Button>
+              {editNodeSelection && (
+                <>
+                  <div>
+                    <label className="text-sm font-medium">Label</label>
+                    <Input
+                      value={editNode.label}
+                      onChange={(e) => setEditNode({ ...editNode, label: e.target.value })}
+                      placeholder="Display name"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">Type</label>
+                    <Select value={editNode.type} onValueChange={(value: NodeLabel) => setEditNode({ ...editNode, type: value })}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {NODE_LABELS.map(label => (
+                          <SelectItem key={label} value={label}>{label}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">Category</label>
+                    <Input
+                      value={editNode.category}
+                      onChange={(e) => setEditNode({ ...editNode, category: e.target.value })}
+                      placeholder="Optional"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">TRL Current</label>
+                    <Input
+                      value={editNode.trl_current}
+                      onChange={(e) => setEditNode({ ...editNode, trl_current: e.target.value })}
+                      placeholder="e.g., 3-4"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">Description</label>
+                    <Textarea
+                      value={editNode.detailedDescription}
+                      onChange={(e) => setEditNode({ ...editNode, detailedDescription: e.target.value })}
+                      placeholder="Detailed description"
+                      rows={4}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium">References (one per line)</label>
+                    <Textarea
+                      value={editNode.references}
+                      onChange={(e) => setEditNode({ ...editNode, references: e.target.value })}
+                      placeholder="Reference URLs or citations"
+                      rows={3}
+                    />
+                  </div>
+                  <Button onClick={handleUpdateNode} disabled={isLoading} className="w-full">
+                    {isLoading ? <Loader2 className="animate-spin" size={16} /> : 'Update Node'}
+                  </Button>
+                </>
+              )}
             </div>
           </AccordionContent>
         </AccordionItem>
@@ -441,12 +541,17 @@ const EditTechTreePanel: React.FC = () => {
           <AccordionContent>
             <div className="space-y-3">
               <div>
-                <label className="text-sm font-medium">Node ID</label>
-                <Input
-                  value={deleteNodeId}
-                  onChange={(e) => setDeleteNodeId(e.target.value)}
-                  placeholder="Enter node ID to delete"
-                />
+                <label className="text-sm font-medium">Select Node to Delete</label>
+                <Select value={deleteNodeSelection} onValueChange={setDeleteNodeSelection}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select node to delete" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {nodeOptions.map(node => (
+                      <SelectItem key={node.id} value={node.id}>{node.displayText}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <Button onClick={handleDeleteNode} disabled={isLoading} variant="destructive" className="w-full">
                 {isLoading ? <Loader2 className="animate-spin" size={16} /> : 'Delete Node'}
@@ -463,20 +568,30 @@ const EditTechTreePanel: React.FC = () => {
               <div className="space-y-3">
                 <h4 className="font-medium">Add Edge</h4>
                 <div>
-                  <label className="text-sm font-medium">Source Node ID</label>
-                  <Input
-                    value={newEdge.source}
-                    onChange={(e) => setNewEdge({ ...newEdge, source: e.target.value })}
-                    placeholder="Source node ID"
-                  />
+                  <label className="text-sm font-medium">Source Node</label>
+                  <Select value={newEdge.source} onValueChange={(value) => setNewEdge({ ...newEdge, source: value })}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select source node" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {nodeOptions.map(node => (
+                        <SelectItem key={node.id} value={node.id}>{node.displayText}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div>
-                  <label className="text-sm font-medium">Target Node ID</label>
-                  <Input
-                    value={newEdge.target}
-                    onChange={(e) => setNewEdge({ ...newEdge, target: e.target.value })}
-                    placeholder="Target node ID"
-                  />
+                  <label className="text-sm font-medium">Target Node</label>
+                  <Select value={newEdge.target} onValueChange={(value) => setNewEdge({ ...newEdge, target: value })}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select target node" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {nodeOptions.map(node => (
+                        <SelectItem key={node.id} value={node.id}>{node.displayText}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
                 <Button onClick={handleAddEdge} disabled={isLoading} className="w-full">
                   {isLoading ? <Loader2 className="animate-spin" size={16} /> : 'Add Edge'}
@@ -486,12 +601,17 @@ const EditTechTreePanel: React.FC = () => {
               <div className="border-t pt-4 space-y-3">
                 <h4 className="font-medium">Delete Edge</h4>
                 <div>
-                  <label className="text-sm font-medium">Edge ID</label>
-                  <Input
-                    value={deleteEdgeId}
-                    onChange={(e) => setDeleteEdgeId(e.target.value)}
-                    placeholder="Enter edge ID (source-target)"
-                  />
+                  <label className="text-sm font-medium">Select Edge to Delete</label>
+                  <Select value={deleteEdgeSelection} onValueChange={setDeleteEdgeSelection}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select edge to delete" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {edgeOptions.map(edge => (
+                        <SelectItem key={edge.id} value={edge.id}>{edge.displayText}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
                 <Button onClick={handleDeleteEdge} disabled={isLoading} variant="destructive" className="w-full">
                   {isLoading ? <Loader2 className="animate-spin" size={16} /> : 'Delete Edge'}
