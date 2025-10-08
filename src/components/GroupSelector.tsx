@@ -19,6 +19,8 @@ interface GroupSelectorProps {
   onReset: () => void;
   searchInput: string;
   onSearchChange: (value: string) => void;
+  onEnterEditMode: () => void;
+  isEditing: boolean;
 }
 
 export const GroupSelector: React.FC<GroupSelectorProps> = ({
@@ -29,6 +31,8 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({
   onReset,
   searchInput,
   onSearchChange,
+  onEnterEditMode,
+  isEditing,
 }) => {
   const groupingOptions: GroupingMode[] = ['None', ...NODE_LABELS];
 
@@ -66,7 +70,7 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({
                 onChange={(e) => onSearchChange(e.target.value)}
                 className="w-48 px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
               />
-              {searchInput &&  (
+              {searchInput && (
                 <button
                   onClick={() => onSearchChange('')}
                   className="ml-2 px-2 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded text-gray-600"
@@ -98,6 +102,20 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({
               </SelectContent>
             </Select>
           </div>
+
+          {/* Edit Graph Button */}
+          {!isEditing && (
+            <div className="pt-2 border-t border-gray-200">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={onEnterEditMode}
+                className="w-full"
+              >
+                Edit Graph
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </div>
