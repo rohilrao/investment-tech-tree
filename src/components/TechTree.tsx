@@ -17,28 +17,40 @@ import { LoadingSpinner } from './LoadingSpinner';
 import { GroupSelector } from './GroupSelector';
 import { CustomNode } from './CustomNode';
 import TabPanel from './TabPanel';
+import EditInterface from './EditInterface';
 import { useTechTree } from '@/hooks/useTechTree';
+
+// Suppress hydration warnings for Radix UI
+if (typeof window !== 'undefined') {
+  const originalError = console.error;
+  console.error = (...args) => {
+    if (
+      typeof args[0] === 'string' &&
+      args[0].includes('Hydration failed') &&
+      args[0].includes('aria-controls')
+    ) {
+      return;
+    }
+    originalError.apply(console, args);
+  };
+}
 
 const TechTree: React.FC = () => {
   const { techTree, isLoading: isLoadingData, error } = useTechTree();
   const [isLoading, setIsLoading] = useState(true);
   const [nodes, setNodes] = useState<UiNode[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
-  const [selectedNode, setSelectedNode] = useState<UiNode | undefined>(
-    undefined,
-  );
-  const [highlightedElements, setHighlightedElements] =
-    useState<HighlightedElements>({
-      nodeIds: new Set(),
-      edgeIds: new Set(),
-    });
+  const [selectedNode, setSelectedNode] = useState<UiNode | undefined>(undefined);
+  const [highlightedElements, setHighlightedElements] = useState<HighlightedElements>({
+    nodeIds: new Set(),
+    edgeIds: new Set(),
+  });
   const [groupingMode, setGroupingMode] = useState<GroupingMode>('Milestone');
-  const [showingRelatedNodes, setShowingRelatedNodes] = useState<string | null>(
-    null,
-  );
+  const [showingRelatedNodes, setShowingRelatedNodes] = useState<string | null>(null);
   const [showOnlyConnected, setShowOnlyConnected] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [isEditing, setIsEditing] = useState(false);
   const { fitView } = useReactFlow();
 
   // Show error state
@@ -58,6 +70,21 @@ const TechTree: React.FC = () => {
       </div>
     );
   }
+
+  const handleEnterEditMode = () => {
+    const password = prompt('Please enter the admin password:');
+    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+      setIsEditing(true);
+    } else if (password !== null) {
+      alert('Incorrect password.');
+    }
+  };
+
+  const handleExitEditMode = () => {
+    if (window.confirm('Are you sure you want to exit edit mode? Any unsaved changes will be lost.')) {
+      setIsEditing(false);
+    }
+  };
 
   // Function to find connected nodes and edges
   const findConnectedElements = useCallback(
@@ -98,7 +125,7 @@ const TechTree: React.FC = () => {
         showingRelatedNodes,
         showOnlyConnected,
         searchTerm,
-        techTree, // Pass techTree data
+        techTree,
       );
       setNodes(() => layoutedNodes);
       setEdges(() => layoutedEdges);
@@ -219,6 +246,8 @@ const TechTree: React.FC = () => {
           onReset={handleReset}
           searchInput={searchInput}
           onSearchChange={handleSearchChange}
+          onEnterEditMode={handleEnterEditMode}
+          isEditing={isEditing}
         />
         {isLoadingData || isLoading ? (
           <div className="flex items-center justify-center h-full">
@@ -258,7 +287,11 @@ const TechTree: React.FC = () => {
         )}
       </div>
       <div className="w-2/4 bg-white shadow-lg">
-        <TabPanel selectedNode={selectedNode} techTree={techTree} />
+        {isEditing ? (
+          <EditInterface onExit={handleExitEditMode} />
+        ) : (
+          <TabPanel selectedNode={selectedNode} techTree={techTree} />
+        )}
       </div>
     </div>
   );
