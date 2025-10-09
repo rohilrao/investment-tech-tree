@@ -107,12 +107,12 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({
           {!isEditing && (
             <div className="pt-2 border-t border-gray-200">
               <Button
-                variant="outline"
-                size="sm"
-                onClick={onEnterEditMode}
-                className="w-full"
+              variant="outline"
+              size="default" // Changed from "sm" to "default"
+              onClick={onEnterEditMode}
+              className="w-full"
               >
-                Edit Graph
+              Edit Tree
               </Button>
             </div>
           )}

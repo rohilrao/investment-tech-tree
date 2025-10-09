@@ -4,11 +4,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
 import { Loader2, Send, Upload } from 'lucide-react';
-import { GeminiChatClient } from '@/lib/geminiClient';
+import { GoogleGenerativeAI, Part } from '@google/generative-ai';
 import { useTechTree } from '@/hooks/useTechTree';
 import DOMPurify from 'dompurify';
+import { Badge } from '@/components/ui/badge';
 
 interface ChatMessage {
   id: string;
@@ -17,11 +17,20 @@ interface ChatMessage {
   timestamp: number;
 }
 
-interface Suggestion {
-  type: 'node' | 'edge' | 'trl_update';
-  action: 'add' | 'update';
-  data: Record<string, unknown>;
-}
+// Helper function to convert a File to a base64 string for Gemini API
+const fileToGenerativePart = async (file: File): Promise<Part> => {
+  const base64EncodedDataPromise = new Promise<string>((resolve) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve((reader.result as string).split(',')[1]);
+    reader.readAsDataURL(file);
+  });
+  return {
+    inlineData: {
+      data: await base64EncodedDataPromise,
+      mimeType: file.type,
+    },
+  };
+};
 
 const AiAssistantPanel: React.FC = () => {
   const { techTree } = useTechTree();
@@ -29,12 +38,13 @@ const AiAssistantPanel: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
-  const [geminiClient] = useState(() => {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  
+  const [genAI] = useState(() => {
     const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-    return apiKey ? new GeminiChatClient(apiKey) : null;
+    return apiKey ? new GoogleGenerativeAI(apiKey) : null;
   });
 
   useEffect(() => {
@@ -52,46 +62,15 @@ const AiAssistantPanel: React.FC = () => {
     }
   };
 
-  const extractJsonSuggestions = (text: string): Suggestion[] => {
-    try {
-      // Try to find JSON block in code blocks
-      const codeBlockMatch = text.match(/```(?:json)?\s*(\{[\s\S]*?\})\s*```/);
-      if (codeBlockMatch) {
-        const parsed = JSON.parse(codeBlockMatch[1]);
-        if (parsed.suggestions && Array.isArray(parsed.suggestions)) {
-          return parsed.suggestions;
-        }
-      }
-
-      // Try to find raw JSON object
-      const jsonMatch = text.match(/\{[\s\S]*"suggestions"[\s\S]*\]/);
-      if (jsonMatch) {
-        // Find the closing brace for the entire object
-        let braceCount = 0;
-        let jsonStr = '';
-        for (let i = 0; i < jsonMatch[0].length; i++) {
-          const char = jsonMatch[0][i];
-          jsonStr += char;
-          if (char === '{') braceCount++;
-          if (char === '}') braceCount--;
-          if (braceCount === 0 && char === '}') break;
-        }
-        
-        const parsed = JSON.parse(jsonStr);
-        if (parsed.suggestions && Array.isArray(parsed.suggestions)) {
-          return parsed.suggestions;
-        }
-      }
-    } catch (e) {
-      console.error('Failed to parse suggestions:', e);
-    }
-    return [];
+  const handleSuggestedQuestion = (question: string) => {
+    setMessage(question);
+    textareaRef.current?.focus();
   };
 
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!message.trim() && !file) return;
-    if (!geminiClient) {
+    if (!genAI) {
       const errorMsg: ChatMessage = {
         id: Date.now().toString(),
         type: 'assistant',
@@ -110,54 +89,114 @@ const AiAssistantPanel: React.FC = () => {
     };
     setMessages(prev => [...prev, userMessage]);
     setIsLoading(true);
-    setSuggestions([]);
 
     try {
-      let prompt = message;
+      const model = genAI.getGenerativeModel({
+        model: 'gemini-2.0-flash',
+      });
 
+      // Build context string from nodes and edges
+      const nodesContext = techTree?.nodes
+        .map((node) => {
+          const references = Array.isArray(node.data.references)
+            ? node.data.references
+            : [];
+          const referencesBlock =
+            references.length > 0
+              ? `\n      - References:\n${references
+                  .map((ref, i) => `        ${i + 1}. ${ref}`)
+                  .join('\n')}`
+              : '';
+          return `Node: ${node.data.label} (${node.data.nodeLabel})
+      - ID: ${node.id}
+      - Category: ${node.data.category || 'N/A'}
+      - TRL Current: ${node.data.trl_current || 'N/A'}
+      - Description: ${node.data.detailedDescription || node.data.description || 'No description available'}${referencesBlock}`;
+        })
+        .join('\n\n');
+
+      const edgesContext = techTree?.edges
+        .map((edge) => {
+          return `Edge: ${edge.source} → ${edge.target}`;
+        })
+        .join('\n');
+
+      const systemPrompt = `You are an expert technology analyst assisting in the curation of a specialized Investment Tech Tree for nuclear and fusion energy. Your primary role is to analyze user-provided text and documents to suggest relevant additions or modifications to the tech tree.
+
+IMPORTANT INSTRUCTIONS:
+- Your suggestions MUST be directly related to nuclear or fusion energy.
+- If a user's query or the content of an uploaded file is not relevant to this domain (e.g., it's about cooking or sports), you MUST state that the information is outside the scope of the tech tree and politely decline to make suggestions.
+- Base your analysis on the provided tech tree context and the content of any uploaded files.
+
+FORMATTING REQUIREMENTS - VERY IMPORTANT:
+- You MUST format your entire response as clean, well-structured HTML
+- Use proper HTML tags: <h2>, <h3>, <h4> for headings, <p> for paragraphs, <ul>/<ol> for lists, <strong> for emphasis
+- Add proper spacing between sections with margin classes
+- Structure your response with clear visual hierarchy
+- Use this HTML structure as a template:
+
+<h2 class="text-xl font-semibold mb-4 text-gray-900">Analysis Results</h2>
+<p class="mb-4 text-gray-700 leading-relaxed">Your introduction paragraph here...</p>
+
+<h3 class="text-lg font-medium mb-3 mt-6 text-gray-800">Suggested Additions</h3>
+<ul class="list-disc list-inside mb-4 space-y-3 text-gray-700">
+  <li class="mb-2">
+    <strong>Technology Name:</strong>
+    <p class="ml-6 mt-1">Description of the technology...</p>
+    <p class="ml-6 mt-1"><strong>TRL Current:</strong> 3-4</p>
+    <p class="ml-6 mt-1"><strong>Dependencies:</strong> node_id_1, node_id_2</p>
+  </li>
+</ul>
+
+<h3 class="text-lg font-medium mb-3 mt-6 text-gray-800">Technical Explanations</h3>
+<ul class="list-disc list-inside mb-4 space-y-2 text-gray-700">
+  <li><strong>Term:</strong> Definition and explanation...</li>
+</ul>
+
+Here is the current Tech Tree context:
+
+NODES:
+${nodesContext}
+
+EDGES (Dependencies):
+${edgesContext}
+
+Remember: Format everything as HTML with proper tags and spacing. No plain text or markdown formatting.`;
+
+      const conversationHistory = messages.map((msg) => ({
+        role: msg.type === 'user' ? 'user' : 'model',
+        parts: [{ text: msg.content }],
+      }));
+
+      // Build the parts of the user's message, including the file if it exists
+      const userParts: Part[] = [{ text: message }];
       if (file) {
-        const fileText = await file.text();
-        prompt = `${message}\n\nDocument content:\n${fileText}`;
+        const filePart = await fileToGenerativePart(file);
+        userParts.push(filePart);
       }
 
-      const systemPrompt = `You are a technology analyst helping to update a nuclear and fusion energy technology tree. 
+      const contents = [
+        {
+          role: 'user',
+          parts: [{ text: systemPrompt }],
+        },
+        ...conversationHistory,
+        {
+          role: 'user',
+          parts: userParts,
+        },
+      ];
 
-Current Tech Tree has ${techTree?.nodes.length || 0} nodes and ${techTree?.edges.length || 0} edges.
+      const result = await model.generateContent({
+        contents,
+        generationConfig: {
+          maxOutputTokens: 2000,
+          temperature: 0.3,
+        },
+      });
 
-User request: ${prompt}
-
-Analyze the content and suggest changes to the tech tree. Format your response in two parts:
-
-1. First, provide a natural language explanation of your analysis and suggestions using HTML formatting.
-
-2. Then, provide structured suggestions in a JSON code block like this:
-\`\`\`json
-{
-  "suggestions": [
-    {
-      "type": "node",
-      "action": "add",
-      "data": {
-        "id": "unique_id",
-        "label": "Technology Name",
-        "type": "ReactorConcept",
-        "trl_current": "3-4",
-        "detailedDescription": "Description",
-        "category": "Category"
-      }
-    }
-  ]
-}
-\`\`\`
-
-Valid suggestion types: "node", "edge", "trl_update"
-Valid actions: "add", "update"`;
-
-      const aiResponse = await geminiClient.sendMessage(
-        systemPrompt,
-        techTree || { nodes: [], edges: [] },
-        []
-      );
+      const response = result.response;
+      const aiResponse = response.text();
 
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
@@ -166,11 +205,6 @@ Valid actions: "add", "update"`;
         timestamp: Date.now(),
       };
       setMessages(prev => [...prev, assistantMessage]);
-
-      const extractedSuggestions = extractJsonSuggestions(aiResponse);
-      if (extractedSuggestions.length > 0) {
-        setSuggestions(extractedSuggestions);
-      }
 
       setMessage('');
       setFile(null);
@@ -194,66 +228,6 @@ Valid actions: "add", "update"`;
     }
   };
 
-  const handleAcceptSuggestion = async (suggestion: Suggestion) => {
-    setIsLoading(true);
-    try {
-      let endpoint = '';
-      let method = 'POST';
-      let body = {};
-
-      if (suggestion.type === 'node' && suggestion.action === 'add') {
-        endpoint = '/investment-tech-tree/api/nodes';
-        body = suggestion.data;
-      } else if (suggestion.type === 'node' && suggestion.action === 'update') {
-        const nodeId = (suggestion.data as { node_id?: string }).node_id;
-        endpoint = `/investment-tech-tree/api/nodes/${nodeId}`;
-        method = 'PUT';
-        body = suggestion.data;
-      } else if (suggestion.type === 'edge' && suggestion.action === 'add') {
-        endpoint = '/investment-tech-tree/api/edges';
-        body = suggestion.data;
-      } else if (suggestion.type === 'trl_update') {
-        const nodeId = (suggestion.data as { node_id?: string }).node_id;
-        endpoint = `/investment-tech-tree/api/nodes/${nodeId}`;
-        method = 'PUT';
-        body = { trl_current: (suggestion.data as { trl_current?: string }).trl_current };
-      }
-
-      const response = await fetch(endpoint, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to apply suggestion');
-      }
-
-      const successMsg: ChatMessage = {
-        id: Date.now().toString(),
-        type: 'assistant',
-        content: 'Suggestion applied successfully! The page will reload to show the changes.',
-        timestamp: Date.now(),
-      };
-      setMessages(prev => [...prev, successMsg]);
-      setSuggestions(suggestions.filter(s => s !== suggestion));
-      
-      setTimeout(() => {
-        window.location.reload();
-      }, 1500);
-    } catch (error) {
-      const errorMsg: ChatMessage = {
-        id: Date.now().toString(),
-        type: 'assistant',
-        content: `Error applying suggestion: ${error instanceof Error ? error.message : 'Unknown error'}`,
-        timestamp: Date.now(),
-      };
-      setMessages(prev => [...prev, errorMsg]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
     <div className="flex flex-col h-full bg-white">
       {/* Messages */}
@@ -265,10 +239,32 @@ Valid actions: "add", "update"`;
           <Card>
             <CardContent className="text-center text-gray-500 mt-8">
               <p className="text-lg mb-4">AI Assistant for Tech Tree Editing</p>
-              <p className="text-sm text-gray-600 max-w-md mx-auto">
-                Ask questions about the tech tree, upload documents for analysis, 
-                or request suggestions for new technologies, edges, or TRL updates.
+              <p className="text-sm text-gray-600 max-w-md mx-auto mb-4">
+                Upload a document with evidence (e.g., a research paper) for analysis, or use one of the prompts below to get started.
               </p>
+              <div className="flex flex-wrap gap-2 justify-center max-w-md mx-auto">
+                <Badge
+                  variant="outline"
+                  className="cursor-pointer hover:bg-gray-100 transition-colors"
+                  onClick={() => handleSuggestedQuestion('Analyze the attached document for new "EnablingTechnology" nodes.')}
+                >
+                  Analyze document for new tech
+                </Badge>
+                <Badge
+                  variant="outline"
+                  className="cursor-pointer hover:bg-gray-100 transition-colors"
+                  onClick={() => handleSuggestedQuestion('Based on the attached paper, suggest updates to the TRL of existing nodes.')}
+                >
+                  Update TRL from paper
+                </Badge>
+                <Badge
+                  variant="outline"
+                  className="cursor-pointer hover:bg-gray-100 transition-colors"
+                  onClick={() => handleSuggestedQuestion('Identify any missing dependencies or connections based on this document.')}
+                >
+                  Suggest new edges
+                </Badge>
+              </div>
             </CardContent>
           </Card>
         ) : (
@@ -340,40 +336,6 @@ Valid actions: "add", "update"`;
           </div>
         )}
 
-        {suggestions.length > 0 && (
-          <Card className="bg-blue-50 border-blue-200">
-            <CardContent className="p-4 space-y-3">
-              <h4 className="font-semibold text-blue-900">
-                Suggested Changes ({suggestions.length})
-              </h4>
-              {suggestions.map((suggestion, index) => (
-                <div
-                  key={index}
-                  className="p-3 bg-white border border-blue-200 rounded-lg space-y-2"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm font-medium text-gray-900">
-                      {suggestion.type === 'node' && `${suggestion.action === 'add' ? 'Add' : 'Update'} Node`}
-                      {suggestion.type === 'edge' && 'Add Edge'}
-                      {suggestion.type === 'trl_update' && 'Update TRL'}
-                    </div>
-                    <Button
-                      size="sm"
-                      onClick={() => handleAcceptSuggestion(suggestion)}
-                      disabled={isLoading}
-                    >
-                      Accept
-                    </Button>
-                  </div>
-                  <pre className="text-xs bg-gray-50 p-2 rounded overflow-x-auto">
-                    {JSON.stringify(suggestion.data, null, 2)}
-                  </pre>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-        )}
-
         <div ref={messagesEndRef} />
       </div>
 
@@ -396,6 +358,7 @@ Valid actions: "add", "update"`;
         <form onSubmit={handleSubmit} className="flex space-x-2">
           <div className="flex-1 relative">
             <Textarea
+              ref={textareaRef}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={handleKeyDown}

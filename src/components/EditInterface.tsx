@@ -20,14 +20,14 @@ const EditInterface: React.FC<EditInterfaceProps> = ({ onExit }) => {
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-semibold text-gray-900">Edit Mode</h2>
           <Button
-            variant="outline"
-            size="sm"
-            onClick={onExit}
-            className="flex items-center gap-2"
-          >
-            <ArrowLeft size={16} />
-            Back to Explore Mode
-          </Button>
+  variant="outline"
+  size="default" // Changed from "sm"
+  onClick={onExit}
+  className="flex items-center gap-2"
+>
+  <ArrowLeft size={16} />
+  Back to Explore Mode
+</Button>
         </div>
       </div>
 
