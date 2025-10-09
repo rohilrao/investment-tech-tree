@@ -20,6 +20,21 @@ import TabPanel from './TabPanel';
 import EditInterface from './EditInterface';
 import { useTechTree } from '@/hooks/useTechTree';
 
+// Suppress hydration warnings for Radix UI
+if (typeof window !== 'undefined') {
+  const originalError = console.error;
+  console.error = (...args) => {
+    if (
+      typeof args[0] === 'string' &&
+      args[0].includes('Hydration failed') &&
+      args[0].includes('aria-controls')
+    ) {
+      return;
+    }
+    originalError.apply(console, args);
+  };
+}
+
 const TechTree: React.FC = () => {
   const { techTree, isLoading: isLoadingData, error } = useTechTree();
   const [isLoading, setIsLoading] = useState(true);

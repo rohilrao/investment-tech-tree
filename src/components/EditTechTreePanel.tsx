@@ -59,14 +59,16 @@ const EditTechTreePanel: React.FC = () => {
   });
   const [deleteEdgeSelection, setDeleteEdgeSelection] = useState('');
 
-  // Create node options for dropdowns
+  // Create node options for dropdowns (sorted alphabetically)
   const nodeOptions = useMemo(() => {
     if (!techTree) return [];
-    return techTree.nodes.map(node => ({
-      id: node.id,
-      label: node.data.label,
-      displayText: `${node.data.label} (${node.id})`,
-    }));
+    return techTree.nodes
+      .map(node => ({
+        id: node.id,
+        label: node.data.label,
+        displayText: `${node.data.label} (${node.id})`,
+      }))
+      .sort((a, b) => a.label.localeCompare(b.label));
   }, [techTree]);
 
   // Create edge options for dropdowns
@@ -168,26 +170,6 @@ const EditTechTreePanel: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const handleLoadNode = () => {
-    if (!techTree) return;
-    const node = techTree.nodes.find(n => n.id === editNodeSelection);
-    if (!node) {
-      setMessage({ type: 'error', text: 'Node not found' });
-      return;
-    }
-    setEditNode({
-      label: node.data.label,
-      type: node.data.nodeLabel,
-      category: node.data.category || '',
-      subtype: node.data.subtype || '',
-      trl_current: node.data.trl_current || '',
-      trl_projected_5_10_years: node.data.trl_projected_5_10_years || '',
-      detailedDescription: node.data.detailedDescription || '',
-      references: (node.data.references || []).join('\n'),
-    });
-    setMessage({ type: 'success', text: 'Node loaded' });
   };
 
   const handleUpdateNode = async () => {
@@ -457,9 +439,33 @@ const EditTechTreePanel: React.FC = () => {
           <AccordionTrigger>Edit Node</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-3">
-              <div className="flex gap-2">
-                <Select value={editNodeSelection} onValueChange={(value) => { setEditNodeSelection(value); handleLoadNode(); }}>
-                  <SelectTrigger className="flex-1">
+              <div>
+                <label className="text-sm font-medium">Select Node to Edit</label>
+                <Select 
+                  value={editNodeSelection} 
+                  onValueChange={(nodeId) => {
+                    if (!techTree) return;
+                    const node = techTree.nodes.find(n => n.id === nodeId);
+                    if (!node) {
+                      setMessage({ type: 'error', text: 'Node not found' });
+                      return;
+                    }
+                    
+                    setEditNodeSelection(nodeId);
+                    setEditNode({
+                      label: node.data.label,
+                      type: node.data.nodeLabel,
+                      category: node.data.category || '',
+                      subtype: node.data.subtype || '',
+                      trl_current: node.data.trl_current || '',
+                      trl_projected_5_10_years: node.data.trl_projected_5_10_years || '',
+                      detailedDescription: node.data.detailedDescription || '',
+                      references: (node.data.references || []).join('\n'),
+                    });
+                    setMessage(null);
+                  }}
+                >
+                  <SelectTrigger>
                     <SelectValue placeholder="Select node to edit" />
                   </SelectTrigger>
                   <SelectContent>

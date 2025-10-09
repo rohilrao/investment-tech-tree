@@ -4,10 +4,10 @@ import clientPromise from '@/lib/mongodb';
 // PUT - Update an existing node
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const nodeId = params.id;
+    const { id: nodeId } = await params;
     const body = await request.json();
 
     const client = await clientPromise;
@@ -63,10 +63,10 @@ export async function PUT(
 // DELETE - Delete a node
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const nodeId = params.id;
+    const { id: nodeId } = await params;
 
     const client = await clientPromise;
     const db = client.db('tech_tree_db');
