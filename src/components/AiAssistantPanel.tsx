@@ -1,3 +1,5 @@
+// src/components/AiAssistantPanel.tsx
+
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -5,60 +7,84 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { Loader2, Send, Upload } from 'lucide-react';
-import { GoogleGenerativeAI, Part } from '@google/generative-ai';
-import { useTechTree } from '@/hooks/useTechTree';
-import DOMPurify from 'dompurify';
 import { Badge } from '@/components/ui/badge';
+import {
+  ToolConfirmationCard,
+  SuggestionCard,
+  DeletionNoticeCard,
+  PlanSummaryCard
+} from '@/components/agent/AgentCards';
+import {
+  AgentApiResponse,
+  AgentAction,
+  AgentStatus,
+  InterruptionType
+} from '@/lib/agent-types';
 
-interface ChatMessage {
-  id: string;
-  type: 'user' | 'assistant';
-  content: string;
-  timestamp: number;
+interface AgentState {
+  conversationId: string | null;
+  status: AgentStatus;
+  interruptionType: InterruptionType;
+  uiMessage: string;
+  payload: any;
+  acceptedActions: Set<number>;
+  rejectedActions: Set<number>;
 }
 
-// Helper function to convert a File to a base64 string for Gemini API
-const fileToGenerativePart = async (file: File): Promise<Part> => {
-  const base64EncodedDataPromise = new Promise<string>((resolve) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve((reader.result as string).split(',')[1]);
-    reader.readAsDataURL(file);
-  });
-  return {
-    inlineData: {
-      data: await base64EncodedDataPromise,
-      mimeType: file.type,
-    },
-  };
-};
-
 const AiAssistantPanel: React.FC = () => {
-  const { techTree } = useTechTree();
   const [message, setMessage] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const messagesContainerRef = useRef<HTMLDivElement>(null);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-  
-  const [genAI] = useState(() => {
-    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-    return apiKey ? new GoogleGenerativeAI(apiKey) : null;
+  const [agentState, setAgentState] = useState<AgentState>({
+    conversationId: null,
+    status: 'COMPLETE',
+    interruptionType: null,
+    uiMessage: '',
+    payload: null,
+    acceptedActions: new Set(),
+    rejectedActions: new Set()
   });
+  
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    if (messages.length > 0) {
-      const lastMessage = messages[messages.length - 1];
-      if (lastMessage.type === 'user') {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, [messages]);
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [agentState]);
+
+  // File reading functions
+  const readFileAsBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64String = (reader.result as string).split(',')[1];
+        resolve(base64String);
+      };
+      reader.onerror = (error) => reject(error);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const readFileAsText = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsText(file);
+    });
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
+      const selectedFile = e.target.files[0];
+      
+      // Check file size
+      const fileSizeMB = selectedFile.size / (1024 * 1024);
+      if (fileSizeMB > 10) {
+        alert(`Warning: File is ${fileSizeMB.toFixed(1)}MB. Very large files may take longer to process. Consider using a smaller file.`);
+      }
+      
+      setFile(selectedFile);
     }
   };
 
@@ -67,157 +93,223 @@ const AiAssistantPanel: React.FC = () => {
     textareaRef.current?.focus();
   };
 
+  const callAgentAPI = async (body: any): Promise<AgentApiResponse> => {
+    const response = await fetch('/investment-tech-tree/api/agents/editor', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.error || 'Failed to communicate with agent');
+    }
+
+    return await response.json();
+  };
+
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!message.trim() && !file) return;
-    if (!genAI) {
-      const errorMsg: ChatMessage = {
-        id: Date.now().toString(),
-        type: 'assistant',
-        content: 'Error: Gemini API key not configured',
-        timestamp: Date.now(),
-      };
-      setMessages(prev => [...prev, errorMsg]);
-      return;
-    }
 
-    const userMessage: ChatMessage = {
-      id: Date.now().toString(),
-      type: 'user',
-      content: message.trim() + (file ? ` [File: ${file.name}]` : ''),
-      timestamp: Date.now(),
-    };
-    setMessages(prev => [...prev, userMessage]);
     setIsLoading(true);
 
     try {
-      const model = genAI.getGenerativeModel({
-        model: 'gemini-2.0-flash',
-      });
-
-      // Build context string from nodes and edges
-      const nodesContext = techTree?.nodes
-        .map((node) => {
-          const references = Array.isArray(node.data.references)
-            ? node.data.references
-            : [];
-          const referencesBlock =
-            references.length > 0
-              ? `\n      - References:\n${references
-                  .map((ref, i) => `        ${i + 1}. ${ref}`)
-                  .join('\n')}`
-              : '';
-          return `Node: ${node.data.label} (${node.data.nodeLabel})
-      - ID: ${node.id}
-      - Category: ${node.data.category || 'N/A'}
-      - TRL Current: ${node.data.trl_current || 'N/A'}
-      - Description: ${node.data.detailedDescription || node.data.description || 'No description available'}${referencesBlock}`;
-        })
-        .join('\n\n');
-
-      const edgesContext = techTree?.edges
-        .map((edge) => {
-          return `Edge: ${edge.source} → ${edge.target}`;
-        })
-        .join('\n');
-
-      const systemPrompt = `You are an expert technology analyst assisting in the curation of a specialized Investment Tech Tree for nuclear and fusion energy. Your primary role is to analyze user-provided text and documents to suggest relevant additions or modifications to the tech tree.
-
-IMPORTANT INSTRUCTIONS:
-- Your suggestions MUST be directly related to nuclear or fusion energy.
-- If a user's query or the content of an uploaded file is not relevant to this domain (e.g., it's about cooking or sports), you MUST state that the information is outside the scope of the tech tree and politely decline to make suggestions.
-- Base your analysis on the provided tech tree context and the content of any uploaded files.
-
-FORMATTING REQUIREMENTS - VERY IMPORTANT:
-- You MUST format your entire response as clean, well-structured HTML
-- Use proper HTML tags: <h2>, <h3>, <h4> for headings, <p> for paragraphs, <ul>/<ol> for lists, <strong> for emphasis
-- Add proper spacing between sections with margin classes
-- Structure your response with clear visual hierarchy
-- Use this HTML structure as a template:
-
-<h2 class="text-xl font-semibold mb-4 text-gray-900">Analysis Results</h2>
-<p class="mb-4 text-gray-700 leading-relaxed">Your introduction paragraph here...</p>
-
-<h3 class="text-lg font-medium mb-3 mt-6 text-gray-800">Suggested Additions</h3>
-<ul class="list-disc list-inside mb-4 space-y-3 text-gray-700">
-  <li class="mb-2">
-    <strong>Technology Name:</strong>
-    <p class="ml-6 mt-1">Description of the technology...</p>
-    <p class="ml-6 mt-1"><strong>TRL Current:</strong> 3-4</p>
-    <p class="ml-6 mt-1"><strong>Dependencies:</strong> node_id_1, node_id_2</p>
-  </li>
-</ul>
-
-<h3 class="text-lg font-medium mb-3 mt-6 text-gray-800">Technical Explanations</h3>
-<ul class="list-disc list-inside mb-4 space-y-2 text-gray-700">
-  <li><strong>Term:</strong> Definition and explanation...</li>
-</ul>
-
-Here is the current Tech Tree context:
-
-NODES:
-${nodesContext}
-
-EDGES (Dependencies):
-${edgesContext}
-
-Remember: Format everything as HTML with proper tags and spacing. No plain text or markdown formatting.`;
-
-      const conversationHistory = messages.map((msg) => ({
-        role: msg.type === 'user' ? 'user' : 'model',
-        parts: [{ text: msg.content }],
-      }));
-
-      // Build the parts of the user's message, including the file if it exists
-      const userParts: Part[] = [{ text: message }];
+      let fileContent = null;
+      
       if (file) {
-        const filePart = await fileToGenerativePart(file);
-        userParts.push(filePart);
+        // Check if it's a PDF or binary file
+        const isPDF = file.type === 'application/pdf';
+        const isBinary = isPDF || file.type.includes('application/');
+        
+        if (isBinary) {
+          // Read as Base64 for PDFs and binary files
+          const base64Content = await readFileAsBase64(file);
+          fileContent = {
+            content: base64Content,
+            filename: file.name,
+            mimeType: file.type,
+            isBase64: true
+          };
+        } else {
+          // Read as text for .txt files
+          const content = await readFileAsText(file);
+          fileContent = {
+            content,
+            filename: file.name,
+            mimeType: file.type,
+            isBase64: false
+          };
+        }
       }
 
-      const contents = [
-        {
-          role: 'user',
-          parts: [{ text: systemPrompt }],
-        },
-        ...conversationHistory,
-        {
-          role: 'user',
-          parts: userParts,
-        },
-      ];
-
-      const result = await model.generateContent({
-        contents,
-        generationConfig: {
-          maxOutputTokens: 2000,
-          temperature: 0.3,
-        },
+      const response = await callAgentAPI({
+        conversationId: null,
+        message: message.trim(),
+        file: fileContent
       });
 
-      const response = result.response;
-      const aiResponse = response.text();
-
-      const assistantMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
-        type: 'assistant',
-        content: aiResponse,
-        timestamp: Date.now(),
-      };
-      setMessages(prev => [...prev, assistantMessage]);
+      setAgentState({
+        conversationId: response.conversationId,
+        status: response.status,
+        interruptionType: response.interruptionType,
+        uiMessage: response.uiMessage,
+        payload: response.payload,
+        acceptedActions: new Set(),
+        rejectedActions: new Set()
+      });
 
       setMessage('');
       setFile(null);
     } catch (error) {
-      const errorMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
-        type: 'assistant',
-        content: `Error: ${error instanceof Error ? error.message : 'Failed to get AI response'}`,
-        timestamp: Date.now(),
-      };
-      setMessages(prev => [...prev, errorMessage]);
+      console.error('Error:', error);
+      setAgentState({
+        ...agentState,
+        status: 'ERROR',
+        uiMessage: `Error: ${error instanceof Error ? error.message : 'Unknown error'}`
+      });
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleToolApproval = async (approved: boolean) => {
+    if (!agentState.conversationId) return;
+
+    setIsLoading(true);
+
+    try {
+      const response = await callAgentAPI({
+        conversationId: agentState.conversationId,
+        message: approved ? 'Approved' : 'Denied',
+        userApproval: {
+          type: 'tool_approval'
+        }
+      });
+
+      setAgentState({
+        ...agentState,
+        status: response.status,
+        interruptionType: response.interruptionType,
+        uiMessage: response.uiMessage,
+        payload: response.payload
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      setAgentState({
+        ...agentState,
+        status: 'ERROR',
+        uiMessage: `Error: ${error instanceof Error ? error.message : 'Unknown error'}`
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleActionAccept = (index: number) => {
+    const newAccepted = new Set(agentState.acceptedActions);
+    newAccepted.add(index);
+    
+    const newRejected = new Set(agentState.rejectedActions);
+    newRejected.delete(index);
+    
+    setAgentState({
+      ...agentState,
+      acceptedActions: newAccepted,
+      rejectedActions: newRejected
+    });
+  };
+
+  const handleActionReject = (index: number) => {
+    const newRejected = new Set(agentState.rejectedActions);
+    newRejected.add(index);
+    
+    const newAccepted = new Set(agentState.acceptedActions);
+    newAccepted.delete(index);
+    
+    setAgentState({
+      ...agentState,
+      acceptedActions: newAccepted,
+      rejectedActions: newRejected
+    });
+  };
+
+  const executeAction = async (action: AgentAction) => {
+    try {
+      let endpoint = '';
+      let method = '';
+      let body: any = {};
+
+      switch (action.action) {
+        case 'ADD_NODE':
+          endpoint = '/investment-tech-tree/api/nodes';
+          method = 'POST';
+          body = {
+            id: action.payload.id,
+            label: action.payload.label,
+            type: action.payload.type,
+            category: action.payload.category,
+            trl_current: action.payload.trl_current,
+            detailedDescription: action.payload.detailedDescription,
+            references: action.payload.references
+          };
+          break;
+
+        case 'UPDATE_NODE':
+          endpoint = `/investment-tech-tree/api/nodes/${action.payload.nodeId}`;
+          method = 'PUT';
+          body = action.payload.updates;
+          break;
+
+        case 'ADD_EDGE':
+          endpoint = '/investment-tech-tree/api/edges';
+          method = 'POST';
+          body = {
+            source: action.payload.source,
+            target: action.payload.target
+          };
+          break;
+      }
+
+      const response = await fetch(endpoint, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to execute ${action.action}`);
+      }
+
+      return true;
+    } catch (error) {
+      console.error('Error executing action:', error);
+      return false;
+    }
+  };
+
+  const handleExecuteAcceptedActions = async () => {
+    if (!agentState.payload?.plan) return;
+
+    setIsLoading(true);
+    const plan = agentState.payload.plan as AgentAction[];
+    const acceptedIndices = Array.from(agentState.acceptedActions);
+    
+    let successCount = 0;
+    
+    for (const index of acceptedIndices) {
+      const action = plan[index];
+      const success = await executeAction(action);
+      if (success) successCount++;
+    }
+
+    setIsLoading(false);
+
+    if (successCount > 0) {
+      alert(`Successfully executed ${successCount} action(s). Refreshing page...`);
+      window.location.reload();
+    } else {
+      alert('No actions were executed successfully.');
     }
   };
 
@@ -228,118 +320,210 @@ Remember: Format everything as HTML with proper tags and spacing. No plain text 
     }
   };
 
-  return (
-    <div className="flex flex-col h-full bg-white">
-      {/* Messages */}
-      <div
-        ref={messagesContainerRef}
-        className="flex-1 overflow-y-auto p-4 space-y-4"
-      >
-        {messages.length === 0 ? (
-          <Card>
-            <CardContent className="text-center text-gray-500 mt-8">
-              <p className="text-lg mb-4">AI Assistant for Tech Tree Editing</p>
-              <p className="text-sm text-gray-600 max-w-md mx-auto mb-4">
-                Upload a document with evidence (e.g., a research paper) for analysis, or use one of the prompts below to get started.
-              </p>
-              <div className="flex flex-wrap gap-2 justify-center max-w-md mx-auto">
-                <Badge
-                  variant="outline"
-                  className="cursor-pointer hover:bg-gray-100 transition-colors"
-                  onClick={() => handleSuggestedQuestion('Analyze the attached document for new "EnablingTechnology" nodes.')}
-                >
-                  Analyze document for new tech
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="cursor-pointer hover:bg-gray-100 transition-colors"
-                  onClick={() => handleSuggestedQuestion('Based on the attached paper, suggest updates to the TRL of existing nodes.')}
-                >
-                  Update TRL from paper
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="cursor-pointer hover:bg-gray-100 transition-colors"
-                  onClick={() => handleSuggestedQuestion('Identify any missing dependencies or connections based on this document.')}
-                >
-                  Suggest new edges
-                </Badge>
-              </div>
+  const renderContent = () => {
+    // Initial state
+    if (agentState.status === 'COMPLETE' && !agentState.uiMessage) {
+      return (
+        <Card>
+          <CardContent className="text-center text-gray-500 mt-8">
+            <p className="text-lg mb-4">AI Agent for Tech Tree Editing</p>
+            <p className="text-sm text-gray-600 max-w-md mx-auto mb-4">
+              Upload a document (PDF, TXT) for analysis, or use one of the prompts below.
+            </p>
+            <div className="flex flex-wrap gap-2 justify-center max-w-md mx-auto">
+              <Badge
+                variant="outline"
+                className="cursor-pointer hover:bg-gray-100 transition-colors"
+                onClick={() => handleSuggestedQuestion('Analyze the attached document for new technologies and milestones.')}
+              >
+                Analyze document
+              </Badge>
+              <Badge
+                variant="outline"
+                className="cursor-pointer hover:bg-gray-100 transition-colors"
+                onClick={() => handleSuggestedQuestion('Based on the attached paper, suggest updates to existing nodes.')}
+              >
+                Update from paper
+              </Badge>
+              <Badge
+                variant="outline"
+                className="cursor-pointer hover:bg-gray-100 transition-colors"
+                onClick={() => handleSuggestedQuestion('Identify missing dependencies based on this document.')}
+              >
+                Find missing connections
+              </Badge>
+            </div>
+          </CardContent>
+        </Card>
+      );
+    }
+
+    // Error state
+    if (agentState.status === 'ERROR') {
+      return (
+        <Card className="border-red-200 bg-red-50">
+          <CardContent className="p-4">
+            <p className="text-red-700">{agentState.uiMessage}</p>
+          </CardContent>
+        </Card>
+      );
+    }
+
+    // Tool confirmation needed
+    if (agentState.interruptionType === 'TOOL_CONFIRMATION') {
+      return (
+        <>
+          <Card className="mb-4">
+            <CardContent className="p-4">
+              <p className="text-sm text-gray-700">{agentState.uiMessage}</p>
             </CardContent>
           </Card>
-        ) : (
-          messages.map((msg) => (
-            <div
-              key={msg.id}
-              className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
-            >
-              <Card
-                className={`max-w-[80%] ${
-                  msg.type === 'user'
-                    ? 'bg-slate-600 text-white border-slate-600'
-                    : 'bg-gray-100 text-gray-900 border'
-                }`}
-              >
-                <CardContent
-                  className={`p-4 ${msg.type === 'user' ? 'p-3' : 'p-4 pl-6'}`}
-                >
-                  <div className="break-words">
-                    {msg.type === 'assistant' ? (
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(
-                            msg.content
-                              .replace(/^```html\s*/i, '')
-                              .replace(/```[\s\n]*$/, ''),
-                            {
-                              ALLOWED_TAGS: [
-                                'h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li', 
-                                'strong', 'em', 'table', 'thead', 'tbody', 
-                                'tr', 'td', 'th', 'code', 'pre', 'br', 'a',
-                              ],
-                              ALLOWED_ATTR: ['class', 'href', 'target', 'rel'],
-                            }
-                          ),
-                        }}
-                        className="prose prose-sm max-w-none [&_table]:overflow-x-auto [&_table]:block [&_table]:w-full [&_table]:border-collapse [&_table]:border [&_table]:border-gray-300 [&_td]:border [&_td]:border-gray-300 [&_td]:px-3 [&_td]:py-2 [&_td]:whitespace-nowrap [&_th]:border [&_th]:border-gray-300 [&_th]:px-3 [&_th]:py-2 [&_th]:bg-gray-50 [&_th]:font-semibold [&_th]:text-left [&_h3]:mt-3 [&_h3]:mb-1 [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:list-inside [&_ol]:mb-3 [&_ol]:text-gray-700 [&_li]:mb-1 [&_a]:text-blue-600 [&_a]:hover:underline"
-                      />
-                    ) : (
-                      <div className="whitespace-pre-wrap">{msg.content}</div>
-                    )}
-                  </div>
-                  <div
-                    className={`text-xs mt-2 ${
-                      msg.type === 'user' ? 'text-slate-100' : 'text-gray-500'
-                    }`}
-                  >
-                    {new Date(msg.timestamp).toLocaleTimeString('de-DE', {
-                      hour: '2-digit',
-                      minute: '2-digit',
-                    })}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          ))
-        )}
+          <ToolConfirmationCard
+            toolRequest={agentState.payload}
+            onApprove={() => handleToolApproval(true)}
+            onDeny={() => handleToolApproval(false)}
+          />
+        </>
+      );
+    }
 
-        {isLoading && (
-          <div className="flex justify-start">
-            <Card className="bg-gray-100 border">
-              <CardContent className="p-3">
-                <div className="flex items-center space-x-2">
-                  <Loader2 size={16} className="animate-spin text-gray-500" />
-                  <span className="text-gray-500">Analyzing...</span>
+    // Plan confirmation needed
+    if (agentState.interruptionType === 'PLAN_CONFIRMATION') {
+      const plan = agentState.payload?.plan || [];
+      const deletionNotices = agentState.payload?.deletionNotices || [];
+
+      return (
+        <div className="space-y-4">
+          <PlanSummaryCard
+            summary={agentState.uiMessage}
+            totalActions={plan.length}
+            deletionNotices={deletionNotices.length}
+          />
+
+          {deletionNotices.map((notice: any, idx: number) => (
+            <DeletionNoticeCard key={`deletion-${idx}`} notice={notice} />
+          ))}
+
+          {plan.map((action: AgentAction, idx: number) => (
+            <SuggestionCard
+              key={`action-${idx}`}
+              action={action}
+              index={idx}
+              onAccept={() => handleActionAccept(idx)}
+              onReject={() => handleActionReject(idx)}
+              isAccepted={agentState.acceptedActions.has(idx)}
+              isRejected={agentState.rejectedActions.has(idx)}
+            />
+          ))}
+
+          {agentState.acceptedActions.size > 0 && (
+            <Card className="border-green-200 bg-green-50">
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium text-green-900">
+                      {agentState.acceptedActions.size} action(s) ready to execute
+                    </p>
+                    <p className="text-sm text-green-700">
+                      Click execute to apply all accepted changes.
+                    </p>
+                  </div>
+                  <Button
+                    onClick={handleExecuteAcceptedActions}
+                    className="bg-green-600 hover:bg-green-700"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="animate-spin mr-2" size={16} />
+                        Executing...
+                      </>
+                    ) : (
+                      'Execute All'
+                    )}
+                  </Button>
                 </div>
               </CardContent>
             </Card>
-          </div>
+          )}
+        </div>
+      );
+    }
+
+    // Deletion notice
+    if (agentState.interruptionType === 'DELETION_NOTICE') {
+      const deletionNotices = agentState.payload?.deletionNotices || [];
+      const plan = agentState.payload?.plan || [];
+
+      return (
+        <div className="space-y-4">
+          <Card>
+            <CardContent className="p-4">
+              <p className="text-sm text-gray-700">{agentState.uiMessage}</p>
+            </CardContent>
+          </Card>
+
+          {deletionNotices.map((notice: any, idx: number) => (
+            <DeletionNoticeCard key={`deletion-${idx}`} notice={notice} />
+          ))}
+
+          {plan.length > 0 && (
+            <>
+              <PlanSummaryCard
+                summary="Additional suggestions:"
+                totalActions={plan.length}
+              />
+
+              {plan.map((action: AgentAction, idx: number) => (
+                <SuggestionCard
+                  key={`action-${idx}`}
+                  action={action}
+                  index={idx}
+                  onAccept={() => handleActionAccept(idx)}
+                  onReject={() => handleActionReject(idx)}
+                  isAccepted={agentState.acceptedActions.has(idx)}
+                  isRejected={agentState.rejectedActions.has(idx)}
+                />
+              ))}
+            </>
+          )}
+        </div>
+      );
+    }
+
+    // Complete state
+    if (agentState.status === 'COMPLETE' && agentState.uiMessage) {
+      return (
+        <Card>
+          <CardContent className="p-4">
+            <p className="text-sm text-gray-700">{agentState.uiMessage}</p>
+          </CardContent>
+        </Card>
+      );
+    }
+
+    return null;
+  };
+
+  return (
+    <div className="flex flex-col h-full bg-white">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {renderContent()}
+
+        {isLoading && agentState.status === 'ANALYZING' && (
+          <Card className="bg-blue-50 border-blue-200">
+            <CardContent className="p-4">
+              <div className="flex items-center space-x-2">
+                <Loader2 size={16} className="animate-spin text-blue-500" />
+                <span className="text-blue-700">Analyzing document...</span>
+              </div>
+            </CardContent>
+          </Card>
         )}
 
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Input Area */}
       <div className="border-t border-gray-200 p-4">
         {file && (
           <div className="mb-2 flex items-center gap-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
@@ -362,7 +546,7 @@ Remember: Format everything as HTML with proper tags and spacing. No plain text 
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask about the tech tree or request suggestions..."
+              placeholder="Describe the document or request analysis..."
               className="w-full resize-none pr-24 max-h-32"
               rows={1}
               disabled={isLoading}
@@ -399,7 +583,7 @@ Remember: Format everything as HTML with proper tags and spacing. No plain text 
           </div>
         </form>
         <p className="text-xs text-gray-500 mt-2">
-          Press Enter to send, Shift+Enter for new line
+          Upload PDF or text document for AI analysis • Press Enter to send
         </p>
       </div>
     </div>
