@@ -76,6 +76,8 @@ export interface ChatMessage {
   type: 'user' | 'assistant';
   content: string;
   timestamp: number;
+  thinkingSteps?: string[];
+  isThinking?: boolean;
 }
 
 export interface ChatHistory {
