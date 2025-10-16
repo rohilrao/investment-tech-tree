@@ -45,6 +45,25 @@ class Node:
     trl_projected_5_10_years: str | None = None
 
 
+@dataclass(frozen=True)
+class Edge:
+    """
+    Directed edge in the tech tree.
+
+    Supports either a single target (target) or multiple targets (targets) to
+    match the heterogeneous input formats seen in the data. Use targets_list()
+    to iterate over resolved target IDs.
+    """
+    source: str
+    target: str | None = None
+    targets: list[str] | None = None
+
+    def targets_list(self) -> list[str]:
+        if self.targets:
+            return [t for t in self.targets if t]
+        return [self.target] if self.target else []
+
+
 class NuclearScheduler:
     """
     A dynamic scheduler that simulates year-by-year progress and allocates
@@ -85,7 +104,21 @@ class NuclearScheduler:
                 "trl_projected_5_10_years": trl_proj,
             }
 
-        self.edges = edges
+        # Normalize edges to Edge dataclass
+        edges_dc: list[Edge] = []
+        for e in edges:
+            try:
+                source = e["source"]
+                targets = e.get("targets")
+                target = e.get("target")
+            except Exception:
+                # If already an Edge-like object
+                source = getattr(e, "source")
+                targets = getattr(e, "targets", None)
+                target = getattr(e, "target", None)
+            edges_dc.append(Edge(source=source, target=target, targets=targets))
+        self.edges: list[Edge] = edges_dc
+
         self.dependencies = self._build_dependency_map()
         self.successors = self._build_successor_map()
         self.memoization_cache: Dict[str, Tuple[float, float]] = {}
@@ -123,20 +156,21 @@ class NuclearScheduler:
     def _build_dependency_map(self) -> Dict[str, List[str]]:
         deps: Dict[str, List[str]] = {node_id: [] for node_id in self.nodes}
         for edge in self.edges:
-            source_id = edge["source"]
-            targets = edge.get("targets", [edge.get("target")])
-            for target_id in targets:
-                if target_id and target_id in deps:
+            source_id = edge.source
+            for target_id in edge.targets_list():
+                if target_id in deps:
                     deps[target_id].append(source_id)
         return deps
 
     def _build_successor_map(self) -> Dict[str, List[str]]:
         succ: Dict[str, List[str]] = {node_id: [] for node_id in self.nodes}
         for edge in self.edges:
-            source_id = edge["source"]
-            targets = edge.get("targets", [edge.get("target")])
-            for target_id in targets:
-                if source_id and source_id in succ and target_id:
+            source_id = edge.source
+            if source_id not in succ:
+                # Skip edges whose source isn't a known node
+                continue
+            for target_id in edge.targets_list():
+                if target_id:
                     succ[source_id].append(target_id)
         return succ
 

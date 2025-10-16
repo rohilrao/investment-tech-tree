@@ -21,12 +21,6 @@ dependencies = [
   "pymc>=5.13",
 ]
 
-[tool.hatch.build.targets.wheel]
-packages = [
-    #  { include = "techtree", from = "src" }
-    "src/techtree",
-]
-
 [project.optional-dependencies]
 # Extra groups that can be installed with: uv pip install .[viz] (or hatch -e ...)
 cli = [
@@ -40,10 +34,17 @@ dev = [
   "pytest>=8.3",
 ]
 
+[tool.hatch.build.targets.wheel]
+packages = [
+    #  { include = "techtree", from = "src" }
+    "src/techtree",
+]
+
 [tool.uv]
 # Let uv know we prefer using a managed Python 3.13 when possible.
 managed = true
 python-preference = "managed"
+include = ["src/techtree/py.typed"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
