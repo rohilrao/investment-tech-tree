@@ -9,15 +9,22 @@ description = "Nuclear investment tech tree scheduler/simulator"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
 authors = [
-    "GAIA Team",
-    "Michael Walters <michaelwalters3000@gmail.com>",
-    # Add authorship here
+    { name = "GAIA Team" },
+    { name = "Michael Walters", email = "michaelwalters3000@gmail.com" },
+    { name = "Rohil Rao" },
+    { name = "Thomas Kopinski" },
 ]
-keywords = ["fusion", "nuclear", "scheduler", "simulation", "tech-tree"]
-
 dependencies = [
+  "numpy>=2.0",
   "pandas>=2.2",
   "plotly>=5.24",
+  "pymc>=5.13",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    #  { include = "techtree", from = "src" }
+    "src/techtree",
 ]
 
 [project.optional-dependencies]
@@ -44,7 +51,7 @@ allow-direct-references = true
 [tool.hatch.envs.default.scripts]
 # Convenience commands (run with: hatch run sim:run)
 # Assumes a graph.json exists at repo root as described in the scratch notes.
-"sim:run" = "python -c \"import json; from src.nuclear_investment_scheduler import NuclearScheduler; data=json.load(open('graph.json')); s=NuclearScheduler(data); i,st=s.run_simulation(50); print(json.dumps({'impactData':i,'statusData':st}, indent=2))\""
+"sim:run" = "python -c \"import json; from techtree.scheduler import NuclearScheduler; data=json.load(open('graph.json')); s=NuclearScheduler(data); i,st=s.run_simulation(50); print(json.dumps({'impactData':i,'statusData':st}, indent=2))\""
 "lint:ruff" = "ruff check ."
 "fmt:black" = "black ."
 "typecheck" = "mypy --ignore-missing-imports src"
