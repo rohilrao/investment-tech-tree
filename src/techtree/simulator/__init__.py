@@ -9,3 +9,8 @@ NumPy-based sampling to keep runtime light during tests.
 """
 
 from .runner import simulate_chain, save_results
+
+__all__ = [
+    "simulate_chain",
+    "save_results",
+]

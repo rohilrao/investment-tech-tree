@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import math
-from typing import Tuple
 
 try:  # Optional PyMC dependency
     import pymc as pm  # type: ignore

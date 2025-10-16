@@ -7,3 +7,10 @@ Typical usage:
 """
 
 from .scheduler import NuclearScheduler  # re-export for convenience
+from .simulator import simulate_chain, save_results  # convenience re-exports
+
+__all__ = [
+    "NuclearScheduler",
+    "simulate_chain",
+    "save_results",
+]

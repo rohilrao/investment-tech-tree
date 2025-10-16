@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any, Tuple
+from typing import Dict, List, Any
 
 import numpy as np
 
@@ -49,7 +50,7 @@ def simulate_chain(
     # Sample annual TWh for the reactor
     twh_per_year_draws = sample_reactor_twh_per_year(draws=draws, seed=rng.integers(0, 1_000_000))
 
-    current_year = 2025
+    current_year = datetime.now().year
     impact_data: Dict[str, Dict[int, float]] = {m["label"]: {} for m in milestones}
 
     for year in range(current_year, current_year + years_to_simulate):
