@@ -54,4 +54,5 @@ next-env.d.ts
 .qodo
 
 # AI
+.aiignore
 .junie/
