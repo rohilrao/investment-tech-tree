@@ -16,17 +16,19 @@ def simulate_chain(
     draws: int = 200,
     seed: int | None = 42,
 ) -> Dict[str, Dict[int, float]]:
-    """Simulate a simple chain of dependent entities.
+    """
+    Simulate a simple chain of dependent entities.
 
-    Parameters
-    - chain: list of nodes in dependency order, ending with a ReactorConcept
-      Each node is a dict with at least: {id, label, type, trl_current?}
-    - years_to_simulate: number of years to simulate
-    - draws: Monte Carlo draws
-    - seed: RNG seed
+    Params:
+        chain: Nodes in dependency order ending with a ReactorConcept. Each node
+            is a dict with at least {id, label, type, trl_current?}.
+        years_to_simulate: Number of years to simulate.
+        draws: Number of Monte Carlo draws.
+        seed: RNG seed for reproducibility.
 
-    Returns impactData: mapping label -> {year -> expected TWh impact}
-    Status is kept trivial ('Active') for milestones in this minimal version.
+    Returns:
+        Mapping label -> {year -> expected TWh impact}. Status is trivial
+        ('Active') for milestones in this minimal version.
     """
     rng = np.random.default_rng(seed)
 
@@ -74,10 +76,16 @@ def save_results(
     status_data: Dict[str, Dict[int, str]] | None = None,
     out_path: str | Path = "data/simulations/latest.json",
 ) -> Path:
-    """Save results as a JSON object similar to the frontend expectation.
+    """
+    Save results as a JSON object similar to the frontend expectation.
 
-    Writes { "impactData": ..., "statusData": ... } to out_path.
-    Creates parent directories if needed.
+    Params:
+        impact_data: Mapping label -> {year -> impact_TWh}.
+        status_data: Optional mapping label -> {year -> status}.
+        out_path: Output path for the JSON payload; parent dirs are created.
+
+    Returns:
+        Path to the written JSON file.
     """
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)

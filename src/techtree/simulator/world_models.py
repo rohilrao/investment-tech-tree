@@ -13,15 +13,25 @@ import numpy as np
 
 
 def _rng(seed: int | None) -> np.random.Generator:
+    """Return a NumPy Generator with an optional seed for reproducibility."""
     return np.random.default_rng(seed)
 
 
 def sample_milestone_duration(trl_current: str | None, draws: int = 1, seed: int | None = None) -> np.ndarray:
-    """Sample milestone duration (years) given a TRL string.
+    """
+    Sample milestone duration (years) given a TRL string.
 
     Uses a lognormal model centered around the deterministic heuristic used by the scheduler,
-    i.e., base_years = (9 - trl) * 2.5 with a modest uncertainty.
-    Falls back to a NumPy sampler if PyMC is unavailable.
+    i.e., base_years = (9 - trl) * 2.5 with a modest uncertainty. Falls back to a NumPy
+    sampler if PyMC is unavailable.
+
+    Params:
+        trl_current: Current TRL string (e.g., "6" or "5-6"); used to set the median.
+        draws: Number of samples to draw.
+        seed: Optional RNG seed.
+
+    Returns:
+        NumPy array of sampled durations in years.
     """
     try:
         trl_token = (trl_current or "5").split("-")[0].split()[0]
@@ -49,10 +59,20 @@ def sample_reactor_twh_per_year(
     draws: int = 1,
     seed: int | None = None,
 ) -> np.ndarray:
-    """Sample annual TWh production for a generic reactor.
+    """
+    Sample annual TWh production for a generic reactor.
 
     Simple multiplicative uncertainty around the base MWh calculation.
-    Returns TWh per year (not discounted)."""
+
+    Params:
+        avg_capacity_mw: Average plant capacity in MW.
+        capacity_factor: Capacity factor (0-1).
+        draws: Number of samples to draw.
+        seed: Optional RNG seed.
+
+    Returns:
+        NumPy array of TWh per year samples (not discounted).
+    """
     base_mwh = avg_capacity_mw * capacity_factor * 24 * 365
     base_twh = base_mwh / 1_000_000.0
 

@@ -5,7 +5,7 @@ import operator
 from dataclasses import dataclass
 from datetime import datetime
 from functools import reduce
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Any
 
 # --- Model Configuration & Assumptions ---
 DISCOUNT_RATE = 0.05
@@ -38,6 +38,12 @@ MWH_TO_TWH = 1_000_000
 
 @dataclass
 class Node:
+    """
+    A node in the tech tree graph.
+
+    Represents milestones, enabling technologies, and reactor concepts with
+    optional TRL metadata used to estimate initial time and risk.
+    """
     id: str
     label: str
     type: str
@@ -66,10 +72,11 @@ class Edge:
 
 class NuclearScheduler:
     """
-    A dynamic scheduler that simulates year-by-year progress and allocates
-    acceleration resources to the highest-impact milestones.
-    This version correctly models that R&D work reduces both time and risk,
-    and correctly calculates impact based on affected pathways only.
+    A dynamic scheduler that simulates year-by-year progress and computes the
+    marginal impact of accelerating each active milestone by one year.
+
+    R&D work is modeled as reducing both time and risk; per-node impact is
+    computed only over the reactor concepts reachable downstream of that node.
     """
 
     def __init__(self, graph_data: Dict[str, Any]):
@@ -121,12 +128,22 @@ class NuclearScheduler:
 
         self.dependencies = self._build_dependency_map()
         self.successors = self._build_successor_map()
-        self.memoization_cache: Dict[str, Tuple[float, float]] = {}
+        self.memoization_cache: Dict[str, tuple[float, float]] = {}
         self.recursion_stack: set[str] = set()
 
     @staticmethod
     def build_graph_from_techtree(tech_tree: Dict[str, Any]) -> Dict[str, Any]:
-        """Helper to adapt the TS TechTree schema to the legacy Python one."""
+        """
+        Adapt a TS TechTree-like schema to the legacy Python scheduler schema.
+
+        Params:
+            tech_tree: Dict with keys "nodes" and "edges" where nodes include
+                id and data.{label,nodeLabel,trl_current,trl_projected_5_10_years}.
+
+        Returns:
+            A dict shaped as {"graph": {"nodes": [...], "edges": [...]}} compatible
+            with NuclearScheduler input.
+        """
         return {
             "graph": {
                 "nodes": [
@@ -154,6 +171,12 @@ class NuclearScheduler:
         }
 
     def _build_dependency_map(self) -> Dict[str, List[str]]:
+        """Construct a mapping of node -> list of prerequisite node IDs.
+
+        Returns:
+            Dict where each key is a node id and the value is a list of ids that
+            must be completed before the key node can start.
+        """
         deps: Dict[str, List[str]] = {node_id: [] for node_id in self.nodes}
         for edge in self.edges:
             source_id = edge.source
@@ -163,6 +186,12 @@ class NuclearScheduler:
         return deps
 
     def _build_successor_map(self) -> Dict[str, List[str]]:
+        """Construct a mapping of node -> list of immediate successor node IDs.
+
+        Returns:
+            Dict where each key is a node id and the value is the list of nodes
+            that directly depend on it.
+        """
         succ: Dict[str, List[str]] = {node_id: [] for node_id in self.nodes}
         for edge in self.edges:
             source_id = edge.source
@@ -175,7 +204,7 @@ class NuclearScheduler:
         return succ
 
     def _get_downstream_concepts(self, start_node_id: str) -> List[str]:
-        """Find all final reactor concepts that depend on a given start node."""
+        """Find all reactor concepts reachable downstream from a given start node."""
         concepts: set[str] = set()
         q: List[str] = [start_node_id]
         visited: set[str] = set()
@@ -195,6 +224,14 @@ class NuclearScheduler:
         return list(concepts)
 
     def _get_initial_prob(self, node: Dict[str, Any]) -> float:
+        """Map a node's TRL string to an initial probability of success.
+
+        Params:
+            node: Node dict with optional key "trl_current".
+
+        Returns:
+            Probability in [0,1] using TRL_PROBABILITY_MAP with sensible defaults.
+        """
         trl_str = (node.get("trl_current") or "default").strip()
         if " " in trl_str:
             trl_str = trl_str.split(" ")[0]
@@ -204,7 +241,21 @@ class NuclearScheduler:
 
     def _find_critical_path(
         self, node_id: str, current_nodes: Dict[str, Dict[str, Any]]
-    ) -> Tuple[float, float]:
+    ) -> tuple[float, float]:
+        """Compute the critical-path time and success probability for a node.
+
+        Depth-first traversal with memoization over prerequisites. Time is additive
+        along the longest prerequisite chain; probability multiplies across independent
+        prerequisites. If a cycle is detected, returns (inf, 0.0) for that path to
+        avoid infinite recursion.
+
+        Params:
+            node_id: Target node identifier.
+            current_nodes: Mutable node state mapping used during simulation.
+
+        Returns:
+            (total_time_years, total_prob_of_success)
+        """
         if node_id in self.recursion_stack:
             return (float("inf"), 0.0)
         if node_id in self.memoization_cache:
@@ -242,6 +293,16 @@ class NuclearScheduler:
         return total_time, total_prob
 
     def _calculate_discounted_mwh(self, deployment_year: float) -> float:
+        """Compute discounted MWh over plant lifetime given deployment year.
+
+        Params:
+            deployment_year: Calendar year when the reactor becomes operational.
+                             Use inf to represent impossible deployment.
+
+        Returns:
+            Present-value MWh produced over YEARS_OF_OPERATION, discounted by
+            DISCOUNT_RATE relative to CURRENT_YEAR.
+        """
         if deployment_year == float("inf"):
             return 0.0
         annual_mwh = AVG_PLANT_CAPACITY_MW * CAPACITY_FACTOR * 24 * 365
@@ -256,7 +317,7 @@ class NuclearScheduler:
     def _calculate_pathway_mwh(
         self, nodes_to_sim: Dict[str, Dict[str, Any]], concept_ids: List[str]
     ) -> float:
-        """Calculates the total expected MWh for a specific list of concepts."""
+        """Calculate the total expected discounted MWh for a list of reactor concepts."""
         self.memoization_cache.clear()
         total_expected_mwh = 0.0
         for concept_id in concept_ids:
@@ -267,6 +328,20 @@ class NuclearScheduler:
         return total_expected_mwh
 
     def run_simulation(self, years_to_simulate: int = 20) -> tuple[dict, dict]:
+        """
+        Run a year-by-year scheduling simulation and compute per-node impacts.
+
+        Allocates one unit of generic R&D effort uniformly across active nodes by
+        advancing their time_remaining each year and reducing risk proportionally
+        to their initial gap to success.
+
+        Params:
+            years_to_simulate: Number of years to simulate from CURRENT_YEAR.
+
+        Returns:
+            impact_table: {label -> {year -> impact_TWh}}
+            status_table: {label -> {year -> "Pending"|"Active"|"Completed"}}
+        """
         sim_nodes = copy.deepcopy(self.nodes)
         for node_id, node in sim_nodes.items():
             # Estimate initial time from TRL
