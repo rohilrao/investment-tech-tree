@@ -52,3 +52,6 @@ next-env.d.ts
 *.swo
 *.sublime-workspace
 .qodo
+
+# AI
+.junie/
