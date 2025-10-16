@@ -37,6 +37,9 @@ export async function GET() {
           trl_current: node.trl_current,
           trl_projected_5_10_years: node.trl_projected_5_10_years,
           references: node.references || [],
+          infact_analysis: node.infact_analysis,
+          infact_analysis_html_content: node.infact_analysis_html_content,
+          infact_status: node.infact_status,
         },
       })),
       edges: edges.map((edge) => ({

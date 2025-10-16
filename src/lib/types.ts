@@ -10,6 +10,9 @@ export interface NodeProperties {
   isGroup?: boolean;
   isExpanded?: boolean;
   childNodeIds?: string[];
+  infact_analysis?: any;
+  infact_analysis_html_content?: string;
+  infact_status?: string;
 }
 
 export type UiNode = Node<Record<string, unknown> & NodeProperties>;
