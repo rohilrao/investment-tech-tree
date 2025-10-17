@@ -29,17 +29,6 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
 
-    # Minimal demo chain: two milestones leading to a single concept
-    chain = [
-        {"id": "m1", "label": "Milestone A", "type": "Milestone", "trl_current": "6"},
-        {"id": "m2", "label": "Milestone B", "type": "Milestone", "trl_current": "5"},
-        {"id": "c1", "label": "Concept 1", "type": "ReactorConcept"},
-    ]
-
-    logger.info(f"Running simulation with {len(chain)} nodes:")
-    for node in chain:
-        logger.info(f"  {node}")
-
     run_name = args.name
     base_dir = Path(__file__).parent / "data" / "simulations" / run_name
     # Make the base dir if it doesn't exist
@@ -48,6 +37,16 @@ def main() -> None:
     results_json = base_dir / "results.json"
     log_out = base_dir / "log.out"
     log_to_file(log_out, level=LOG_LEVEL)
+
+    # Minimal demo chain: two milestones leading to a single concept
+    chain = [
+        {"id": "m1", "label": "Milestone A", "type": "Milestone", "trl_current": "6"},
+        {"id": "m2", "label": "Milestone B", "type": "Milestone", "trl_current": "5"},
+        {"id": "c1", "label": "Concept 1", "type": "ReactorConcept"},
+    ]
+    logger.info(f"Running simulation with {len(chain)} nodes:")
+    for node in chain:
+        logger.info(f"  {node}")
 
     # Perform the sim
     impact = simulate_chain(chain, years_to_simulate=args.years, draws=args.draws, seed=SEED)
