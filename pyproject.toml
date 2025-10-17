@@ -44,7 +44,6 @@ packages = [
 # Let uv know we prefer using a managed Python 3.13 when possible.
 managed = true
 python-preference = "managed"
-include = ["src/techtree/py.typed"]
 
 [tool.hatch.metadata]
 allow-direct-references = true

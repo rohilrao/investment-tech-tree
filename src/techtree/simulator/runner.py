@@ -1,13 +1,11 @@
-from __future__ import annotations
-
 import json
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Any
-
 import numpy as np
 
-from .world_models import sample_milestone_duration, sample_reactor_twh_per_year
+from techtree.logger import logger
+from techtree.simulator.world_models import sample_milestone_duration, sample_reactor_twh_per_year
 
 
 def simulate_chain(
@@ -30,6 +28,9 @@ def simulate_chain(
         Mapping label -> {year -> expected TWh impact}. Status is trivial
         ('Active') for milestones in this minimal version.
     """
+    logger.info(
+        f"Simulating {len(chain)}-piece chain for {years_to_simulate} years at {draws} draws."
+    )
     rng = np.random.default_rng(seed)
 
     # Identify milestones (all non-reactor except final node)
@@ -42,7 +43,7 @@ def simulate_chain(
     # Sample a deployment year based on sum of milestone durations
     milestone_durations = []
     for m in milestones:
-        d = sample_milestone_duration(m.get("trl_current"), draws=draws, seed=rng.integers(0, 1_000_000))
+        d = sample_milestone_duration(m, draws=draws, seed=rng.integers(0, 1_000_000))
         milestone_durations.append(d)
     if milestone_durations:
         total_duration_draws = np.sum(np.vstack(milestone_durations), axis=0)

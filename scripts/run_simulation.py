@@ -1,17 +1,34 @@
-#!/usr/bin/env python3
-"""Run a very basic tech tree simulation and write results to data/simulations/latest.json.
-
-Usage:
-    python scripts/run_simulation.py
 """
-from __future__ import annotations
-
+Run a very basic tech tree simulation and write results under scripts/data/simulations/.
+"""
+import argparse
 from pathlib import Path
 
-from techtree.simulator import simulate_chain, save_results
+from techtree.logger import logger, log_to_file
+from techtree.simulator import save_results, simulate_chain
+
+SEED = 101010
+LOG_LEVEL = "INFO"  # Use string for our custom logger
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run a minimal TechTree simulation")
+
+    parser.add_argument("-d", "--draws", type=int, default=100, help="Number of Monte Carlo draws (default: 100)")
+    parser.add_argument("-y", "--years", type=int, default=10, help="Years to simulate (default: 10)")
+    parser.add_argument(
+        "-n",
+        "--name",
+        type=str,
+        default="latest",
+        help="Run name (default: 'latest')",
+    )
+    return parser.parse_args()
 
 
 def main() -> None:
+    args = parse_args()
+
     # Minimal demo chain: two milestones leading to a single concept
     chain = [
         {"id": "m1", "label": "Milestone A", "type": "Milestone", "trl_current": "6"},
@@ -19,10 +36,24 @@ def main() -> None:
         {"id": "c1", "label": "Concept 1", "type": "ReactorConcept"},
     ]
 
-    impact = simulate_chain(chain, years_to_simulate=10, draws=300, seed=123)
-    output_path = Path("data/simulations/latest.json")
-    save_results(impact, out_path=output_path)
-    print(f"Wrote simulation results to: {output_path.resolve()}")
+    logger.info(f"Running simulation with {len(chain)} nodes:")
+    for node in chain:
+        logger.info(f"  {node}")
+
+    run_name = args.name
+    base_dir = Path(__file__).parent / "data" / "simulations" / run_name
+    # Make the base dir if it doesn't exist
+    base_dir.mkdir(parents=True, exist_ok=True)
+
+    results_json = base_dir / "results.json"
+    log_out = base_dir / "log.out"
+    log_to_file(log_out, level=LOG_LEVEL)
+
+    # Perform the sim
+    impact = simulate_chain(chain, years_to_simulate=args.years, draws=args.draws, seed=SEED)
+
+    save_results(impact, out_path=results_json)
+    logger.info(f"Wrote simulation results to: {results_json.resolve()}")
 
 
 if __name__ == "__main__":
