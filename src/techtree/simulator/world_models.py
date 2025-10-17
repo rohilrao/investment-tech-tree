@@ -1,31 +1,23 @@
-from __future__ import annotations
-
+import logging
 import math
 
-try:  # Optional PyMC dependency
-    import pymc as pm  # type: ignore
-    _HAS_PYMC = True
-except Exception:  # pragma: no cover - optional
-    pm = None  # type: ignore
-    _HAS_PYMC = False
-
 import numpy as np
+import pymc as pm
+
+from techtree.logger import logger
+from techtree.scheduler import AVG_PLANT_CAPACITY_MW, CAPACITY_FACTOR
 
 
-def _rng(seed: int | None) -> np.random.Generator:
-    """Return a NumPy Generator with an optional seed for reproducibility."""
-    return np.random.default_rng(seed)
-
-
-def sample_milestone_duration(trl_current: str | None, draws: int = 1, seed: int | None = None) -> np.ndarray:
+def sample_milestone_duration(milestone: dict, draws: int = 100, seed: int | None = None) -> (
+        np.ndarray):
     """
     Sample milestone duration (years) given a TRL string.
 
     Uses a lognormal model centered around the deterministic heuristic used by the scheduler,
-    i.e., base_years = (9 - trl) * 2.5 with a modest uncertainty. Falls back to a NumPy
-    sampler if PyMC is unavailable.
+    i.e., base_years = (9 - trl) * 2.5 with a modest uncertainty.
 
     Params:
+        milestone: A dict of milestone attributes
         trl_current: Current TRL string (e.g., "6" or "5-6"); used to set the median.
         draws: Number of samples to draw.
         seed: Optional RNG seed.
@@ -33,6 +25,8 @@ def sample_milestone_duration(trl_current: str | None, draws: int = 1, seed: int
     Returns:
         NumPy array of sampled durations in years.
     """
+    logger.info(f"Sampling {draws} draws for milestone: {milestone}")
+    trl_current = milestone.get("trl_current")
     try:
         trl_token = (trl_current or "5").split("-")[0].split()[0]
         trl_val = float(trl_token)
@@ -40,22 +34,18 @@ def sample_milestone_duration(trl_current: str | None, draws: int = 1, seed: int
         trl_val = 5.0
     base_years = max(0.5, (9.0 - trl_val) * 2.5)
 
-    mu = math.log(base_years) - 0.5 * 0.25**2  # so that median ~ base_years
+    mu = math.log(base_years) - 0.5 * 0.25 ** 2  # so that median ~ base_years
     sigma = 0.25
 
-    if _HAS_PYMC:  # Use PyMC to define a simple model and draw posterior predictive samples
-        with pm.Model() as model:  # pragma: no cover (treated similarly to numpy fallback)
-            duration = pm.Lognormal("duration", mu=mu, sigma=sigma)
-            samples = pm.draw(duration, draws=draws, random_seed=seed)
-        return np.asarray(samples)
-    else:
-        rng = _rng(seed)
-        return rng.lognormal(mean=mu, sigma=sigma, size=draws)
+    with pm.Model() as model:
+        duration = pm.Lognormal("duration", mu=mu, sigma=sigma)
+        samples = pm.draw(duration, draws=draws, random_seed=seed)
+    return np.asarray(samples)
 
 
 def sample_reactor_twh_per_year(
-    avg_capacity_mw: float = 1000.0,
-    capacity_factor: float = 0.90,
+    avg_capacity_mw: float = AVG_PLANT_CAPACITY_MW,
+    capacity_factor: float = CAPACITY_FACTOR,
     draws: int = 1,
     seed: int | None = None,
 ) -> np.ndarray:
@@ -73,18 +63,19 @@ def sample_reactor_twh_per_year(
     Returns:
         NumPy array of TWh per year samples (not discounted).
     """
+    logger.info(
+        f"Sampling {draws} draws for reactor with params: avg_capacity_mw={avg_capacity_mw}, "
+        f"capacity_factor={capacity_factor}"
+    )
     base_mwh = avg_capacity_mw * capacity_factor * 24 * 365
     base_twh = base_mwh / 1_000_000.0
 
     # 10% lognormal uncertainty
-    mu = math.log(max(1e-6, base_twh)) - 0.5 * 0.10**2
+    mu = math.log(max(1e-6, base_twh)) - 0.5 * 0.10 ** 2
     sigma = 0.10
 
-    if _HAS_PYMC:  # pragma: no cover
-        with pm.Model() as model:
-            twh = pm.Lognormal("twh", mu=mu, sigma=sigma)
-            samples = pm.draw(twh, draws=draws, random_seed=seed)
-        return np.asarray(samples)
-    else:
-        rng = _rng(seed)
-        return rng.lognormal(mean=mu, sigma=sigma, size=draws)
+    with pm.Model() as model:
+        twh = pm.Lognormal("twh", mu=mu, sigma=sigma)
+        samples = pm.draw(twh, draws=draws, random_seed=seed)
+
+    return np.asarray(samples)

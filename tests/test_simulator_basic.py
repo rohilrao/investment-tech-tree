@@ -9,14 +9,14 @@ def basic_chain():
     ]
 
 
-ess = 123
+SEED = 123
 
 def test_simulate_chain_shape_and_determinism():
     chain = basic_chain()
     years = 5
 
-    res1 = simulate_chain(chain, years_to_simulate=years, draws=100, seed=ess)
-    res2 = simulate_chain(chain, years_to_simulate=years, draws=100, seed=ess)
+    res1 = simulate_chain(chain, years_to_simulate=years, draws=100, seed=SEED)
+    res2 = simulate_chain(chain, years_to_simulate=years, draws=100, seed=SEED)
 
     assert set(res1.keys()) == {"Milestone A", "Milestone B"}
     for label, yearly in res1.items():

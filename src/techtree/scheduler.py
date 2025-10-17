@@ -1,11 +1,9 @@
-from __future__ import annotations
-
 import copy
 import operator
 from dataclasses import dataclass
 from datetime import datetime
 from functools import reduce
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
 # --- Model Configuration & Assumptions ---
 DISCOUNT_RATE = 0.05
@@ -389,8 +387,8 @@ class NuclearScheduler:
                     if node["time_remaining"] > 0:
                         node["time_remaining"] -= 1
                         risk_reduction_per_year = (
-                            1 - self._get_initial_prob(node)
-                        ) / node["initial_time"]
+                                                          1 - self._get_initial_prob(node)
+                                                  ) / node["initial_time"]
                         node["prob_of_success"] += risk_reduction_per_year
                     if node["time_remaining"] <= 0:
                         node["is_complete"] = True
@@ -416,8 +414,8 @@ class NuclearScheduler:
                 temp_nodes = copy.deepcopy(sim_nodes)
                 temp_nodes[node_id]["time_remaining"] -= 1
                 risk_reduction_per_year = (
-                    1 - self._get_initial_prob(temp_nodes[node_id])
-                ) / temp_nodes[node_id]["initial_time"]
+                                                  1 - self._get_initial_prob(temp_nodes[node_id])
+                                          ) / temp_nodes[node_id]["initial_time"]
                 temp_nodes[node_id]["prob_of_success"] += risk_reduction_per_year
 
                 accelerated_mwh = self._calculate_pathway_mwh(temp_nodes, affected_concepts)
