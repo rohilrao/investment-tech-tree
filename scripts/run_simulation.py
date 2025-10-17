@@ -2,9 +2,10 @@
 Run a very basic tech tree simulation and write results under scripts/data/simulations/.
 """
 import argparse
+import shutil
 from pathlib import Path
 
-from techtree.logger import logger, log_to_file
+from techtree.logger import log_to_file, logger
 from techtree.simulator import save_results, simulate_chain
 
 SEED = 101010
@@ -31,9 +32,19 @@ def main() -> None:
 
     run_name = args.name
     base_dir = Path(__file__).parent / "data" / "simulations" / run_name
-    # Make the base dir if it doesn't exist
-    base_dir.mkdir(parents=True, exist_ok=True)
+    if base_dir.exists():
+        if run_name == "latest":
+            # Overwrite without confirm
+            shutil.rmtree(base_dir)
+        else:
+            response = input(f"Directory {base_dir} already exists. Delete it? [y/N] ")
+            if response.lower() == 'y':
+                shutil.rmtree(base_dir)
+            else:
+                logger.error("Directory exists and user chose not to delete it. Exiting.")
+                return
 
+    base_dir.mkdir(parents=True, exist_ok=True)
     results_json = base_dir / "results.json"
     log_out = base_dir / "log.out"
     log_to_file(log_out, level=LOG_LEVEL)

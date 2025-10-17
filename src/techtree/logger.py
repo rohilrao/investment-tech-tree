@@ -63,7 +63,9 @@ def get_logger():
     return _logger
 
 
-def log_to_file(log_path: str | None = None, level: str = INFO):
+from typing import Optional
+
+def log_to_file(log_path: Optional[str] = None, level: int = INFO):
     """
     Specify a log file to write to, or initialize the default.
     Also specify a log level
