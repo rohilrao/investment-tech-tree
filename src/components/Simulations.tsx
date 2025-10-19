@@ -192,6 +192,9 @@ const Simulations: React.FC = () => {
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
             Technology Impact Heatmap (TWh)
           </h3>
+          <p className="text-sm text-gray-600 mb-4">
+            Only impact &gt;0.01 TWh are visualized
+          </p>
           <div className="overflow-x-auto">
             <div className="min-w-max">
               {/* Year headers */}
