@@ -1,375 +1,309 @@
 import React, { useState, useMemo } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-// Using simple label instead of UI component
-import { TechTree } from '@/lib/types';
-import {
-  NuclearScheduler,
-  calculateSummaryStats,
-  SimulationResults,
-} from '@/lib/nuclearScheduler';
-import { Loader2 } from 'lucide-react';
+import simulationResults from '../data/simulation_results.json';
 
-interface SimulationsProps {
-  techTree: TechTree;
+interface SimulationData {
+  impactData: Record<string, Record<string, number>>;
+  statusData: Record<string, Record<string, string>>;
 }
 
-interface HeatmapData {
-  technology: string;
-  year: number;
-  impact: number;
-}
+const Simulations: React.FC = () => {
+  const [selectedYears, setSelectedYears] = useState<string>('10');
 
-const Simulations: React.FC<SimulationsProps> = ({ techTree }) => {
-  const [yearsToSimulate, setYearsToSimulate] = useState(20);
-  const [isRunning, setIsRunning] = useState(false);
-  const [simulationResults, setSimulationResults] =
-    useState<SimulationResults | null>(null);
-  const [minImpact, setMinImpact] = useState(0);
-  const [showAllTechs, setShowAllTechs] = useState(false);
+  // Generate year options from 5 to 100 in increments of 5
+  const yearOptions = useMemo(() => {
+    const options = [];
+    for (let i = 5; i <= 100; i += 5) {
+      options.push(i.toString());
+    }
+    return options;
+  }, []);
 
-  const scheduler = useMemo(() => new NuclearScheduler(techTree), [techTree]);
+  // Get current simulation data based on selected years
+  const currentData = useMemo((): SimulationData => {
+    const data = simulationResults[selectedYears as keyof typeof simulationResults];
+    return data || { impactData: {}, statusData: {} };
+  }, [selectedYears]);
 
-  const runSimulation = async () => {
-    setIsRunning(true);
-    try {
-      // Add a small delay to show loading state
-      await new Promise((resolve) => setTimeout(resolve, 100));
-      const results = scheduler.runSimulation(yearsToSimulate);
-      setSimulationResults(results);
-    } catch (error) {
-      console.error('Simulation failed:', error);
-    } finally {
-      setIsRunning(false);
+  // Transform impact data for heatmap
+  const heatmapData = useMemo(() => {
+    const { impactData } = currentData;
+    const allYears = new Set<string>();
+
+    // Collect all years from all technologies
+    Object.values(impactData).forEach((techData) => {
+      Object.keys(techData).forEach((year) => allYears.add(year));
+    });
+
+    const sortedYears = Array.from(allYears).sort(
+      (a, b) => parseInt(a) - parseInt(b),
+    );
+    const technologies = Object.keys(impactData);
+
+    return {
+      years: sortedYears,
+      technologies,
+      data: technologies.map((tech) => ({
+        technology: tech,
+        yearlyData: sortedYears.map((year) => ({
+          year,
+          impact: impactData[tech][year] || 0,
+        })),
+      })),
+    };
+  }, [currentData]);
+
+  // Transform status data for timeline
+  const timelineData = useMemo(() => {
+    const { statusData } = currentData;
+    const allYears = new Set<string>();
+
+    // Collect all years from all technologies
+    Object.values(statusData).forEach((techData) => {
+      Object.keys(techData).forEach((year) => allYears.add(year));
+    });
+
+    const sortedYears = Array.from(allYears).sort(
+      (a, b) => parseInt(a) - parseInt(b),
+    );
+    const technologies = Object.keys(statusData);
+
+    return {
+      years: sortedYears,
+      technologies,
+      data: technologies.map((tech) => ({
+        technology: tech,
+        yearlyData: sortedYears.map((year) => ({
+          year,
+          status: statusData[tech][year] || 'Pending',
+        })),
+      })),
+    };
+  }, [currentData]);
+
+  // Get color for impact value
+  const getImpactColor = (impact: number) => {
+    if (impact === 0) return '#f3f4f6'; // gray-100
+    const maxImpact = Math.max(
+      ...Object.values(currentData.impactData).flatMap((tech) => Object.values(tech)),
+    );
+    const intensity = Math.min(impact / maxImpact, 1);
+
+    // Blue color scale
+    const alpha = 0.1 + intensity * 0.9;
+    return `rgba(59, 130, 246, ${alpha})`;
+  };
+
+  // Get color for status
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'Active':
+        return '#3b82f6'; // blue-500
+      case 'Pending':
+        return '#f59e0b'; // amber-500
+      case 'Completed':
+        return '#10b981'; // emerald-500
+      default:
+        return '#6b7280'; // gray-500
     }
   };
 
-  const heatmapData = useMemo(() => {
-    if (!simulationResults) return [];
+  // Status colors for legend consistency
+  const statusColors = {
+    Active: '#3b82f6',    // blue-500
+    Pending: '#f59e0b',   // amber-500
+    Completed: '#10b981'  // emerald-500
+  };
 
-    // First, filter technologies based on their first year impact
-    const firstYear = Math.min(
-      ...Object.values(simulationResults.impactData).flatMap((yearlyImpact) =>
-        Object.keys(yearlyImpact as Record<number, number>).map(Number),
-      ),
-    );
-
-    const eligibleTechs = Object.entries(simulationResults.impactData)
-      .filter(([, yearlyImpact]) => {
-        const firstYearImpact =
-          (yearlyImpact as Record<number, number>)[firstYear] || 0;
-        return firstYearImpact >= minImpact;
-      })
-      .map(([tech]) => tech);
-
-    // Then create data for all years for eligible technologies
-    const data: HeatmapData[] = [];
-    Object.entries(simulationResults.impactData).forEach(
-      ([tech, yearlyImpact]) => {
-        if (eligibleTechs.includes(tech)) {
-          Object.entries(yearlyImpact as Record<number, number>).forEach(
-            ([year, impact]) => {
-              data.push({
-                technology: tech,
-                year: parseInt(year),
-                impact: impact,
-              });
-            },
-          );
-        }
-      },
-    );
-
-    // Sort by impact and limit to top technologies if not showing all
-    data.sort((a, b) => b.impact - a.impact);
-
-    if (!showAllTechs) {
-      const topTechs = Array.from(new Set(data.map((d) => d.technology))).slice(
-        0,
-        15,
-      );
-      return data.filter((d) => topTechs.includes(d.technology));
-    }
-
-    return data;
-  }, [simulationResults, minImpact, showAllTechs]);
-
+  // Calculate summary statistics
   const summaryStats = useMemo(() => {
-    if (!simulationResults) return null;
-    return calculateSummaryStats(simulationResults.impactData);
-  }, [simulationResults]);
-
-  const renderHeatmap = () => {
-    if (!heatmapData.length) return null;
-
-    const technologies = Array.from(
-      new Set(heatmapData.map((d) => d.technology)),
+    const totalTechs = Object.keys(currentData.impactData).length;
+    const maxImpact = Math.max(
+      ...Object.values(currentData.impactData).flatMap((tech) => Object.values(tech)),
     );
-    const years = Array.from(new Set(heatmapData.map((d) => d.year))).sort(
-      (a, b) => a - b,
-    );
-    const maxImpact = Math.max(...heatmapData.map((d) => d.impact));
 
-    return (
-      <div className="overflow-x-auto">
-        <div className="inline-block min-w-full">
-          <div
-            className="grid grid-cols-1 gap-2"
-            style={{
-              gridTemplateColumns: `200px repeat(${years.length}, 40px)`,
-            }}
+    // Count current year activities
+    const currentYear = new Date().getFullYear().toString();
+    const activeNow = Object.values(currentData.statusData).filter(
+      (tech) => tech[currentYear] === 'Active',
+    ).length;
+
+    return { totalTechs, maxImpact, activeNow };
+  }, [currentData]);
+
+  return (
+    <div className="p-6 bg-white">
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+          Investment Simulation Results
+        </h2>
+
+        <div className="mb-4">
+          <label
+            htmlFor="years-select"
+            className="block text-sm font-medium text-gray-700 mb-2"
           >
-            {/* Header */}
-            <div className="font-semibold text-sm p-2">Technology</div>
-            {years.map((year) => (
-              <div
-                key={year}
-                className="font-semibold text-xs p-1 text-center h-12 flex items-end justify-center"
-              >
-                <span className="transform -rotate-45 origin-bottom whitespace-nowrap">
-                  {year}
-                </span>
-              </div>
+            Simulation Time Horizon (Years):
+          </label>
+          <select
+            id="years-select"
+            value={selectedYears}
+            onChange={(e) => setSelectedYears(e.target.value)}
+            className="block w-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            {yearOptions.map((year) => (
+              <option key={year} value={year}>
+                {year} years
+              </option>
             ))}
+          </select>
+        </div>
+      </div>
 
-            {/* Data rows */}
-            {technologies.map((tech) => (
-              <React.Fragment key={tech}>
-                <div className="text-xs p-2 border-r truncate" title={tech}>
-                  {tech}
+      <div className="space-y-8">
+        {/* Summary Statistics */}
+        <div className="bg-gray-50 p-6 rounded-lg">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            Simulation Summary ({selectedYears} years)
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-white p-4 rounded border">
+              <h4 className="font-medium text-gray-600">Total Technologies</h4>
+              <p className="text-2xl font-bold text-blue-600">
+                {summaryStats.totalTechs}
+              </p>
+            </div>
+            <div className="bg-white p-4 rounded border">
+              <h4 className="font-medium text-gray-600">Active Technologies</h4>
+              <p className="text-2xl font-bold text-green-600">
+                {summaryStats.activeNow}
+              </p>
+            </div>
+            <div className="bg-white p-4 rounded border">
+              <h4 className="font-medium text-gray-600">Max Impact (TWh)</h4>
+              <p className="text-2xl font-bold text-purple-600">
+                {summaryStats.maxImpact.toFixed(2)}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Impact Heatmap */}
+        <div className="bg-gray-50 p-6 rounded-lg">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            Technology Impact Heatmap (TWh)
+          </h3>
+          <p className="text-sm text-gray-600 mb-4">
+            Only impact &gt;0.01 TWh are visualized
+          </p>
+          <div className="overflow-x-auto">
+            <div className="min-w-max">
+              {/* Year headers */}
+              <div className="flex">
+                <div className="w-64 p-2 font-medium text-sm text-gray-700">
+                  Technology
                 </div>
-                {years.map((year) => {
-                  const dataPoint = heatmapData.find(
-                    (d) => d.technology === tech && d.year === year,
-                  );
-                  const intensity = dataPoint
-                    ? dataPoint.impact / maxImpact
-                    : 0;
-                  const hasData = dataPoint && dataPoint.impact > 0;
-                  const color = hasData
-                    ? `rgba(59, 130, 246, ${0.2 + intensity * 0.8})`
-                    : 'rgba(156, 163, 175, 0.3)'; // Light grey for no data
+                {heatmapData.years.map((year) => (
+                  <div
+                    key={year}
+                    className="w-16 p-2 text-center font-medium text-sm text-gray-700"
+                  >
+                    {year}
+                  </div>
+                ))}
+              </div>
 
-                  return (
+              {/* Technology rows */}
+              {heatmapData.data.map((tech) => (
+                <div key={tech.technology} className="flex border-t border-gray-200">
+                  <div className="w-64 p-2 text-sm text-gray-800 truncate" title={tech.technology}>
+                    {tech.technology}
+                  </div>
+                  {tech.yearlyData.map(({ year, impact }) => (
                     <div
-                      key={`${tech}-${year}`}
-                      className="h-8 border border-gray-200 flex items-center justify-center text-xs cursor-pointer hover:border-gray-400"
-                      style={{ backgroundColor: color }}
-                      title={
-                        hasData
-                          ? `${tech} (${year}): ${dataPoint.impact.toFixed(2)} TWh`
-                          : `${tech} (${year}): No impact`
-                      }
+                      key={year}
+                      className="w-16 p-2 text-center text-xs border-l border-gray-200"
+                      style={{ backgroundColor: getImpactColor(impact) }}
+                      title={`${tech.technology} (${year}): ${impact.toFixed(3)} TWh`}
                     >
-                      {hasData ? dataPoint.impact.toFixed(1) : '0.0'}
+                      {impact > 0 ? impact.toFixed(2) : ''}
                     </div>
-                  );
-                })}
-              </React.Fragment>
-            ))}
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Status Timeline */}
+        <div className="bg-gray-50 p-6 rounded-lg">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            Technology Status Timeline
+          </h3>
+          <div className="mb-4 flex items-center space-x-4 text-sm">
+            <div className="flex items-center">
+              <div 
+                className="w-4 h-4 rounded mr-2"
+                style={{ backgroundColor: statusColors.Active }}
+              ></div>
+              <span>Active</span>
+            </div>
+            <div className="flex items-center">
+              <div 
+                className="w-4 h-4 rounded mr-2"
+                style={{ backgroundColor: statusColors.Pending }}
+              ></div>
+              <span>Pending</span>
+            </div>
+            <div className="flex items-center">
+              <div 
+                className="w-4 h-4 rounded mr-2"
+                style={{ backgroundColor: statusColors.Completed }}
+              ></div>
+              <span>Completed</span>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <div className="min-w-max">
+              {/* Year headers */}
+              <div className="flex">
+                <div className="w-64 p-2 font-medium text-sm text-gray-700">
+                  Technology
+                </div>
+                {timelineData.years.map((year) => (
+                  <div
+                    key={year}
+                    className="w-16 p-2 text-center font-medium text-sm text-gray-700"
+                  >
+                    {year}
+                  </div>
+                ))}
+              </div>
+
+              {/* Technology rows */}
+              {timelineData.data.map((tech) => (
+                <div key={tech.technology} className="flex border-t border-gray-200">
+                  <div className="w-64 p-2 text-sm text-gray-800 truncate" title={tech.technology}>
+                    {tech.technology}
+                  </div>
+                  {tech.yearlyData.map(({ year, status }) => (
+                    <div
+                      key={year}
+                      className="w-16 p-1 text-center border-l border-gray-200"
+                      title={`${tech.technology} (${year}): ${status}`}
+                    >
+                      <div
+                        className="w-full h-6 rounded"
+                        style={{ backgroundColor: getStatusColor(status) }}
+                      ></div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    );
-  };
-
-  return (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Nuclear Investment Simulation</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex items-center space-x-4">
-            <div className="flex flex-col space-y-2">
-              <label htmlFor="years" className="text-sm font-medium">
-                Years to Simulate
-              </label>
-              <Input
-                id="years"
-                type="number"
-                min="1"
-                max="50"
-                value={yearsToSimulate}
-                onChange={(e) =>
-                  setYearsToSimulate(parseInt(e.target.value) || 20)
-                }
-                className="w-32"
-              />
-            </div>
-            <Button
-              onClick={runSimulation}
-              disabled={isRunning}
-              className="mt-6"
-            >
-              {isRunning ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Running...
-                </>
-              ) : (
-                'Run Simulation'
-              )}
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-
-      {summaryStats && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Simulation Summary</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">
-                  {summaryStats.totalTechs}
-                </div>
-                <div className="text-sm text-gray-600">Total Technologies</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-600">
-                  {summaryStats.activeTechs}
-                </div>
-                <div className="text-sm text-gray-600">Active Technologies</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-purple-600">
-                  {summaryStats.maxImpact.toFixed(1)}
-                </div>
-                <div className="text-sm text-gray-600">Max Impact (TWh)</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">
-                  {summaryStats.currentOpportunities}
-                </div>
-                <div className="text-sm text-gray-600">
-                  Current Opportunities
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {simulationResults && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Impact Heatmap</CardTitle>
-            <div className="flex items-center space-x-4 mt-4">
-              <div className="flex flex-col space-y-2">
-                <label htmlFor="minImpact" className="text-sm font-medium">
-                  Min Impact (TWh)
-                </label>
-                <Input
-                  id="minImpact"
-                  type="number"
-                  min="0"
-                  step="0.1"
-                  value={minImpact}
-                  onChange={(e) =>
-                    setMinImpact(parseFloat(e.target.value) || 0)
-                  }
-                  className="w-32"
-                />
-              </div>
-              <div className="flex items-center space-x-2 mt-6">
-                <input
-                  type="checkbox"
-                  id="showAll"
-                  checked={showAllTechs}
-                  onChange={(e) => setShowAllTechs(e.target.checked)}
-                />
-                <label htmlFor="showAll" className="text-sm font-medium">
-                  Show All Technologies
-                </label>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            {heatmapData.length > 0 ? (
-              <div className="space-y-4">
-                <div className="text-sm text-gray-600">
-                  Impact values represent the potential energy output (TWh)
-                  gained by accelerating technology development by one year.
-                  Darker blue indicates higher impact.
-                </div>
-                {renderHeatmap()}
-              </div>
-            ) : (
-              <div className="text-center text-gray-500 py-8">
-                No data meets the current filter criteria. Try reducing the
-                minimum impact threshold.
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      )}
-
-      {simulationResults && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Technology Status Timeline</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2 max-h-96 overflow-y-auto">
-              {Object.entries(simulationResults.statusData).map(
-                ([tech, yearlyStatus]) => {
-                  const statusEntries = Object.entries(
-                    yearlyStatus as Record<number, string>,
-                  );
-                  if (statusEntries.length === 0) return null;
-
-                  return (
-                    <div
-                      key={tech}
-                      className="flex items-center space-x-2 p-2 border rounded"
-                    >
-                      <div
-                        className="w-48 text-sm font-medium truncate"
-                        title={tech}
-                      >
-                        {tech}
-                      </div>
-                      <div className="flex space-x-1 flex-1 overflow-x-auto">
-                        {statusEntries.slice(0, 20).map(([year, status]) => (
-                          <div
-                            key={year}
-                            className={`w-4 h-4 rounded text-xs flex items-center justify-center ${
-                              status === 'Completed'
-                                ? 'bg-green-500'
-                                : status === 'Active'
-                                  ? 'bg-blue-500'
-                                  : 'bg-gray-300'
-                            }`}
-                            title={`${year}: ${status}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  );
-                },
-              )}
-            </div>
-            <div className="mt-4 flex space-x-4 text-sm">
-              <div className="flex items-center space-x-1">
-                <div className="w-4 h-4 bg-gray-300 rounded"></div>
-                <span>Pending</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <div className="w-4 h-4 bg-blue-500 rounded"></div>
-                <span>Active</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <div className="w-4 h-4 bg-green-500 rounded"></div>
-                <span>Completed</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 };
