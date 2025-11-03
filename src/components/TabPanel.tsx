@@ -1,21 +1,24 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { MessageSquare, Info, BarChart3 } from 'lucide-react';
+import { MessageSquare, Info, BarChart3, ChevronLeft, ChevronRight } from 'lucide-react';
 import NodeDetails from './NodeDetails';
 import Chat from './Chat';
 import Simulations from './Simulations';
 import { UiNode, TechTree } from '@/lib/types';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
 
 interface TabPanelProps {
   selectedNode?: UiNode;
   techTree: TechTree | null;
+  isPanelExpanded: boolean;
+  onTogglePanel: () => void;
 }
 
 type TabType = 'details' | 'chat' | 'simulations';
 
-const TabPanel = ({ selectedNode, techTree }: TabPanelProps) => {
+const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel }: TabPanelProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('chat');
   const previousNodeIdRef = useRef<string | undefined>(undefined);
 
@@ -31,7 +34,26 @@ const TabPanel = ({ selectedNode, techTree }: TabPanelProps) => {
   }, [selectedNode, activeTab]);
 
   return (
-    <div className="flex flex-col h-full bg-white shadow-lg">
+    <>
+      {/* Toggle Button - Always visible */}
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={onTogglePanel}
+        className={`fixed top-4 z-50 bg-white border border-gray-200 shadow-md hover:bg-gray-50 transition-all duration-300 ${
+          isPanelExpanded ? 'right-[calc(50%-2.5rem)]' : 'right-4'
+        }`}
+        title={isPanelExpanded ? 'Collapse panel' : 'Expand panel'}
+      >
+        {isPanelExpanded ? (
+          <ChevronRight className="h-5 w-5" />
+        ) : (
+          <ChevronLeft className="h-5 w-5" />
+        )}
+      </Button>
+
+      <div className={`flex flex-col h-full bg-white shadow-lg transition-all duration-300 ${isPanelExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+
       <Tabs
         value={activeTab}
         onValueChange={(value) => setActiveTab(value as TabType)}
@@ -70,7 +92,8 @@ const TabPanel = ({ selectedNode, techTree }: TabPanelProps) => {
           )}
         </TabsContent>
       </Tabs>
-    </div>
+      </div>
+    </>
   );
 };
 

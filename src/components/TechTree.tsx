@@ -45,12 +45,13 @@ const TechTree: React.FC = () => {
     nodeIds: new Set(),
     edgeIds: new Set(),
   });
-  const [groupingMode, setGroupingMode] = useState<GroupingMode>('Milestone');
+  const [groupingMode, setGroupingMode] = useState<GroupingMode>('None');
   const [showingRelatedNodes, setShowingRelatedNodes] = useState<string | null>(null);
   const [showOnlyConnected, setShowOnlyConnected] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [isEditing, setIsEditing] = useState(false);
+  const [isPanelExpanded, setIsPanelExpanded] = useState(true);
   const { fitView } = useReactFlow();
 
   // Show error state
@@ -237,7 +238,7 @@ const TechTree: React.FC = () => {
 
   return (
     <div className="w-full h-screen bg-gray-100 flex">
-      <div className="w-2/4 relative">
+      <div className={`relative transition-all duration-300 ${isPanelExpanded ? 'w-2/4' : 'w-full'}`}>
         <GroupSelector
           currentMode={groupingMode}
           onModeChange={handleGroupingModeChange}
@@ -286,11 +287,20 @@ const TechTree: React.FC = () => {
           </>
         )}
       </div>
-      <div className="w-2/4 bg-white shadow-lg">
+      <div 
+        className={`bg-white shadow-lg transition-all duration-300 relative ${
+          isPanelExpanded ? 'w-2/4' : 'w-0'
+        }`}
+      >
         {isEditing ? (
           <EditInterface onExit={handleExitEditMode} />
         ) : (
-          <TabPanel selectedNode={selectedNode} techTree={techTree} />
+          <TabPanel 
+            selectedNode={selectedNode} 
+            techTree={techTree}
+            isPanelExpanded={isPanelExpanded}
+            onTogglePanel={() => setIsPanelExpanded(!isPanelExpanded)}
+          />
         )}
       </div>
     </div>
