@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
+import { Menu, Eye } from 'lucide-react';
 
 interface GroupSelectorProps {
   currentMode: GroupingMode;
@@ -21,6 +22,10 @@ interface GroupSelectorProps {
   onSearchChange: (value: string) => void;
   onEnterEditMode: () => void;
   isEditing: boolean;
+  showLegend: boolean;
+  showOptions: boolean;
+  onToggleLegend: () => void;
+  onToggleOptions: () => void;
 }
 
 export const GroupSelector: React.FC<GroupSelectorProps> = ({
@@ -33,6 +38,10 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({
   onSearchChange,
   onEnterEditMode,
   isEditing,
+  showLegend,
+  showOptions,
+  onToggleLegend,
+  onToggleOptions,
 }) => {
   const groupingOptions: GroupingMode[] = ['None', ...NODE_LABELS];
 
@@ -52,71 +61,98 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({
           </Button>
         </div>
       ) : (
-        <div className="p-3 bg-white border border-gray-200 rounded-lg shadow-sm bg-opacity-80 space-y-3">
-          {/* Search Input */}
-          <div className="flex items-center gap-2">
-            <label
-              htmlFor="search-input"
-              className="text-sm font-medium text-gray-700 whitespace-nowrap"
+        <>
+          {/* Mobile: Show toggle buttons */}
+          <div className="md:hidden flex gap-2 mb-2">
+            <Button
+              variant={showLegend ? 'default' : 'outline'}
+              size="sm"
+              onClick={onToggleLegend}
+              className="flex items-center gap-2"
             >
-              Search:
-            </label>
-            <div className="flex items-center">
-              <input
-                id="search-input"
-                type="text"
-                placeholder="Search nodes..."
-                value={searchInput}
-                onChange={(e) => onSearchChange(e.target.value)}
-                className="w-48 px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-              />
-              {searchInput && (
-                <button
-                  onClick={() => onSearchChange('')}
-                  className="ml-2 px-2 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded text-gray-600"
-                >
-                  Clear
-                </button>
-              )}
-            </div>
+              <Eye size={16} />
+              Show Legend
+            </Button>
+            <Button
+              variant={showOptions ? 'default' : 'outline'}
+              size="sm"
+              onClick={onToggleOptions}
+              className="flex items-center gap-2"
+            >
+              <Menu size={16} />
+              More Options
+            </Button>
           </div>
 
-          {/* Group By Selector */}
-          <div className="flex items-center gap-2">
-            <label
-              htmlFor="group-selector"
-              className="text-sm font-medium text-gray-700 whitespace-nowrap"
-            >
-              Group By:
-            </label>
-            <Select value={currentMode} onValueChange={onModeChange}>
-              <SelectTrigger className="w-48">
-                <SelectValue placeholder="Select grouping mode" />
-              </SelectTrigger>
-              <SelectContent>
-                {groupingOptions.map((option) => (
-                  <SelectItem key={option} value={option}>
-                    {formatOptionLabel(option)}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Edit Graph Button */}
-          {!isEditing && (
-            <div className="pt-2 border-t border-gray-200">
-              <Button
-              variant="outline"
-              size="default" // Changed from "sm" to "default"
-              onClick={onEnterEditMode}
-              className="w-full"
+          {/* Desktop: Always show, Mobile: Show based on toggle */}
+          <div className={`p-3 bg-white border border-gray-200 rounded-lg shadow-sm bg-opacity-80 space-y-3 ${
+            showOptions ? 'block' : 'hidden md:block'
+          }`}>
+            {/* Search Input */}
+            <div className="flex items-center gap-2">
+              <label
+                htmlFor="search-input"
+                className="text-sm font-medium text-gray-700 whitespace-nowrap"
               >
-              Edit Tree
-              </Button>
+                Search:
+              </label>
+              <div className="flex items-center">
+                <input
+                  id="search-input"
+                  type="text"
+                  placeholder="Search nodes..."
+                  value={searchInput}
+                  onChange={(e) => onSearchChange(e.target.value)}
+                  className="w-48 px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                />
+                {searchInput && (
+                  <button
+                    onClick={() => onSearchChange('')}
+                    className="ml-2 px-2 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded text-gray-600"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
             </div>
-          )}
-        </div>
+
+            {/* Group By Selector */}
+            <div className="flex items-center gap-2">
+              <label
+                htmlFor="group-selector"
+                className="text-sm font-medium text-gray-700 whitespace-nowrap"
+              >
+                Group By:
+              </label>
+              <Select value={currentMode} onValueChange={onModeChange}>
+                <SelectTrigger className="w-48">
+                  <SelectValue placeholder="Select grouping mode" />
+                </SelectTrigger>
+                <SelectContent>
+                  {groupingOptions.map((option) => (
+                    <SelectItem key={option} value={option}>
+                      {formatOptionLabel(option)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Edit Graph Button */}
+            {!isEditing && (
+              <div className="pt-2 border-t border-gray-200">
+                <Button
+                  variant="outline"
+                  size="default"
+                  onClick={onEnterEditMode}
+                  className="w-full"
+                >
+                  Edit Tree
+                </Button>
+              </div>
+            )}
+          </div>
+        </>
       )}
     </div>
   );
