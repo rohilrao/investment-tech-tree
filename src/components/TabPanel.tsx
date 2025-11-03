@@ -54,7 +54,22 @@ const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel }: Ta
         )}
       </Button>
 
-      <div className={`flex flex-col h-full bg-white shadow-lg transition-all duration-300 ${isPanelExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      {/* FIX 1: This div is now the fixed panel container.
+        - Added: fixed top-0 right-0 z-40 h-full w-full md:w-1/2
+        - This positions the panel, gives it a full width on mobile (w-full) 
+          and half-width on desktop (md:w-1/2) to match your button logic.
+        
+        FIX 2: Changed opacity transition to a transform transition.
+        - Changed: ${isPanelExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}
+        - To: ${isPanelExpanded ? 'translate-x-0' : 'translate-x-full'}
+        - 'translate-x-full' moves the panel 100% of its *own width* to the right,
+          sliding it completely off-screen and removing the horizontal scrollbar.
+      */}
+      <div 
+        className={`fixed top-0 right-0 z-40 h-full w-full md:w-1/2 flex flex-col bg-white shadow-lg transition-all duration-300 ${
+          isPanelExpanded ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
 
       <Tabs
         value={activeTab}
@@ -76,11 +91,17 @@ const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel }: Ta
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="chat" className="flex-1 overflow-hidden mt-0">
+        {/* FIX 3: Changed overflow-hidden to overflow-y-auto for consistency.
+          This ensures the Chat panel calculates its width the same way as 
+          the Simulations panel, fixing the 100% width issue.
+        */}
+        <TabsContent value="chat" className="flex-1 overflow-y-auto mt-0">
           <Chat />
         </TabsContent>
 
-        <TabsContent value="details" className="flex-1 overflow-hidden mt-0">
+        {/* FIX 4: Changed overflow-hidden to overflow-y-auto for consistency.
+        */}
+        <TabsContent value="details" className="flex-1 overflow-y-auto mt-0">
           <NodeDetails selectedNode={selectedNode} />
         </TabsContent>
 
