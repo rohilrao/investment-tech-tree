@@ -53,9 +53,6 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({
   const shouldShowReset = selectedNode !== undefined && showingConnectedNodes;
 
   return (
-    // FIX: Changed "top-4 right-4" to "top-4 left-4 md:left-auto md:right-4"
-    // This aligns the component to the left on mobile, but resets
-    // to the right on desktop (md screens and up).
     <div className="absolute top-4 left-4 md:left-auto md:right-4 z-10">
       {shouldShowReset ? (
         <div className="p-3 bg-white border border-gray-200 rounded-lg shadow-sm bg-opacity-80">
@@ -141,9 +138,9 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({
               </Select>
             </div>
 
-            {/* Edit Graph Button */}
+            {/* Edit Graph Button - Hidden on mobile */}
             {!isEditing && (
-              <div className="pt-2 border-t border-gray-200">
+              <div className="pt-2 border-t border-gray-200 hidden md:block">
                 <Button
                   variant="outline"
                   size="default"

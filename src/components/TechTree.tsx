@@ -245,10 +245,9 @@ const TechTree: React.FC = () => {
 
   return (
     <div className="w-full h-screen bg-gray-100 flex">
-      {/* --- MODIFIED LINE --- */}
       <div className={`relative transition-all duration-300 flex flex-col h-screen ${
         isPanelExpanded 
-          ? 'w-full md:w-2/4' // Full width on mobile when expanded, 50% on desktop
+          ? 'w-full md:w-2/4'
           : 'w-full'
       }`}>
         <GroupSelector
@@ -267,12 +266,10 @@ const TechTree: React.FC = () => {
           onToggleOptions={() => setShowOptions(!showOptions)}
         />
         {isLoadingData || isLoading ? (
-          // --- MODIFIED LINE (added flex-grow) ---
           <div className="flex-grow flex items-center justify-center h-full">
             <LoadingSpinner />
           </div>
         ) : (
-          // --- MODIFIED: Added wrapper with flex-grow and relative ---
           <div className="flex-grow relative">
             <ReactFlow
               nodes={nodes}
@@ -297,15 +294,18 @@ const TechTree: React.FC = () => {
               fitView
               fitViewOptions={{ padding: 0.5 }}
               minZoom={0.3}
-              // --- MODIFIED: Added className to fill parent ---
               className="h-full w-full"
             >
               <Background bgColor="white" variant={BackgroundVariant.Dots} />
-              {/* --- MODIFIED LINE: Removed showInteractive={false} --- */}
-              <Controls showInteractive={false} showZoom={true} showFitView={true} />
+              {/* Controls positioned at bottom on desktop, below legend buttons on mobile */}
+              <Controls 
+                showInteractive={false} 
+                showZoom={true} 
+                showFitView={true}
+                className="!left-4 !top-[180px] !bottom-auto md:!top-auto md:!bottom-4"
+              />
             </ReactFlow>
             {/* Legend - hidden on mobile by default, shown via button */}
-            {/* --- MODIFIED: Moved Legend inside new wrapper --- */}
             <div className={`${showLegend ? 'block' : 'hidden'} md:block`}>
               <Legend />
             </div>
@@ -315,7 +315,7 @@ const TechTree: React.FC = () => {
       <div 
         className={`bg-white shadow-lg transition-all duration-300 relative ${
           isPanelExpanded 
-            ? 'w-full md:w-2/4' // Full width on mobile, 50% on desktop
+            ? 'w-full md:w-2/4'
             : 'w-0'
         } ${
           isPanelExpanded ? 'fixed md:relative inset-0 md:inset-auto z-40 md:z-auto' : ''
