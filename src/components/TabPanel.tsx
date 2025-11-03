@@ -40,8 +40,10 @@ const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel }: Ta
         variant="ghost"
         size="sm"
         onClick={onTogglePanel}
-        className={`fixed top-4 z-50 bg-white border border-gray-200 shadow-md hover:bg-gray-50 transition-all duration-300 ${
-          isPanelExpanded ? 'right-[calc(50%-2.5rem)]' : 'right-4'
+        className={`fixed z-50 bg-white border border-gray-200 shadow-md hover:bg-gray-50 transition-all duration-300 ${
+          isPanelExpanded 
+            ? 'top-4 right-4 md:top-4 md:right-[calc(50%-2.5rem)]' // Top-right on mobile, split point on desktop
+            : 'top-4 right-4'
         }`}
         title={isPanelExpanded ? 'Collapse panel' : 'Expand panel'}
       >
