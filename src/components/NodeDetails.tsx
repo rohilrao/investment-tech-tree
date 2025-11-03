@@ -35,21 +35,95 @@ const NodeDetails = ({ selectedNode }: NodeDetailsProps) => {
 
   const infactAnalysis = selectedNode.data?.infact_analysis as any;
   const infactStatus = selectedNode.data?.infact_status as string;
-  const infactHtmlContent = selectedNode.data?.infact_analysis_html_content as string;
+  let infactHtmlContent = selectedNode.data?.infact_analysis_html_content as string;
+
+  // Inject mobile-responsive styles and viewport meta tag into the HTML content
+  if (infactHtmlContent && !infactHtmlContent.includes('viewport')) {
+    // Add viewport meta tag if not present
+    infactHtmlContent = infactHtmlContent.replace(
+      '<head>',
+      `<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+        <style>
+          /* Mobile-responsive overrides */
+          @media (max-width: 768px) {
+            body {
+              padding: 1rem !important;
+              font-size: 14px !important;
+            }
+            .card {
+              padding: 1rem !important;
+              margin-bottom: 1rem !important;
+            }
+            .hypothesis {
+              font-size: 1rem !important;
+              padding: 0.75rem !important;
+            }
+            .probability {
+              font-size: 2rem !important;
+            }
+            .uncertainty {
+              font-size: 1rem !important;
+            }
+            .stats-grid {
+              grid-template-columns: 1fr !important;
+              gap: 0.75rem !important;
+            }
+            .evidence-grid {
+              grid-template-columns: 1fr !important;
+            }
+            .chart-container {
+              height: 300px !important;
+            }
+            h1 {
+              font-size: 1.5rem !important;
+            }
+            h2 {
+              font-size: 1.25rem !important;
+            }
+            h3 {
+              font-size: 1.1rem !important;
+            }
+            h4 {
+              font-size: 1rem !important;
+            }
+            pre {
+              font-size: 0.75rem !important;
+              overflow-x: auto !important;
+            }
+            .stat-value {
+              font-size: 1.25rem !important;
+            }
+            .evidence-point {
+              padding-left: 0.75rem !important;
+              margin-bottom: 1.5rem !important;
+            }
+          }
+        </style>
+      `
+    );
+  }
 
   return (
     <div className="p-4 flex flex-col h-full">
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-          <div className="bg-white p-4 rounded-lg shadow-lg w-3/4 h-3/4 flex flex-col">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-bold">Infact Analysis Details</h3>
-              <Button onClick={() => setShowModal(false)}>Close</Button>
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-2 md:p-4">
+          <div className="bg-white rounded-lg shadow-lg w-full h-full md:w-3/4 md:h-3/4 flex flex-col max-w-full max-h-full">
+            <div className="flex justify-between items-center p-3 md:p-4 border-b border-gray-200 flex-shrink-0">
+              <h3 className="text-base md:text-lg font-bold truncate mr-2">InFact Analysis Details</h3>
+              <Button 
+                onClick={() => setShowModal(false)} 
+                size="sm"
+                className="flex-shrink-0"
+              >
+                Close
+              </Button>
             </div>
             <iframe
               srcDoc={infactHtmlContent}
-              className="w-full h-full border-0"
+              className="w-full flex-1 border-0"
               title="Infact Analysis Report"
+              sandbox="allow-scripts allow-same-origin"
             />
           </div>
         </div>
