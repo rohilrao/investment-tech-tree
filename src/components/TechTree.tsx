@@ -238,7 +238,11 @@ const TechTree: React.FC = () => {
 
   return (
     <div className="w-full h-screen bg-gray-100 flex">
-      <div className={`relative transition-all duration-300 ${isPanelExpanded ? 'w-2/4' : 'w-full'}`}>
+      <div className={`relative transition-all duration-300 ${
+        isPanelExpanded 
+          ? 'w-full md:w-2/4' // Full width on mobile when expanded, 50% on desktop
+          : 'w-full'
+      }`}>
         <GroupSelector
           currentMode={groupingMode}
           onModeChange={handleGroupingModeChange}
@@ -289,7 +293,11 @@ const TechTree: React.FC = () => {
       </div>
       <div 
         className={`bg-white shadow-lg transition-all duration-300 relative ${
-          isPanelExpanded ? 'w-2/4' : 'w-0'
+          isPanelExpanded 
+            ? 'w-full md:w-2/4' // Full width on mobile, 50% on desktop
+            : 'w-0'
+        } ${
+          isPanelExpanded ? 'fixed md:relative inset-0 md:inset-auto z-40 md:z-auto' : ''
         }`}
       >
         {isEditing ? (
