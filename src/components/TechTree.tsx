@@ -45,7 +45,7 @@ const TechTree: React.FC = () => {
     nodeIds: new Set(),
     edgeIds: new Set(),
   });
-  const [groupingMode, setGroupingMode] = useState<GroupingMode>('Milestone');
+  const [groupingMode, setGroupingMode] = useState<GroupingMode>('None');
   const [showingRelatedNodes, setShowingRelatedNodes] = useState<string | null>(null);
   const [showOnlyConnected, setShowOnlyConnected] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
