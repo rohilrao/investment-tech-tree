@@ -45,13 +45,15 @@ const TechTree: React.FC = () => {
     nodeIds: new Set(),
     edgeIds: new Set(),
   });
-  const [groupingMode, setGroupingMode] = useState<GroupingMode>('None');
+  const [groupingMode, setGroupingMode] = useState<GroupingMode>('Milestone');
   const [showingRelatedNodes, setShowingRelatedNodes] = useState<string | null>(null);
   const [showOnlyConnected, setShowOnlyConnected] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [isEditing, setIsEditing] = useState(false);
   const [isPanelExpanded, setIsPanelExpanded] = useState(true);
+  const [showLegend, setShowLegend] = useState(false);
+  const [showOptions, setShowOptions] = useState(false);
   const { fitView } = useReactFlow();
 
   // Show error state
@@ -191,6 +193,11 @@ const TechTree: React.FC = () => {
         setSelectedNode(() => ({ ...node }));
         const connected = findConnectedElements(nodeId, edges);
         setHighlightedElements(connected);
+        
+        // Auto-expand panel on mobile when node details are shown
+        if (window.innerWidth < 768) {
+          setIsPanelExpanded(true);
+        }
       }
     },
     [nodes, edges, findConnectedElements],
@@ -253,6 +260,10 @@ const TechTree: React.FC = () => {
           onSearchChange={handleSearchChange}
           onEnterEditMode={handleEnterEditMode}
           isEditing={isEditing}
+          showLegend={showLegend}
+          showOptions={showOptions}
+          onToggleLegend={() => setShowLegend(!showLegend)}
+          onToggleOptions={() => setShowOptions(!showOptions)}
         />
         {isLoadingData || isLoading ? (
           <div className="flex items-center justify-center h-full">
@@ -287,7 +298,10 @@ const TechTree: React.FC = () => {
               <Background bgColor="white" variant={BackgroundVariant.Dots} />
               <Controls showInteractive={false} />
             </ReactFlow>
-            <Legend />
+            {/* Legend - hidden on mobile by default, shown via button */}
+            <div className={`${showLegend ? 'block' : 'hidden'} md:block`}>
+              <Legend />
+            </div>
           </>
         )}
       </div>
