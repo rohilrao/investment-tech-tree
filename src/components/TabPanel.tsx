@@ -1,25 +1,27 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { MessageSquare, Info, BarChart3 } from 'lucide-react';
+import { MessageSquare, Info, BarChart3, ChevronLeft, ChevronRight } from 'lucide-react';
 import NodeDetails from './NodeDetails';
 import Chat from './Chat';
 import Simulations from './Simulations';
-import { UiNode } from '@/lib/types';
+import { UiNode, TechTree } from '@/lib/types';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { DATA } from '@/DATA';
+import { Button } from '@/components/ui/button';
 
 interface TabPanelProps {
   selectedNode?: UiNode;
+  techTree: TechTree | null;
+  isPanelExpanded: boolean;
+  onTogglePanel: () => void;
 }
 
 type TabType = 'details' | 'chat' | 'simulations';
 
-const TabPanel = ({ selectedNode }: TabPanelProps) => {
+const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel }: TabPanelProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('chat');
   const previousNodeIdRef = useRef<string | undefined>(undefined);
 
-  // Switch to details tab when a new node is selected while chat is active
   useEffect(() => {
     if (
       selectedNode &&
@@ -32,7 +34,43 @@ const TabPanel = ({ selectedNode }: TabPanelProps) => {
   }, [selectedNode, activeTab]);
 
   return (
-    <div className="flex flex-col h-full bg-white shadow-lg">
+    <>
+      {/* Toggle Button - Always visible */}
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={onTogglePanel}
+        className={`fixed z-50 bg-white border border-gray-200 shadow-md hover:bg-gray-50 transition-all duration-300 ${
+          isPanelExpanded 
+            ? 'top-4 right-4 md:top-4 md:right-[calc(50%-2.5rem)]' // Top-right on mobile, split point on desktop
+            : 'top-4 right-4'
+        }`}
+        title={isPanelExpanded ? 'Collapse panel' : 'Expand panel'}
+      >
+        {isPanelExpanded ? (
+          <ChevronRight className="h-5 w-5" />
+        ) : (
+          <ChevronLeft className="h-5 w-5" />
+        )}
+      </Button>
+
+      {/* FIX 1: This div is now the fixed panel container.
+        - Added: fixed top-0 right-0 z-40 h-full w-full md:w-1/2
+        - This positions the panel, gives it a full width on mobile (w-full) 
+          and half-width on desktop (md:w-1/2) to match your button logic.
+        
+        FIX 2: Changed opacity transition to a transform transition.
+        - Changed: ${isPanelExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}
+        - To: ${isPanelExpanded ? 'translate-x-0' : 'translate-x-full'}
+        - 'translate-x-full' moves the panel 100% of its *own width* to the right,
+          sliding it completely off-screen and removing the horizontal scrollbar.
+      */}
+      <div 
+        className={`fixed top-0 right-0 z-40 h-full w-full md:w-1/2 flex flex-col bg-white shadow-lg transition-all duration-300 ${
+          isPanelExpanded ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+
       <Tabs
         value={activeTab}
         onValueChange={(value) => setActiveTab(value as TabType)}
@@ -53,19 +91,32 @@ const TabPanel = ({ selectedNode }: TabPanelProps) => {
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="chat" className="flex-1 overflow-hidden mt-0">
+        {/* FIX 3: Changed overflow-hidden to overflow-y-auto for consistency.
+          This ensures the Chat panel calculates its width the same way as 
+          the Simulations panel, fixing the 100% width issue.
+        */}
+        <TabsContent value="chat" className="flex-1 overflow-y-auto mt-0">
           <Chat />
         </TabsContent>
 
-        <TabsContent value="details" className="flex-1 overflow-hidden mt-0">
+        {/* FIX 4: Changed overflow-hidden to overflow-y-auto for consistency.
+        */}
+        <TabsContent value="details" className="flex-1 overflow-y-auto mt-0">
           <NodeDetails selectedNode={selectedNode} />
         </TabsContent>
 
         <TabsContent value="simulations" className="flex-1 overflow-y-auto mt-0">
-          <Simulations techTree={DATA} />
+          {techTree ? (
+            <Simulations techTree={techTree} />
+          ) : (
+            <div className="flex items-center justify-center h-full">
+              <p className="text-gray-500">Loading simulation data...</p>
+            </div>
+          )}
         </TabsContent>
       </Tabs>
-    </div>
+      </div>
+    </>
   );
 };
 

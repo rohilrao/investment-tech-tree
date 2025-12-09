@@ -1,20 +1,23 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Send, Loader2, Trash2 } from 'lucide-react';
+import { Send, Loader2, Trash2, Upload } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { ChatMessage, ChatHistory } from '@/lib/types';
-import { DATA } from '@/DATA';
 import { GeminiChatClient } from '@/lib/geminiClient';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useTechTree } from '@/hooks/useTechTree';
 
 const Chat = () => {
+  const { techTree } = useTechTree();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
+  const [file, setFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState<string>('');
   const [geminiClient, setGeminiClient] = useState<GeminiChatClient | null>(
     null,
   );
@@ -142,9 +145,34 @@ const Chat = () => {
     return true;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || isLoading || !geminiClient) return;
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const selectedFile = e.target.files[0];
+      if (selectedFile.type !== 'application/pdf') {
+        alert('Please select a PDF file');
+        return;
+      }
+      if (selectedFile.size > 10 * 1024 * 1024) { // 10MB limit
+        alert('File size must be less than 10MB');
+        return;
+      }
+      setFile(selectedFile);
+    }
+  };
+
+  const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!input.trim() && !file) return;
+    if (!geminiClient) {
+        const errorMsg: ChatMessage = {
+            id: Date.now().toString(),
+            type: 'assistant',
+            content: 'Error: Gemini API key not configured.',
+            timestamp: Date.now(),
+        };
+        setMessages((prev) => [...prev, errorMsg]);
+        return;
+    }
 
     // Check rate limits
     if (!checkRateLimit()) {
@@ -160,7 +188,9 @@ const Chat = () => {
         const errorMessage: ChatMessage = {
           id: Date.now().toString(),
           type: 'assistant',
-          content: `Please wait at least ${MIN_REQUEST_INTERVAL / 1000} seconds between requests.`,
+          content: `Please wait at least ${
+            MIN_REQUEST_INTERVAL / 1000
+          } seconds between requests.`,
           timestamp: Date.now(),
         };
         setMessages((prev) => [...prev, errorMessage]);
@@ -171,13 +201,14 @@ const Chat = () => {
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
       type: 'user',
-      content: input.trim(),
+      content: input.trim() + (file ? ` [File: ${file.name}]` : ''),
       timestamp: Date.now(),
     };
 
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
+    setUploadStatus(file ? 'Processing PDF document...' : '');
     setRequestCount((prev) => prev + 1);
     setLastRequestTime(Date.now());
     setRateLimitExceeded(false);
@@ -185,8 +216,9 @@ const Chat = () => {
     try {
       const response = await geminiClient.sendMessage(
         userMessage.content,
-        DATA,
+        techTree || { nodes: [], edges: [] }, // Use fetched data
         messages,
+        file || undefined,
       );
 
       const assistantMessage: ChatMessage = {
@@ -202,25 +234,23 @@ const Chat = () => {
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         type: 'assistant',
-        content:
-          'Sorry, there was an error processing your request. Please try again.',
+        content: error instanceof Error 
+          ? `Error: ${error.message}` 
+          : 'Sorry, there was an error processing your request. Please try again.',
         timestamp: Date.now(),
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
+      setUploadStatus('');
+      setFile(null);
     }
   };
 
   const clearHistory = () => {
     setMessages([]);
-    // setRequestCount(0);
-    // setLastRequestTime(0);
-    // setRateLimitExceeded(false);
     localStorage.removeItem('tech-tree-chat-history');
     localStorage.removeItem('tech-tree-chat-scroll');
-    // localStorage.removeItem('tech-tree-request-count');
-    // localStorage.removeItem('tech-tree-last-request-time');
   };
 
   const saveScrollPosition = () => {
@@ -335,7 +365,9 @@ const Chat = () => {
           messages.map((message) => (
             <div
               key={message.id}
-              className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
+              className={`flex ${
+                message.type === 'user' ? 'justify-end' : 'justify-start'
+              }`}
             >
               <Card
                 className={`max-w-[80%] ${
@@ -345,7 +377,9 @@ const Chat = () => {
                 }`}
               >
                 <CardContent
-                  className={`p-4 ${message.type === 'user' ? 'p-3' : 'p-4 pl-6'}`}
+                  className={`p-4 ${
+                    message.type === 'user' ? 'p-3' : 'p-4 pl-6'
+                  }`}
                 >
                   <div className="break-words">
                     {message.type === 'assistant' ? (
@@ -382,7 +416,7 @@ const Chat = () => {
                             },
                           ),
                         }}
-                        className="prose prose-sm max-w-none [&_table]:overflow-x-auto [&_table]:block [&_table]:w-full [&_table]:border-collapse [&_table]:border [&_table]:border-gray-300 [&_td]:border [&_td]:border-gray-300 [&_td]:px-3 [&_td]:py-2 [&_td]:whitespace-nowrap [&_th]:border [&_th]:border-gray-300 [&_th]:px-3 [&_th]:py-2 [&_th]:bg-gray-50 [&_th]:font-semibold [&_th]:text-left [&_h3]:mt-3 [&_h3]:mb-1 [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:list-inside [&_ol]:mb-3 [&_ol]:text-gray-700 [&_li]:mb-1 [&_a]:text-blue-600 [&_a]:hover:underline"
+                        className="prose prose-sm max-w-none [&_table]:overflow-x-auto [&_table]:block [&_table]:w-full [&_table]:border-collapse [&_table]:border [&_table]:border-gray-300 [&_td]:border [&_td]:border-gray-300 [&_td]:px-3 [&_td]:py-2 [&_td]:whitespace-nowrap [&_th]:border [&_th]:border-gray-300 [&_th]:px-3 [&_th]:py-2 [&_th]:bg-gray-50 [&_th]:font-semibold [&_h3]:mt-3 [&_h3]:mb-1 [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:list-inside [&_ol]:mb-3 [&_ol]:text-gray-700 [&_li]:mb-1 [&_a]:text-blue-600 [&_a]:hover:underline"
                       />
                     ) : (
                       <div className="whitespace-pre-wrap">
@@ -414,7 +448,9 @@ const Chat = () => {
               <CardContent className="p-3">
                 <div className="flex items-center space-x-2">
                   <Loader2 size={16} className="animate-spin text-gray-500" />
-                  <span className="text-gray-500">Thinking...</span>
+                  <span className="text-gray-500">
+                    {uploadStatus || 'Thinking...'}
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -426,6 +462,20 @@ const Chat = () => {
 
       {/* Input */}
       <div className="border-t border-gray-200 p-4">
+        {file && (
+          <div className="mb-2 flex items-center gap-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
+            <Upload size={14} />
+            <span className="flex-1">{file.name} ({(file.size / 1024 / 1024).toFixed(1)}MB)</span>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setFile(null)}
+              className="h-6 px-2"
+            >
+              Remove
+            </Button>
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="flex space-x-2">
           <div className="flex-1 relative">
             <Textarea
@@ -433,25 +483,44 @@ const Chat = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask a question about the Tech Tree..."
-              className="w-full resize-none pr-12 max-h-32"
+              placeholder="Ask a question or upload a PDF for analysis..."
+              className="w-full resize-none pr-24 max-h-32"
               rows={1}
               disabled={isLoading || rateLimitExceeded}
             />
-            <Button
-              type="submit"
-              size="sm"
-              disabled={
-                !input.trim() || isLoading || !geminiClient || rateLimitExceeded
-              }
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 h-8 w-8"
-            >
-              <Send size={18} />
-            </Button>
+            <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex gap-1">
+              <label htmlFor="file-upload-chat">
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="ghost"
+                  className="p-1 h-8 w-8 cursor-pointer"
+                  disabled={isLoading}
+                  onClick={() => document.getElementById('file-upload-chat')?.click()}
+                >
+                  <Upload size={18} />
+                </Button>
+              </label>
+              <input
+                id="file-upload-chat"
+                type="file"
+                accept=".pdf"
+                onChange={handleFileChange}
+                className="hidden"
+              />
+              <Button
+                type="submit"
+                size="sm"
+                disabled={(!input.trim() && !file) || isLoading || !geminiClient || rateLimitExceeded}
+                className="p-1 h-8 w-8"
+              >
+                <Send size={18} />
+              </Button>
+            </div>
           </div>
         </form>
         <p className="text-xs text-gray-500 mt-2">
-          Press Enter to send, Shift+Enter for new line
+          Press Enter to send, Shift+Enter for new line. PDF files up to 10MB supported.
         </p>
       </div>
     </div>
