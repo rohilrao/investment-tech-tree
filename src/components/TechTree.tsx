@@ -17,28 +17,77 @@ import { LoadingSpinner } from './LoadingSpinner';
 import { GroupSelector } from './GroupSelector';
 import { CustomNode } from './CustomNode';
 import TabPanel from './TabPanel';
+import EditInterface from './EditInterface';
+import { useTechTree } from '@/hooks/useTechTree';
+
+// Suppress hydration warnings for Radix UI
+if (typeof window !== 'undefined') {
+  const originalError = console.error;
+  console.error = (...args) => {
+    if (
+      typeof args[0] === 'string' &&
+      args[0].includes('Hydration failed') &&
+      args[0].includes('aria-controls')
+    ) {
+      return;
+    }
+    originalError.apply(console, args);
+  };
+}
 
 const TechTree: React.FC = () => {
+  const { techTree, isLoading: isLoadingData, error } = useTechTree();
   const [isLoading, setIsLoading] = useState(true);
   const [nodes, setNodes] = useState<UiNode[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
-  const [selectedNode, setSelectedNode] = useState<UiNode | undefined>(
-    undefined,
-  );
-  const [highlightedElements, setHighlightedElements] =
-    useState<HighlightedElements>({
-      nodeIds: new Set(),
-      edgeIds: new Set(),
-    });
-  // Grouping state
-  const [groupingMode, setGroupingMode] = useState<GroupingMode>('Milestone');
-  const [showingRelatedNodes, setShowingRelatedNodes] = useState<string | null>(
-    null,
-  );
+  const [selectedNode, setSelectedNode] = useState<UiNode | undefined>(undefined);
+  const [highlightedElements, setHighlightedElements] = useState<HighlightedElements>({
+    nodeIds: new Set(),
+    edgeIds: new Set(),
+  });
+  const [groupingMode, setGroupingMode] = useState<GroupingMode>('None');
+  const [showingRelatedNodes, setShowingRelatedNodes] = useState<string | null>(null);
   const [showOnlyConnected, setShowOnlyConnected] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [isEditing, setIsEditing] = useState(false);
+  const [isPanelExpanded, setIsPanelExpanded] = useState(true);
+  const [showLegend, setShowLegend] = useState(false);
+  const [showOptions, setShowOptions] = useState(false);
   const { fitView } = useReactFlow();
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-100">
+        <div className="text-center p-8 bg-white rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold text-red-600 mb-4">Error Loading Data</h2>
+          <p className="text-gray-600">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const handleEnterEditMode = () => {
+    const password = prompt('Please enter the admin password:');
+    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+      setIsEditing(true);
+    } else if (password !== null) {
+      alert('Incorrect password.');
+    }
+  };
+
+  const handleExitEditMode = () => {
+    if (window.confirm('Are you sure you want to exit edit mode? Any unsaved changes will be lost.')) {
+      setIsEditing(false);
+    }
+  };
 
   // Function to find connected nodes and edges
   const findConnectedElements = useCallback(
@@ -46,14 +95,11 @@ const TechTree: React.FC = () => {
       const connectedNodeIds = new Set<string>();
       const connectedEdgeIds = new Set<string>();
 
-      // Add the selected node itself
       connectedNodeIds.add(nodeId);
 
-      // Find all edges connected to this node
       allEdges.forEach((edge) => {
         if (edge.source === nodeId || edge.target === nodeId) {
           connectedEdgeIds.add(edge.id);
-          // Add connected nodes
           if (edge.source === nodeId) {
             connectedNodeIds.add(edge.target);
           }
@@ -73,6 +119,8 @@ const TechTree: React.FC = () => {
   }, [searchInput, searchTerm]);
 
   useEffect(() => {
+    if (!techTree) return;
+
     const loadLayout = async () => {
       setIsLoading(true);
       const { layoutedNodes, layoutedEdges } = await getLayoutedElements(
@@ -80,6 +128,7 @@ const TechTree: React.FC = () => {
         showingRelatedNodes,
         showOnlyConnected,
         searchTerm,
+        techTree,
       );
       setNodes(() => layoutedNodes);
       setEdges(() => layoutedEdges);
@@ -94,6 +143,7 @@ const TechTree: React.FC = () => {
     showingRelatedNodes,
     showOnlyConnected,
     searchTerm,
+    techTree,
   ]);
 
   // Update node and edge styles based on highlighted elements
@@ -136,7 +186,6 @@ const TechTree: React.FC = () => {
     );
   }, [highlightedElements]);
 
-  // Handle showing node details
   const handleShowDetails = useCallback(
     (nodeId: string) => {
       const node = nodes.find((n) => n.id === nodeId);
@@ -144,39 +193,39 @@ const TechTree: React.FC = () => {
         setSelectedNode(() => ({ ...node }));
         const connected = findConnectedElements(nodeId, edges);
         setHighlightedElements(connected);
+        
+        // Auto-expand panel on mobile when node details are shown
+        if (window.innerWidth < 768) {
+          setIsPanelExpanded(true);
+        }
       }
     },
     [nodes, edges, findConnectedElements],
   );
 
-  // Handle showing connected nodes only
   const handleShowConnected = useCallback(
     (nodeId: string) => {
       const node = nodes.find((n) => n.id === nodeId);
       if (node) {
         setSelectedNode(() => ({ ...node }));
         setShowingRelatedNodes(nodeId);
-        setShowOnlyConnected(true); // Show only connected nodes
-        // Clear search when showing connected nodes to avoid conflicts
+        setShowOnlyConnected(true);
         setSearchInput('');
         setSearchTerm('');
-        // Find and set highlighted elements
-        setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() }); // Clear highlights
+        setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() });
       }
     },
     [nodes],
   );
 
-  // Handle grouping mode changes
   const handleGroupingModeChange = useCallback((mode: GroupingMode) => {
     setGroupingMode(mode);
-    setSelectedNode(undefined); // Clear selection
-    setShowingRelatedNodes(null); // Clear related nodes
-    setShowOnlyConnected(false); // Show all nodes
-    setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() }); // Clear highlights
+    setSelectedNode(undefined);
+    setShowingRelatedNodes(null);
+    setShowOnlyConnected(false);
+    setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() });
   }, []);
 
-  // Handle reset to show all nodes
   const handleReset = useCallback(() => {
     setSelectedNode(undefined);
     setShowingRelatedNodes(null);
@@ -186,10 +235,8 @@ const TechTree: React.FC = () => {
     setHighlightedElements({ nodeIds: new Set(), edgeIds: new Set() });
   }, []);
 
-  // Handle search input changes
   const handleSearchChange = useCallback((value: string) => {
     setSearchInput(value);
-    // Clear selection when searching
     setSelectedNode(undefined);
     setShowingRelatedNodes(null);
     setShowOnlyConnected(false);
@@ -198,7 +245,11 @@ const TechTree: React.FC = () => {
 
   return (
     <div className="w-full h-screen bg-gray-100 flex">
-      <div className="w-2/4 relative">
+      <div className={`relative transition-all duration-300 flex flex-col h-screen ${
+        isPanelExpanded 
+          ? 'w-full md:w-2/4'
+          : 'w-full'
+      }`}>
         <GroupSelector
           currentMode={groupingMode}
           onModeChange={handleGroupingModeChange}
@@ -207,13 +258,19 @@ const TechTree: React.FC = () => {
           onReset={handleReset}
           searchInput={searchInput}
           onSearchChange={handleSearchChange}
+          onEnterEditMode={handleEnterEditMode}
+          isEditing={isEditing}
+          showLegend={showLegend}
+          showOptions={showOptions}
+          onToggleLegend={() => setShowLegend(!showLegend)}
+          onToggleOptions={() => setShowOptions(!showOptions)}
         />
-        {isLoading ? (
-          <div className="flex items-center justify-center h-full">
+        {isLoadingData || isLoading ? (
+          <div className="flex-grow flex items-center justify-center h-full">
             <LoadingSpinner />
           </div>
         ) : (
-          <>
+          <div className="flex-grow relative">
             <ReactFlow
               nodes={nodes}
               edges={edges}
@@ -237,17 +294,43 @@ const TechTree: React.FC = () => {
               fitView
               fitViewOptions={{ padding: 0.5 }}
               minZoom={0.3}
+              className="h-full w-full"
             >
               <Background bgColor="white" variant={BackgroundVariant.Dots} />
-              {/* <MiniMap /> */}
-              <Controls showInteractive={false} />
+              {/* Controls positioned at bottom on desktop, below legend buttons on mobile */}
+              <Controls 
+                showInteractive={false} 
+                showZoom={true} 
+                showFitView={true}
+                className="!left-4 !top-[180px] !bottom-auto md:!top-auto md:!bottom-4"
+              />
             </ReactFlow>
-            <Legend />
-          </>
+            {/* Legend - hidden on mobile by default, shown via button */}
+            <div className={`${showLegend ? 'block' : 'hidden'} md:block`}>
+              <Legend />
+            </div>
+          </div>
         )}
       </div>
-      <div className="w-2/4 bg-white shadow-lg">
-        <TabPanel selectedNode={selectedNode} />
+      <div 
+        className={`bg-white shadow-lg transition-all duration-300 relative ${
+          isPanelExpanded 
+            ? 'w-full md:w-2/4'
+            : 'w-0'
+        } ${
+          isPanelExpanded ? 'fixed md:relative inset-0 md:inset-auto z-40 md:z-auto' : ''
+        }`}
+      >
+        {isEditing ? (
+          <EditInterface onExit={handleExitEditMode} />
+        ) : (
+          <TabPanel 
+            selectedNode={selectedNode} 
+            techTree={techTree}
+            isPanelExpanded={isPanelExpanded}
+            onTogglePanel={() => setIsPanelExpanded(!isPanelExpanded)}
+          />
+        )}
       </div>
     </div>
   );

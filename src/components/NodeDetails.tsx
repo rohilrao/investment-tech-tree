@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { LABEL_COLORS, UiNode } from '@/lib/types';
 import { Manual } from './Manual';
 import {
@@ -10,6 +11,7 @@ import {
 } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 type NodeDetailsProps = { selectedNode?: UiNode };
 
@@ -27,114 +29,230 @@ const formatTextWithBreaks = (text: string): string => {
 };
 
 const NodeDetails = ({ selectedNode }: NodeDetailsProps) => {
+  const [showModal, setShowModal] = useState(false);
+
   if (!selectedNode) return <Manual />;
+
+  const infactAnalysis = selectedNode.data?.infact_analysis as any;
+  const infactStatus = selectedNode.data?.infact_status as string;
+  let infactHtmlContent = selectedNode.data?.infact_analysis_html_content as string;
+
+  // Inject mobile-responsive styles and viewport meta tag into the HTML content
+  if (infactHtmlContent && !infactHtmlContent.includes('viewport')) {
+    // Add viewport meta tag if not present
+    infactHtmlContent = infactHtmlContent.replace(
+      '<head>',
+      `<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+        <style>
+          /* Mobile-responsive overrides */
+          @media (max-width: 768px) {
+            body {
+              padding: 1rem !important;
+              font-size: 14px !important;
+            }
+            .card {
+              padding: 1rem !important;
+              margin-bottom: 1rem !important;
+            }
+            .hypothesis {
+              font-size: 1rem !important;
+              padding: 0.75rem !important;
+            }
+            .probability {
+              font-size: 2rem !important;
+            }
+            .uncertainty {
+              font-size: 1rem !important;
+            }
+            .stats-grid {
+              grid-template-columns: 1fr !important;
+              gap: 0.75rem !important;
+            }
+            .evidence-grid {
+              grid-template-columns: 1fr !important;
+            }
+            .chart-container {
+              height: 300px !important;
+            }
+            h1 {
+              font-size: 1.5rem !important;
+            }
+            h2 {
+              font-size: 1.25rem !important;
+            }
+            h3 {
+              font-size: 1.1rem !important;
+            }
+            h4 {
+              font-size: 1rem !important;
+            }
+            pre {
+              font-size: 0.75rem !important;
+              overflow-x: auto !important;
+            }
+            .stat-value {
+              font-size: 1.25rem !important;
+            }
+            .evidence-point {
+              padding-left: 0.75rem !important;
+              margin-bottom: 1.5rem !important;
+            }
+          }
+        </style>
+      `
+    );
+  }
 
   return (
     <div className="p-4 flex flex-col h-full">
-      {!selectedNode && <Manual />}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-2 md:p-4">
+          <div className="bg-white rounded-lg shadow-lg w-full h-full md:w-3/4 md:h-3/4 flex flex-col max-w-full max-h-full">
+            <div className="flex justify-between items-center p-3 md:p-4 border-b border-gray-200 flex-shrink-0">
+              <h3 className="text-base md:text-lg font-bold truncate mr-2">InFact Analysis Details</h3>
+              <Button 
+                onClick={() => setShowModal(false)} 
+                size="sm"
+                className="flex-shrink-0"
+              >
+                Close
+              </Button>
+            </div>
+            <iframe
+              srcDoc={infactHtmlContent}
+              className="w-full flex-1 border-0"
+              title="Infact Analysis Report"
+              sandbox="allow-scripts allow-same-origin"
+            />
+          </div>
+        </div>
+      )}
 
-      {selectedNode && (
-        <Card className="flex flex-col h-full">
-          <CardHeader className="flex flex-row items-end justify-between space-y-0 pb-4 gap-4 border-b-2 mb-4">
-            <CardTitle className="text-lg font-bold">
-              {selectedNode.data.label}
-            </CardTitle>
-            <Badge
-              variant="secondary"
-              className={`bg-${LABEL_COLORS[selectedNode.data.nodeLabel]}`}
-            >
-              {selectedNode.data.nodeLabel}
-            </Badge>
-          </CardHeader>
+      <Card className="flex flex-col h-full">
+        <CardHeader className="flex flex-row items-end justify-between space-y-0 pb-4 gap-4 border-b-2 mb-4">
+          <CardTitle className="text-lg font-bold">
+            {selectedNode.data.label}
+          </CardTitle>
+          <Badge
+            variant="secondary"
+            className={`bg-${LABEL_COLORS[selectedNode.data.nodeLabel]}`}
+          >
+            {selectedNode.data.nodeLabel}
+          </Badge>
+        </CardHeader>
 
-          <CardContent className="overflow-auto flex-grow space-y-4">
-            {typeof selectedNode.data.trl_current === 'string' && (
-              <div className="space-y-2 pb-2 border-b-2">
-                <h4 className="font-semibold text-sm text-gray-700">
-                  TRL Current
-                </h4>
-                <p className="text-sm">{selectedNode.data.trl_current}</p>
+        <CardContent className="overflow-auto flex-grow space-y-4">
+          {typeof selectedNode.data.trl_current === 'string' && (
+            <div className="space-y-2 pb-2 border-b-2">
+              <h4 className="font-semibold text-sm text-gray-700">
+                TRL Current
+              </h4>
+              <p className="text-sm">{selectedNode.data.trl_current}</p>
+            </div>
+          )}
+
+          {infactAnalysis && (
+            <div className="space-y-2 pb-2 border-b-2">
+              <h4 className="font-semibold text-sm text-gray-700">
+                TRL InFact Analysis
+              </h4>
+              <div className="space-y-1 text-sm">
+                <p><strong>TRL Probability:</strong> {infactAnalysis.probability}</p>
+                <p><strong>Uncertainty:</strong> {infactAnalysis.uncertainty}</p>
+                <p><strong>Interpretation:</strong> {infactAnalysis.interpretation}</p>
+                <p><strong>InFact Analysis Status:</strong> {infactStatus}</p>
               </div>
-            )}
+              {infactHtmlContent && (
+                <Button
+                  onClick={() => setShowModal(true)}
+                  size="sm"
+                  className="mt-2"
+                  variant="outline"
+                >
+                  View InFact Analysis Report
+                </Button>
+              )}
+            </div>
+          )}
 
-            {typeof selectedNode.data.subtype === 'string' && (
-              <div className="space-y-2 pb-2 border-b-2">
-                <h4 className="font-semibold text-sm text-gray-700">Subtype</h4>
-                <p className="text-sm">{selectedNode.data.subtype}</p>
-              </div>
-            )}
+          {typeof selectedNode.data.subtype === 'string' && (
+            <div className="space-y-2 pb-2 border-b-2">
+              <h4 className="font-semibold text-sm text-gray-700">Subtype</h4>
+              <p className="text-sm">{selectedNode.data.subtype}</p>
+            </div>
+          )}
 
-            {typeof selectedNode.data.trl_projected_5_10_years === 'string' && (
-              <div className="space-y-2 pb-2 border-b-2">
-                <h4 className="font-semibold text-sm text-gray-700">
-                  TRL Projected (5-10 years)
-                </h4>
-                <p className="text-sm">
-                  {selectedNode.data.trl_projected_5_10_years}
-                </p>
-              </div>
-            )}
+          {typeof selectedNode.data.trl_projected_5_10_years === 'string' && (
+            <div className="space-y-2 pb-2 border-b-2">
+              <h4 className="font-semibold text-sm text-gray-700">
+                TRL Projected (5-10 years)
+              </h4>
+              <p className="text-sm">
+                {selectedNode.data.trl_projected_5_10_years}
+              </p>
+            </div>
+          )}
 
-            {typeof selectedNode.data.detailedDescription === 'string' && (
-              <div className="space-y-2">
-                <Accordion type="single" collapsible>
-                  <AccordionItem value="description">
+          {typeof selectedNode.data.detailedDescription === 'string' && (
+            <div className="space-y-2">
+              <Accordion type="single" collapsible>
+                <AccordionItem value="description">
+                  <AccordionTrigger className="text-sm font-semibold text-gray-700">
+                    Description
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-sm text-gray-600 whitespace-pre-line">
+                      {formatTextWithBreaks(
+                        selectedNode.data.detailedDescription,
+                      )}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+                {Array.isArray(selectedNode.data.references) && (
+                  <AccordionItem value="references">
                     <AccordionTrigger className="text-sm font-semibold text-gray-700">
-                      Description
+                      References
                     </AccordionTrigger>
                     <AccordionContent>
-                      <p className="text-sm text-gray-600 whitespace-pre-line">
-                        {formatTextWithBreaks(
-                          selectedNode.data.detailedDescription,
+                      <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+                        {selectedNode.data.references.map(
+                          (ref: string, idx: number) => {
+                            const text = ref;
+                            const isLink = /^(https?:\/\/|doi:|arxiv:)/i.test(
+                              text,
+                            );
+                            return (
+                              <li key={idx} className="break-words">
+                                {isLink ? (
+                                  <a
+                                    href={
+                                      text.startsWith('http')
+                                        ? text
+                                        : undefined
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-600 hover:underline"
+                                  >
+                                    {text}
+                                  </a>
+                                ) : (
+                                  <span>{text}</span>
+                                )}
+                              </li>
+                            );
+                          },
                         )}
-                      </p>
+                      </ul>
                     </AccordionContent>
                   </AccordionItem>
-                  {Array.isArray(selectedNode.data.references) && (
-                    <AccordionItem value="references">
-                      <AccordionTrigger className="text-sm font-semibold text-gray-700">
-                        References
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
-                          {selectedNode.data.references.map(
-                            (ref: string, idx: number) => {
-                              const text = ref;
-                              const isLink = /^(https?:\/\/|doi:|arxiv:)/i.test(
-                                text,
-                              );
-                              return (
-                                <li key={idx} className="break-words">
-                                  {isLink ? (
-                                    <a
-                                      href={
-                                        text.startsWith('http')
-                                          ? text
-                                          : undefined
-                                      }
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="text-blue-600 hover:underline"
-                                    >
-                                      {text}
-                                    </a>
-                                  ) : (
-                                    <span>{text}</span>
-                                  )}
-                                </li>
-                              );
-                            },
-                          )}
-                        </ul>
-                      </AccordionContent>
-                    </AccordionItem>
-                  )}
-                </Accordion>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      )}
+                )}
+              </Accordion>
+            </div>
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
 };
