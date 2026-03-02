@@ -49,6 +49,8 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
 
   // Load chat history and rate limiting data from localStorage on mount
   useEffect(() => {
+    // Reset messages immediately when topic changes
+    setMessages([]);
     try {
       // Use topic-specific storage key
       const storageKey = `tech-tree-chat-history-${topic}`;
