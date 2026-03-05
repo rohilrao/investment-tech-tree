@@ -18,19 +18,21 @@ export const CustomNode: React.FC<CustomNodeProps> = ({
   onShowConnected,
 }) => {
   return (
-    <div>
+    <div className="w-full h-full relative">
       <Handle
         type="target"
         position={Position.Left}
-        className="w-3 h-3 bg-gray-400"
+        className="opacity-0"
       />
-      <div className="w-full h-full flex items-center justify-center text-center px-2 text-sm font-medium">
-        {data.label}
+      <div className="w-full h-full flex items-center justify-center text-center px-1 text-sm font-medium overflow-hidden">
+        <span className="line-clamp-3 break-words" title={data.label}>
+          {data.label}
+        </span>
       </div>
       <Handle
         type="source"
         position={Position.Right}
-        className="w-3 h-3 bg-gray-400"
+        className="opacity-0"
       />
       {/* Icons positioned at fixed top right corner of the node */}
       <div className="absolute bottom-14 right-0 transform translate-x-2 -translate-y-2 z-10 pointer-events-auto">
