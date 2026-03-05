@@ -108,7 +108,7 @@ const NodeDetails = ({ selectedNode }: NodeDetailsProps) => {
     <div className="p-4 flex flex-col h-full">
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-2 md:p-4">
-          <div className="bg-white rounded-lg shadow-lg w-full h-full md:w-3/4 md:h-3/4 flex flex-col max-w-full max-h-full">
+          <div className="bg-white rounded-lg shadow-lg w-full h-full md:w-[95vw] md:h-[95vh] flex flex-col max-w-[1400px] max-h-[95vh]">
             <div className="flex justify-between items-center p-3 md:p-4 border-b border-gray-200 flex-shrink-0">
               <h3 className="text-base md:text-lg font-bold truncate mr-2">InFact Analysis Details</h3>
               <Button 
