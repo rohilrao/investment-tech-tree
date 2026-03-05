@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { LABEL_COLORS, UiNode } from '@/lib/types';
 import { Manual } from './Manual';
 import {
@@ -106,28 +107,31 @@ const NodeDetails = ({ selectedNode }: NodeDetailsProps) => {
 
   return (
     <div className="p-4 flex flex-col h-full">
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-2 md:p-4">
-          <div className="bg-white rounded-lg shadow-lg w-full h-full md:w-[95vw] md:h-[95vh] flex flex-col max-w-[1400px] max-h-[95vh]">
-            <div className="flex justify-between items-center p-3 md:p-4 border-b border-gray-200 flex-shrink-0">
-              <h3 className="text-base md:text-lg font-bold truncate mr-2">InFact Analysis Details</h3>
-              <Button 
-                onClick={() => setShowModal(false)} 
-                size="sm"
-                className="flex-shrink-0"
-              >
-                Close
-              </Button>
-            </div>
-            <iframe
-              srcDoc={infactHtmlContent}
-              className="w-full flex-1 border-0"
-              title="Infact Analysis Report"
-              sandbox="allow-scripts allow-same-origin"
-            />
-          </div>
-        </div>
-      )}
+      {showModal && typeof document !== 'undefined'
+        ? createPortal(
+            <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex justify-center items-center p-0">
+              <div className="bg-white rounded-none shadow-lg w-[90vw] h-[90vh] flex flex-col">
+                <div className="flex justify-between items-center p-3 md:p-4 border-b border-gray-200 flex-shrink-0">
+                  <h3 className="text-base md:text-lg font-bold truncate mr-2">InFact Analysis Details</h3>
+                  <Button 
+                    onClick={() => setShowModal(false)} 
+                    size="sm"
+                    className="flex-shrink-0"
+                  >
+                    Close
+                  </Button>
+                </div>
+                <iframe
+                  srcDoc={infactHtmlContent}
+                  className="w-full flex-1 border-0"
+                  title="Infact Analysis Report"
+                  sandbox="allow-scripts allow-same-origin"
+                />
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
 
       <Card className="flex flex-col h-full">
         <CardHeader className="flex flex-row items-end justify-between space-y-0 pb-4 gap-4 border-b-2 mb-4">
