@@ -1,4 +1,4 @@
-name: Run MCS for Changed Tech Trees
+name: Run MCS for Specific Tech Trees
 
 on:
   push:
