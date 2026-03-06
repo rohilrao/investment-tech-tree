@@ -3,7 +3,8 @@ name: Run MCS for Changed Tech Trees
 on:
   push:
     paths:
-      - 'data/**.json'
+      - 'data/fossil_fuel_tt_v2.json'
+      - 'data/nuclear_tt.json'
   schedule:
     # Run nightly at 02:00 UTC
     - cron: '0 2 * * *'
@@ -36,15 +37,19 @@ jobs:
       - name: Detect changed tech tree files
         id: detect
         run: |
-          if [ "${{ github.event.inputs.run_all }}" = "true" ]; then
-            # Manual trigger: run everything
-            FILES=$(find data -maxdepth 1 -name '*.json' | tr '\n' ' ')
-          elif [ "${{ github.event_name }}" = "schedule" ]; then
-            # Nightly: run all tech trees
-            FILES=$(find data -maxdepth 1 -name '*.json' | tr '\n' ' ')
+          TARGET_FILES="data/fossil_fuel_tt_v2.json data/nuclear_tt.json"
+          
+          if [ "${{ github.event.inputs.run_all }}" = "true" ] || [ "${{ github.event_name }}" = "schedule" ]; then
+            # Manual trigger or Nightly: run explicit files
+            FILES="$TARGET_FILES"
           else
-            # Push: only run files that changed in this commit
-            FILES=$(git diff --name-only HEAD~1 HEAD -- 'data/*.json' | tr '\n' ' ')
+            # Push: only run the explicitly watched files that changed in this commit
+            FILES=""
+            for f in $TARGET_FILES; do
+              if git diff --name-only HEAD~1 HEAD | grep -q "$f"; then
+                FILES="$FILES $f "
+              fi
+            done
           fi
 
           echo "files=$FILES" >> $GITHUB_OUTPUT
