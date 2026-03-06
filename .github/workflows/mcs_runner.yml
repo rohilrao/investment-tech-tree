@@ -5,6 +5,7 @@ on:
     paths:
       - 'data/fossil_fuel_tt_v2.json'
       - 'data/nuclear_tt.json'
+      - '.github/workflows/mcs_runner.yml'
   schedule:
     # Run nightly at 02:00 UTC
     - cron: '0 2 * * *'
