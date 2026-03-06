@@ -34,40 +34,22 @@ jobs:
         run: |
           pip install numpy pandas scipy tqdm scikit-learn statsmodels seaborn matplotlib jinja2
 
-      - name: Detect changed tech tree files
-        id: detect
+      - name: Run MCS for tech trees
         run: |
           TARGET_FILES="data/fossil_fuel_tt_v2.json data/nuclear_tt.json"
-          
-          if [ "${{ github.event.inputs.run_all }}" = "true" ] || [ "${{ github.event_name }}" = "schedule" ]; then
-            # Manual trigger or Nightly: run explicit files
-            FILES="$TARGET_FILES"
-          else
-            # Push: only run the explicitly watched files that changed in this commit
-            FILES=""
-            for f in $TARGET_FILES; do
-              if git diff --name-only HEAD~1 HEAD | grep -q "$f"; then
-                FILES="$FILES $f "
-              fi
-            done
-          fi
-
-          echo "files=$FILES" >> $GITHUB_OUTPUT
-          echo "Detected tech trees to run: $FILES"
-
-      - name: Run MCS for each changed tech tree
-        if: steps.detect.outputs.files != ''
-        run: |
-          for FILE in ${{ steps.detect.outputs.files }}; do
-            echo "===== Processing $FILE ====="
-            python simulations/mcs_techtree_runner.py "$FILE" \
-              --simulations 100 \
-              --output-dir ./outputs \
-              --simulation-module-path ./simulations
+          for FILE in $TARGET_FILES; do
+            if [ -f "$FILE" ]; then
+              echo "===== Processing $FILE ====="
+              python simulations/mcs_techtree_runner.py "$FILE" \
+                --simulations 100 \
+                --output-dir ./outputs \
+                --simulation-module-path ./simulations
+            else
+              echo "===== File $FILE not found, skipping ====="
+            fi
           done
 
       - name: Commit and push output JSONs
-        if: steps.detect.outputs.files != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
