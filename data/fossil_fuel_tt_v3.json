@@ -512,12 +512,12 @@
         ]
       },
       {
-        "id": "air_separation_unit",
-        "label": "Cryogenic Air Separation Unit (ASU)",
+        "id": "gasification_asu",
+        "label": "Industrial Gasification ASU",
         "type": "EnablingTechnology",
         "category": "Coal",
         "trl_current": "9",
-        "description": "Cryogenic distillation of air to produce high-purity oxygen (95–99.5% O2) for gasification or oxy-fuel combustion. The Linde-Hampson and Claude refrigeration cycles (1895–1902) made industrial-scale oxygen production viable. Modern ASUs produce 2,000–5,000 tonne O2/day. The ASU is the largest single capital cost item and energy consumer (~15% of gross output) in both IGCC and oxy-fuel plants.",
+        "description": "High-capacity cryogenic distillation unit optimized for gasification or oxy-fuel coal combustion. Designed for massive scale (up to 5,000 tonnes O2/day), these units provide the high-volume oxygen stream required to convert solid coal into syngas (IGCC) or for carbon-ready combustion.",
         "references": [
           "https://innovation.world/invention/the-hampson-linde-cycle/",
           "https://www.shengerhk.com/en/cryogenic-air-separation-units/",
@@ -909,20 +909,6 @@
         ]
       },
       {
-        "id": "lean_premix_combustion",
-        "label": "Lean Premix Combustion Technology",
-        "type": "EnablingTechnology",
-        "category": "Gas",
-        "trl_current": "9",
-        "description": "Pre-mixes fuel and air upstream of the flame zone to achieve a uniform, lean (excess air) mixture. Lean flames burn at lower temperatures (~1,750°C vs. >2,100°C for diffusion flames), drastically reducing thermal NOx formation (Zeldovich mechanism). The enabling principle behind all DLN combustion systems. Replaced earlier diffusion flame and wet-injection approaches from the 1990s onward.",
-        "references": [
-          "https://netl.doe.gov/sites/default/files/gas-turbine-handbook/3-2-1-2.pdf",
-          "https://torroja.dmt.upm.es/congresos/asme_2011/data/pdfs/trk-4/GT2011-45944.pdf",
-          "https://pollution.sustainability-directory.com/learn/what-is-the-zeldovich-mechanism-and-why-is-it-so-sensitive-to-temperature/",
-          "https://en.wikipedia.org/wiki/Dry_low_emission"
-        ]
-      },
-      {
         "id": "scco2_turbomachinery",
         "label": "Supercritical CO2 Turbomachinery",
         "type": "EnablingTechnology",
@@ -950,12 +936,12 @@
         ]
       },
       {
-        "id": "air_separation_unit",
-        "label": "Cryogenic Air Separation Unit (ASU)",
+        "id": "oxyfuel_asu",
+        "label": "Oxy-Combustion ASU (Allam Cycle)",
         "type": "EnablingTechnology",
         "category": "Gas",
         "trl_current": "9",
-        "description": "Industrial plant that separates atmospheric air into oxygen, nitrogen, and argon through cryogenic distillation (Linde-Hampson process). Produces the high-purity O2 stream (>95%) required for oxy-combustion systems including the Allam cycle. Large ASUs consume 200–250 kWh per tonne of O2; reducing this parasitic load is a key cost driver for CCS economics.",
+        "description": "Precision cryogenic air separation system integrated into high-pressure oxy-combustion cycles. Crucial for the Allam Cycle, it produces the >95% pure O2 stream needed to combust natural gas in a CO2 atmosphere, facilitating 100% carbon capture with minimal parasitic load (200–250 kWh/tonne).",
         "references": [
           "https://cryospain.com/air-separation-unit",
           "https://innovation.world/invention/the-hampson-linde-cycle/",
@@ -1904,12 +1890,12 @@
       },
       {
         "id": "c30",
-        "source": "air_separation_unit",
+        "source": "gasification_asu",
         "target": "igcc_plant"
       },
       {
         "id": "c31",
-        "source": "air_separation_unit",
+        "source": "gasification_asu",
         "target": "oxyfuel_ccs_plant"
       },
       {
@@ -2019,7 +2005,7 @@
       },
       {
         "id": "c55",
-        "source": "air_separation_unit",
+        "source": "gasification_asu",
         "target": "chemical_looping_plant"
       },
       {
@@ -2134,7 +2120,7 @@
       },
       {
         "id": "g14",
-        "source": "air_separation_unit",
+        "source": "oxyfuel_asu",
         "target": "oxy_combustion"
       },
       {
