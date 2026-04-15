@@ -17,6 +17,13 @@ const TREE_FOLDER: Record<TopicKey, string> = {
 
 const YEAR_OPTIONS = ['5', '10', '15', '20', '25', '30'];
 
+const MODE_DESCRIPTIONS: Record<SimulationMode, string> = {
+  deterministic: '',
+  option1: 'Models sector-wide acceleration or slowdown by adjusting how quickly technologies move between TRL levels.',
+  option2: 'Models localised technical bottlenecks — each technology could faces its own independent delays.',
+  option3: 'Combined view — models both overall industry trends and individual technology risks simultaneously.',
+};
+
 interface Props {
   topic: TopicKey;
 }
@@ -74,6 +81,15 @@ const Simulations: React.FC<Props> = ({ topic }) => {
           runsRes.json(),
           riskRes.json(),
         ]);
+
+        // ── DEBUG ──────────────────────────────────────────────────────────
+        console.log('[MCS fetch] stats length:', stats?.length);
+        console.log('[MCS fetch] runs length:', runs?.length);
+        console.log('[MCS fetch] runs type:', typeof runs, Array.isArray(runs));
+        console.log('[MCS fetch] runs[0]:', runs?.[0]);
+        console.log('[MCS fetch] risk length:', risk?.length);
+        // ──────────────────────────────────────────────────────────────────
+
         let sensitivity = null;
         if (mode === 'option3') {
           const sensRes = await fetch(`${base}/sensitivity.json`);
@@ -81,6 +97,7 @@ const Simulations: React.FC<Props> = ({ topic }) => {
         }
         setMcsData({ stats, runs, risk, sensitivity });
       } catch (e) {
+        console.error('[MCS fetch] ERROR:', e);
         setMcsError(e instanceof Error ? e.message : 'Unknown error');
       } finally {
         setMcsLoading(false);
@@ -108,6 +125,9 @@ const Simulations: React.FC<Props> = ({ topic }) => {
             </option>
           ))}
         </select>
+        {mode !== 'deterministic' && (
+          <p className="mt-2 text-sm text-gray-500">{MODE_DESCRIPTIONS[mode]}</p>
+        )}
       </div>
 
       {/* Deterministic view */}

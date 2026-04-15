@@ -58,7 +58,7 @@ export const MODE_LABELS: Record<SimulationMode, string> = {
   deterministic: 'Baseline (Deterministic)',
   option1: 'MCS Option 1 — Global Uncertainty',
   option2: 'MCS Option 2 — Local Node Uncertainty',
-  option3: 'MCS Option 3 — Combined Risk (LHS)',
+  option3: 'MCS Option 3 — Combined Risk',
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────

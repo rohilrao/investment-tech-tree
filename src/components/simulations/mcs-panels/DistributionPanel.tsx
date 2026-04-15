@@ -4,6 +4,7 @@ import { NodeStat, SimRun } from '../mcsTypes';
 interface Props {
   stats: NodeStat[];
   runs: SimRun[];
+  totalIterations: number;
 }
 
 const BIN_COUNT = 20;
@@ -29,7 +30,7 @@ function smoothPath(pts: { x: number; y: number }[]): string {
   return d;
 }
 
-export const DistributionPanel: React.FC<Props> = ({ stats, runs }) => {
+export const DistributionPanel: React.FC<Props> = ({ stats, runs, totalIterations }) => {
   const [selected, setSelected] = useState<string>('');
 
   useEffect(() => {
@@ -138,7 +139,7 @@ export const DistributionPanel: React.FC<Props> = ({ stats, runs }) => {
             </option>
           ))}
         </select>
-        <span className="text-xs text-gray-400">{nodeYears.length} iterations</span>
+
       </div>
 
       {/* Stat cards */}

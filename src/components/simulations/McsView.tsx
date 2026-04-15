@@ -25,7 +25,6 @@ export const McsView: React.FC<Props> = ({ data, mode }) => {
     return base;
   }, [mode]);
 
-  // Summary card values
   const numIterations =
     data.runs.length > 0 ? Math.max(...data.runs.map((r) => r.Iteration)) : 0;
 
@@ -34,15 +33,15 @@ export const McsView: React.FC<Props> = ({ data, mode }) => {
     [data.risk],
   );
 
-  const avgYear = useMemo(() => {
-    if (!data.stats.length) return null;
-    return Math.round(data.stats.reduce((s, r) => s + r.mean, 0) / data.stats.length);
-  }, [data.stats]);
+  const highestRiskStat = useMemo(
+    () => data.stats.find((s) => s.Node === highestRiskNode?.Node),
+    [data.stats, highestRiskNode],
+  );
 
   return (
     <div className="space-y-4">
       {/* Summary cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 gap-3">
         <div className="bg-gray-50 rounded-lg p-4 border">
           <p className="text-xs text-gray-500">Iterations run</p>
           <p className="text-2xl font-bold text-indigo-600">{numIterations}</p>
@@ -56,10 +55,11 @@ export const McsView: React.FC<Props> = ({ data, mode }) => {
           >
             {highestRiskNode?.Node ?? '—'}
           </p>
-        </div>
-        <div className="bg-gray-50 rounded-lg p-4 border">
-          <p className="text-xs text-gray-500">Avg completion year</p>
-          <p className="text-2xl font-bold text-emerald-600">{avgYear ?? '—'}</p>
+          {highestRiskStat && (
+            <p className="text-xs text-gray-500 mt-1">
+              {highestRiskStat.succ_count} downstream node{highestRiskStat.succ_count !== 1 ? 's' : ''} affected
+            </p>
+          )}
         </div>
       </div>
 
