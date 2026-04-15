@@ -42,11 +42,7 @@ export const McsView: React.FC<Props> = ({ data, mode }) => {
   return (
     <div className="space-y-4">
       {/* Summary cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="bg-gray-50 rounded-lg p-4 border">
-          <p className="text-xs text-gray-500">Nodes analysed</p>
-          <p className="text-2xl font-bold text-blue-600">{data.stats.length}</p>
-        </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         <div className="bg-gray-50 rounded-lg p-4 border">
           <p className="text-xs text-gray-500">Iterations run</p>
           <p className="text-2xl font-bold text-indigo-600">{numIterations}</p>
