@@ -1,407 +1,166 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { TopicKey } from '@/lib/topicConfig';
+import { SimulationMode, MODE_LABELS, McsData } from './simulations/mcsTypes';
+import { DeterministicView } from './simulations/DeterministicView';
+import { McsView } from './simulations/McsView';
 
 interface SimulationData {
   impactData: Record<string, Record<string, number>>;
   statusData: Record<string, Record<string, string>>;
 }
 
-interface SimulationsProps {
-  topic: TopicKey; // NEW: Accept topic prop
+const TREE_FOLDER: Record<TopicKey, string> = {
+  nuclear: 'nuclear_tt',
+  fossil_fuels: 'fossil_fuel_tt_v2',
+};
+
+const YEAR_OPTIONS = ['5', '10', '15', '20', '25', '30'];
+
+const MODE_DESCRIPTIONS: Record<SimulationMode, string> = {
+  deterministic: '',
+  option1: 'Models sector-wide acceleration or slowdown by adjusting how quickly technologies move between TRL levels.',
+  option2: 'Models localised technical bottlenecks — each technology could faces its own independent delays.',
+  option3: 'Combined view — models both overall industry trends and individual technology risks simultaneously.',
+};
+
+interface Props {
+  topic: TopicKey;
 }
 
-const Simulations: React.FC<SimulationsProps> = ({ topic }) => {
-  const [selectedYears, setSelectedYears] = useState<string>('30');
-  const [simulationData, setSimulationData] = useState<SimulationData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+const Simulations: React.FC<Props> = ({ topic }) => {
+  const [mode, setMode] = useState<SimulationMode>('deterministic');
 
-  // Generate year options from 5 to 30 in increments of 5
-  const yearOptions = useMemo(() => {
-    const options = [];
-    for (let i = 5; i <= 30; i += 5) {
-      options.push(i.toString());
-    }
-    return options;
-  }, []);
+  // ── Deterministic ────────────────────────────────────────────────────────
+  const [selectedYears, setSelectedYears] = useState('30');
+  const [detData, setDetData] = useState<SimulationData | null>(null);
+  const [detLoading, setDetLoading] = useState(true);
+  const [detError, setDetError] = useState<string | null>(null);
 
-  // Fetch simulation data when years or topic changes
   useEffect(() => {
-    const fetchSimulation = async () => {
-      setIsLoading(true);
-      setError(null);
-      
+    if (mode !== 'deterministic') return;
+    setDetLoading(true);
+    setDetError(null);
+    fetch(`/investment-tech-tree/api/simulation?years=${selectedYears}&topic=${topic}`)
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to fetch simulation data');
+        return r.json();
+      })
+      .then(setDetData)
+      .catch((e) => setDetError(e.message))
+      .finally(() => setDetLoading(false));
+  }, [selectedYears, topic, mode]);
+
+  // ── MCS ──────────────────────────────────────────────────────────────────
+  const [mcsData, setMcsData] = useState<McsData | null>(null);
+  const [mcsLoading, setMcsLoading] = useState(false);
+  const [mcsError, setMcsError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (mode === 'deterministic') return;
+    const base = `/investment-tech-tree/outputs/${TREE_FOLDER[topic]}`;
+
+    setMcsLoading(true);
+    setMcsError(null);
+    setMcsData(null);
+
+    (async () => {
       try {
-        // Include topic in API call
-        const response = await fetch(`/investment-tech-tree/api/simulation?years=${selectedYears}&topic=${topic}`);
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch simulation data');
+        const [statsRes, runsRes, riskRes] = await Promise.all([
+          fetch(`${base}/stats_${mode}.json`),
+          fetch(`${base}/simulation_runs_${mode}.json`),
+          fetch(`${base}/risk_assessment_${mode}.json`),
+        ]);
+        if (!statsRes.ok || !runsRes.ok || !riskRes.ok)
+          throw new Error(
+            'One or more MCS files could not be loaded. ' +
+              'Make sure the JSON files are in public/outputs/.',
+          );
+        const [stats, runs, risk] = await Promise.all([
+          statsRes.json(),
+          runsRes.json(),
+          riskRes.json(),
+        ]);
+
+        // ── DEBUG ──────────────────────────────────────────────────────────
+        console.log('[MCS fetch] stats length:', stats?.length);
+        console.log('[MCS fetch] runs length:', runs?.length);
+        console.log('[MCS fetch] runs type:', typeof runs, Array.isArray(runs));
+        console.log('[MCS fetch] runs[0]:', runs?.[0]);
+        console.log('[MCS fetch] risk length:', risk?.length);
+        // ──────────────────────────────────────────────────────────────────
+
+        let sensitivity = null;
+        if (mode === 'option3') {
+          const sensRes = await fetch(`${base}/sensitivity.json`);
+          if (sensRes.ok) sensitivity = await sensRes.json();
         }
-        
-        const data = await response.json();
-        setSimulationData(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error');
-        console.error('Error fetching simulation:', err);
+        setMcsData({ stats, runs, risk, sensitivity });
+      } catch (e) {
+        console.error('[MCS fetch] ERROR:', e);
+        setMcsError(e instanceof Error ? e.message : 'Unknown error');
       } finally {
-        setIsLoading(false);
+        setMcsLoading(false);
       }
-    };
-
-    fetchSimulation();
-  }, [selectedYears, topic]); // Re-fetch when topic changes
-
-  // Transform impact data for heatmap
-  const heatmapData = useMemo(() => {
-    if (!simulationData) return { years: [], technologies: [], data: [] };
-
-    const { impactData } = simulationData;
-    const allYears = new Set<string>();
-
-    // Collect ALL years from all technologies
-    Object.values(impactData).forEach((techData) => {
-      Object.keys(techData).forEach((year) => allYears.add(year));
-    });
-
-    const sortedYears = Array.from(allYears).sort(
-      (a, b) => parseInt(a) - parseInt(b),
-    );
-    const technologies = Object.keys(impactData);
-
-    // DEBUG: Log the year range
-    console.log('Impact Data - Year Range:', {
-      firstYear: sortedYears[0],
-      lastYear: sortedYears[sortedYears.length - 1],
-      totalYears: sortedYears.length,
-      selectedYears: selectedYears,
-      expectedLastYear: 2026 + parseInt(selectedYears)
-    });
-
-    // DEBUG: Check if we have data beyond 2056
-    const yearsBeyond2056 = sortedYears.filter(y => parseInt(y) > 2056);
-    console.log('Years beyond 2056:', yearsBeyond2056);
-
-    return {
-      years: sortedYears,
-      technologies,
-      data: technologies.map((tech) => ({
-        technology: tech,
-        yearlyData: sortedYears.map((year) => ({
-          year,
-          impact: impactData[tech][year] || 0,
-        })),
-      })),
-    };
-  }, [simulationData, selectedYears]);
-
-  // Transform status data for timeline
-  const timelineData = useMemo(() => {
-    if (!simulationData) return { years: [], technologies: [], data: [] };
-
-    const { statusData } = simulationData;
-    const allYears = new Set<string>();
-
-    Object.values(statusData).forEach((techData) => {
-      Object.keys(techData).forEach((year) => allYears.add(year));
-    });
-
-    const sortedYears = Array.from(allYears).sort(
-      (a, b) => parseInt(a) - parseInt(b),
-    );
-    const technologies = Object.keys(statusData);
-
-    return {
-      years: sortedYears,
-      technologies,
-      data: technologies.map((tech) => ({
-        technology: tech,
-        yearlyData: sortedYears.map((year) => ({
-          year,
-          status: statusData[tech][year] || 'Pending',
-        })),
-      })),
-    };
-  }, [simulationData]);
-
-  // Get color for impact value
-  const getImpactColor = (impact: number) => {
-    if (impact === 0) return '#f3f4f6';
-    if (!simulationData) return '#f3f4f6';
-
-    const maxImpact = Math.max(
-      ...Object.values(simulationData.impactData).flatMap((tech) => Object.values(tech)),
-    );
-    const intensity = Math.min(impact / maxImpact, 1);
-    const alpha = 0.1 + intensity * 0.9;
-    return `rgba(59, 130, 246, ${alpha})`;
-  };
-
-  // Get color for status
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'Active':
-        return '#3b82f6';
-      case 'Pending':
-        return '#f59e0b';
-      case 'Completed':
-        return '#10b981';
-      default:
-        return '#6b7280';
-    }
-  };
-
-  const statusColors = {
-    Active: '#3b82f6',
-    Pending: '#f59e0b',
-    Completed: '#10b981'
-  };
-
-  // Calculate summary statistics
-  const summaryStats = useMemo(() => {
-    if (!simulationData) return { totalTechs: 0, maxImpact: 0, activeNow: 0 };
-
-    const totalTechs = Object.keys(simulationData.impactData).length;
-    const maxImpact = Math.max(
-      ...Object.values(simulationData.impactData).flatMap((tech) => Object.values(tech)),
-      0 // Add default value in case there's no data
-    );
-
-    // Use 2026 as current year
-    const currentYear = '2026';
-    const activeNow = Object.values(simulationData.statusData).filter(
-      (tech) => tech[currentYear] === 'Active',
-    ).length;
-
-    return { totalTechs, maxImpact, activeNow };
-  }, [simulationData]);
-
-  const downloadJson = (data: object, filename: string) => {
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  if (error) {
-    return (
-      <div className="p-6 bg-white">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <h3 className="text-red-800 font-semibold">Error loading simulation</h3>
-          <p className="text-red-600 text-sm mt-1">{error}</p>
-        </div>
-      </div>
-    );
-  }
+    })();
+  }, [mode, topic]);
 
   return (
     <div className="p-6 bg-white">
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
-          Investment Simulation Results
-        </h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-5">Investment Simulation Results</h2>
 
-        <div className="mb-4">
-          <label
-            htmlFor="years-select"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Simulation Time Horizon (Years):
-          </label>
-          <select
-            id="years-select"
-            value={selectedYears}
-            onChange={(e) => setSelectedYears(e.target.value)}
-            disabled={isLoading}
-            className="block w-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {yearOptions.map((year) => (
-              <option key={year} value={year}>
-                {year} years
-              </option>
-            ))}
-          </select>
-        </div>
+      {/* Mode selector */}
+      <div className="mb-6">
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Simulation Model:
+        </label>
+        <select
+          value={mode}
+          onChange={(e) => setMode(e.target.value as SimulationMode)}
+          className="block w-80 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+        >
+          {(Object.keys(MODE_LABELS) as SimulationMode[]).map((m) => (
+            <option key={m} value={m}>
+              {MODE_LABELS[m]}
+            </option>
+          ))}
+        </select>
+        {mode !== 'deterministic' && (
+          <p className="mt-2 text-sm text-gray-500">{MODE_DESCRIPTIONS[mode]}</p>
+        )}
       </div>
 
-      {isLoading ? (
-        <div className="flex items-center justify-center py-12">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
-          <span className="ml-3 text-gray-600">Running simulation...</span>
-        </div>
-      ) : simulationData ? (
-        <div className="space-y-8">
-          {/* Summary Statistics */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              Simulation Summary ({selectedYears} years)
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-4 rounded border">
-                <h4 className="font-medium text-gray-600">Total Technologies</h4>
-                <p className="text-2xl font-bold text-blue-600">
-                  {summaryStats.totalTechs}
-                </p>
-              </div>
-              <div className="bg-white p-4 rounded border">
-                <h4 className="font-medium text-gray-600">Active Technologies</h4>
-                <p className="text-2xl font-bold text-green-600">
-                  {summaryStats.activeNow}
-                </p>
-              </div>
-              <div className="bg-white p-4 rounded border">
-                <h4 className="font-medium text-gray-600">Max Impact (TWh)</h4>
-                <p className="text-2xl font-bold text-purple-600">
-                  {summaryStats.maxImpact.toFixed(2)}
-                </p>
-              </div>
+      {/* Deterministic view */}
+      {mode === 'deterministic' && (
+        <DeterministicView
+          selectedYears={selectedYears}
+          onYearsChange={setSelectedYears}
+          isLoading={detLoading}
+          error={detError}
+          data={detData}
+          topic={topic}
+          yearOptions={YEAR_OPTIONS}
+        />
+      )}
+
+      {/* MCS view */}
+      {mode !== 'deterministic' && (
+        <>
+          {mcsError && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+              <p className="text-red-800 font-semibold">Could not load MCS data</p>
+              <p className="text-red-600 text-sm mt-1">{mcsError}</p>
             </div>
-          </div>
-
-          {/* Impact Heatmap */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              Technology Impact Heatmap (TWh)
-            </h3>
-            <p className="text-sm text-gray-600 mb-4">
-              Only impact &gt;0.01 TWh are visualized
-            </p>
-            <div className="overflow-x-auto">
-              <div className="min-w-max">
-                {/* Year headers */}
-                <div className="flex">
-                  <div className="w-64 p-2 font-medium text-sm text-gray-700">
-                    Technology
-                  </div>
-                  {heatmapData.years.map((year) => (
-                    <div
-                      key={year}
-                      className="w-16 p-2 text-center font-medium text-sm text-gray-700"
-                    >
-                      {year}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Technology rows */}
-                {heatmapData.data.map((tech) => (
-                  <div key={tech.technology} className="flex border-t border-gray-200">
-                    <div className="w-64 p-2 text-sm text-gray-800 truncate" title={tech.technology}>
-                      {tech.technology}
-                    </div>
-                    {tech.yearlyData.map(({ year, impact }) => (
-                      <div
-                        key={year}
-                        className="w-16 p-2 text-center text-xs border-l border-gray-200"
-                        style={{ backgroundColor: getImpactColor(impact) }}
-                        title={`${tech.technology} (${year}): ${impact.toFixed(3)} TWh`}
-                      >
-                        {impact > 0 ? impact.toFixed(2) : ''}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
+          )}
+          {mcsLoading && (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
+              <span className="ml-3 text-gray-600">Loading Monte Carlo results…</span>
             </div>
-          </div>
-
-          {/* Status Timeline */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              Technology Status Timeline
-            </h3>
-            <div className="mb-4 flex items-center space-x-4 text-sm">
-              <div className="flex items-center">
-                <div 
-                  className="w-4 h-4 rounded mr-2"
-                  style={{ backgroundColor: statusColors.Active }}
-                ></div>
-                <span>Active</span>
-              </div>
-              <div className="flex items-center">
-                <div 
-                  className="w-4 h-4 rounded mr-2"
-                  style={{ backgroundColor: statusColors.Pending }}
-                ></div>
-                <span>Pending</span>
-              </div>
-              <div className="flex items-center">
-                <div 
-                  className="w-4 h-4 rounded mr-2"
-                  style={{ backgroundColor: statusColors.Completed }}
-                ></div>
-                <span>Completed</span>
-              </div>
-            </div>
-
-            <div className="overflow-x-auto">
-              <div className="min-w-max">
-                {/* Year headers */}
-                <div className="flex">
-                  <div className="w-64 p-2 font-medium text-sm text-gray-700">
-                    Technology
-                  </div>
-                  {timelineData.years.map((year) => (
-                    <div
-                      key={year}
-                      className="w-16 p-2 text-center font-medium text-sm text-gray-700"
-                    >
-                      {year}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Technology rows */}
-                {timelineData.data.map((tech) => (
-                  <div key={tech.technology} className="flex border-t border-gray-200">
-                    <div className="w-64 p-2 text-sm text-gray-800 truncate" title={tech.technology}>
-                      {tech.technology}
-                    </div>
-                    {tech.yearlyData.map(({ year, status }) => (
-                      <div
-                        key={year}
-                        className="w-16 p-1 text-center border-l border-gray-200"
-                        title={`${tech.technology} (${year}): ${status}`}
-                      >
-                        <div
-                          className="w-full h-6 rounded"
-                          style={{ backgroundColor: getStatusColor(status) }}
-                        ></div>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Download Buttons */}
-          <div className="flex gap-3 mt-6 justify-end">
-            <button
-              onClick={() => downloadJson(simulationData.impactData, `impact-data-${selectedYears}yr-${topic}.json`)}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-md transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Download Impact Data
-            </button>
-            <button
-              onClick={() => downloadJson(simulationData.statusData, `status-data-${selectedYears}yr-${topic}.json`)}
-              className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-md transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Download Status Data
-            </button>
-          </div>
-        </div>
-      ) : null}
+          )}
+          {!mcsLoading && mcsData && <McsView data={mcsData} mode={mode} />}
+        </>
+      )}
     </div>
   );
 };
