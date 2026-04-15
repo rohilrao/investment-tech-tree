@@ -42,7 +42,7 @@ export class GeminiChatClient {
     }
 
     const model = this.genAI.getGenerativeModel({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
     });
 
     // Build the user's prompt parts, starting with the text message
