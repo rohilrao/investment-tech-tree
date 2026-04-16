@@ -1,10 +1,9 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { NodeStat, SimRun } from '../mcsTypes';
+import { NodeStat, DistributionData } from '../mcsTypes';
 
 interface Props {
   stats: NodeStat[];
-  runs: SimRun[];
-  totalIterations: number;
+  distributions: DistributionData;
 }
 
 const BIN_COUNT = 20;
@@ -30,22 +29,34 @@ function smoothPath(pts: { x: number; y: number }[]): string {
   return d;
 }
 
-export const DistributionPanel: React.FC<Props> = ({ stats, runs, totalIterations }) => {
+export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => {
   const [selected, setSelected] = useState<string>('');
 
   useEffect(() => {
     if (stats.length > 0) setSelected(stats[0].Node);
   }, [stats]);
 
-  const nodeYears = useMemo(
-    () => runs.filter((r) => r.Node === selected).map((r) => Number(r.Year)),
-    [runs, selected],
+  // Pull the pre-aggregated { "year": count } map for the selected node.
+  // The distributions object uses node labels as keys — same as stats[].Node.
+  const nodeDist = useMemo(
+    () => (selected ? distributions[selected] ?? {} : {}),
+    [distributions, selected],
+  );
+
+  // Derive sorted (year, count) pairs from the pre-aggregated map.
+  const sortedEntries = useMemo(
+    () =>
+      Object.entries(nodeDist)
+        .map(([year, count]) => ({ year: parseInt(year, 10), count }))
+        .sort((a, b) => a.year - b.year),
+    [nodeDist],
   );
 
   const { bins, minYear, maxYear } = useMemo(() => {
-    if (!nodeYears.length) return { bins: [], minYear: 0, maxYear: 0 };
-    const minYear = Math.min(...nodeYears);
-    const maxYear = Math.max(...nodeYears);
+    if (!sortedEntries.length) return { bins: [], minYear: 0, maxYear: 0 };
+
+    const minYear = sortedEntries[0].year;
+    const maxYear = sortedEntries[sortedEntries.length - 1].year;
     const range = maxYear - minYear || 1;
     const binCount = Math.min(BIN_COUNT, range + 1);
     const binSize = range / binCount;
@@ -56,16 +67,18 @@ export const DistributionPanel: React.FC<Props> = ({ stats, runs, totalIteration
       const hi = i === binCount - 1 ? maxYear + 0.001 : minYear + (i + 1) * binSize;
       bins.push({ year: Math.round(lo + binSize / 2), lo, hi, count: 0 });
     }
-    for (const y of nodeYears) {
-      const idx = bins.findIndex((b) => y >= b.lo && y < b.hi);
-      if (idx !== -1) bins[idx].count++;
+
+    // Distribute pre-aggregated counts into bins
+    for (const { year, count } of sortedEntries) {
+      const idx = bins.findIndex((b) => year >= b.lo && year < b.hi);
+      if (idx !== -1) bins[idx].count += count;
     }
+
     return { bins, minYear, maxYear };
-  }, [nodeYears]);
+  }, [sortedEntries]);
 
   const stat = stats.find((s) => s.Node === selected);
 
-  // Map bins to SVG coordinates
   const chartW = SVG_W - PAD.left - PAD.right;
   const chartH = SVG_H - PAD.top - PAD.bottom;
   const maxCount = Math.max(...bins.map((b) => b.count), 1);
@@ -81,7 +94,6 @@ export const DistributionPanel: React.FC<Props> = ({ stats, runs, totalIteration
     [bins, chartW, chartH, maxCount],
   );
 
-  // Area fill path (closed)
   const areaPath = useMemo(() => {
     if (!points.length) return '';
     const line = smoothPath(points);
@@ -93,7 +105,6 @@ export const DistributionPanel: React.FC<Props> = ({ stats, runs, totalIteration
 
   const linePath = useMemo(() => smoothPath(points), [points]);
 
-  // X-axis year labels — pick ~5 evenly spaced
   const xLabels = useMemo(() => {
     if (!bins.length) return [];
     const step = Math.max(1, Math.floor(bins.length / 5));
@@ -104,18 +115,13 @@ export const DistributionPanel: React.FC<Props> = ({ stats, runs, totalIteration
         year: bins[i].year,
       });
     }
-    // Always include last
     const last = bins.length - 1;
     if (labels[labels.length - 1]?.year !== bins[last].year) {
-      labels.push({
-        x: PAD.left + chartW,
-        year: bins[last].year,
-      });
+      labels.push({ x: PAD.left + chartW, year: bins[last].year });
     }
     return labels;
   }, [bins, chartW]);
 
-  // Median line position
   const medianX = useMemo(() => {
     if (!stat || !bins.length) return null;
     const med = stat.median;
@@ -139,7 +145,6 @@ export const DistributionPanel: React.FC<Props> = ({ stats, runs, totalIteration
             </option>
           ))}
         </select>
-
       </div>
 
       {/* Stat cards */}
@@ -264,7 +269,7 @@ export const DistributionPanel: React.FC<Props> = ({ stats, runs, totalIteration
         </div>
       ) : (
         <p className="text-sm text-gray-500 italic">
-          No completion data found for this node in the simulation runs.
+          No completion data found for this node in the distribution data.
         </p>
       )}
     </div>

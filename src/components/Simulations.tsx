@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { TopicKey } from '@/lib/topicConfig';
-import { SimulationMode, MODE_LABELS, McsData } from './simulations/mcsTypes';
+import { SimulationMode, MODE_LABELS, McsData, DistributionData } from './simulations/mcsTypes';
 import { DeterministicView } from './simulations/DeterministicView';
 import { McsView } from './simulations/McsView';
 
@@ -66,36 +66,33 @@ const Simulations: React.FC<Props> = ({ topic }) => {
 
     (async () => {
       try {
-        const [statsRes, runsRes, riskRes] = await Promise.all([
+        // Load distributions_option*.json instead of the heavy simulation_runs_option*.json.
+        // distributions_option*.json is pre-aggregated: { NodeLabel: { "year": count, ... } }
+        const [statsRes, distRes, riskRes] = await Promise.all([
           fetch(`${base}/stats_${mode}.json`),
-          fetch(`${base}/simulation_runs_${mode}.json`),
+          fetch(`${base}/distributions_${mode}.json`),
           fetch(`${base}/risk_assessment_${mode}.json`),
         ]);
-        if (!statsRes.ok || !runsRes.ok || !riskRes.ok)
+
+        if (!statsRes.ok || !distRes.ok || !riskRes.ok)
           throw new Error(
             'One or more MCS files could not be loaded. ' +
               'Make sure the JSON files are in public/outputs/.',
           );
-        const [stats, runs, risk] = await Promise.all([
+
+        const [stats, distributions, risk] = await Promise.all([
           statsRes.json(),
-          runsRes.json(),
+          distRes.json() as Promise<DistributionData>,
           riskRes.json(),
         ]);
-
-        // ── DEBUG ──────────────────────────────────────────────────────────
-        console.log('[MCS fetch] stats length:', stats?.length);
-        console.log('[MCS fetch] runs length:', runs?.length);
-        console.log('[MCS fetch] runs type:', typeof runs, Array.isArray(runs));
-        console.log('[MCS fetch] runs[0]:', runs?.[0]);
-        console.log('[MCS fetch] risk length:', risk?.length);
-        // ──────────────────────────────────────────────────────────────────
 
         let sensitivity = null;
         if (mode === 'option3') {
           const sensRes = await fetch(`${base}/sensitivity.json`);
           if (sensRes.ok) sensitivity = await sensRes.json();
         }
-        setMcsData({ stats, runs, risk, sensitivity });
+
+        setMcsData({ stats, distributions, risk, sensitivity });
       } catch (e) {
         console.error('[MCS fetch] ERROR:', e);
         setMcsError(e instanceof Error ? e.message : 'Unknown error');

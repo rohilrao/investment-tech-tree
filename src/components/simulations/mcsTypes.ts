@@ -16,6 +16,8 @@ export interface NodeStat {
   succ_count: number;
 }
 
+// Legacy shape kept for reference — no longer loaded by the frontend.
+// The frontend now loads distributions_option*.json instead.
 export interface SimRun {
   Iteration: number;
   Node: string;
@@ -23,6 +25,19 @@ export interface SimRun {
   RandomDelay?: number;
   YearsPerTRL?: number;
 }
+
+/**
+ * Pre-aggregated histogram shape produced by process_simulation_data.py.
+ * Outer key = node label, inner key = year (as string), value = bin count.
+ *
+ * Example:
+ *   {
+ *     "HTS Magnet Demo": { "2031": 12, "2032": 34, "2033": 28, ... },
+ *     "SPARC Net Energy": { "2034": 5, "2035": 19, ... },
+ *     ...
+ *   }
+ */
+export type DistributionData = Record<string, Record<string, number>>;
 
 export interface RiskRow {
   Node: string;
@@ -45,7 +60,8 @@ export interface SensitivityRow {
 
 export interface McsData {
   stats: NodeStat[];
-  runs: SimRun[];
+  /** Pre-aggregated histograms from distributions_option*.json */
+  distributions: DistributionData;
   risk: RiskRow[];
   sensitivity: SensitivityRow[] | null;
 }
