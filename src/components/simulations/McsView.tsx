@@ -25,8 +25,13 @@ export const McsView: React.FC<Props> = ({ data, mode }) => {
     return base;
   }, [mode]);
 
-  const numIterations =
-    data.runs.length > 0 ? Math.max(...data.runs.map((r) => r.Iteration)) : 0;
+  // Derive total iterations from the distributions data: sum all bin counts for
+  // the first node that has any data, which equals the number of completed runs.
+  const numIterations = useMemo(() => {
+    const firstNode = Object.values(data.distributions)[0];
+    if (!firstNode) return 0;
+    return Object.values(firstNode).reduce((sum, count) => sum + count, 0);
+  }, [data.distributions]);
 
   const highestRiskNode = useMemo(
     () => [...data.risk].sort((a, b) => b.Score - a.Score)[0],
@@ -85,7 +90,7 @@ export const McsView: React.FC<Props> = ({ data, mode }) => {
       {/* Panel content */}
       <div className="pt-2 min-h-[300px]">
         {activeTab === 'distribution' && (
-          <DistributionPanel stats={data.stats} runs={data.runs} />
+          <DistributionPanel stats={data.stats} distributions={data.distributions} />
         )}
         {activeTab === 'stats' && <StatsPanel stats={data.stats} />}
         {activeTab === 'risk' && <RiskPanel risk={data.risk} />}
