@@ -63,7 +63,7 @@ def monte_carlo_simulation(scheduler, option, NUM_SIMULATIONS):
         random_number_list = np.random.triangular(left=1.5, mode=2.5, right=3.5, size=NUM_SIMULATIONS).tolist()
         for random_number in tqdm(random_number_list, desc="Option 1"):
             impact_data, status_data, random_number_data, lhc_seed = scheduler.run_simulation(
-                years_to_simulate=20, option=option, random_number=random_number
+                years_to_simulate=30, option=option, random_number=random_number
             )
             result_impact_data_list.append(impact_data)
             result_status_data_list.append(status_data)
@@ -73,7 +73,7 @@ def monte_carlo_simulation(scheduler, option, NUM_SIMULATIONS):
         np.random.seed(24)
         for _ in tqdm(range(NUM_SIMULATIONS), desc="Option 2"):
             impact_data, status_data, random_number_data, lhc_seed = scheduler.run_simulation(
-                years_to_simulate=20, option=option
+                years_to_simulate=30, option=option
             )
             result_impact_data_list.append(impact_data)
             result_status_data_list.append(status_data)
@@ -88,7 +88,7 @@ def monte_carlo_simulation(scheduler, option, NUM_SIMULATIONS):
         lhc_seed = 1
         for [item1] in tqdm(x1_samples, desc="Option 3"):
             impact_data, status_data, random_number_data, lhc_seed = scheduler.run_simulation(
-                years_to_simulate=20, option='option_3', random_number=item1, lhc_seed=lhc_seed
+                years_to_simulate=30, option='option_3', random_number=item1, lhc_seed=lhc_seed
             )
             lhc_seed += 1
             result_impact_data_list.append(impact_data)

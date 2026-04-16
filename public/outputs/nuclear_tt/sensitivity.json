@@ -1,34 +1,34 @@
 [
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
-    "n_obs": 7280,
-    "YearsPerTRL_rho": 0.8492289293,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.9157992883,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.2394834154,
-    "RandomDelay_p": 1.770798699e-95
+    "RandomDelay_rho": 0.3515292549,
+    "RandomDelay_p": 9.821615995e-289
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
-    "n_obs": 3973,
-    "YearsPerTRL_rho": 0.7926007554,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.9351952199,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.1934872005,
-    "RandomDelay_p": 8.15422944e-35
+    "RandomDelay_rho": 0.3276442901,
+    "RandomDelay_p": 6.913148809e-249
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
-    "n_obs": 7231,
-    "YearsPerTRL_rho": 0.8469638075,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.9159282068,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.2669594601,
-    "RandomDelay_p": 3.062952152e-118
+    "RandomDelay_rho": 0.3651735169,
+    "RandomDelay_p": 0.0
   },
   {
     "Node": "Enabling Tech: HTS Magnets",
-    "n_obs": 9651,
-    "YearsPerTRL_rho": 0.8728421449,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.8844257067,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.3916937188,
+    "RandomDelay_rho": 0.4320382381,
     "RandomDelay_p": 0.0
   },
   {
@@ -56,12 +56,20 @@
     "RandomDelay_p": 0.0
   },
   {
+    "Node": "Enabling Tech: Plasma-Facing Materials",
+    "n_obs": 187,
+    "YearsPerTRL_rho": 0.333954435,
+    "YearsPerTRL_p": 2.9982e-06,
+    "RandomDelay_rho": 0.2555877237,
+    "RandomDelay_p": 0.0004147797
+  },
+  {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
-    "n_obs": 7274,
-    "YearsPerTRL_rho": 0.8420880887,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.9131257031,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.2565210731,
-    "RandomDelay_p": 1.189321634e-109
+    "RandomDelay_rho": 0.3603171713,
+    "RandomDelay_p": 2.690034279e-304
   },
   {
     "Node": "Enabling Tech: TRISO Fuel Cycle",
@@ -72,6 +80,14 @@
     "RandomDelay_p": 0.0
   },
   {
+    "Node": "Enabling Tech: Tritium Breeding Blankets",
+    "n_obs": 198,
+    "YearsPerTRL_rho": 0.309071747,
+    "YearsPerTRL_p": 9.4037e-06,
+    "RandomDelay_rho": 0.1951956774,
+    "RandomDelay_p": 0.0058546051
+  },
+  {
     "Node": "Enabling Tech: sCO2 Power Cycle",
     "n_obs": 10000,
     "YearsPerTRL_rho": 0.8297401772,
@@ -80,19 +96,27 @@
     "RandomDelay_p": 0.0
   },
   {
+    "Node": "Milestone: Advanced Divertor Test Facility (DTT)",
+    "n_obs": 891,
+    "YearsPerTRL_rho": 0.634974611,
+    "YearsPerTRL_p": 9.597169291e-102,
+    "RandomDelay_rho": 0.1778766008,
+    "RandomDelay_p": 9.05e-08
+  },
+  {
     "Node": "Milestone: FRC Net Energy Demo",
-    "n_obs": 1122,
-    "YearsPerTRL_rho": 0.4917794966,
-    "YearsPerTRL_p": 2.228822618e-69,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.8827955789,
+    "YearsPerTRL_p": 0.0,
     "RandomDelay_rho": null,
     "RandomDelay_p": null
   },
   {
     "Node": "Milestone: FRC Stable Sustainment",
-    "n_obs": 9675,
-    "YearsPerTRL_rho": 0.8719009784,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.8827955789,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.3843738275,
+    "RandomDelay_rho": 0.4214310436,
     "RandomDelay_p": 0.0
   },
   {
@@ -105,35 +129,35 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
-    "n_obs": 6953,
-    "YearsPerTRL_rho": 0.685113365,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.802647183,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.2939401211,
-    "RandomDelay_p": 1.313605017e-138
+    "RandomDelay_rho": 0.4095179205,
+    "RandomDelay_p": 0.0
   },
   {
     "Node": "Milestone: HTS Stellarator Coil Fabrication",
-    "n_obs": 338,
-    "YearsPerTRL_rho": 0.4425581597,
-    "YearsPerTRL_p": 1.21137368e-17,
+    "n_obs": 9986,
+    "YearsPerTRL_rho": 0.9023923165,
+    "YearsPerTRL_p": 0.0,
     "RandomDelay_rho": null,
     "RandomDelay_p": null
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
-    "n_obs": 4401,
-    "YearsPerTRL_rho": 0.636356271,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.8350083915,
     "YearsPerTRL_p": 0.0,
     "RandomDelay_rho": null,
     "RandomDelay_p": null
   },
   {
     "Node": "Milestone: ITER Burning Plasma Demo",
-    "n_obs": 791,
-    "YearsPerTRL_rho": 0.4925549876,
-    "YearsPerTRL_p": 1.414447271e-49,
-    "RandomDelay_rho": 0.2425785849,
-    "RandomDelay_p": 0.0
+    "n_obs": 9067,
+    "YearsPerTRL_rho": 0.8834745631,
+    "YearsPerTRL_p": 0.0,
+    "RandomDelay_rho": 0.2163446704,
+    "RandomDelay_p": 1.692003364e-96
   },
   {
     "Node": "Milestone: LFR Materials Qualification",
@@ -153,26 +177,26 @@
   },
   {
     "Node": "Milestone: Large-Scale HTS Magnet Demo",
-    "n_obs": 8,
-    "YearsPerTRL_rho": null,
-    "YearsPerTRL_p": null,
-    "RandomDelay_rho": null,
-    "RandomDelay_p": null
+    "n_obs": 3977,
+    "YearsPerTRL_rho": 0.8103633462,
+    "YearsPerTRL_p": 0.0,
+    "RandomDelay_rho": 0.1391992295,
+    "RandomDelay_p": 1.159114803e-18
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
-    "n_obs": 1159,
-    "YearsPerTRL_rho": 0.5306428583,
-    "YearsPerTRL_p": 3.619881741e-85,
+    "n_obs": 9999,
+    "YearsPerTRL_rho": 0.8842178309,
+    "YearsPerTRL_p": 0.0,
     "RandomDelay_rho": null,
     "RandomDelay_p": null
   },
   {
     "Node": "Milestone: MSRE Proof-of-Concept",
-    "n_obs": 9656,
-    "YearsPerTRL_rho": 0.8729027226,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.8842528233,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.3954466054,
+    "RandomDelay_rho": 0.4358510986,
     "RandomDelay_p": 0.0
   },
   {
@@ -200,35 +224,43 @@
     "RandomDelay_p": 0.0
   },
   {
+    "Node": "Milestone: SPARC Net Energy Demo",
+    "n_obs": 280,
+    "YearsPerTRL_rho": 0.3305880343,
+    "YearsPerTRL_p": 1.45e-08,
+    "RandomDelay_rho": null,
+    "RandomDelay_p": null
+  },
+  {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
-    "n_obs": 2125,
-    "YearsPerTRL_rho": 0.5733982218,
-    "YearsPerTRL_p": 4.929793243e-186,
-    "RandomDelay_rho": 0.2056430691,
-    "RandomDelay_p": 1.002651214e-21
+    "n_obs": 9906,
+    "YearsPerTRL_rho": 0.8776334408,
+    "YearsPerTRL_p": 0.0,
+    "RandomDelay_rho": 0.2771704939,
+    "RandomDelay_p": 3.554904471e-174
   },
   {
     "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
-    "n_obs": 9655,
-    "YearsPerTRL_rho": 0.8771105292,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.8879675394,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.3948056505,
+    "RandomDelay_rho": 0.4362678178,
     "RandomDelay_p": 0.0
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
-    "n_obs": 3957,
-    "YearsPerTRL_rho": 0.8112027189,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.9364607327,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.149970404,
-    "RandomDelay_p": 2.434405345e-21
+    "RandomDelay_rho": 0.3098436023,
+    "RandomDelay_p": 1.945639139e-221
   },
   {
     "Node": "Milestone: W7-X Optimized Physics Proof",
-    "n_obs": 9647,
-    "YearsPerTRL_rho": 0.8701226902,
+    "n_obs": 10000,
+    "YearsPerTRL_rho": 0.8821138857,
     "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.3943155065,
+    "RandomDelay_rho": 0.4362848221,
     "RandomDelay_p": 0.0
   }
 ]

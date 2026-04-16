@@ -142,7 +142,7 @@ class NuclearScheduler:
     # - option: Gibt an, welche Parameter simuliert werden sollen (global, lokal, beide oder keine)
     # - random_number: Ein zufälliger Wert, der für die Simulation verwendet wird (für option_1 und option_3)
     # - lhc_seed: Ein Seed-Wert für die Latin Hypercube Sampling Methode (nur für option_3)
-    def run_simulation(self, years_to_simulate=20, option=None, random_number=None, lhc_seed=None):
+    def run_simulation(self, years_to_simulate=30, option=None, random_number=None, lhc_seed=None):
         sim_nodes = copy.deepcopy(self.nodes)
 
         # Hilfsdictionary, um die generierten Zufallszahlen für jede Node zu speichern
