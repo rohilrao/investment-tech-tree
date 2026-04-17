@@ -163,19 +163,6 @@ export const DeterministicView: React.FC<Props> = ({
     };
   }, [data]);
 
-  const summaryStats = useMemo(() => {
-    if (!data) return { totalTechs: 0, maxImpact: 0, activeNow: 0 };
-    const totalTechs = Object.keys(data.impactData).length;
-    const maxImpact = Math.max(
-      ...Object.values(data.impactData).flatMap((t) => Object.values(t)),
-      0,
-    );
-    const activeNow = Object.values(data.statusData).filter(
-      (t) => t['2026'] === 'Active',
-    ).length;
-    return { totalTechs, maxImpact, activeNow };
-  }, [data]);
-
   const getImpactColor = (impact: number) => {
     if (impact === 0 || !data) return '#f3f4f6';
     const maxImpact = Math.max(
@@ -221,29 +208,6 @@ export const DeterministicView: React.FC<Props> = ({
       ) : data ? (
         <div className="space-y-8">
 
-          {/* Summary cards */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              Summary ({selectedYears} years)
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-4 rounded border">
-                <h4 className="font-medium text-gray-600">Total Technologies</h4>
-                <p className="text-2xl font-bold text-blue-600">{summaryStats.totalTechs}</p>
-              </div>
-              <div className="bg-white p-4 rounded border">
-                <h4 className="font-medium text-gray-600">Active Technologies</h4>
-                <p className="text-2xl font-bold text-green-600">{summaryStats.activeNow}</p>
-              </div>
-              <div className="bg-white p-4 rounded border">
-                <h4 className="font-medium text-gray-600">Max Impact (TWh)</h4>
-                <p className="text-2xl font-bold text-purple-600">
-                  {summaryStats.maxImpact.toFixed(2)}
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* ── Top Investment Priorities ── */}
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-xl font-semibold text-gray-800 mb-1">
@@ -253,7 +217,7 @@ export const DeterministicView: React.FC<Props> = ({
               Active nodes ranked by acceleration gain for the selected year. Baseline and
               accelerated are total discounted pathway MWh (TWh) across all downstream reactor
               concepts. Delta is the gain from completing this node one year earlier. Downstream
-              is the count of all nodes transitively unlocked by this node in the full tech tree.
+              is the count of all nodes unlocked by this node in the entire tech tree.
             </p>
 
             {/* Controls */}
@@ -274,9 +238,7 @@ export const DeterministicView: React.FC<Props> = ({
                 <span className="text-sm font-semibold text-blue-600 min-w-[20px]">
                   {Math.min(topN, activeNodesInYear.length)}
                 </span>
-                <span className="text-xs text-gray-400">
-                  of {activeNodesInYear.length} active
-                </span>
+
               </div>
 
               <div className="flex items-center gap-3">
