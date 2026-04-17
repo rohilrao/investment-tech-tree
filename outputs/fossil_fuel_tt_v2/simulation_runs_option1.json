@@ -21601,9 +21601,285 @@
   },
   {
     "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 4,
+    "Year": 2050,
+    "YearsPerTRL": 2.1634264086
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 5,
+    "Year": 2053,
+    "YearsPerTRL": 2.3497721506
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 8,
+    "Year": 2052,
+    "YearsPerTRL": 2.2954206155
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 9,
+    "Year": 2050,
+    "YearsPerTRL": 2.0225793334
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 10,
+    "Year": 2053,
+    "YearsPerTRL": 2.3763332815
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 11,
+    "Year": 2052,
+    "YearsPerTRL": 2.3006488413
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 12,
+    "Year": 2053,
+    "YearsPerTRL": 2.3560546163
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 15,
+    "Year": 2055,
+    "YearsPerTRL": 2.5347181129
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 16,
+    "Year": 2052,
+    "YearsPerTRL": 2.2032691731
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 18,
+    "Year": 2055,
+    "YearsPerTRL": 2.5637618971
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 19,
+    "Year": 2055,
+    "YearsPerTRL": 2.5435062747
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 22,
+    "Year": 2052,
+    "YearsPerTRL": 2.2823203819
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 30,
+    "Year": 2051,
+    "YearsPerTRL": 2.1748084979
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 31,
+    "Year": 2054,
+    "YearsPerTRL": 2.4859329277
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 34,
+    "Year": 2055,
+    "YearsPerTRL": 2.5353040544
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 36,
+    "Year": 2054,
+    "YearsPerTRL": 2.4996768339
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 40,
+    "Year": 2051,
+    "YearsPerTRL": 2.1807307789
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 41,
+    "Year": 2053,
+    "YearsPerTRL": 2.3969040245
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 43,
+    "Year": 2050,
+    "YearsPerTRL": 2.03485831
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 44,
+    "Year": 2048,
+    "YearsPerTRL": 1.9955774079
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 45,
+    "Year": 2054,
+    "YearsPerTRL": 2.4130497366
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 46,
+    "Year": 2055,
+    "YearsPerTRL": 2.5585999597
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 48,
+    "Year": 2054,
+    "YearsPerTRL": 2.404719871
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
     "Iteration": 52,
     "Year": 2044,
     "YearsPerTRL": 1.563612461
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 56,
+    "Year": 2048,
+    "YearsPerTRL": 1.941643903
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 57,
+    "Year": 2055,
+    "YearsPerTRL": 2.5763431794
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 59,
+    "Year": 2055,
+    "YearsPerTRL": 2.5628671926
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 60,
+    "Year": 2053,
+    "YearsPerTRL": 2.3375708456
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 61,
+    "Year": 2055,
+    "YearsPerTRL": 2.5444894099
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 63,
+    "Year": 2048,
+    "YearsPerTRL": 1.9776956455
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 64,
+    "Year": 2046,
+    "YearsPerTRL": 1.7507540845
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 66,
+    "Year": 2052,
+    "YearsPerTRL": 2.2599256205
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 67,
+    "Year": 2054,
+    "YearsPerTRL": 2.440158679
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 68,
+    "Year": 2052,
+    "YearsPerTRL": 2.2197520855
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 71,
+    "Year": 2052,
+    "YearsPerTRL": 2.2425570155
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 74,
+    "Year": 2052,
+    "YearsPerTRL": 2.2550636941
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 78,
+    "Year": 2050,
+    "YearsPerTRL": 2.0991066703
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 81,
+    "Year": 2053,
+    "YearsPerTRL": 2.3518353937
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 82,
+    "Year": 2048,
+    "YearsPerTRL": 1.9192518688
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 83,
+    "Year": 2052,
+    "YearsPerTRL": 2.3292568043
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 84,
+    "Year": 2055,
+    "YearsPerTRL": 2.5738354851
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 85,
+    "Year": 2050,
+    "YearsPerTRL": 2.0753480381
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 87,
+    "Year": 2048,
+    "YearsPerTRL": 1.8621202433
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 89,
+    "Year": 2048,
+    "YearsPerTRL": 1.9210795156
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 90,
+    "Year": 2050,
+    "YearsPerTRL": 2.1314866242
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 91,
+    "Year": 2054,
+    "YearsPerTRL": 2.471547938
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 92,
+    "Year": 2054,
+    "YearsPerTRL": 2.439145548
   },
   {
     "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
@@ -21612,6 +21888,30 @@
     "YearsPerTRL": 1.6596466953
   },
   {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 96,
+    "Year": 2052,
+    "YearsPerTRL": 2.2424320035
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 98,
+    "Year": 2055,
+    "YearsPerTRL": 2.5470811642
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 99,
+    "Year": 2050,
+    "YearsPerTRL": 2.1477496593
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 100,
+    "Year": 2050,
+    "YearsPerTRL": 2.0217715088
+  },
+  {
     "Node": "Micro/Small-Scale Gas Turbines for Distributed Generation (<5 MW)",
     "Iteration": 1,
     "Year": 2036,
@@ -22225,6 +22525,12 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 3,
+    "Year": 2047,
+    "YearsPerTRL": 3.4837084454
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 4,
     "Year": 2039,
     "YearsPerTRL": 2.1634264086
@@ -22240,6 +22546,12 @@
     "Iteration": 6,
     "Year": 2043,
     "YearsPerTRL": 2.7786692717
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 7,
+    "Year": 2047,
+    "YearsPerTRL": 3.415806474
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22492,6 +22804,12 @@
     "Iteration": 49,
     "Year": 2043,
     "YearsPerTRL": 2.7743988001
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 50,
+    "Year": 2047,
+    "YearsPerTRL": 3.4046131494
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -24595,6 +24913,24 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 1,
+    "Year": 2051,
+    "YearsPerTRL": 3.2172184707
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 2,
+    "Year": 2047,
+    "YearsPerTRL": 2.7247736459
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 3,
+    "Year": 2053,
+    "YearsPerTRL": 3.4837084454
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 4,
     "Year": 2043,
     "YearsPerTRL": 2.1634264086
@@ -24604,6 +24940,18 @@
     "Iteration": 5,
     "Year": 2045,
     "YearsPerTRL": 2.3497721506
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 6,
+    "Year": 2049,
+    "YearsPerTRL": 2.7786692717
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 7,
+    "Year": 2053,
+    "YearsPerTRL": 3.415806474
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24637,15 +24985,105 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 13,
+    "Year": 2047,
+    "YearsPerTRL": 2.737965306
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 14,
+    "Year": 2051,
+    "YearsPerTRL": 3.0531050023
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 15,
+    "Year": 2047,
+    "YearsPerTRL": 2.5347181129
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 16,
     "Year": 2043,
     "YearsPerTRL": 2.2032691731
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 17,
+    "Year": 2047,
+    "YearsPerTRL": 2.6898229361
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 18,
+    "Year": 2047,
+    "YearsPerTRL": 2.5637618971
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 19,
+    "Year": 2047,
+    "YearsPerTRL": 2.5435062747
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 20,
+    "Year": 2051,
+    "YearsPerTRL": 3.0383672535
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 21,
+    "Year": 2049,
+    "YearsPerTRL": 2.9392496983
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 22,
     "Year": 2045,
     "YearsPerTRL": 2.2823203819
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 23,
+    "Year": 2047,
+    "YearsPerTRL": 2.6411283885
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 24,
+    "Year": 2047,
+    "YearsPerTRL": 2.7002986313
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 25,
+    "Year": 2053,
+    "YearsPerTRL": 3.2568027977
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 26,
+    "Year": 2051,
+    "YearsPerTRL": 3.0386262945
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 27,
+    "Year": 2051,
+    "YearsPerTRL": 3.1606649483
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 28,
+    "Year": 2047,
+    "YearsPerTRL": 2.6540986833
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 29,
+    "Year": 2047,
+    "YearsPerTRL": 2.6221020946
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24661,9 +25099,51 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 32,
+    "Year": 2049,
+    "YearsPerTRL": 2.8790640925
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 33,
+    "Year": 2049,
+    "YearsPerTRL": 2.9418246754
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 34,
+    "Year": 2047,
+    "YearsPerTRL": 2.5353040544
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 35,
+    "Year": 2049,
+    "YearsPerTRL": 2.8040086924
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 36,
     "Year": 2045,
     "YearsPerTRL": 2.4996768339
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 37,
+    "Year": 2049,
+    "YearsPerTRL": 2.9528764246
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 38,
+    "Year": 2047,
+    "YearsPerTRL": 2.6278724581
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 39,
+    "Year": 2049,
+    "YearsPerTRL": 2.9739090935
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24676,6 +25156,12 @@
     "Iteration": 41,
     "Year": 2045,
     "YearsPerTRL": 2.3969040245
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 42,
+    "Year": 2047,
+    "YearsPerTRL": 2.6332532805
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24697,9 +25183,39 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 46,
+    "Year": 2047,
+    "YearsPerTRL": 2.5585999597
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 47,
+    "Year": 2051,
+    "YearsPerTRL": 3.1577111613
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 48,
     "Year": 2045,
     "YearsPerTRL": 2.404719871
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 49,
+    "Year": 2049,
+    "YearsPerTRL": 2.7743988001
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 50,
+    "Year": 2053,
+    "YearsPerTRL": 3.4046131494
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 51,
+    "Year": 2051,
+    "YearsPerTRL": 3.091746033
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24709,15 +25225,63 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 53,
+    "Year": 2053,
+    "YearsPerTRL": 3.2605493505
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 54,
+    "Year": 2051,
+    "YearsPerTRL": 3.0289335009
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 55,
+    "Year": 2047,
+    "YearsPerTRL": 2.7247434054
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 56,
     "Year": 2041,
     "YearsPerTRL": 1.941643903
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 57,
+    "Year": 2047,
+    "YearsPerTRL": 2.5763431794
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 58,
+    "Year": 2049,
+    "YearsPerTRL": 2.9000618637
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 59,
+    "Year": 2047,
+    "YearsPerTRL": 2.5628671926
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 60,
     "Year": 2045,
     "YearsPerTRL": 2.3375708456
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 61,
+    "Year": 2047,
+    "YearsPerTRL": 2.5444894099
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 62,
+    "Year": 2051,
+    "YearsPerTRL": 3.0092640052
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24730,6 +25294,12 @@
     "Iteration": 64,
     "Year": 2041,
     "YearsPerTRL": 1.7507540845
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 65,
+    "Year": 2051,
+    "YearsPerTRL": 3.1927869156
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24751,9 +25321,33 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 69,
+    "Year": 2047,
+    "YearsPerTRL": 2.6021040636
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 70,
+    "Year": 2047,
+    "YearsPerTRL": 2.669682044
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 71,
     "Year": 2043,
     "YearsPerTRL": 2.2425570155
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 72,
+    "Year": 2049,
+    "YearsPerTRL": 2.967031817
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 73,
+    "Year": 2051,
+    "YearsPerTRL": 3.028246137
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24763,9 +25357,39 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 75,
+    "Year": 2047,
+    "YearsPerTRL": 2.6748459769
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 76,
+    "Year": 2053,
+    "YearsPerTRL": 3.2638655441
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 77,
+    "Year": 2049,
+    "YearsPerTRL": 2.8626211685
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 78,
     "Year": 2043,
     "YearsPerTRL": 2.0991066703
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 79,
+    "Year": 2049,
+    "YearsPerTRL": 2.843757633
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 80,
+    "Year": 2053,
+    "YearsPerTRL": 3.2555736863
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24787,15 +25411,33 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 84,
+    "Year": 2047,
+    "YearsPerTRL": 2.5738354851
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 85,
     "Year": 2043,
     "YearsPerTRL": 2.0753480381
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 86,
+    "Year": 2047,
+    "YearsPerTRL": 2.6416480196
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 87,
     "Year": 2041,
     "YearsPerTRL": 1.8621202433
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 88,
+    "Year": 2051,
+    "YearsPerTRL": 3.0825654332
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -24823,15 +25465,39 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 93,
+    "Year": 2049,
+    "YearsPerTRL": 2.8152393509
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 94,
     "Year": 2039,
     "YearsPerTRL": 1.6596466953
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 95,
+    "Year": 2047,
+    "YearsPerTRL": 2.7008291349
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 96,
     "Year": 2043,
     "YearsPerTRL": 2.2424320035
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 97,
+    "Year": 2047,
+    "YearsPerTRL": 2.6100335077
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 98,
+    "Year": 2047,
+    "YearsPerTRL": 2.5470811642
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -27247,9 +27913,21 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 1,
+    "Year": 2046,
+    "YearsPerTRL": 3.2172184707
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 2,
     "Year": 2043,
     "YearsPerTRL": 2.7247736459
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 3,
+    "Year": 2047,
+    "YearsPerTRL": 3.4837084454
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -27268,6 +27946,12 @@
     "Iteration": 6,
     "Year": 2043,
     "YearsPerTRL": 2.7786692717
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 7,
+    "Year": 2047,
+    "YearsPerTRL": 3.415806474
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -27370,6 +28054,12 @@
     "Iteration": 24,
     "Year": 2043,
     "YearsPerTRL": 2.7002986313
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 25,
+    "Year": 2046,
+    "YearsPerTRL": 3.2568027977
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -27514,6 +28204,12 @@
     "Iteration": 49,
     "Year": 2043,
     "YearsPerTRL": 2.7743988001
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 50,
+    "Year": 2047,
+    "YearsPerTRL": 3.4046131494
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -27529,6 +28225,12 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 53,
+    "Year": 2046,
+    "YearsPerTRL": 3.2605493505
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 54,
     "Year": 2045,
     "YearsPerTRL": 3.0289335009
@@ -27595,6 +28297,12 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 65,
+    "Year": 2046,
+    "YearsPerTRL": 3.1927869156
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 66,
     "Year": 2040,
     "YearsPerTRL": 2.2599256205
@@ -27655,6 +28363,12 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 76,
+    "Year": 2046,
+    "YearsPerTRL": 3.2638655441
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 77,
     "Year": 2044,
     "YearsPerTRL": 2.8626211685
@@ -27670,6 +28384,12 @@
     "Iteration": 79,
     "Year": 2044,
     "YearsPerTRL": 2.843757633
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 80,
+    "Year": 2046,
+    "YearsPerTRL": 3.2555736863
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",

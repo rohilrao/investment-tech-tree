@@ -20406,6 +20406,13 @@
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 16,
+    "Year": 2046,
+    "RandomDelay": 3.63953235,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
     "Iteration": 17,
     "Year": 2043,
     "RandomDelay": 1.9461107592,
@@ -20417,6 +20424,13 @@
     "Year": 2042,
     "RandomDelay": 1.7738604673,
     "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 19,
+    "Year": 2046,
+    "RandomDelay": 3.2342539699,
+    "YearsPerTRL": 3.0346478501
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
@@ -20483,6 +20497,13 @@
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 29,
+    "Year": 2046,
+    "RandomDelay": 2.2876981023,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
     "Iteration": 30,
     "Year": 2043,
     "RandomDelay": 2.5895661667,
@@ -20515,6 +20536,13 @@
     "Year": 2043,
     "RandomDelay": 1.8917783827,
     "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 35,
+    "Year": 2046,
+    "RandomDelay": 4.3185255848,
+    "YearsPerTRL": 2.3429762059
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
@@ -20574,6 +20602,13 @@
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 44,
+    "Year": 2047,
+    "RandomDelay": 4.1568734345,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
     "Iteration": 45,
     "Year": 2045,
     "RandomDelay": 2.2206812648,
@@ -20602,6 +20637,13 @@
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 49,
+    "Year": 2046,
+    "RandomDelay": 3.1914497066,
+    "YearsPerTRL": 3.1628799767
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
     "Iteration": 50,
     "Year": 2044,
     "RandomDelay": 3.9249089821,
@@ -20616,6 +20658,13 @@
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 52,
+    "Year": 2046,
+    "RandomDelay": 1.535983781,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
     "Iteration": 53,
     "Year": 2044,
     "RandomDelay": 3.4290900608,
@@ -20627,6 +20676,13 @@
     "Year": 2044,
     "RandomDelay": 2.9075820637,
     "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 55,
+    "Year": 2046,
+    "RandomDelay": 1.0387968061,
+    "YearsPerTRL": 2.9764512367
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
@@ -20721,6 +20777,13 @@
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 69,
+    "Year": 2047,
+    "RandomDelay": 3.3640063951,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
     "Iteration": 70,
     "Year": 2040,
     "RandomDelay": 1.4002742605,
@@ -20774,6 +20837,13 @@
     "Year": 2040,
     "RandomDelay": 1.4648818541,
     "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 78,
+    "Year": 2047,
+    "RandomDelay": 4.181919258,
+    "YearsPerTRL": 2.8120767991
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
@@ -20844,6 +20914,13 @@
     "Year": 2044,
     "RandomDelay": 3.4207313019,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
+    "Iteration": 89,
+    "Year": 2050,
+    "RandomDelay": 4.6861148324,
+    "YearsPerTRL": 3.4432070816
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
@@ -21015,6 +21092,13 @@
   },
   {
     "Node": "Liquid Cooling Systems for Turbine Blades",
+    "Iteration": 14,
+    "Year": 2046,
+    "RandomDelay": 2.9293439243,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Liquid Cooling Systems for Turbine Blades",
     "Iteration": 15,
     "Year": 2039,
     "RandomDelay": 1.1592513288,
@@ -21040,6 +21124,13 @@
     "Year": 2041,
     "RandomDelay": 1.8222732014,
     "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Liquid Cooling Systems for Turbine Blades",
+    "Iteration": 19,
+    "Year": 2046,
+    "RandomDelay": 4.2469461014,
+    "YearsPerTRL": 3.0346478501
   },
   {
     "Node": "Liquid Cooling Systems for Turbine Blades",
@@ -21229,6 +21320,13 @@
     "Year": 2039,
     "RandomDelay": 2.7610892194,
     "YearsPerTRL": 1.8793477466
+  },
+  {
+    "Node": "Liquid Cooling Systems for Turbine Blades",
+    "Iteration": 47,
+    "Year": 2046,
+    "RandomDelay": 3.3757833246,
+    "YearsPerTRL": 3.239712529
   },
   {
     "Node": "Liquid Cooling Systems for Turbine Blades",
@@ -21519,6 +21617,20 @@
   },
   {
     "Node": "Liquid Cooling Systems for Turbine Blades",
+    "Iteration": 89,
+    "Year": 2046,
+    "RandomDelay": 1.9876391682,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Liquid Cooling Systems for Turbine Blades",
+    "Iteration": 90,
+    "Year": 2046,
+    "RandomDelay": 4.5737335583,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Liquid Cooling Systems for Turbine Blades",
     "Iteration": 91,
     "Year": 2044,
     "RandomDelay": 3.2699732495,
@@ -21585,6 +21697,174 @@
     "Iteration": 100,
     "Year": 2035,
     "RandomDelay": 0.5202262792,
+    "YearsPerTRL": 1.5276051935
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 7,
+    "Year": 2054,
+    "RandomDelay": 3.6422881259,
+    "YearsPerTRL": 1.9525231552
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 8,
+    "Year": 2053,
+    "RandomDelay": 3.7811061625,
+    "YearsPerTRL": 1.7535324711
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 12,
+    "Year": 2055,
+    "RandomDelay": 1.4332083271,
+    "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 21,
+    "Year": 2052,
+    "RandomDelay": 1.370779993,
+    "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 35,
+    "Year": 2055,
+    "RandomDelay": 0.5523085882,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 42,
+    "Year": 2053,
+    "RandomDelay": 0.6172708923,
+    "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 46,
+    "Year": 2054,
+    "RandomDelay": 2.6974498595,
+    "YearsPerTRL": 1.8793477466
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 48,
+    "Year": 2051,
+    "RandomDelay": 3.6568645803,
+    "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 56,
+    "Year": 2053,
+    "RandomDelay": 1.9296694648,
+    "YearsPerTRL": 1.9943535368
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 59,
+    "Year": 2054,
+    "RandomDelay": 2.1787502279,
+    "YearsPerTRL": 2.0976655085
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 63,
+    "Year": 2055,
+    "RandomDelay": 0.783237676,
+    "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 65,
+    "Year": 2053,
+    "RandomDelay": 2.2016413788,
+    "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 67,
+    "Year": 2053,
+    "RandomDelay": 0.712819839,
+    "YearsPerTRL": 2.1393870946
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 68,
+    "Year": 2054,
+    "RandomDelay": 1.4574597936,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 70,
+    "Year": 2054,
+    "RandomDelay": 1.2599117519,
+    "YearsPerTRL": 2.3193080326
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 71,
+    "Year": 2054,
+    "RandomDelay": 3.9542254294,
+    "YearsPerTRL": 1.9191757466
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 73,
+    "Year": 2054,
+    "RandomDelay": 1.4195870325,
+    "YearsPerTRL": 2.1024383276
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 75,
+    "Year": 2055,
+    "RandomDelay": 3.7660159359,
+    "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 80,
+    "Year": 2054,
+    "RandomDelay": 4.3385916346,
+    "YearsPerTRL": 1.9293274226
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 86,
+    "Year": 2053,
+    "RandomDelay": 3.4878390626,
+    "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 92,
+    "Year": 2050,
+    "RandomDelay": 2.709344095,
+    "YearsPerTRL": 1.8256894111
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 93,
+    "Year": 2053,
+    "RandomDelay": 2.1338307019,
+    "YearsPerTRL": 2.0206504341
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 96,
+    "Year": 2050,
+    "RandomDelay": 0.7501865292,
+    "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "Iteration": 100,
+    "Year": 2050,
+    "RandomDelay": 0.6294234384,
     "YearsPerTRL": 1.5276051935
   },
   {
@@ -22296,6 +22576,41 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 2,
+    "Year": 2049,
+    "RandomDelay": 3.7477406912,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 3,
+    "Year": 2047,
+    "RandomDelay": 1.7118262305,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 4,
+    "Year": 2048,
+    "RandomDelay": 3.1679063338,
+    "YearsPerTRL": 2.6202572191
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 5,
+    "Year": 2046,
+    "RandomDelay": 4.472972235,
+    "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 6,
+    "Year": 2048,
+    "RandomDelay": 2.4319528114,
+    "YearsPerTRL": 3.1264863496
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 7,
     "Year": 2043,
     "RandomDelay": 2.2229935724,
@@ -22324,10 +22639,73 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 11,
+    "Year": 2051,
+    "RandomDelay": 3.6102535956,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 12,
     "Year": 2044,
     "RandomDelay": 3.1859302611,
     "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 13,
+    "Year": 2048,
+    "RandomDelay": 3.6733317643,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 14,
+    "Year": 2053,
+    "RandomDelay": 4.3351672524,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 15,
+    "Year": 2046,
+    "RandomDelay": 1.4137232756,
+    "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 16,
+    "Year": 2046,
+    "RandomDelay": 2.0457135976,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 17,
+    "Year": 2046,
+    "RandomDelay": 1.1745848789,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 18,
+    "Year": 2048,
+    "RandomDelay": 2.1292110609,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 19,
+    "Year": 2048,
+    "RandomDelay": 1.8787906971,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 20,
+    "Year": 2048,
+    "RandomDelay": 3.8812527228,
+    "YearsPerTRL": 2.3528579671
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22338,10 +22716,31 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 22,
+    "Year": 2050,
+    "RandomDelay": 2.0884220683,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 23,
+    "Year": 2046,
+    "RandomDelay": 1.5348668992,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 24,
     "Year": 2045,
     "RandomDelay": 2.3869384562,
     "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 25,
+    "Year": 2050,
+    "RandomDelay": 2.5403107331,
+    "YearsPerTRL": 2.938245899
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22352,10 +22751,108 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 27,
+    "Year": 2049,
+    "RandomDelay": 4.5447389761,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 28,
     "Year": 2044,
     "RandomDelay": 0.3851539351,
     "YearsPerTRL": 2.4690840648
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 29,
+    "Year": 2049,
+    "RandomDelay": 2.9946548096,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 30,
+    "Year": 2046,
+    "RandomDelay": 2.8101264441,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 31,
+    "Year": 2047,
+    "RandomDelay": 1.7592986516,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 32,
+    "Year": 2049,
+    "RandomDelay": 2.7858007382,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 33,
+    "Year": 2052,
+    "RandomDelay": 1.3970111589,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 34,
+    "Year": 2046,
+    "RandomDelay": 4.4715585181,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 35,
+    "Year": 2048,
+    "RandomDelay": 3.9191828598,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 36,
+    "Year": 2049,
+    "RandomDelay": 3.8688148449,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 37,
+    "Year": 2047,
+    "RandomDelay": 3.7129981974,
+    "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 38,
+    "Year": 2048,
+    "RandomDelay": 2.9411934656,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 39,
+    "Year": 2046,
+    "RandomDelay": 2.6044593873,
+    "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 40,
+    "Year": 2051,
+    "RandomDelay": 2.9901377624,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 41,
+    "Year": 2047,
+    "RandomDelay": 3.4331297939,
+    "YearsPerTRL": 2.5362868485
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22366,10 +22863,38 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 43,
+    "Year": 2047,
+    "RandomDelay": 2.7355700879,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 44,
+    "Year": 2050,
+    "RandomDelay": 1.5251715697,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 45,
+    "Year": 2049,
+    "RandomDelay": 3.6285614527,
+    "YearsPerTRL": 2.795269416
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 46,
     "Year": 2041,
     "RandomDelay": 1.631481571,
     "YearsPerTRL": 1.8793477466
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 47,
+    "Year": 2050,
+    "RandomDelay": 1.7405380258,
+    "YearsPerTRL": 3.239712529
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22380,10 +22905,52 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 49,
+    "Year": 2050,
+    "RandomDelay": 3.0813497601,
+    "YearsPerTRL": 3.1628799767
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 50,
+    "Year": 2047,
+    "RandomDelay": 2.3360946198,
+    "YearsPerTRL": 2.4783685146
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 51,
+    "Year": 2047,
+    "RandomDelay": 2.6918134946,
+    "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 52,
+    "Year": 2050,
+    "RandomDelay": 2.9505286208,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 53,
     "Year": 2045,
     "RandomDelay": 2.7030083411,
     "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 54,
+    "Year": 2049,
+    "RandomDelay": 4.2192683169,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 55,
+    "Year": 2049,
+    "RandomDelay": 1.5156572841,
+    "YearsPerTRL": 2.9764512367
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22401,6 +22968,13 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 58,
+    "Year": 2051,
+    "RandomDelay": 2.5770008549,
+    "YearsPerTRL": 3.3228706012
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 59,
     "Year": 2043,
     "RandomDelay": 0.6651797032,
@@ -22415,10 +22989,31 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 61,
+    "Year": 2047,
+    "RandomDelay": 3.6723264949,
+    "YearsPerTRL": 2.3640786658
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 62,
+    "Year": 2047,
+    "RandomDelay": 1.7052101753,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 63,
     "Year": 2044,
     "RandomDelay": 1.4290005859,
     "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 64,
+    "Year": 2048,
+    "RandomDelay": 3.1011438231,
+    "YearsPerTRL": 2.6425036576
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22429,10 +23024,31 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 66,
+    "Year": 2050,
+    "RandomDelay": 2.3784843627,
+    "YearsPerTRL": 3.1113207132
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 67,
     "Year": 2043,
     "RandomDelay": 2.1290993251,
     "YearsPerTRL": 2.1393870946
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 68,
+    "Year": 2048,
+    "RandomDelay": 3.5162123492,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 69,
+    "Year": 2049,
+    "RandomDelay": 1.1664439548,
+    "YearsPerTRL": 2.9163765283
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22450,10 +23066,59 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 72,
+    "Year": 2046,
+    "RandomDelay": 3.3265426548,
+    "YearsPerTRL": 2.4548976003
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 73,
+    "Year": 2046,
+    "RandomDelay": 4.0496195721,
+    "YearsPerTRL": 2.1024383276
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 74,
+    "Year": 2047,
+    "RandomDelay": 2.8346752329,
+    "YearsPerTRL": 2.2178587676
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 75,
     "Year": 2042,
     "RandomDelay": 3.830902205,
     "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 76,
+    "Year": 2046,
+    "RandomDelay": 2.1631078009,
+    "YearsPerTRL": 2.2709554606
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 77,
+    "Year": 2046,
+    "RandomDelay": 2.3685898928,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 78,
+    "Year": 2047,
+    "RandomDelay": 1.0508228611,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 79,
+    "Year": 2049,
+    "RandomDelay": 2.0477484038,
+    "YearsPerTRL": 2.6807682605
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22471,6 +23136,13 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 82,
+    "Year": 2047,
+    "RandomDelay": 1.968945573,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 83,
     "Year": 2045,
     "RandomDelay": 3.1055871943,
@@ -22478,10 +23150,59 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 84,
+    "Year": 2046,
+    "RandomDelay": 3.1616606661,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 85,
+    "Year": 2048,
+    "RandomDelay": 1.4754088812,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 86,
     "Year": 2041,
     "RandomDelay": 1.6027193479,
     "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 87,
+    "Year": 2048,
+    "RandomDelay": 4.7248420679,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 88,
+    "Year": 2049,
+    "RandomDelay": 3.6243734521,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 89,
+    "Year": 2052,
+    "RandomDelay": 1.9651408296,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 90,
+    "Year": 2050,
+    "RandomDelay": 3.3190840966,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 91,
+    "Year": 2048,
+    "RandomDelay": 2.5132474365,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -22499,6 +23220,13 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 94,
+    "Year": 2048,
+    "RandomDelay": 3.5131528859,
+    "YearsPerTRL": 2.5265420273
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
     "Iteration": 95,
     "Year": 2045,
     "RandomDelay": 2.184724592,
@@ -22510,6 +23238,27 @@
     "Year": 2041,
     "RandomDelay": 1.9787014755,
     "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 97,
+    "Year": 2046,
+    "RandomDelay": 3.0982949268,
+    "YearsPerTRL": 2.2434808322
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 98,
+    "Year": 2046,
+    "RandomDelay": 1.0221909672,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Mikawa 700 \u00b0C A-USC Field Test",
+    "Iteration": 99,
+    "Year": 2046,
+    "RandomDelay": 2.2306625845,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
@@ -23920,6 +24669,34 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 1,
+    "Year": 2053,
+    "RandomDelay": 1.9153069048,
+    "YearsPerTRL": 2.5431932687
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 4,
+    "Year": 2053,
+    "RandomDelay": 2.0063421012,
+    "YearsPerTRL": 2.6202572191
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 5,
+    "Year": 2051,
+    "RandomDelay": 3.4641314163,
+    "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 7,
+    "Year": 2046,
+    "RandomDelay": 2.63720947,
+    "YearsPerTRL": 1.9525231552
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 8,
     "Year": 2043,
     "RandomDelay": 1.8619488239,
@@ -23931,6 +24708,237 @@
     "Year": 2045,
     "RandomDelay": 1.2700854892,
     "YearsPerTRL": 2.0634161227
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 10,
+    "Year": 2051,
+    "RandomDelay": 2.1761683234,
+    "YearsPerTRL": 2.6117389355
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 11,
+    "Year": 2052,
+    "RandomDelay": 0.8514540674,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 12,
+    "Year": 2046,
+    "RandomDelay": 1.0545645202,
+    "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 13,
+    "Year": 2052,
+    "RandomDelay": 2.3111247662,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 15,
+    "Year": 2048,
+    "RandomDelay": 2.1071500305,
+    "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 16,
+    "Year": 2051,
+    "RandomDelay": 1.4214900871,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 17,
+    "Year": 2047,
+    "RandomDelay": 0.8030713034,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 18,
+    "Year": 2052,
+    "RandomDelay": 3.1044452287,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 19,
+    "Year": 2055,
+    "RandomDelay": 1.1400645536,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 20,
+    "Year": 2049,
+    "RandomDelay": 1.3214534186,
+    "YearsPerTRL": 2.3528579671
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 21,
+    "Year": 2047,
+    "RandomDelay": 4.606147802,
+    "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 23,
+    "Year": 2049,
+    "RandomDelay": 0.8028686851,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 24,
+    "Year": 2051,
+    "RandomDelay": 2.4635092102,
+    "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 25,
+    "Year": 2054,
+    "RandomDelay": 2.117299129,
+    "YearsPerTRL": 2.938245899
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 26,
+    "Year": 2049,
+    "RandomDelay": 2.7641501195,
+    "YearsPerTRL": 2.0797475535
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 27,
+    "Year": 2051,
+    "RandomDelay": 1.2011378022,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 28,
+    "Year": 2048,
+    "RandomDelay": 1.7163585591,
+    "YearsPerTRL": 2.4690840648
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 29,
+    "Year": 2054,
+    "RandomDelay": 3.4960439105,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 30,
+    "Year": 2050,
+    "RandomDelay": 2.55603493,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 31,
+    "Year": 2050,
+    "RandomDelay": 0.8457926819,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 33,
+    "Year": 2054,
+    "RandomDelay": 0.7782000925,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 34,
+    "Year": 2051,
+    "RandomDelay": 1.7196826514,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 35,
+    "Year": 2047,
+    "RandomDelay": 1.7106107174,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 36,
+    "Year": 2053,
+    "RandomDelay": 3.1928075051,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 37,
+    "Year": 2049,
+    "RandomDelay": 1.7771625026,
+    "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 38,
+    "Year": 2052,
+    "RandomDelay": 1.6077016502,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 39,
+    "Year": 2049,
+    "RandomDelay": 0.4555257944,
+    "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 40,
+    "Year": 2055,
+    "RandomDelay": 1.9858880164,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 41,
+    "Year": 2050,
+    "RandomDelay": 1.4586414879,
+    "YearsPerTRL": 2.5362868485
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 42,
+    "Year": 2050,
+    "RandomDelay": 3.853375044,
+    "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 43,
+    "Year": 2051,
+    "RandomDelay": 2.9383527225,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 44,
+    "Year": 2053,
+    "RandomDelay": 2.9745511771,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 45,
+    "Year": 2052,
+    "RandomDelay": 1.5155654851,
+    "YearsPerTRL": 2.795269416
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -23948,6 +24956,146 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 50,
+    "Year": 2052,
+    "RandomDelay": 2.2165353758,
+    "YearsPerTRL": 2.4783685146
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 51,
+    "Year": 2051,
+    "RandomDelay": 1.5287417434,
+    "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 52,
+    "Year": 2055,
+    "RandomDelay": 3.359807462,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 53,
+    "Year": 2049,
+    "RandomDelay": 1.7262798625,
+    "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 54,
+    "Year": 2052,
+    "RandomDelay": 3.2426416131,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 55,
+    "Year": 2054,
+    "RandomDelay": 1.6616629665,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 56,
+    "Year": 2046,
+    "RandomDelay": 1.1764530323,
+    "YearsPerTRL": 1.9943535368
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 57,
+    "Year": 2051,
+    "RandomDelay": 3.0225032635,
+    "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 59,
+    "Year": 2049,
+    "RandomDelay": 4.0170507518,
+    "YearsPerTRL": 2.0976655085
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 60,
+    "Year": 2051,
+    "RandomDelay": 3.9328100659,
+    "YearsPerTRL": 2.1765422371
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 61,
+    "Year": 2052,
+    "RandomDelay": 1.7238309658,
+    "YearsPerTRL": 2.3640786658
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 62,
+    "Year": 2051,
+    "RandomDelay": 2.0561590864,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 63,
+    "Year": 2049,
+    "RandomDelay": 1.0991605465,
+    "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 64,
+    "Year": 2051,
+    "RandomDelay": 2.0175908515,
+    "YearsPerTRL": 2.6425036576
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 65,
+    "Year": 2049,
+    "RandomDelay": 3.1680954443,
+    "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 66,
+    "Year": 2053,
+    "RandomDelay": 1.5219083287,
+    "YearsPerTRL": 3.1113207132
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 67,
+    "Year": 2050,
+    "RandomDelay": 2.9035384717,
+    "YearsPerTRL": 2.1393870946
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 68,
+    "Year": 2050,
+    "RandomDelay": 3.6953809429,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 69,
+    "Year": 2051,
+    "RandomDelay": 0.9936971967,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 70,
+    "Year": 2047,
+    "RandomDelay": 0.8071147536,
+    "YearsPerTRL": 2.3193080326
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 71,
     "Year": 2045,
     "RandomDelay": 2.9977822667,
@@ -23955,10 +25103,129 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 72,
+    "Year": 2050,
+    "RandomDelay": 0.9683778628,
+    "YearsPerTRL": 2.4548976003
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 73,
+    "Year": 2047,
+    "RandomDelay": 0.8421248458,
+    "YearsPerTRL": 2.1024383276
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 74,
+    "Year": 2047,
+    "RandomDelay": 2.0432063004,
+    "YearsPerTRL": 2.2178587676
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 75,
+    "Year": 2049,
+    "RandomDelay": 3.5693294052,
+    "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 76,
+    "Year": 2049,
+    "RandomDelay": 1.8035804332,
+    "YearsPerTRL": 2.2709554606
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 77,
+    "Year": 2054,
+    "RandomDelay": 2.452283389,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 78,
+    "Year": 2053,
+    "RandomDelay": 2.4046378655,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 79,
+    "Year": 2052,
+    "RandomDelay": 1.3019924075,
+    "YearsPerTRL": 2.6807682605
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 80,
+    "Year": 2046,
+    "RandomDelay": 2.6319577709,
+    "YearsPerTRL": 1.9293274226
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 81,
+    "Year": 2049,
+    "RandomDelay": 2.8224284452,
+    "YearsPerTRL": 2.1532332885
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 82,
+    "Year": 2049,
+    "RandomDelay": 0.715265245,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 83,
+    "Year": 2049,
+    "RandomDelay": 4.3341208449,
+    "YearsPerTRL": 2.1809695972
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 84,
+    "Year": 2050,
+    "RandomDelay": 1.8940882588,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 85,
+    "Year": 2052,
+    "RandomDelay": 2.066840572,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 86,
     "Year": 2044,
     "RandomDelay": 2.6957554389,
     "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 87,
+    "Year": 2050,
+    "RandomDelay": 2.8499882728,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 88,
+    "Year": 2052,
+    "RandomDelay": 1.8060370029,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 91,
+    "Year": 2054,
+    "RandomDelay": 3.3570610682,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -23976,10 +25243,45 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 94,
+    "Year": 2052,
+    "RandomDelay": 2.7834110044,
+    "YearsPerTRL": 2.5265420273
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 95,
+    "Year": 2050,
+    "RandomDelay": 2.1879567627,
+    "YearsPerTRL": 2.3086839668
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
     "Iteration": 96,
     "Year": 2044,
     "RandomDelay": 1.5929117515,
     "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 97,
+    "Year": 2049,
+    "RandomDelay": 1.2864733667,
+    "YearsPerTRL": 2.2434808322
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 98,
+    "Year": 2053,
+    "RandomDelay": 2.0408757455,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
+    "Iteration": 99,
+    "Year": 2051,
+    "RandomDelay": 2.0692323567,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
@@ -23997,6 +25299,20 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 2,
+    "Year": 2046,
+    "RandomDelay": 3.7318873761,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 3,
+    "Year": 2048,
+    "RandomDelay": 4.325322214,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 4,
     "Year": 2044,
     "RandomDelay": 2.7089170689,
@@ -24008,6 +25324,13 @@
     "Year": 2042,
     "RandomDelay": 1.1305066651,
     "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 6,
+    "Year": 2049,
+    "RandomDelay": 3.5526287126,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
@@ -24060,10 +25383,24 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 14,
+    "Year": 2048,
+    "RandomDelay": 3.4593515451,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 15,
     "Year": 2042,
     "RandomDelay": 3.0691355842,
     "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 16,
+    "Year": 2046,
+    "RandomDelay": 1.7907691441,
+    "YearsPerTRL": 2.8332580901
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
@@ -24078,6 +25415,13 @@
     "Year": 2042,
     "RandomDelay": 1.9792537891,
     "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 19,
+    "Year": 2046,
+    "RandomDelay": 2.6493270288,
+    "YearsPerTRL": 3.0346478501
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
@@ -24113,6 +25457,13 @@
     "Year": 2045,
     "RandomDelay": 2.3576646006,
     "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 25,
+    "Year": 2046,
+    "RandomDelay": 2.8795386099,
+    "YearsPerTRL": 2.938245899
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
@@ -24158,6 +25509,20 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 32,
+    "Year": 2047,
+    "RandomDelay": 3.5034759494,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 33,
+    "Year": 2049,
+    "RandomDelay": 3.0730483396,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 34,
     "Year": 2044,
     "RandomDelay": 2.0431212216,
@@ -24200,6 +25565,13 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 40,
+    "Year": 2047,
+    "RandomDelay": 1.9475810828,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 41,
     "Year": 2044,
     "RandomDelay": 3.1510437947,
@@ -24228,10 +25600,24 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 45,
+    "Year": 2046,
+    "RandomDelay": 3.7368413817,
+    "YearsPerTRL": 2.795269416
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 46,
     "Year": 2043,
     "RandomDelay": 4.0872533754,
     "YearsPerTRL": 1.8793477466
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 47,
+    "Year": 2046,
+    "RandomDelay": 1.639925925,
+    "YearsPerTRL": 3.239712529
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
@@ -24263,6 +25649,13 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 52,
+    "Year": 2046,
+    "RandomDelay": 1.9852140715,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 53,
     "Year": 2039,
     "RandomDelay": 0.2932664192,
@@ -24277,6 +25670,13 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 55,
+    "Year": 2048,
+    "RandomDelay": 2.8411721224,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 56,
     "Year": 2042,
     "RandomDelay": 1.2872706454,
@@ -24288,6 +25688,13 @@
     "Year": 2040,
     "RandomDelay": 1.1925498453,
     "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 58,
+    "Year": 2050,
+    "RandomDelay": 4.2610838508,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
@@ -24312,6 +25719,13 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 62,
+    "Year": 2046,
+    "RandomDelay": 3.3087457574,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 63,
     "Year": 2044,
     "RandomDelay": 2.2981861935,
@@ -24330,6 +25744,13 @@
     "Year": 2042,
     "RandomDelay": 3.3517755618,
     "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 66,
+    "Year": 2048,
+    "RandomDelay": 3.1477723963,
+    "YearsPerTRL": 3.1113207132
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
@@ -24403,10 +25824,24 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 77,
+    "Year": 2049,
+    "RandomDelay": 4.7935771373,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 78,
     "Year": 2045,
     "RandomDelay": 2.8097945906,
     "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 79,
+    "Year": 2047,
+    "RandomDelay": 3.5537316947,
+    "YearsPerTRL": 2.6807682605
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
@@ -24424,6 +25859,13 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 82,
+    "Year": 2046,
+    "RandomDelay": 2.5136130741,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 83,
     "Year": 2041,
     "RandomDelay": 2.1611868286,
@@ -24438,6 +25880,13 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 85,
+    "Year": 2048,
+    "RandomDelay": 4.1571268526,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 86,
     "Year": 2041,
     "RandomDelay": 3.4047832792,
@@ -24445,10 +25894,31 @@
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 87,
+    "Year": 2047,
+    "RandomDelay": 3.8340768048,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
     "Iteration": 88,
     "Year": 2045,
     "RandomDelay": 2.0404301219,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 89,
+    "Year": 2048,
+    "RandomDelay": 2.3182178263,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
+    "Iteration": 90,
+    "Year": 2048,
+    "RandomDelay": 4.2982519974,
+    "YearsPerTRL": 2.9255255484
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
@@ -25229,6 +26699,20 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 2,
+    "Year": 2046,
+    "RandomDelay": 2.930824057,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 3,
+    "Year": 2047,
+    "RandomDelay": 2.5699852069,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 4,
     "Year": 2045,
     "RandomDelay": 2.8001685832,
@@ -25240,6 +26724,13 @@
     "Year": 2043,
     "RandomDelay": 2.1881328004,
     "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 6,
+    "Year": 2048,
+    "RandomDelay": 2.8766495802,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25285,6 +26776,20 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 13,
+    "Year": 2046,
+    "RandomDelay": 3.3509217644,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 14,
+    "Year": 2050,
+    "RandomDelay": 3.9379591396,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 15,
     "Year": 2043,
     "RandomDelay": 3.4330302334,
@@ -25292,10 +26797,31 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 16,
+    "Year": 2046,
+    "RandomDelay": 2.8663633772,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 17,
     "Year": 2044,
     "RandomDelay": 2.3339823055,
     "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 18,
+    "Year": 2046,
+    "RandomDelay": 3.6062144829,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 19,
+    "Year": 2049,
+    "RandomDelay": 4.0873633098,
+    "YearsPerTRL": 3.0346478501
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25313,10 +26839,31 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 22,
+    "Year": 2048,
+    "RandomDelay": 2.5497913904,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 23,
+    "Year": 2046,
+    "RandomDelay": 4.0787510922,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 24,
     "Year": 2042,
     "RandomDelay": 1.3446201251,
     "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 25,
+    "Year": 2047,
+    "RandomDelay": 2.498552702,
+    "YearsPerTRL": 2.938245899
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25341,6 +26888,13 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 29,
+    "Year": 2048,
+    "RandomDelay": 3.97174479,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 30,
     "Year": 2042,
     "RandomDelay": 1.0756984217,
@@ -25348,10 +26902,24 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 31,
+    "Year": 2046,
+    "RandomDelay": 3.5867883734,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 32,
     "Year": 2045,
     "RandomDelay": 0.4052986066,
     "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 33,
+    "Year": 2047,
+    "RandomDelay": 1.2855553396,
+    "YearsPerTRL": 3.2058631149
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25366,6 +26934,13 @@
     "Year": 2042,
     "RandomDelay": 1.2411986406,
     "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 36,
+    "Year": 2046,
+    "RandomDelay": 2.9666925764,
+    "YearsPerTRL": 2.7101965895
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25387,6 +26962,13 @@
     "Year": 2043,
     "RandomDelay": 2.3813049404,
     "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 40,
+    "Year": 2048,
+    "RandomDelay": 3.6554345106,
+    "YearsPerTRL": 2.9966151771
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25432,10 +27014,24 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 47,
+    "Year": 2048,
+    "RandomDelay": 2.4072296145,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 48,
     "Year": 2038,
     "RandomDelay": 1.4647274649,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 49,
+    "Year": 2048,
+    "RandomDelay": 2.4416178876,
+    "YearsPerTRL": 3.1628799767
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25453,10 +27049,31 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 52,
+    "Year": 2046,
+    "RandomDelay": 2.7547060518,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 53,
     "Year": 2044,
     "RandomDelay": 4.1078074442,
     "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 54,
+    "Year": 2047,
+    "RandomDelay": 4.414913207,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 55,
+    "Year": 2046,
+    "RandomDelay": 1.4452491723,
+    "YearsPerTRL": 2.9764512367
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25471,6 +27088,13 @@
     "Year": 2045,
     "RandomDelay": 2.9829977227,
     "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 58,
+    "Year": 2047,
+    "RandomDelay": 0.3502566171,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25523,6 +27147,13 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 66,
+    "Year": 2049,
+    "RandomDelay": 3.6567565384,
+    "YearsPerTRL": 3.1113207132
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 67,
     "Year": 2041,
     "RandomDelay": 1.6565941324,
@@ -25534,6 +27165,13 @@
     "Year": 2041,
     "RandomDelay": 1.1483727807,
     "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 69,
+    "Year": 2047,
+    "RandomDelay": 2.5638921806,
+    "YearsPerTRL": 2.9163765283
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25593,6 +27231,20 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 78,
+    "Year": 2046,
+    "RandomDelay": 2.188096622,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 79,
+    "Year": 2046,
+    "RandomDelay": 3.2559588334,
+    "YearsPerTRL": 2.6807682605
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 80,
     "Year": 2040,
     "RandomDelay": 1.910604139,
@@ -25628,6 +27280,13 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 85,
+    "Year": 2046,
+    "RandomDelay": 2.1419055951,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
     "Iteration": 86,
     "Year": 2040,
     "RandomDelay": 2.6387986061,
@@ -25646,6 +27305,27 @@
     "Year": 2045,
     "RandomDelay": 2.1536877314,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 89,
+    "Year": 2049,
+    "RandomDelay": 1.9603989826,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 90,
+    "Year": 2048,
+    "RandomDelay": 3.6802728493,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 91,
+    "Year": 2047,
+    "RandomDelay": 3.6186275648,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -25695,6 +27375,13 @@
     "Year": 2045,
     "RandomDelay": 2.4177967457,
     "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
+    "Iteration": 99,
+    "Year": 2046,
+    "RandomDelay": 3.8706150285,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
@@ -28540,6 +30227,13 @@
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 6,
+    "Year": 2046,
+    "RandomDelay": 3.3302630595,
+    "YearsPerTRL": 3.1264863496
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
     "Iteration": 7,
     "Year": 2040,
     "RandomDelay": 2.4655762596,
@@ -28568,6 +30262,13 @@
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 11,
+    "Year": 2046,
+    "RandomDelay": 1.4619001723,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
     "Iteration": 12,
     "Year": 2040,
     "RandomDelay": 1.4983458686,
@@ -28582,10 +30283,24 @@
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 14,
+    "Year": 2050,
+    "RandomDelay": 3.034307113,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
     "Iteration": 15,
     "Year": 2044,
     "RandomDelay": 3.0100539242,
     "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 16,
+    "Year": 2046,
+    "RandomDelay": 2.4410669521,
+    "YearsPerTRL": 2.8332580901
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
@@ -28621,6 +30336,13 @@
     "Year": 2039,
     "RandomDelay": 1.5462341322,
     "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 22,
+    "Year": 2046,
+    "RandomDelay": 2.2607418257,
+    "YearsPerTRL": 3.0912329277
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
@@ -28666,6 +30388,13 @@
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 29,
+    "Year": 2047,
+    "RandomDelay": 3.1804583355,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
     "Iteration": 30,
     "Year": 2040,
     "RandomDelay": 1.4747454566,
@@ -28673,10 +30402,24 @@
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 31,
+    "Year": 2046,
+    "RandomDelay": 4.5668929455,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
     "Iteration": 32,
     "Year": 2044,
     "RandomDelay": 1.4915182036,
     "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 33,
+    "Year": 2047,
+    "RandomDelay": 0.8325232828,
+    "YearsPerTRL": 3.2058631149
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
@@ -28705,6 +30448,13 @@
     "Year": 2043,
     "RandomDelay": 2.3779890698,
     "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 38,
+    "Year": 2046,
+    "RandomDelay": 3.1258345091,
+    "YearsPerTRL": 2.7322017853
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
@@ -28778,6 +30528,13 @@
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 49,
+    "Year": 2046,
+    "RandomDelay": 2.0118278079,
+    "YearsPerTRL": 3.1628799767
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
     "Iteration": 50,
     "Year": 2042,
     "RandomDelay": 0.8200449058,
@@ -28792,10 +30549,24 @@
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 52,
+    "Year": 2046,
+    "RandomDelay": 3.5883593202,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
     "Iteration": 53,
     "Year": 2041,
     "RandomDelay": 0.2909061933,
     "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 54,
+    "Year": 2047,
+    "RandomDelay": 3.9001820014,
+    "YearsPerTRL": 2.6554308689
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
@@ -28817,6 +30588,13 @@
     "Year": 2045,
     "RandomDelay": 2.5727888811,
     "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 58,
+    "Year": 2047,
+    "RandomDelay": 2.3393515387,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
@@ -28866,6 +30644,13 @@
     "Year": 2041,
     "RandomDelay": 2.3283480579,
     "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 66,
+    "Year": 2048,
+    "RandomDelay": 3.4308694586,
+    "YearsPerTRL": 3.1113207132
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
@@ -28995,6 +30780,13 @@
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 85,
+    "Year": 2046,
+    "RandomDelay": 2.3140175787,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
     "Iteration": 86,
     "Year": 2038,
     "RandomDelay": 2.2325777813,
@@ -29013,6 +30805,13 @@
     "Year": 2045,
     "RandomDelay": 1.5803582284,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
+    "Iteration": 89,
+    "Year": 2048,
+    "RandomDelay": 3.3183555809,
+    "YearsPerTRL": 3.4432070816
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",

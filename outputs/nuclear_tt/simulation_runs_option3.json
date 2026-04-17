@@ -15,6 +15,13 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 3,
+    "Year": 2047,
+    "RandomDelay": 1.8425523943,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 4,
     "Year": 2043,
     "RandomDelay": 0.7803393273,
@@ -26,6 +33,13 @@
     "Year": 2043,
     "RandomDelay": 2.2521900569,
     "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 6,
+    "Year": 2048,
+    "RandomDelay": 2.4958409619,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
@@ -57,6 +71,13 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 11,
+    "Year": 2048,
+    "RandomDelay": 3.8834181776,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 12,
     "Year": 2041,
     "RandomDelay": 1.4871446062,
@@ -68,6 +89,13 @@
     "Year": 2045,
     "RandomDelay": 1.6663513714,
     "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 14,
+    "Year": 2047,
+    "RandomDelay": 0.4750712741,
+    "YearsPerTRL": 3.2623969018
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
@@ -99,6 +127,13 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 19,
+    "Year": 2048,
+    "RandomDelay": 3.4144337426,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 20,
     "Year": 2044,
     "RandomDelay": 3.0281080996,
@@ -113,6 +148,13 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 22,
+    "Year": 2049,
+    "RandomDelay": 3.717111702,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 23,
     "Year": 2044,
     "RandomDelay": 1.9112680415,
@@ -124,6 +166,13 @@
     "Year": 2044,
     "RandomDelay": 2.8525283035,
     "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 25,
+    "Year": 2046,
+    "RandomDelay": 1.8050088632,
+    "YearsPerTRL": 2.938245899
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
@@ -169,6 +218,20 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 32,
+    "Year": 2049,
+    "RandomDelay": 4.1638988635,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 33,
+    "Year": 2049,
+    "RandomDelay": 3.0013092292,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 34,
     "Year": 2043,
     "RandomDelay": 2.0060694055,
@@ -183,6 +246,13 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 36,
+    "Year": 2046,
+    "RandomDelay": 2.9393916273,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 37,
     "Year": 2043,
     "RandomDelay": 2.6007918646,
@@ -190,10 +260,24 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 38,
+    "Year": 2047,
+    "RandomDelay": 3.6234444068,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 39,
     "Year": 2044,
     "RandomDelay": 3.1049613214,
     "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 40,
+    "Year": 2047,
+    "RandomDelay": 2.8648174563,
+    "YearsPerTRL": 2.9966151771
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
@@ -239,10 +323,24 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 47,
+    "Year": 2048,
+    "RandomDelay": 2.4748455734,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 48,
     "Year": 2039,
     "RandomDelay": 2.3622831037,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 49,
+    "Year": 2050,
+    "RandomDelay": 4.0301225111,
+    "YearsPerTRL": 3.1628799767
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
@@ -260,6 +358,13 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 52,
+    "Year": 2046,
+    "RandomDelay": 2.8388006568,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 53,
     "Year": 2042,
     "RandomDelay": 2.2946245367,
@@ -274,6 +379,13 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 55,
+    "Year": 2047,
+    "RandomDelay": 2.794007917,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 56,
     "Year": 2041,
     "RandomDelay": 2.1430633741,
@@ -285,6 +397,13 @@
     "Year": 2043,
     "RandomDelay": 0.47974078,
     "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 58,
+    "Year": 2049,
+    "RandomDelay": 2.9786224559,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
@@ -334,6 +453,13 @@
     "Year": 2042,
     "RandomDelay": 3.3925592487,
     "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 66,
+    "Year": 2046,
+    "RandomDelay": 1.2967272013,
+    "YearsPerTRL": 3.1113207132
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
@@ -442,6 +568,13 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 82,
+    "Year": 2046,
+    "RandomDelay": 4.2313488692,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 83,
     "Year": 2041,
     "RandomDelay": 1.5096932223,
@@ -481,6 +614,20 @@
     "Year": 2045,
     "RandomDelay": 2.7585634409,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 89,
+    "Year": 2051,
+    "RandomDelay": 3.7061377355,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 90,
+    "Year": 2048,
+    "RandomDelay": 3.7216796421,
+    "YearsPerTRL": 2.9255255484
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
@@ -554,10 +701,45 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 1,
+    "Year": 2049,
+    "RandomDelay": 4.2293553673,
+    "YearsPerTRL": 2.5431932687
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 2,
+    "Year": 2048,
+    "RandomDelay": 2.2163561809,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 3,
+    "Year": 2051,
+    "RandomDelay": 2.8851840837,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 4,
+    "Year": 2047,
+    "RandomDelay": 2.2841429954,
+    "YearsPerTRL": 2.6202572191
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 5,
     "Year": 2045,
     "RandomDelay": 1.3920656198,
     "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 6,
+    "Year": 2049,
+    "RandomDelay": 0.543238878,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -582,10 +764,73 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 10,
+    "Year": 2048,
+    "RandomDelay": 3.5675764445,
+    "YearsPerTRL": 2.6117389355
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 11,
+    "Year": 2049,
+    "RandomDelay": 1.8073119341,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 12,
+    "Year": 2046,
+    "RandomDelay": 4.4491544176,
+    "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 13,
+    "Year": 2047,
+    "RandomDelay": 1.6148383442,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 14,
+    "Year": 2051,
+    "RandomDelay": 1.5664206931,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 15,
     "Year": 2045,
     "RandomDelay": 3.0240368666,
     "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 16,
+    "Year": 2047,
+    "RandomDelay": 1.1504192819,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 17,
+    "Year": 2046,
+    "RandomDelay": 2.2216707182,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 18,
+    "Year": 2046,
+    "RandomDelay": 1.2254883845,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 19,
+    "Year": 2050,
+    "RandomDelay": 2.3905851922,
+    "YearsPerTRL": 3.0346478501
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -603,10 +848,45 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 22,
+    "Year": 2051,
+    "RandomDelay": 2.4913171515,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 23,
+    "Year": 2048,
+    "RandomDelay": 3.4505266236,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 24,
+    "Year": 2047,
+    "RandomDelay": 3.3179260862,
+    "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 25,
+    "Year": 2050,
+    "RandomDelay": 3.0868305352,
+    "YearsPerTRL": 2.938245899
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 26,
     "Year": 2043,
     "RandomDelay": 1.6941161003,
     "YearsPerTRL": 2.0797475535
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 27,
+    "Year": 2048,
+    "RandomDelay": 3.8420804646,
+    "YearsPerTRL": 2.4953218474
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -617,10 +897,59 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 29,
+    "Year": 2050,
+    "RandomDelay": 3.1882773024,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 30,
+    "Year": 2047,
+    "RandomDelay": 3.6974534079,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 31,
+    "Year": 2047,
+    "RandomDelay": 1.6304922662,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 32,
+    "Year": 2048,
+    "RandomDelay": 0.3567198505,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 33,
+    "Year": 2051,
+    "RandomDelay": 1.7127169299,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 34,
+    "Year": 2046,
+    "RandomDelay": 2.161265502,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 35,
     "Year": 2044,
     "RandomDelay": 1.2975463968,
     "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 36,
+    "Year": 2046,
+    "RandomDelay": 1.0079105107,
+    "YearsPerTRL": 2.7101965895
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -631,10 +960,59 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 38,
+    "Year": 2047,
+    "RandomDelay": 0.9105186873,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 39,
     "Year": 2044,
     "RandomDelay": 0.5521264768,
     "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 40,
+    "Year": 2051,
+    "RandomDelay": 3.1536116758,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 41,
+    "Year": 2047,
+    "RandomDelay": 2.70242324,
+    "YearsPerTRL": 2.5362868485
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 42,
+    "Year": 2046,
+    "RandomDelay": 3.6039976433,
+    "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 43,
+    "Year": 2046,
+    "RandomDelay": 2.7369542006,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 44,
+    "Year": 2047,
+    "RandomDelay": 0.4047025387,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 45,
+    "Year": 2049,
+    "RandomDelay": 2.6335903413,
+    "YearsPerTRL": 2.795269416
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -645,10 +1023,45 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 47,
+    "Year": 2051,
+    "RandomDelay": 1.8205501684,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 48,
     "Year": 2039,
     "RandomDelay": 1.0997232471,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 49,
+    "Year": 2050,
+    "RandomDelay": 1.0823330367,
+    "YearsPerTRL": 3.1628799767
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 50,
+    "Year": 2047,
+    "RandomDelay": 3.3711141293,
+    "YearsPerTRL": 2.4783685146
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 51,
+    "Year": 2046,
+    "RandomDelay": 1.5787185451,
+    "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 52,
+    "Year": 2049,
+    "RandomDelay": 2.0688654636,
+    "YearsPerTRL": 2.8518123378
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -659,10 +1072,38 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 54,
+    "Year": 2049,
+    "RandomDelay": 3.83740379,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 55,
+    "Year": 2050,
+    "RandomDelay": 2.98195919,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 56,
     "Year": 2042,
     "RandomDelay": 1.5005562726,
     "YearsPerTRL": 1.9943535368
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 57,
+    "Year": 2047,
+    "RandomDelay": 1.9513374331,
+    "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 58,
+    "Year": 2051,
+    "RandomDelay": 1.5838203328,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -673,10 +1114,52 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 60,
+    "Year": 2046,
+    "RandomDelay": 3.9289625623,
+    "YearsPerTRL": 2.1765422371
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 61,
+    "Year": 2046,
+    "RandomDelay": 3.3310966415,
+    "YearsPerTRL": 2.3640786658
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 62,
+    "Year": 2047,
+    "RandomDelay": 1.7475556605,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 63,
+    "Year": 2046,
+    "RandomDelay": 3.2856860623,
+    "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 64,
+    "Year": 2048,
+    "RandomDelay": 3.1706924606,
+    "YearsPerTRL": 2.6425036576
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 65,
     "Year": 2044,
     "RandomDelay": 3.7247537079,
     "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 66,
+    "Year": 2050,
+    "RandomDelay": 1.6262338486,
+    "YearsPerTRL": 3.1113207132
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -694,10 +1177,31 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 69,
+    "Year": 2049,
+    "RandomDelay": 2.3123011742,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 70,
+    "Year": 2046,
+    "RandomDelay": 2.8957835171,
+    "YearsPerTRL": 2.3193080326
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 71,
     "Year": 2042,
     "RandomDelay": 1.9661261668,
     "YearsPerTRL": 1.9191757466
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 72,
+    "Year": 2046,
+    "RandomDelay": 1.8903535172,
+    "YearsPerTRL": 2.4548976003
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -722,6 +1226,34 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 76,
+    "Year": 2046,
+    "RandomDelay": 3.9064322423,
+    "YearsPerTRL": 2.2709554606
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 77,
+    "Year": 2047,
+    "RandomDelay": 1.4123856555,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 78,
+    "Year": 2048,
+    "RandomDelay": 1.3214320901,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 79,
+    "Year": 2048,
+    "RandomDelay": 3.1975734451,
+    "YearsPerTRL": 2.6807682605
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 80,
     "Year": 2041,
     "RandomDelay": 0.8196551272,
@@ -736,10 +1268,73 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 82,
+    "Year": 2048,
+    "RandomDelay": 3.436713139,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 83,
+    "Year": 2046,
+    "RandomDelay": 4.1248847687,
+    "YearsPerTRL": 2.1809695972
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 84,
+    "Year": 2046,
+    "RandomDelay": 2.3539359603,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 85,
+    "Year": 2049,
+    "RandomDelay": 2.25309859,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 86,
     "Year": 2041,
     "RandomDelay": 1.3879614398,
     "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 87,
+    "Year": 2048,
+    "RandomDelay": 4.4852639067,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 88,
+    "Year": 2049,
+    "RandomDelay": 3.5741522217,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 89,
+    "Year": 2052,
+    "RandomDelay": 1.8403196798,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 90,
+    "Year": 2048,
+    "RandomDelay": 1.1341461477,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 91,
+    "Year": 2048,
+    "RandomDelay": 2.0077915816,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -754,6 +1349,13 @@
     "Year": 2042,
     "RandomDelay": 1.5715440068,
     "YearsPerTRL": 2.0206504341
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 94,
+    "Year": 2046,
+    "RandomDelay": 2.182102228,
+    "YearsPerTRL": 2.5265420273
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -778,6 +1380,20 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 98,
+    "Year": 2049,
+    "RandomDelay": 3.8738161514,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 99,
+    "Year": 2047,
+    "RandomDelay": 2.018767825,
+    "YearsPerTRL": 2.5713665319
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 100,
     "Year": 2041,
     "RandomDelay": 3.9578933976,
@@ -792,6 +1408,20 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 2,
+    "Year": 2047,
+    "RandomDelay": 3.7477406912,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 3,
+    "Year": 2047,
+    "RandomDelay": 1.7118262305,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 4,
     "Year": 2045,
     "RandomDelay": 3.1679063338,
@@ -803,6 +1433,13 @@
     "Year": 2045,
     "RandomDelay": 4.472972235,
     "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 6,
+    "Year": 2048,
+    "RandomDelay": 2.4319528114,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -834,6 +1471,13 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 11,
+    "Year": 2048,
+    "RandomDelay": 3.6102535956,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 12,
     "Year": 2042,
     "RandomDelay": 3.1859302611,
@@ -841,10 +1485,31 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 13,
+    "Year": 2047,
+    "RandomDelay": 3.6733317643,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 14,
+    "Year": 2050,
+    "RandomDelay": 4.3351672524,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 15,
     "Year": 2041,
     "RandomDelay": 1.4137232756,
     "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 16,
+    "Year": 2046,
+    "RandomDelay": 2.0457135976,
+    "YearsPerTRL": 2.8332580901
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -862,6 +1527,13 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 19,
+    "Year": 2047,
+    "RandomDelay": 1.8787906971,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 20,
     "Year": 2044,
     "RandomDelay": 3.8812527228,
@@ -873,6 +1545,13 @@
     "Year": 2041,
     "RandomDelay": 3.3072427961,
     "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 22,
+    "Year": 2047,
+    "RandomDelay": 2.0884220683,
+    "YearsPerTRL": 3.0912329277
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -890,6 +1569,13 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 25,
+    "Year": 2047,
+    "RandomDelay": 2.5403107331,
+    "YearsPerTRL": 2.938245899
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 26,
     "Year": 2042,
     "RandomDelay": 3.0424980337,
@@ -897,10 +1583,24 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 27,
+    "Year": 2046,
+    "RandomDelay": 4.5447389761,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 28,
     "Year": 2042,
     "RandomDelay": 0.3851539351,
     "YearsPerTRL": 2.4690840648
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 29,
+    "Year": 2047,
+    "RandomDelay": 2.9946548096,
+    "YearsPerTRL": 2.8651096238
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -918,10 +1618,38 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 32,
+    "Year": 2047,
+    "RandomDelay": 2.7858007382,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 33,
+    "Year": 2047,
+    "RandomDelay": 1.3970111589,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 34,
+    "Year": 2046,
+    "RandomDelay": 4.4715585181,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 35,
     "Year": 2044,
     "RandomDelay": 3.9191828598,
     "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 36,
+    "Year": 2047,
+    "RandomDelay": 3.8688148449,
+    "YearsPerTRL": 2.7101965895
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -932,10 +1660,24 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 38,
+    "Year": 2046,
+    "RandomDelay": 2.9411934656,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 39,
     "Year": 2044,
     "RandomDelay": 2.6044593873,
     "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 40,
+    "Year": 2047,
+    "RandomDelay": 2.9901377624,
+    "YearsPerTRL": 2.9966151771
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -967,6 +1709,13 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 45,
+    "Year": 2047,
+    "RandomDelay": 3.6285614527,
+    "YearsPerTRL": 2.795269416
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 46,
     "Year": 2039,
     "RandomDelay": 1.631481571,
@@ -974,10 +1723,24 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 47,
+    "Year": 2048,
+    "RandomDelay": 1.7405380258,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 48,
     "Year": 2039,
     "RandomDelay": 2.7121639653,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 49,
+    "Year": 2049,
+    "RandomDelay": 3.0813497601,
+    "YearsPerTRL": 3.1628799767
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -995,10 +1758,31 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 52,
+    "Year": 2047,
+    "RandomDelay": 2.9505286208,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 53,
     "Year": 2042,
     "RandomDelay": 2.7030083411,
     "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 54,
+    "Year": 2047,
+    "RandomDelay": 4.2192683169,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 55,
+    "Year": 2046,
+    "RandomDelay": 1.5156572841,
+    "YearsPerTRL": 2.9764512367
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -1013,6 +1797,13 @@
     "Year": 2044,
     "RandomDelay": 1.5773381944,
     "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 58,
+    "Year": 2049,
+    "RandomDelay": 2.5770008549,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -1062,6 +1853,13 @@
     "Year": 2040,
     "RandomDelay": 1.1765317956,
     "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 66,
+    "Year": 2048,
+    "RandomDelay": 2.3784843627,
+    "YearsPerTRL": 3.1113207132
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -1135,6 +1933,13 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 77,
+    "Year": 2046,
+    "RandomDelay": 2.3685898928,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 78,
     "Year": 2044,
     "RandomDelay": 1.0508228611,
@@ -1195,6 +2000,41 @@
     "Year": 2039,
     "RandomDelay": 1.6027193479,
     "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 87,
+    "Year": 2046,
+    "RandomDelay": 4.7248420679,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 88,
+    "Year": 2046,
+    "RandomDelay": 3.6243734521,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 89,
+    "Year": 2049,
+    "RandomDelay": 1.9651408296,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 90,
+    "Year": 2047,
+    "RandomDelay": 3.3190840966,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 91,
+    "Year": 2046,
+    "RandomDelay": 2.5132474365,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -1660,6 +2500,13 @@
   },
   {
     "Node": "Enabling Tech: HTS Magnets",
+    "Iteration": 58,
+    "Year": 2047,
+    "RandomDelay": 3.4419124501,
+    "YearsPerTRL": 3.3228706012
+  },
+  {
+    "Node": "Enabling Tech: HTS Magnets",
     "Iteration": 59,
     "Year": 2039,
     "RandomDelay": 1.8549139306,
@@ -1867,6 +2714,13 @@
     "Year": 2043,
     "RandomDelay": 3.3427939252,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Enabling Tech: HTS Magnets",
+    "Iteration": 89,
+    "Year": 2047,
+    "RandomDelay": 2.8889724782,
+    "YearsPerTRL": 3.4432070816
   },
   {
     "Node": "Enabling Tech: HTS Magnets",
@@ -4046,6 +4900,27 @@
     "YearsPerTRL": 1.5276051935
   },
   {
+    "Node": "Enabling Tech: Plasma-Facing Materials",
+    "Iteration": 8,
+    "Year": 2055,
+    "RandomDelay": 1.9577335253,
+    "YearsPerTRL": 1.7535324711
+  },
+  {
+    "Node": "Enabling Tech: Plasma-Facing Materials",
+    "Iteration": 96,
+    "Year": 2054,
+    "RandomDelay": 0.5296262283,
+    "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Enabling Tech: Plasma-Facing Materials",
+    "Iteration": 100,
+    "Year": 2055,
+    "RandomDelay": 2.5820510778,
+    "YearsPerTRL": 1.5276051935
+  },
+  {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 1,
     "Year": 2044,
@@ -4061,6 +4936,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 3,
+    "Year": 2048,
+    "RandomDelay": 3.2370855037,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 4,
     "Year": 2045,
     "RandomDelay": 2.9956295616,
@@ -4072,6 +4954,13 @@
     "Year": 2044,
     "RandomDelay": 3.2539208089,
     "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 6,
+    "Year": 2048,
+    "RandomDelay": 2.3900123518,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4103,6 +4992,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 11,
+    "Year": 2047,
+    "RandomDelay": 2.4604665033,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 12,
     "Year": 2043,
     "RandomDelay": 3.5803958089,
@@ -4117,10 +5013,24 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 14,
+    "Year": 2047,
+    "RandomDelay": 0.87858764,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 15,
     "Year": 2043,
     "RandomDelay": 2.6822841931,
     "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 16,
+    "Year": 2047,
+    "RandomDelay": 3.505352274,
+    "YearsPerTRL": 2.8332580901
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4138,6 +5048,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 19,
+    "Year": 2047,
+    "RandomDelay": 2.1999075195,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 20,
     "Year": 2042,
     "RandomDelay": 1.7477002361,
@@ -4152,6 +5069,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 22,
+    "Year": 2046,
+    "RandomDelay": 1.1899855988,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 23,
     "Year": 2044,
     "RandomDelay": 2.2676967522,
@@ -4163,6 +5087,13 @@
     "Year": 2044,
     "RandomDelay": 2.7966342746,
     "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 25,
+    "Year": 2049,
+    "RandomDelay": 4.50760065,
+    "YearsPerTRL": 2.938245899
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4187,6 +5118,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 29,
+    "Year": 2046,
+    "RandomDelay": 2.0979401628,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 30,
     "Year": 2044,
     "RandomDelay": 2.7842772816,
@@ -4198,6 +5136,20 @@
     "Year": 2045,
     "RandomDelay": 2.4076946801,
     "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 32,
+    "Year": 2046,
+    "RandomDelay": 1.8334015537,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 33,
+    "Year": 2048,
+    "RandomDelay": 2.1600278869,
+    "YearsPerTRL": 3.2058631149
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4215,6 +5167,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 36,
+    "Year": 2047,
+    "RandomDelay": 4.2480570201,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 37,
     "Year": 2043,
     "RandomDelay": 3.0209758303,
@@ -4222,10 +5181,31 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 38,
+    "Year": 2047,
+    "RandomDelay": 3.7732748053,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 39,
     "Year": 2045,
     "RandomDelay": 4.3435672379,
     "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 40,
+    "Year": 2048,
+    "RandomDelay": 3.0920583706,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 41,
+    "Year": 2046,
+    "RandomDelay": 3.8941072601,
+    "YearsPerTRL": 2.5362868485
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4243,6 +5223,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 44,
+    "Year": 2047,
+    "RandomDelay": 2.9219735302,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 45,
     "Year": 2045,
     "RandomDelay": 2.1994109106,
@@ -4257,10 +5244,24 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 47,
+    "Year": 2046,
+    "RandomDelay": 0.2337754107,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 48,
     "Year": 2038,
     "RandomDelay": 1.2013517308,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 49,
+    "Year": 2047,
+    "RandomDelay": 1.5305339464,
+    "YearsPerTRL": 3.1628799767
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4278,10 +5279,31 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 52,
+    "Year": 2046,
+    "RandomDelay": 2.6310018414,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 53,
     "Year": 2041,
     "RandomDelay": 1.6219837683,
     "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 54,
+    "Year": 2047,
+    "RandomDelay": 4.0859792088,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 55,
+    "Year": 2047,
+    "RandomDelay": 2.8307606689,
+    "YearsPerTRL": 2.9764512367
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4296,6 +5318,13 @@
     "Year": 2045,
     "RandomDelay": 3.2780302403,
     "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 58,
+    "Year": 2047,
+    "RandomDelay": 0.862117285,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4320,6 +5349,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 62,
+    "Year": 2046,
+    "RandomDelay": 3.4722080045,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 63,
     "Year": 2042,
     "RandomDelay": 1.8361363258,
@@ -4341,6 +5377,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 66,
+    "Year": 2047,
+    "RandomDelay": 1.8881796618,
+    "YearsPerTRL": 3.1113207132
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 67,
     "Year": 2042,
     "RandomDelay": 2.5438923088,
@@ -4352,6 +5395,13 @@
     "Year": 2042,
     "RandomDelay": 1.5638976879,
     "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 69,
+    "Year": 2046,
+    "RandomDelay": 2.221127041,
+    "YearsPerTRL": 2.9163765283
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4411,6 +5461,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 78,
+    "Year": 2046,
+    "RandomDelay": 2.1523308121,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 79,
     "Year": 2043,
     "RandomDelay": 0.8074390011,
@@ -4453,6 +5510,13 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 85,
+    "Year": 2047,
+    "RandomDelay": 2.9888225231,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 86,
     "Year": 2040,
     "RandomDelay": 2.4941054304,
@@ -4471,6 +5535,27 @@
     "Year": 2045,
     "RandomDelay": 2.7701141593,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 89,
+    "Year": 2051,
+    "RandomDelay": 3.480292078,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 90,
+    "Year": 2047,
+    "RandomDelay": 2.490995583,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 91,
+    "Year": 2046,
+    "RandomDelay": 2.4891620467,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4513,6 +5598,20 @@
     "Year": 2040,
     "RandomDelay": 0.3820414059,
     "YearsPerTRL": 2.2434808322
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 98,
+    "Year": 2047,
+    "RandomDelay": 4.2013578395,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 99,
+    "Year": 2046,
+    "RandomDelay": 3.6973333123,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -5222,6 +6321,13 @@
     "YearsPerTRL": 1.5276051935
   },
   {
+    "Node": "Enabling Tech: Tritium Breeding Blankets",
+    "Iteration": 100,
+    "Year": 2055,
+    "RandomDelay": 2.524567154,
+    "YearsPerTRL": 1.5276051935
+  },
+  {
     "Node": "Enabling Tech: sCO2 Power Cycle",
     "Iteration": 1,
     "Year": 2039,
@@ -5922,11 +7028,130 @@
     "YearsPerTRL": 1.5276051935
   },
   {
+    "Node": "Milestone: Advanced Divertor Test Facility (DTT)",
+    "Iteration": 8,
+    "Year": 2053,
+    "RandomDelay": 1.6763393335,
+    "YearsPerTRL": 1.7535324711
+  },
+  {
+    "Node": "Milestone: Advanced Divertor Test Facility (DTT)",
+    "Iteration": 48,
+    "Year": 2051,
+    "RandomDelay": 2.4830958917,
+    "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Milestone: Advanced Divertor Test Facility (DTT)",
+    "Iteration": 71,
+    "Year": 2054,
+    "RandomDelay": 0.7087635814,
+    "YearsPerTRL": 1.9191757466
+  },
+  {
+    "Node": "Milestone: Advanced Divertor Test Facility (DTT)",
+    "Iteration": 75,
+    "Year": 2054,
+    "RandomDelay": 1.3350281061,
+    "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "Milestone: Advanced Divertor Test Facility (DTT)",
+    "Iteration": 92,
+    "Year": 2052,
+    "RandomDelay": 0.7562737377,
+    "YearsPerTRL": 1.8256894111
+  },
+  {
+    "Node": "Milestone: Advanced Divertor Test Facility (DTT)",
+    "Iteration": 96,
+    "Year": 2054,
+    "RandomDelay": 2.2323866862,
+    "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Milestone: Advanced Divertor Test Facility (DTT)",
+    "Iteration": 100,
+    "Year": 2052,
+    "RandomDelay": 2.196107643,
+    "YearsPerTRL": 1.5276051935
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 1,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5431932687
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 2,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 3,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 4,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6202572191
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 5,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 6,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1264863496
+  },
+  {
     "Node": "Milestone: FRC Net Energy Demo",
     "Iteration": 7,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 1.9525231552
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 8,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.7535324711
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 9,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0634161227
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 10,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6117389355
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 11,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9638881082
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
@@ -5937,10 +7162,234 @@
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 13,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 14,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 15,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 16,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 17,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 18,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 19,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 20,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3528579671
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
     "Iteration": 21,
     "Year": 2043,
     "RandomDelay": null,
     "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 22,
+    "Year": 2053,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 23,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 24,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 25,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.938245899
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 26,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0797475535
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 27,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 28,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4690840648
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 29,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 30,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 31,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 32,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 33,
+    "Year": 2053,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 34,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 35,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 36,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 37,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 38,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 39,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 40,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 41,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5362868485
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 42,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 43,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 44,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 45,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.795269416
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
@@ -5951,10 +7400,45 @@
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 47,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
     "Iteration": 48,
     "Year": 2043,
     "RandomDelay": null,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 49,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1628799767
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 50,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4783685146
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 51,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 52,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8518123378
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
@@ -5965,6 +7449,20 @@
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 54,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 55,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
     "Iteration": 56,
     "Year": 2045,
     "RandomDelay": null,
@@ -5972,10 +7470,115 @@
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 57,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 58,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.3228706012
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 59,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0976655085
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 60,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1765422371
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 61,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3640786658
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 62,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 63,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 64,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6425036576
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 65,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 66,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1113207132
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 67,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1393870946
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 68,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 69,
+    "Year": 2053,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 70,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3193080326
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
     "Iteration": 71,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 1.9191757466
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 72,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4548976003
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
@@ -6000,6 +7603,34 @@
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 76,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2709554606
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 77,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 78,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 79,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6807682605
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
     "Iteration": 80,
     "Year": 2045,
     "RandomDelay": null,
@@ -6007,10 +7638,80 @@
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 81,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1532332885
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 82,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 83,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1809695972
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 84,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 85,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
     "Iteration": 86,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 87,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 88,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 89,
+    "Year": 2054,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 90,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 91,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
@@ -6028,10 +7729,45 @@
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 94,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5265420273
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 95,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3086839668
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
     "Iteration": 96,
     "Year": 2043,
     "RandomDelay": null,
     "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 97,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2434808322
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 98,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 99,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "Milestone: FRC Net Energy Demo",
@@ -6189,6 +7925,13 @@
   },
   {
     "Node": "Milestone: FRC Stable Sustainment",
+    "Iteration": 22,
+    "Year": 2046,
+    "RandomDelay": 4.1216028733,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Milestone: FRC Stable Sustainment",
     "Iteration": 23,
     "Year": 2041,
     "RandomDelay": 1.683494473,
@@ -6256,6 +7999,13 @@
     "Year": 2043,
     "RandomDelay": 1.3034509357,
     "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Milestone: FRC Stable Sustainment",
+    "Iteration": 33,
+    "Year": 2046,
+    "RandomDelay": 3.2589466213,
+    "YearsPerTRL": 3.2058631149
   },
   {
     "Node": "Milestone: FRC Stable Sustainment",
@@ -6504,6 +8254,13 @@
   },
   {
     "Node": "Milestone: FRC Stable Sustainment",
+    "Iteration": 69,
+    "Year": 2046,
+    "RandomDelay": 4.643957069,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Milestone: FRC Stable Sustainment",
     "Iteration": 70,
     "Year": 2040,
     "RandomDelay": 1.4687925369,
@@ -6634,6 +8391,13 @@
     "Year": 2043,
     "RandomDelay": 3.241552639,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: FRC Stable Sustainment",
+    "Iteration": 89,
+    "Year": 2047,
+    "RandomDelay": 2.8933831249,
+    "YearsPerTRL": 3.4432070816
   },
   {
     "Node": "Milestone: FRC Stable Sustainment",
@@ -7428,6 +9192,13 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 3,
+    "Year": 2048,
+    "RandomDelay": 2.9352924042,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 4,
     "Year": 2043,
     "RandomDelay": 0.5573789616,
@@ -7439,6 +9210,13 @@
     "Year": 2042,
     "RandomDelay": 2.5738775866,
     "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 6,
+    "Year": 2049,
+    "RandomDelay": 4.1507342553,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7463,6 +9241,13 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 10,
+    "Year": 2047,
+    "RandomDelay": 3.5252388586,
+    "YearsPerTRL": 2.6117389355
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 11,
     "Year": 2045,
     "RandomDelay": 1.8155974661,
@@ -7484,10 +9269,24 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 14,
+    "Year": 2050,
+    "RandomDelay": 3.1477555732,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 15,
     "Year": 2042,
     "RandomDelay": 2.5820717028,
     "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 16,
+    "Year": 2046,
+    "RandomDelay": 1.8349515879,
+    "YearsPerTRL": 2.8332580901
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7505,6 +9304,13 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 19,
+    "Year": 2047,
+    "RandomDelay": 2.451582639,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 20,
     "Year": 2042,
     "RandomDelay": 1.3663625588,
@@ -7516,6 +9322,20 @@
     "Year": 2042,
     "RandomDelay": 3.1765073585,
     "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 22,
+    "Year": 2047,
+    "RandomDelay": 2.4873354092,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 23,
+    "Year": 2046,
+    "RandomDelay": 2.1531653912,
+    "YearsPerTRL": 2.5516256222
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7582,10 +9402,38 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 33,
+    "Year": 2047,
+    "RandomDelay": 1.4012781439,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 34,
     "Year": 2042,
     "RandomDelay": 0.9437132066,
     "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 35,
+    "Year": 2046,
+    "RandomDelay": 4.3419172632,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 36,
+    "Year": 2047,
+    "RandomDelay": 3.2751429549,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 37,
+    "Year": 2046,
+    "RandomDelay": 2.9410898972,
+    "YearsPerTRL": 2.2857490502
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7603,6 +9451,13 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 40,
+    "Year": 2048,
+    "RandomDelay": 3.2200891391,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 41,
     "Year": 2043,
     "RandomDelay": 0.8492986869,
@@ -7614,6 +9469,20 @@
     "Year": 2043,
     "RandomDelay": 2.1157718874,
     "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 43,
+    "Year": 2047,
+    "RandomDelay": 2.8473605699,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 44,
+    "Year": 2046,
+    "RandomDelay": 1.4233787266,
+    "YearsPerTRL": 2.8785120011
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7631,10 +9500,24 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 47,
+    "Year": 2047,
+    "RandomDelay": 2.8424674727,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 48,
     "Year": 2039,
     "RandomDelay": 1.8191435342,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 49,
+    "Year": 2049,
+    "RandomDelay": 4.4695845143,
+    "YearsPerTRL": 3.1628799767
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7649,6 +9532,13 @@
     "Year": 2045,
     "RandomDelay": 3.2183951347,
     "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 52,
+    "Year": 2047,
+    "RandomDelay": 2.2903415801,
+    "YearsPerTRL": 2.8518123378
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7722,10 +9612,31 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 63,
+    "Year": 2046,
+    "RandomDelay": 2.2437812829,
+    "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 64,
+    "Year": 2047,
+    "RandomDelay": 2.2478570663,
+    "YearsPerTRL": 2.6425036576
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 65,
     "Year": 2042,
     "RandomDelay": 1.9254007751,
     "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 66,
+    "Year": 2047,
+    "RandomDelay": 3.5360089532,
+    "YearsPerTRL": 3.1113207132
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7740,6 +9651,13 @@
     "Year": 2045,
     "RandomDelay": 2.4858930794,
     "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 69,
+    "Year": 2046,
+    "RandomDelay": 1.3321818343,
+    "YearsPerTRL": 2.9163765283
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7782,6 +9700,13 @@
     "Year": 2042,
     "RandomDelay": 1.3363250322,
     "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 76,
+    "Year": 2046,
+    "RandomDelay": 4.3150911661,
+    "YearsPerTRL": 2.2709554606
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7841,6 +9766,13 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 85,
+    "Year": 2046,
+    "RandomDelay": 2.8478084729,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 86,
     "Year": 2039,
     "RandomDelay": 1.1522618088,
@@ -7859,6 +9791,13 @@
     "Year": 2043,
     "RandomDelay": 0.9394014083,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 89,
+    "Year": 2048,
+    "RandomDelay": 1.5855355303,
+    "YearsPerTRL": 3.4432070816
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7939,10 +9878,493 @@
   },
   {
     "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 1,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5431932687
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 2,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 3,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 4,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6202572191
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 5,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 6,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1264863496
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 7,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.9525231552
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 8,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.7535324711
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 9,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0634161227
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 10,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6117389355
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 11,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 12,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 13,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 14,
+    "Year": 2053,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 15,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 16,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 17,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 18,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 19,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 20,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3528579671
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 21,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 22,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 23,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 24,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 25,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.938245899
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 26,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0797475535
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 27,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 28,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4690840648
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 29,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 30,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 31,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 32,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 33,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 34,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 35,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 36,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 37,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 38,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 39,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 40,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 41,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5362868485
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 42,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 43,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 44,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 45,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.795269416
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 46,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.8793477466
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 47,
+    "Year": 2053,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 48,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 49,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1628799767
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 50,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4783685146
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 51,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 52,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 53,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 54,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 55,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 56,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.9943535368
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 57,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 58,
+    "Year": 2055,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.3228706012
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 59,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0976655085
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
     "Iteration": 60,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 2.1765422371
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 61,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3640786658
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 62,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 63,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 64,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6425036576
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 65,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 66,
+    "Year": 2053,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1113207132
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 67,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1393870946
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 68,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 69,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 70,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3193080326
   },
   {
     "Node": "Milestone: HTS Stellarator Coil Fabrication",
@@ -7953,6 +10375,104 @@
   },
   {
     "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 72,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4548976003
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 73,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1024383276
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 74,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2178587676
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 75,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 76,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2709554606
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 77,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 78,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 79,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6807682605
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 80,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.9293274226
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 81,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1532332885
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 82,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 83,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1809695972
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 84,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 85,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
     "Iteration": 86,
     "Year": 2045,
     "RandomDelay": null,
@@ -7960,10 +10480,94 @@
   },
   {
     "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 87,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 88,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 89,
+    "Year": 2055,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 90,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 91,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7630832869
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 92,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.8256894111
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
     "Iteration": 93,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 2.0206504341
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 94,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5265420273
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 95,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3086839668
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 96,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 97,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2434808322
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 98,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 99,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "Milestone: HTS Stellarator Coil Fabrication",
@@ -7981,6 +10585,20 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 2,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 3,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 4,
     "Year": 2045,
     "RandomDelay": null,
@@ -7992,6 +10610,13 @@
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 6,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8023,10 +10648,66 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 11,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 12,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 13,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 14,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 15,
     "Year": 2044,
     "RandomDelay": null,
     "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 16,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 17,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 18,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 19,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0346478501
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8044,6 +10725,20 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 22,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 23,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 24,
     "Year": 2045,
     "RandomDelay": null,
@@ -8051,10 +10746,66 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 25,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.938245899
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 26,
     "Year": 2044,
     "RandomDelay": null,
     "YearsPerTRL": 2.0797475535
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 27,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 28,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4690840648
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 29,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 30,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 31,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 32,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 33,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.2058631149
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8072,6 +10823,13 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 36,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 37,
     "Year": 2044,
     "RandomDelay": null,
@@ -8079,10 +10837,24 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 38,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 39,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 40,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9966151771
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8107,6 +10879,20 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 44,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 45,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.795269416
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 46,
     "Year": 2042,
     "RandomDelay": null,
@@ -8114,10 +10900,24 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 47,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 48,
     "Year": 2044,
     "RandomDelay": null,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 49,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1628799767
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8135,10 +10935,52 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 52,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 53,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 54,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 55,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 56,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.9943535368
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 57,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 58,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8177,6 +11019,13 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 64,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6425036576
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 65,
     "Year": 2044,
     "RandomDelay": null,
@@ -8184,10 +11033,38 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 66,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1113207132
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 67,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 2.1393870946
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 68,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 69,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 70,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3193080326
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8205,6 +11082,13 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 73,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1024383276
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 74,
     "Year": 2045,
     "RandomDelay": null,
@@ -8216,6 +11100,34 @@
     "Year": 2044,
     "RandomDelay": null,
     "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 76,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2709554606
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 77,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 78,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 79,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6807682605
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8233,10 +11145,31 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 82,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 83,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 2.1809695972
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 84,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 85,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8996215848
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8254,6 +11187,34 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 88,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 89,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 90,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 91,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7630832869
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 92,
     "Year": 2044,
     "RandomDelay": null,
@@ -8265,6 +11226,20 @@
     "Year": 2042,
     "RandomDelay": null,
     "YearsPerTRL": 2.0206504341
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 94,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5265420273
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 95,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3086839668
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
@@ -8282,6 +11257,13 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 98,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 99,
     "Year": 2045,
     "RandomDelay": null,
@@ -8293,6 +11275,41 @@
     "Year": 2040,
     "RandomDelay": null,
     "YearsPerTRL": 1.5276051935
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 1,
+    "Year": 2050,
+    "RandomDelay": 3.5294918597,
+    "YearsPerTRL": 2.5431932687
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 2,
+    "Year": 2052,
+    "RandomDelay": 1.3629903133,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 3,
+    "Year": 2055,
+    "RandomDelay": 1.4097004462,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 4,
+    "Year": 2049,
+    "RandomDelay": 0.487404291,
+    "YearsPerTRL": 2.6202572191
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 5,
+    "Year": 2048,
+    "RandomDelay": 2.2197332114,
+    "YearsPerTRL": 2.3821090936
   },
   {
     "Node": "Milestone: ITER Burning Plasma Demo",
@@ -8310,10 +11327,248 @@
   },
   {
     "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 9,
+    "Year": 2048,
+    "RandomDelay": 1.9921140779,
+    "YearsPerTRL": 2.0634161227
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 10,
+    "Year": 2051,
+    "RandomDelay": 1.3097904975,
+    "YearsPerTRL": 2.6117389355
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 11,
+    "Year": 2054,
+    "RandomDelay": 1.9962505914,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 12,
+    "Year": 2047,
+    "RandomDelay": 3.3148276741,
+    "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 13,
+    "Year": 2051,
+    "RandomDelay": 1.3746876053,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 15,
+    "Year": 2048,
+    "RandomDelay": 2.7270940699,
+    "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 16,
+    "Year": 2055,
+    "RandomDelay": 3.8120995909,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 17,
+    "Year": 2052,
+    "RandomDelay": 2.1075670776,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 18,
+    "Year": 2052,
+    "RandomDelay": 2.9475989864,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 19,
+    "Year": 2054,
+    "RandomDelay": 2.9731675406,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 20,
+    "Year": 2051,
+    "RandomDelay": 3.6487800369,
+    "YearsPerTRL": 2.3528579671
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
     "Iteration": 21,
     "Year": 2045,
     "RandomDelay": 1.7035222616,
     "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 23,
+    "Year": 2052,
+    "RandomDelay": 3.610876764,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 24,
+    "Year": 2050,
+    "RandomDelay": 2.0638345943,
+    "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 26,
+    "Year": 2050,
+    "RandomDelay": 3.9929665483,
+    "YearsPerTRL": 2.0797475535
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 27,
+    "Year": 2052,
+    "RandomDelay": 3.6516838342,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 28,
+    "Year": 2048,
+    "RandomDelay": 1.5306582683,
+    "YearsPerTRL": 2.4690840648
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 29,
+    "Year": 2053,
+    "RandomDelay": 2.2092097097,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 30,
+    "Year": 2052,
+    "RandomDelay": 3.8235242254,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 31,
+    "Year": 2053,
+    "RandomDelay": 1.8090582796,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 32,
+    "Year": 2055,
+    "RandomDelay": 2.6215481276,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 33,
+    "Year": 2054,
+    "RandomDelay": 0.9586251876,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 34,
+    "Year": 2049,
+    "RandomDelay": 3.0918239562,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 35,
+    "Year": 2048,
+    "RandomDelay": 0.8061832865,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 36,
+    "Year": 2051,
+    "RandomDelay": 1.0303766128,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 37,
+    "Year": 2050,
+    "RandomDelay": 3.9827003669,
+    "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 38,
+    "Year": 2052,
+    "RandomDelay": 1.6721807127,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 39,
+    "Year": 2051,
+    "RandomDelay": 3.572375039,
+    "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 40,
+    "Year": 2052,
+    "RandomDelay": 0.7620956814,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 41,
+    "Year": 2051,
+    "RandomDelay": 3.6253868901,
+    "YearsPerTRL": 2.5362868485
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 42,
+    "Year": 2048,
+    "RandomDelay": 1.189126066,
+    "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 43,
+    "Year": 2053,
+    "RandomDelay": 4.4518724573,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 44,
+    "Year": 2055,
+    "RandomDelay": 2.5329043559,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 45,
+    "Year": 2052,
+    "RandomDelay": 1.5373671006,
+    "YearsPerTRL": 2.795269416
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 46,
+    "Year": 2048,
+    "RandomDelay": 2.9779845849,
+    "YearsPerTRL": 1.8793477466
   },
   {
     "Node": "Milestone: ITER Burning Plasma Demo",
@@ -8324,6 +11579,139 @@
   },
   {
     "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 50,
+    "Year": 2050,
+    "RandomDelay": 2.1331956986,
+    "YearsPerTRL": 2.4783685146
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 51,
+    "Year": 2052,
+    "RandomDelay": 3.0445973519,
+    "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 52,
+    "Year": 2053,
+    "RandomDelay": 2.2083779468,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 53,
+    "Year": 2048,
+    "RandomDelay": 2.7713439325,
+    "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 54,
+    "Year": 2053,
+    "RandomDelay": 3.9069265445,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 55,
+    "Year": 2055,
+    "RandomDelay": 3.1901855115,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 56,
+    "Year": 2047,
+    "RandomDelay": 0.4381658616,
+    "YearsPerTRL": 1.9943535368
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 57,
+    "Year": 2050,
+    "RandomDelay": 1.2600251198,
+    "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 59,
+    "Year": 2048,
+    "RandomDelay": 3.67555419,
+    "YearsPerTRL": 2.0976655085
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 60,
+    "Year": 2052,
+    "RandomDelay": 4.0940125213,
+    "YearsPerTRL": 2.1765422371
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 61,
+    "Year": 2048,
+    "RandomDelay": 1.8134411942,
+    "YearsPerTRL": 2.3640786658
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 62,
+    "Year": 2051,
+    "RandomDelay": 1.4808869493,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 63,
+    "Year": 2048,
+    "RandomDelay": 3.2823531663,
+    "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 64,
+    "Year": 2053,
+    "RandomDelay": 4.007193845,
+    "YearsPerTRL": 2.6425036576
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 65,
+    "Year": 2047,
+    "RandomDelay": 2.6287390589,
+    "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 67,
+    "Year": 2049,
+    "RandomDelay": 2.2233517441,
+    "YearsPerTRL": 2.1393870946
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 68,
+    "Year": 2047,
+    "RandomDelay": 1.8068694696,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 69,
+    "Year": 2052,
+    "RandomDelay": 1.1620599865,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 70,
+    "Year": 2049,
+    "RandomDelay": 2.8016278992,
+    "YearsPerTRL": 2.3193080326
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
     "Iteration": 71,
     "Year": 2045,
     "RandomDelay": 1.5460059549,
@@ -8331,10 +11719,192 @@
   },
   {
     "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 72,
+    "Year": 2053,
+    "RandomDelay": 3.1367437553,
+    "YearsPerTRL": 2.4548976003
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 73,
+    "Year": 2049,
+    "RandomDelay": 2.9928834817,
+    "YearsPerTRL": 2.1024383276
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 74,
+    "Year": 2048,
+    "RandomDelay": 1.7988770401,
+    "YearsPerTRL": 2.2178587676
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 75,
+    "Year": 2047,
+    "RandomDelay": 1.8323469854,
+    "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 76,
+    "Year": 2046,
+    "RandomDelay": 1.7821342781,
+    "YearsPerTRL": 2.2709554606
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 77,
+    "Year": 2054,
+    "RandomDelay": 3.0873257062,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 78,
+    "Year": 2052,
+    "RandomDelay": 2.2122145341,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 79,
+    "Year": 2052,
+    "RandomDelay": 0.8770327588,
+    "YearsPerTRL": 2.6807682605
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 80,
+    "Year": 2050,
+    "RandomDelay": 4.2587135232,
+    "YearsPerTRL": 1.9293274226
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 81,
+    "Year": 2047,
+    "RandomDelay": 0.9378842189,
+    "YearsPerTRL": 2.1532332885
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 82,
+    "Year": 2051,
+    "RandomDelay": 3.1929869978,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 83,
+    "Year": 2049,
+    "RandomDelay": 1.9258940006,
+    "YearsPerTRL": 2.1809695972
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 84,
+    "Year": 2048,
+    "RandomDelay": 1.5833857571,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 85,
+    "Year": 2053,
+    "RandomDelay": 2.364932196,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 86,
+    "Year": 2046,
+    "RandomDelay": 1.9606511598,
+    "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 87,
+    "Year": 2051,
+    "RandomDelay": 3.3919328692,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 88,
+    "Year": 2051,
+    "RandomDelay": 1.7649093473,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 90,
+    "Year": 2053,
+    "RandomDelay": 2.2111111942,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 91,
+    "Year": 2050,
+    "RandomDelay": 1.3441915089,
+    "YearsPerTRL": 2.7630832869
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 92,
+    "Year": 2048,
+    "RandomDelay": 2.7076624014,
+    "YearsPerTRL": 1.8256894111
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 93,
+    "Year": 2047,
+    "RandomDelay": 2.3750519186,
+    "YearsPerTRL": 2.0206504341
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 94,
+    "Year": 2049,
+    "RandomDelay": 1.6671995955,
+    "YearsPerTRL": 2.5265420273
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 95,
+    "Year": 2049,
+    "RandomDelay": 3.158150873,
+    "YearsPerTRL": 2.3086839668
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
     "Iteration": 96,
     "Year": 2044,
     "RandomDelay": 2.1321713726,
     "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 97,
+    "Year": 2049,
+    "RandomDelay": 2.2085434406,
+    "YearsPerTRL": 2.2434808322
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 98,
+    "Year": 2053,
+    "RandomDelay": 3.9593307253,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 99,
+    "Year": 2051,
+    "RandomDelay": 2.228946158,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "Milestone: ITER Burning Plasma Demo",
@@ -9745,10 +13315,332 @@
   },
   {
     "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 7,
+    "Year": 2054,
+    "RandomDelay": 2.8780918319,
+    "YearsPerTRL": 1.9525231552
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 8,
+    "Year": 2050,
+    "RandomDelay": 1.1406291611,
+    "YearsPerTRL": 1.7535324711
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 9,
+    "Year": 2051,
+    "RandomDelay": 1.6850085175,
+    "YearsPerTRL": 2.0634161227
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 12,
+    "Year": 2055,
+    "RandomDelay": 2.7090747265,
+    "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 15,
+    "Year": 2053,
+    "RandomDelay": 2.0718676848,
+    "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 18,
+    "Year": 2054,
+    "RandomDelay": 0.5498061541,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 20,
+    "Year": 2055,
+    "RandomDelay": 2.5225968976,
+    "YearsPerTRL": 2.3528579671
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 21,
+    "Year": 2051,
+    "RandomDelay": 1.9216804732,
+    "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 23,
+    "Year": 2055,
+    "RandomDelay": 1.8618659422,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 26,
+    "Year": 2050,
+    "RandomDelay": 1.3670581503,
+    "YearsPerTRL": 2.0797475535
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 27,
+    "Year": 2054,
+    "RandomDelay": 0.8293861261,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 30,
+    "Year": 2055,
+    "RandomDelay": 1.4741143782,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 35,
+    "Year": 2055,
+    "RandomDelay": 3.7951017863,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 37,
+    "Year": 2054,
+    "RandomDelay": 2.8126652721,
+    "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 39,
+    "Year": 2055,
+    "RandomDelay": 2.0524976366,
+    "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 41,
+    "Year": 2054,
+    "RandomDelay": 1.2285272751,
+    "YearsPerTRL": 2.5362868485
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 42,
+    "Year": 2055,
+    "RandomDelay": 3.8114461652,
+    "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 43,
+    "Year": 2053,
+    "RandomDelay": 2.0323164397,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 46,
+    "Year": 2049,
+    "RandomDelay": 0.8122289807,
+    "YearsPerTRL": 1.8793477466
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 48,
+    "Year": 2049,
+    "RandomDelay": 1.8641439061,
+    "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 53,
+    "Year": 2054,
+    "RandomDelay": 3.7460575714,
+    "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 56,
+    "Year": 2051,
+    "RandomDelay": 2.1428716541,
+    "YearsPerTRL": 1.9943535368
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 59,
+    "Year": 2053,
+    "RandomDelay": 3.3284931193,
+    "YearsPerTRL": 2.0976655085
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 60,
+    "Year": 2050,
+    "RandomDelay": 1.1692306914,
+    "YearsPerTRL": 2.1765422371
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 65,
+    "Year": 2050,
+    "RandomDelay": 0.7633924728,
+    "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 67,
+    "Year": 2054,
+    "RandomDelay": 2.0049116407,
+    "YearsPerTRL": 2.1393870946
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 68,
+    "Year": 2052,
+    "RandomDelay": 0.4917561601,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 70,
+    "Year": 2055,
+    "RandomDelay": 1.6113763254,
+    "YearsPerTRL": 2.3193080326
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 71,
+    "Year": 2050,
+    "RandomDelay": 3.2499753011,
+    "YearsPerTRL": 1.9191757466
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 73,
+    "Year": 2053,
+    "RandomDelay": 3.1838588353,
+    "YearsPerTRL": 2.1024383276
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 74,
+    "Year": 2054,
+    "RandomDelay": 2.0892318288,
+    "YearsPerTRL": 2.2178587676
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 75,
+    "Year": 2050,
+    "RandomDelay": 0.8175304134,
+    "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 80,
+    "Year": 2052,
+    "RandomDelay": 2.0359310656,
+    "YearsPerTRL": 1.9293274226
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 81,
+    "Year": 2052,
+    "RandomDelay": 2.4177180283,
+    "YearsPerTRL": 2.1532332885
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 83,
+    "Year": 2054,
+    "RandomDelay": 2.732569088,
+    "YearsPerTRL": 2.1809695972
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 86,
+    "Year": 2049,
+    "RandomDelay": 2.6494180735,
+    "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 92,
+    "Year": 2053,
+    "RandomDelay": 4.2452440858,
+    "YearsPerTRL": 1.8256894111
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 93,
+    "Year": 2049,
+    "RandomDelay": 1.8353190421,
+    "YearsPerTRL": 2.0206504341
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 95,
+    "Year": 2054,
+    "RandomDelay": 2.5190221473,
+    "YearsPerTRL": 2.3086839668
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 96,
+    "Year": 2049,
+    "RandomDelay": 2.1754033693,
+    "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
     "Iteration": 100,
     "Year": 2044,
     "RandomDelay": 0.5132796985,
     "YearsPerTRL": 1.5276051935
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 1,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5431932687
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 2,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 3,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 4,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6202572191
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 5,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 6,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
@@ -9766,10 +13658,262 @@
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 9,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0634161227
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 10,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6117389355
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 11,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 12,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 13,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 14,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 15,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 16,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 17,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 18,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 19,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 20,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3528579671
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
     "Iteration": 21,
     "Year": 2043,
     "RandomDelay": null,
     "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 22,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 23,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 24,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 25,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.938245899
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 26,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0797475535
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 27,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 28,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4690840648
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 29,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 30,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 31,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 32,
+    "Year": 2053,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 33,
+    "Year": 2052,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 34,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 35,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 36,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 37,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 38,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 39,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 40,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 41,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5362868485
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 42,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 43,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 44,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 45,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.795269416
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
@@ -9780,10 +13924,129 @@
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 47,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
     "Iteration": 48,
     "Year": 2044,
     "RandomDelay": null,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 49,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1628799767
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 50,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4783685146
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 51,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 52,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 53,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 54,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 55,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 56,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.9943535368
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 57,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 58,
+    "Year": 2053,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.3228706012
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 59,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.0976655085
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 60,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1765422371
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 61,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3640786658
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 62,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 63,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 64,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6425036576
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
@@ -9794,6 +14057,55 @@
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 66,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.1113207132
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 67,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1393870946
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 68,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 69,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 70,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3193080326
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 71,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.9191757466
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 72,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4548976003
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
     "Iteration": 73,
     "Year": 2045,
     "RandomDelay": null,
@@ -9801,10 +14113,129 @@
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 74,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2178587676
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 75,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.9887063998
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 76,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2709554606
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 77,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 78,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 79,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6807682605
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
     "Iteration": 80,
     "Year": 2045,
     "RandomDelay": null,
     "YearsPerTRL": 1.9293274226
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 81,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1532332885
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 82,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 83,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.1809695972
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 84,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 85,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 86,
+    "Year": 2046,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 87,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 88,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 89,
+    "Year": 2054,
+    "RandomDelay": null,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 90,
+    "Year": 2049,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 91,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
@@ -9822,10 +14253,45 @@
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 94,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5265420273
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 95,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.3086839668
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
     "Iteration": 96,
     "Year": 2044,
     "RandomDelay": null,
     "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 97,
+    "Year": 2047,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.2434808322
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 98,
+    "Year": 2050,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 99,
+    "Year": 2048,
+    "RandomDelay": null,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "Milestone: MSR Materials & Chemistry Control",
@@ -10053,6 +14519,13 @@
   },
   {
     "Node": "Milestone: MSRE Proof-of-Concept",
+    "Iteration": 32,
+    "Year": 2046,
+    "RandomDelay": 4.2201726201,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Milestone: MSRE Proof-of-Concept",
     "Iteration": 33,
     "Year": 2045,
     "RandomDelay": 2.1906188323,
@@ -10225,6 +14698,13 @@
     "Year": 2042,
     "RandomDelay": 2.1177589885,
     "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Milestone: MSRE Proof-of-Concept",
+    "Iteration": 58,
+    "Year": 2046,
+    "RandomDelay": 2.4017210168,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Milestone: MSRE Proof-of-Concept",
@@ -10435,6 +14915,13 @@
     "Year": 2041,
     "RandomDelay": 0.5788735367,
     "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: MSRE Proof-of-Concept",
+    "Iteration": 89,
+    "Year": 2047,
+    "RandomDelay": 3.0043189526,
+    "YearsPerTRL": 3.4432070816
   },
   {
     "Node": "Milestone: MSRE Proof-of-Concept",
@@ -12614,6 +17101,55 @@
     "YearsPerTRL": 1.5276051935
   },
   {
+    "Node": "Milestone: SPARC Net Energy Demo",
+    "Iteration": 100,
+    "Year": 2051,
+    "RandomDelay": null,
+    "YearsPerTRL": 1.5276051935
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 1,
+    "Year": 2050,
+    "RandomDelay": 3.6816737175,
+    "YearsPerTRL": 2.5431932687
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 2,
+    "Year": 2050,
+    "RandomDelay": 1.0749433767,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 3,
+    "Year": 2054,
+    "RandomDelay": 3.8326137304,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 4,
+    "Year": 2048,
+    "RandomDelay": 1.8942784274,
+    "YearsPerTRL": 2.6202572191
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 5,
+    "Year": 2050,
+    "RandomDelay": 4.8658536106,
+    "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 6,
+    "Year": 2053,
+    "RandomDelay": 2.8120231866,
+    "YearsPerTRL": 3.1264863496
+  },
+  {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 7,
     "Year": 2045,
@@ -12636,10 +17172,80 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 10,
+    "Year": 2050,
+    "RandomDelay": 3.0643779318,
+    "YearsPerTRL": 2.6117389355
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 11,
+    "Year": 2052,
+    "RandomDelay": 2.9610852426,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 12,
     "Year": 2044,
     "RandomDelay": 1.8394714703,
     "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 13,
+    "Year": 2051,
+    "RandomDelay": 2.1271223773,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 14,
+    "Year": 2051,
+    "RandomDelay": 1.5723070403,
+    "YearsPerTRL": 3.2623969018
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 15,
+    "Year": 2046,
+    "RandomDelay": 1.809392993,
+    "YearsPerTRL": 2.2287878402
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 16,
+    "Year": 2052,
+    "RandomDelay": 1.643518001,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 17,
+    "Year": 2046,
+    "RandomDelay": 0.2989042984,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 18,
+    "Year": 2047,
+    "RandomDelay": 1.0940008356,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 19,
+    "Year": 2053,
+    "RandomDelay": 3.7095886451,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 20,
+    "Year": 2048,
+    "RandomDelay": 2.6170267959,
+    "YearsPerTRL": 2.3528579671
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12650,10 +17256,45 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 22,
+    "Year": 2052,
+    "RandomDelay": 2.5125417294,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 23,
+    "Year": 2046,
+    "RandomDelay": 0.7706950312,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 24,
+    "Year": 2046,
+    "RandomDelay": 2.0056537343,
+    "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 25,
+    "Year": 2052,
+    "RandomDelay": 1.6710069312,
+    "YearsPerTRL": 2.938245899
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 26,
     "Year": 2045,
     "RandomDelay": 2.572832766,
     "YearsPerTRL": 2.0797475535
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 27,
+    "Year": 2049,
+    "RandomDelay": 2.7125089434,
+    "YearsPerTRL": 2.4953218474
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12664,10 +17305,122 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 29,
+    "Year": 2051,
+    "RandomDelay": 2.0788909803,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 30,
+    "Year": 2049,
+    "RandomDelay": 2.5812477908,
+    "YearsPerTRL": 2.4307733456
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 31,
+    "Year": 2047,
+    "RandomDelay": 1.7891455457,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 32,
+    "Year": 2052,
+    "RandomDelay": 2.0214750647,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 33,
+    "Year": 2052,
+    "RandomDelay": 1.3842763063,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 34,
+    "Year": 2047,
+    "RandomDelay": 2.5588826015,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 35,
+    "Year": 2048,
+    "RandomDelay": 3.5250758914,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 36,
+    "Year": 2049,
+    "RandomDelay": 1.4364541675,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 37,
+    "Year": 2046,
+    "RandomDelay": 1.4333906518,
+    "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 38,
+    "Year": 2050,
+    "RandomDelay": 2.9741582041,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 39,
+    "Year": 2047,
+    "RandomDelay": 2.6710711846,
+    "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 40,
+    "Year": 2052,
+    "RandomDelay": 2.2270940764,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 41,
+    "Year": 2049,
+    "RandomDelay": 3.5178312261,
+    "YearsPerTRL": 2.5362868485
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 42,
     "Year": 2044,
     "RandomDelay": 0.5700023471,
     "YearsPerTRL": 2.2505640786
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 43,
+    "Year": 2048,
+    "RandomDelay": 2.124991068,
+    "YearsPerTRL": 2.3865634202
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 44,
+    "Year": 2053,
+    "RandomDelay": 3.5173020319,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 45,
+    "Year": 2050,
+    "RandomDelay": 3.3817788502,
+    "YearsPerTRL": 2.795269416
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12678,10 +17431,66 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 47,
+    "Year": 2054,
+    "RandomDelay": 2.9104491169,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 48,
     "Year": 2043,
     "RandomDelay": 3.9589716223,
     "YearsPerTRL": 1.6850228038
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 49,
+    "Year": 2054,
+    "RandomDelay": 2.0770760943,
+    "YearsPerTRL": 3.1628799767
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 50,
+    "Year": 2049,
+    "RandomDelay": 3.6314443258,
+    "YearsPerTRL": 2.4783685146
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 51,
+    "Year": 2049,
+    "RandomDelay": 2.7307594542,
+    "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 52,
+    "Year": 2049,
+    "RandomDelay": 2.8196431548,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 53,
+    "Year": 2046,
+    "RandomDelay": 0.9319314236,
+    "YearsPerTRL": 2.1958890087
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 54,
+    "Year": 2051,
+    "RandomDelay": 2.4264932899,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 55,
+    "Year": 2052,
+    "RandomDelay": 2.3639462329,
+    "YearsPerTRL": 2.9764512367
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12692,10 +17501,31 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 57,
+    "Year": 2050,
+    "RandomDelay": 1.5136488313,
+    "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 58,
+    "Year": 2055,
+    "RandomDelay": 3.5637538666,
+    "YearsPerTRL": 3.3228706012
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 59,
     "Year": 2042,
     "RandomDelay": 0.3106099796,
     "YearsPerTRL": 2.0976655085
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 60,
+    "Year": 2049,
+    "RandomDelay": 3.9905167617,
+    "YearsPerTRL": 2.1765422371
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12706,10 +17536,38 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 62,
+    "Year": 2047,
+    "RandomDelay": 1.4148188295,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 63,
+    "Year": 2046,
+    "RandomDelay": 2.306038348,
+    "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 64,
+    "Year": 2050,
+    "RandomDelay": 4.1849640761,
+    "YearsPerTRL": 2.6425036576
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 65,
     "Year": 2044,
     "RandomDelay": 0.6325797334,
     "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 66,
+    "Year": 2050,
+    "RandomDelay": 0.5906264726,
+    "YearsPerTRL": 3.1113207132
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12720,10 +17578,52 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 68,
+    "Year": 2046,
+    "RandomDelay": 2.0968526384,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 69,
+    "Year": 2050,
+    "RandomDelay": 1.5399209995,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 70,
+    "Year": 2049,
+    "RandomDelay": 4.0402393267,
+    "YearsPerTRL": 2.3193080326
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 71,
     "Year": 2044,
     "RandomDelay": 1.9270716014,
     "YearsPerTRL": 1.9191757466
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 72,
+    "Year": 2049,
+    "RandomDelay": 2.8170410675,
+    "YearsPerTRL": 2.4548976003
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 73,
+    "Year": 2046,
+    "RandomDelay": 2.5590149282,
+    "YearsPerTRL": 2.1024383276
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 74,
+    "Year": 2046,
+    "RandomDelay": 0.6809008863,
+    "YearsPerTRL": 2.2178587676
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12734,10 +17634,52 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 76,
+    "Year": 2047,
+    "RandomDelay": 1.7353952132,
+    "YearsPerTRL": 2.2709554606
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 77,
+    "Year": 2054,
+    "RandomDelay": 4.2835266458,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 78,
+    "Year": 2049,
+    "RandomDelay": 2.3349922125,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 79,
+    "Year": 2047,
+    "RandomDelay": 1.0053017148,
+    "YearsPerTRL": 2.6807682605
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 80,
     "Year": 2044,
     "RandomDelay": 2.2642475915,
     "YearsPerTRL": 1.9293274226
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 81,
+    "Year": 2047,
+    "RandomDelay": 3.706430174,
+    "YearsPerTRL": 2.1532332885
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 82,
+    "Year": 2049,
+    "RandomDelay": 1.4179499135,
+    "YearsPerTRL": 2.6010407477
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12748,10 +17690,52 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 84,
+    "Year": 2046,
+    "RandomDelay": 2.032894459,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 85,
+    "Year": 2050,
+    "RandomDelay": 2.5879637805,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 86,
     "Year": 2044,
     "RandomDelay": 2.8880084369,
     "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 87,
+    "Year": 2047,
+    "RandomDelay": 1.9329974683,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 88,
+    "Year": 2048,
+    "RandomDelay": 0.383413377,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 90,
+    "Year": 2048,
+    "RandomDelay": 0.6387211607,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 91,
+    "Year": 2051,
+    "RandomDelay": 2.1239578775,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12766,6 +17750,48 @@
     "Year": 2043,
     "RandomDelay": 1.4570730633,
     "YearsPerTRL": 2.0206504341
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 94,
+    "Year": 2046,
+    "RandomDelay": 1.3727814396,
+    "YearsPerTRL": 2.5265420273
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 95,
+    "Year": 2048,
+    "RandomDelay": 2.875168538,
+    "YearsPerTRL": 2.3086839668
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 96,
+    "Year": 2046,
+    "RandomDelay": 4.0836376397,
+    "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 97,
+    "Year": 2046,
+    "RandomDelay": 2.6746488812,
+    "YearsPerTRL": 2.2434808322
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 98,
+    "Year": 2052,
+    "RandomDelay": 2.159176181,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 99,
+    "Year": 2051,
+    "RandomDelay": 3.9828909925,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
@@ -12808,6 +17834,13 @@
     "Year": 2041,
     "RandomDelay": 2.4457460417,
     "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
+    "Iteration": 6,
+    "Year": 2047,
+    "RandomDelay": 4.6347095908,
+    "YearsPerTRL": 3.1264863496
   },
   {
     "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
@@ -12993,6 +18026,13 @@
   },
   {
     "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
+    "Iteration": 33,
+    "Year": 2046,
+    "RandomDelay": 3.698548382,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
     "Iteration": 34,
     "Year": 2040,
     "RandomDelay": 1.5462338802,
@@ -13140,6 +18180,13 @@
   },
   {
     "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
+    "Iteration": 55,
+    "Year": 2046,
+    "RandomDelay": 4.2035796598,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
     "Iteration": 56,
     "Year": 2038,
     "RandomDelay": 1.1062445871,
@@ -13207,6 +18254,13 @@
     "Year": 2037,
     "RandomDelay": 0.745853984,
     "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
+    "Iteration": 66,
+    "Year": 2046,
+    "RandomDelay": 3.5610469311,
+    "YearsPerTRL": 3.1113207132
   },
   {
     "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
@@ -13455,6 +18509,41 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 2,
+    "Year": 2047,
+    "RandomDelay": 1.4981190124,
+    "YearsPerTRL": 2.7728290649
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 3,
+    "Year": 2051,
+    "RandomDelay": 2.8297949335,
+    "YearsPerTRL": 3.0559595082
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 4,
+    "Year": 2048,
+    "RandomDelay": 3.5854554331,
+    "YearsPerTRL": 2.6202572191
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 5,
+    "Year": 2047,
+    "RandomDelay": 4.0185640318,
+    "YearsPerTRL": 2.3821090936
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 6,
+    "Year": 2051,
+    "RandomDelay": 2.2688795905,
+    "YearsPerTRL": 3.1264863496
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 7,
     "Year": 2044,
     "RandomDelay": 4.1881317105,
@@ -13483,10 +18572,31 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 11,
+    "Year": 2050,
+    "RandomDelay": 2.3066061458,
+    "YearsPerTRL": 2.9638881082
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 12,
     "Year": 2042,
     "RandomDelay": 1.0943034318,
     "YearsPerTRL": 2.1176282864
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 13,
+    "Year": 2048,
+    "RandomDelay": 2.1583194213,
+    "YearsPerTRL": 2.7431134151
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 14,
+    "Year": 2052,
+    "RandomDelay": 2.4856469815,
+    "YearsPerTRL": 3.2623969018
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -13497,10 +18607,73 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 16,
+    "Year": 2049,
+    "RandomDelay": 2.5280616051,
+    "YearsPerTRL": 2.8332580901
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 17,
+    "Year": 2046,
+    "RandomDelay": 2.3964181677,
+    "YearsPerTRL": 2.5044641163
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 18,
+    "Year": 2049,
+    "RandomDelay": 4.6668099793,
+    "YearsPerTRL": 2.582788822
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 19,
+    "Year": 2050,
+    "RandomDelay": 2.3740791516,
+    "YearsPerTRL": 3.0346478501
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 20,
+    "Year": 2047,
+    "RandomDelay": 3.5819280388,
+    "YearsPerTRL": 2.3528579671
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 21,
     "Year": 2044,
     "RandomDelay": 4.9370114319,
     "YearsPerTRL": 1.8533245607
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 22,
+    "Year": 2050,
+    "RandomDelay": 2.2282544533,
+    "YearsPerTRL": 3.0912329277
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 23,
+    "Year": 2046,
+    "RandomDelay": 1.2192579174,
+    "YearsPerTRL": 2.5516256222
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 24,
+    "Year": 2046,
+    "RandomDelay": 2.6395855771,
+    "YearsPerTRL": 2.395621336
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 25,
+    "Year": 2049,
+    "RandomDelay": 2.1085657276,
+    "YearsPerTRL": 2.938245899
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -13511,6 +18684,27 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 27,
+    "Year": 2047,
+    "RandomDelay": 2.7254234156,
+    "YearsPerTRL": 2.4953218474
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 28,
+    "Year": 2046,
+    "RandomDelay": 1.9922644294,
+    "YearsPerTRL": 2.4690840648
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 29,
+    "Year": 2050,
+    "RandomDelay": 2.9772286034,
+    "YearsPerTRL": 2.8651096238
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 30,
     "Year": 2044,
     "RandomDelay": 0.5888133971,
@@ -13518,10 +18712,80 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 31,
+    "Year": 2047,
+    "RandomDelay": 2.0117134913,
+    "YearsPerTRL": 2.6663962313
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 32,
+    "Year": 2050,
+    "RandomDelay": 2.3754799427,
+    "YearsPerTRL": 3.0107657058
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 33,
+    "Year": 2052,
+    "RandomDelay": 2.8901034116,
+    "YearsPerTRL": 3.2058631149
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 34,
+    "Year": 2046,
+    "RandomDelay": 1.9300372352,
+    "YearsPerTRL": 2.4447702397
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 35,
+    "Year": 2046,
+    "RandomDelay": 2.7621438413,
+    "YearsPerTRL": 2.3429762059
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 36,
+    "Year": 2048,
+    "RandomDelay": 2.3714996204,
+    "YearsPerTRL": 2.7101965895
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 37,
     "Year": 2043,
     "RandomDelay": 0.2672485481,
     "YearsPerTRL": 2.2857490502
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 38,
+    "Year": 2049,
+    "RandomDelay": 3.2937907861,
+    "YearsPerTRL": 2.7322017853
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 39,
+    "Year": 2046,
+    "RandomDelay": 2.5067375981,
+    "YearsPerTRL": 2.4249117866
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 40,
+    "Year": 2050,
+    "RandomDelay": 2.1477245093,
+    "YearsPerTRL": 2.9966151771
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 41,
+    "Year": 2048,
+    "RandomDelay": 3.3872102467,
+    "YearsPerTRL": 2.5362868485
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -13539,10 +18803,31 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 44,
+    "Year": 2049,
+    "RandomDelay": 2.1376414557,
+    "YearsPerTRL": 2.8785120011
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 45,
+    "Year": 2050,
+    "RandomDelay": 4.1868986895,
+    "YearsPerTRL": 2.795269416
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 46,
     "Year": 2043,
     "RandomDelay": 3.351807505,
     "YearsPerTRL": 1.8793477466
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 47,
+    "Year": 2053,
+    "RandomDelay": 3.7013500865,
+    "YearsPerTRL": 3.239712529
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -13553,6 +18838,34 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 49,
+    "Year": 2052,
+    "RandomDelay": 3.7697933805,
+    "YearsPerTRL": 3.1628799767
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 50,
+    "Year": 2048,
+    "RandomDelay": 4.0402492346,
+    "YearsPerTRL": 2.4783685146
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 51,
+    "Year": 2048,
+    "RandomDelay": 4.0954733025,
+    "YearsPerTRL": 2.5181659183
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 52,
+    "Year": 2048,
+    "RandomDelay": 1.4939504662,
+    "YearsPerTRL": 2.8518123378
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 53,
     "Year": 2044,
     "RandomDelay": 1.7651863345,
@@ -13560,10 +18873,38 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 54,
+    "Year": 2049,
+    "RandomDelay": 4.388341742,
+    "YearsPerTRL": 2.6554308689
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 55,
+    "Year": 2052,
+    "RandomDelay": 4.3983330172,
+    "YearsPerTRL": 2.9764512367
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 56,
     "Year": 2044,
     "RandomDelay": 3.167062286,
     "YearsPerTRL": 1.9943535368
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 57,
+    "Year": 2047,
+    "RandomDelay": 2.0277938049,
+    "YearsPerTRL": 2.5894077117
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 58,
+    "Year": 2054,
+    "RandomDelay": 3.826674922,
+    "YearsPerTRL": 3.3228706012
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -13588,10 +18929,24 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 62,
+    "Year": 2049,
+    "RandomDelay": 4.3828330745,
+    "YearsPerTRL": 2.6343084128
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 63,
     "Year": 2045,
     "RandomDelay": 2.2169676079,
     "YearsPerTRL": 2.3298766643
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 64,
+    "Year": 2049,
+    "RandomDelay": 4.3337281108,
+    "YearsPerTRL": 2.6425036576
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -13602,6 +18957,13 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 66,
+    "Year": 2052,
+    "RandomDelay": 3.8211825084,
+    "YearsPerTRL": 3.1113207132
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 67,
     "Year": 2043,
     "RandomDelay": 1.9081659579,
@@ -13609,10 +18971,38 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 68,
+    "Year": 2046,
+    "RandomDelay": 3.2078920553,
+    "YearsPerTRL": 2.2961915586
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 69,
+    "Year": 2049,
+    "RandomDelay": 1.6698915709,
+    "YearsPerTRL": 2.9163765283
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 70,
+    "Year": 2046,
+    "RandomDelay": 3.1389620908,
+    "YearsPerTRL": 2.3193080326
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 71,
     "Year": 2042,
     "RandomDelay": 2.5280973059,
     "YearsPerTRL": 1.9191757466
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 72,
+    "Year": 2046,
+    "RandomDelay": 2.1087180473,
+    "YearsPerTRL": 2.4548976003
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -13644,6 +19034,27 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 77,
+    "Year": 2050,
+    "RandomDelay": 3.6810554272,
+    "YearsPerTRL": 2.7887532952
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 78,
+    "Year": 2048,
+    "RandomDelay": 2.3130355369,
+    "YearsPerTRL": 2.8120767991
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 79,
+    "Year": 2046,
+    "RandomDelay": 0.8658639387,
+    "YearsPerTRL": 2.6807682605
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 80,
     "Year": 2044,
     "RandomDelay": 3.8994748191,
@@ -13658,10 +19069,73 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 82,
+    "Year": 2047,
+    "RandomDelay": 2.2397944657,
+    "YearsPerTRL": 2.6010407477
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 83,
+    "Year": 2046,
+    "RandomDelay": 4.3317491595,
+    "YearsPerTRL": 2.1809695972
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 84,
+    "Year": 2046,
+    "RandomDelay": 3.0411464363,
+    "YearsPerTRL": 2.4146915008
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 85,
+    "Year": 2049,
+    "RandomDelay": 1.9094542842,
+    "YearsPerTRL": 2.8996215848
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 86,
     "Year": 2043,
     "RandomDelay": 3.604234843,
     "YearsPerTRL": 1.813367265
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 87,
+    "Year": 2047,
+    "RandomDelay": 2.8133397412,
+    "YearsPerTRL": 2.4826254693
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 88,
+    "Year": 2046,
+    "RandomDelay": 0.9126406565,
+    "YearsPerTRL": 2.6942472187
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 89,
+    "Year": 2053,
+    "RandomDelay": 2.5973408323,
+    "YearsPerTRL": 3.4432070816
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 90,
+    "Year": 2048,
+    "RandomDelay": 0.971220933,
+    "YearsPerTRL": 2.9255255484
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 91,
+    "Year": 2048,
+    "RandomDelay": 2.1299903637,
+    "YearsPerTRL": 2.7630832869
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -13679,6 +19153,13 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 94,
+    "Year": 2046,
+    "RandomDelay": 2.2485571277,
+    "YearsPerTRL": 2.5265420273
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 95,
     "Year": 2043,
     "RandomDelay": 0.8241379603,
@@ -13690,6 +19171,27 @@
     "Year": 2039,
     "RandomDelay": 0.7827165475,
     "YearsPerTRL": 1.7177024303
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 97,
+    "Year": 2046,
+    "RandomDelay": 4.1765247586,
+    "YearsPerTRL": 2.2434808322
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 98,
+    "Year": 2046,
+    "RandomDelay": 0.6705314572,
+    "YearsPerTRL": 2.7242726005
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 99,
+    "Year": 2046,
+    "RandomDelay": 1.0494861099,
+    "YearsPerTRL": 2.5713665319
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -14022,6 +19524,13 @@
   },
   {
     "Node": "Milestone: W7-X Optimized Physics Proof",
+    "Iteration": 47,
+    "Year": 2046,
+    "RandomDelay": 3.266514128,
+    "YearsPerTRL": 3.239712529
+  },
+  {
+    "Node": "Milestone: W7-X Optimized Physics Proof",
     "Iteration": 48,
     "Year": 2037,
     "RandomDelay": 2.0255008855,
@@ -14092,6 +19601,13 @@
   },
   {
     "Node": "Milestone: W7-X Optimized Physics Proof",
+    "Iteration": 58,
+    "Year": 2046,
+    "RandomDelay": 2.859909328,
+    "YearsPerTRL": 3.3228706012
+  },
+  {
+    "Node": "Milestone: W7-X Optimized Physics Proof",
     "Iteration": 59,
     "Year": 2042,
     "RandomDelay": 4.7045449265,
@@ -14138,6 +19654,13 @@
     "Year": 2040,
     "RandomDelay": 2.9548196512,
     "YearsPerTRL": 2.0360089865
+  },
+  {
+    "Node": "Milestone: W7-X Optimized Physics Proof",
+    "Iteration": 66,
+    "Year": 2046,
+    "RandomDelay": 3.7580563659,
+    "YearsPerTRL": 3.1113207132
   },
   {
     "Node": "Milestone: W7-X Optimized Physics Proof",

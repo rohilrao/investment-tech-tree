@@ -181,6 +181,18 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 31,
+    "Year": 2046,
+    "RandomDelay": 4.3332424974
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 32,
+    "Year": 2046,
+    "RandomDelay": 4.0229895716
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 33,
     "Year": 2043,
     "RandomDelay": 1.1073844659
@@ -229,6 +241,12 @@
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 41,
+    "Year": 2046,
+    "RandomDelay": 4.5562902293
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
     "Iteration": 42,
     "Year": 2042,
     "RandomDelay": 0.7030073451
@@ -244,6 +262,12 @@
     "Iteration": 44,
     "Year": 2042,
     "RandomDelay": 0.5293034982
+  },
+  {
+    "Node": "Enabling Tech: AI/ML for Control & Design",
+    "Iteration": 45,
+    "Year": 2046,
+    "RandomDelay": 4.6754234428
   },
   {
     "Node": "Enabling Tech: AI/ML for Control & Design",
@@ -577,6 +601,42 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 1,
+    "Year": 2048,
+    "RandomDelay": 3.5016403799
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 2,
+    "Year": 2047,
+    "RandomDelay": 2.7402226408
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 3,
+    "Year": 2047,
+    "RandomDelay": 2.7031131063
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 4,
+    "Year": 2047,
+    "RandomDelay": 3.0595826228
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 5,
+    "Year": 2048,
+    "RandomDelay": 3.9175948565
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 6,
+    "Year": 2047,
+    "RandomDelay": 3.2723545348
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 7,
     "Year": 2045,
     "RandomDelay": 0.7732866685
@@ -589,9 +649,45 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 9,
+    "Year": 2048,
+    "RandomDelay": 4.0408788211
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 10,
+    "Year": 2046,
+    "RandomDelay": 1.8485105566
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 11,
     "Year": 2045,
     "RandomDelay": 0.8523180221
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 12,
+    "Year": 2049,
+    "RandomDelay": 4.7178375922
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 13,
+    "Year": 2048,
+    "RandomDelay": 3.957244917
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 14,
+    "Year": 2046,
+    "RandomDelay": 1.8056391008
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 15,
+    "Year": 2046,
+    "RandomDelay": 2.1124310937
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -601,15 +697,81 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 17,
+    "Year": 2048,
+    "RandomDelay": 3.8100495988
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 18,
+    "Year": 2047,
+    "RandomDelay": 2.9008849096
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 19,
+    "Year": 2047,
+    "RandomDelay": 3.4656125171
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 20,
     "Year": 2045,
     "RandomDelay": 0.8694659981
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 21,
+    "Year": 2047,
+    "RandomDelay": 2.9137487783
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 22,
     "Year": 2044,
     "RandomDelay": 0.1608172581
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 23,
+    "Year": 2046,
+    "RandomDelay": 1.9557220052
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 24,
+    "Year": 2047,
+    "RandomDelay": 3.3501603429
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 25,
+    "Year": 2046,
+    "RandomDelay": 1.5297565118
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 26,
+    "Year": 2048,
+    "RandomDelay": 4.3538286825
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 27,
+    "Year": 2046,
+    "RandomDelay": 2.2603736018
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 28,
+    "Year": 2048,
+    "RandomDelay": 4.4426428019
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 29,
+    "Year": 2047,
+    "RandomDelay": 2.6917613043
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -625,6 +787,42 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 32,
+    "Year": 2046,
+    "RandomDelay": 1.6220619504
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 33,
+    "Year": 2049,
+    "RandomDelay": 4.7449528584
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 34,
+    "Year": 2046,
+    "RandomDelay": 2.20425232
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 35,
+    "Year": 2048,
+    "RandomDelay": 3.9329183904
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 36,
+    "Year": 2048,
+    "RandomDelay": 4.4418901686
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 37,
+    "Year": 2046,
+    "RandomDelay": 1.9384920662
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 38,
     "Year": 2045,
     "RandomDelay": 1.2878123184
@@ -637,9 +835,45 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 40,
+    "Year": 2048,
+    "RandomDelay": 4.0804777363
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 41,
+    "Year": 2048,
+    "RandomDelay": 3.938761481
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 42,
+    "Year": 2046,
+    "RandomDelay": 1.888661169
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 43,
     "Year": 2045,
     "RandomDelay": 1.1445822974
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 44,
+    "Year": 2048,
+    "RandomDelay": 4.3836404107
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 45,
+    "Year": 2047,
+    "RandomDelay": 2.7691400072
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 46,
+    "Year": 2046,
+    "RandomDelay": 1.9529055358
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -649,15 +883,81 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 48,
+    "Year": 2046,
+    "RandomDelay": 2.0148243329
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 49,
+    "Year": 2046,
+    "RandomDelay": 1.6078883031
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 50,
+    "Year": 2047,
+    "RandomDelay": 3.3985151314
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 51,
+    "Year": 2046,
+    "RandomDelay": 1.6183138133
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 52,
     "Year": 2045,
     "RandomDelay": 0.9264860827
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 53,
+    "Year": 2048,
+    "RandomDelay": 3.5144687186
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 54,
+    "Year": 2046,
+    "RandomDelay": 2.3576467736
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 55,
+    "Year": 2046,
+    "RandomDelay": 1.5161334171
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 56,
+    "Year": 2046,
+    "RandomDelay": 1.7283258838
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 57,
+    "Year": 2046,
+    "RandomDelay": 2.436270755
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 58,
     "Year": 2044,
     "RandomDelay": 0.3099732214
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 59,
+    "Year": 2046,
+    "RandomDelay": 2.2182951112
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 60,
+    "Year": 2047,
+    "RandomDelay": 2.6639662296
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -673,9 +973,33 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 63,
+    "Year": 2047,
+    "RandomDelay": 2.9107565464
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 64,
     "Year": 2045,
     "RandomDelay": 1.4951481989
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 65,
+    "Year": 2048,
+    "RandomDelay": 3.9577995002
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 66,
+    "Year": 2048,
+    "RandomDelay": 3.8913632114
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 67,
+    "Year": 2047,
+    "RandomDelay": 3.3708187097
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -691,15 +1015,81 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 70,
+    "Year": 2046,
+    "RandomDelay": 1.9387976381
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 71,
     "Year": 2045,
     "RandomDelay": 0.7908702267
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 72,
+    "Year": 2047,
+    "RandomDelay": 2.5417197158
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 73,
+    "Year": 2047,
+    "RandomDelay": 2.9241964072
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 74,
+    "Year": 2047,
+    "RandomDelay": 3.4197844018
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 75,
     "Year": 2045,
     "RandomDelay": 0.9330224605
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 76,
+    "Year": 2048,
+    "RandomDelay": 3.7273922592
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 77,
+    "Year": 2047,
+    "RandomDelay": 3.0204872176
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 78,
+    "Year": 2048,
+    "RandomDelay": 3.7652323867
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 79,
+    "Year": 2046,
+    "RandomDelay": 2.2718739678
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 80,
+    "Year": 2046,
+    "RandomDelay": 1.8560441298
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 81,
+    "Year": 2047,
+    "RandomDelay": 2.9349223525
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 82,
+    "Year": 2046,
+    "RandomDelay": 1.9322856051
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
@@ -715,9 +1105,99 @@
   },
   {
     "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 85,
+    "Year": 2047,
+    "RandomDelay": 2.8601402427
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 86,
+    "Year": 2046,
+    "RandomDelay": 1.9071770004
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 87,
+    "Year": 2046,
+    "RandomDelay": 1.8217381618
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 88,
+    "Year": 2047,
+    "RandomDelay": 2.9526976595
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 89,
+    "Year": 2046,
+    "RandomDelay": 2.1212562902
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 90,
+    "Year": 2048,
+    "RandomDelay": 3.5286182173
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 91,
+    "Year": 2047,
+    "RandomDelay": 2.5435621716
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 92,
+    "Year": 2046,
+    "RandomDelay": 2.2241776939
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 93,
+    "Year": 2047,
+    "RandomDelay": 3.1231555526
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 94,
+    "Year": 2046,
+    "RandomDelay": 2.4799027054
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
     "Iteration": 95,
     "Year": 2045,
     "RandomDelay": 1.3868852052
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 96,
+    "Year": 2046,
+    "RandomDelay": 1.761607271
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 97,
+    "Year": 2047,
+    "RandomDelay": 2.8683040529
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 98,
+    "Year": 2046,
+    "RandomDelay": 1.7894062377
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 99,
+    "Year": 2046,
+    "RandomDelay": 1.9760116443
+  },
+  {
+    "Node": "Enabling Tech: Advanced Divertor Concepts",
+    "Iteration": 100,
+    "Year": 2047,
+    "RandomDelay": 2.6987778835
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -754,6 +1234,12 @@
     "Iteration": 6,
     "Year": 2042,
     "RandomDelay": 0.5404580402
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 7,
+    "Year": 2046,
+    "RandomDelay": 4.1797169251
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -1015,6 +1501,12 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 51,
+    "Year": 2046,
+    "RandomDelay": 4.0540314442
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 52,
     "Year": 2043,
     "RandomDelay": 1.9568327438
@@ -1141,6 +1633,12 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 73,
+    "Year": 2046,
+    "RandomDelay": 4.1101053976
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 74,
     "Year": 2042,
     "RandomDelay": 0.4030565854
@@ -1162,6 +1660,12 @@
     "Iteration": 77,
     "Year": 2044,
     "RandomDelay": 2.7409325224
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 78,
+    "Year": 2046,
+    "RandomDelay": 4.028137424
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
@@ -1279,9 +1783,21 @@
   },
   {
     "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 98,
+    "Year": 2046,
+    "RandomDelay": 4.0253049892
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
     "Iteration": 99,
     "Year": 2045,
     "RandomDelay": 3.7005846156
+  },
+  {
+    "Node": "Enabling Tech: HALEU Fuel Supply",
+    "Iteration": 100,
+    "Year": 2046,
+    "RandomDelay": 4.0393014885
   },
   {
     "Node": "Enabling Tech: HTS Magnets",
@@ -3811,6 +4327,12 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 22,
+    "Year": 2046,
+    "RandomDelay": 4.3859055353
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 23,
     "Year": 2045,
     "RandomDelay": 3.73433394
@@ -3907,6 +4429,12 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 39,
+    "Year": 2046,
+    "RandomDelay": 4.4541452166
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 40,
     "Year": 2043,
     "RandomDelay": 1.1598535249
@@ -3931,6 +4459,12 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 44,
+    "Year": 2046,
+    "RandomDelay": 4.4320558116
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 45,
     "Year": 2043,
     "RandomDelay": 1.8273821887
@@ -3946,6 +4480,18 @@
     "Iteration": 47,
     "Year": 2043,
     "RandomDelay": 1.1081784614
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 48,
+    "Year": 2046,
+    "RandomDelay": 4.536328717
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 49,
+    "Year": 2046,
+    "RandomDelay": 4.1452608341
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -3976,6 +4522,12 @@
     "Iteration": 54,
     "Year": 2044,
     "RandomDelay": 2.5502870259
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 55,
+    "Year": 2046,
+    "RandomDelay": 4.0315472187
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4042,6 +4594,12 @@
     "Iteration": 66,
     "Year": 2043,
     "RandomDelay": 1.1693740615
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 67,
+    "Year": 2046,
+    "RandomDelay": 4.1321113668
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -4171,6 +4729,12 @@
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 89,
+    "Year": 2046,
+    "RandomDelay": 4.6300880376
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
     "Iteration": 90,
     "Year": 2045,
     "RandomDelay": 3.4438926242
@@ -4198,6 +4762,12 @@
     "Iteration": 94,
     "Year": 2042,
     "RandomDelay": 0.1901858175
+  },
+  {
+    "Node": "Enabling Tech: Radiation-Hardened Electronics",
+    "Iteration": 95,
+    "Year": 2046,
+    "RandomDelay": 4.3141635127
   },
   {
     "Node": "Enabling Tech: Radiation-Hardened Electronics",
@@ -5430,6 +6000,606 @@
     "RandomDelay": 1.722012343
   },
   {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 1,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 2,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 3,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 4,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 5,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 6,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 7,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 8,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 9,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 10,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 11,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 12,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 13,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 14,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 15,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 16,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 17,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 18,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 19,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 20,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 21,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 22,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 23,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 24,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 25,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 26,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 27,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 28,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 29,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 30,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 31,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 32,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 33,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 34,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 35,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 36,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 37,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 38,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 39,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 40,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 41,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 42,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 43,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 44,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 45,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 46,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 47,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 48,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 49,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 50,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 51,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 52,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 53,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 54,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 55,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 56,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 57,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 58,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 59,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 60,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 61,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 62,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 63,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 64,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 65,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 66,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 67,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 68,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 69,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 70,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 71,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 72,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 73,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 74,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 75,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 76,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 77,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 78,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 79,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 80,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 81,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 82,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 83,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 84,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 85,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 86,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 87,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 88,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 89,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 90,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 91,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 92,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 93,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 94,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 95,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 96,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 97,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 98,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 99,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: FRC Net Energy Demo",
+    "Iteration": 100,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
     "Node": "Milestone: FRC Stable Sustainment",
     "Iteration": 1,
     "Year": 2040,
@@ -6631,6 +7801,12 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 1,
+    "Year": 2046,
+    "RandomDelay": 2.7812387327
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 2,
     "Year": 2043,
     "RandomDelay": 2.8768723763
@@ -6643,9 +7819,39 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 4,
+    "Year": 2046,
+    "RandomDelay": 3.8532849656
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 5,
+    "Year": 2047,
+    "RandomDelay": 3.9746913559
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 6,
+    "Year": 2046,
+    "RandomDelay": 4.7847894216
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 7,
+    "Year": 2047,
+    "RandomDelay": 4.5341409948
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 8,
     "Year": 2043,
     "RandomDelay": 1.7104195166
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 9,
+    "Year": 2046,
+    "RandomDelay": 4.6774499281
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -6664,6 +7870,18 @@
     "Iteration": 12,
     "Year": 2043,
     "RandomDelay": 2.1404199581
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 13,
+    "Year": 2047,
+    "RandomDelay": 3.8461323142
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 14,
+    "Year": 2049,
+    "RandomDelay": 4.539762406
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -6688,6 +7906,12 @@
     "Iteration": 18,
     "Year": 2043,
     "RandomDelay": 2.3465133098
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 19,
+    "Year": 2046,
+    "RandomDelay": 3.7262927194
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -6733,6 +7957,12 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 27,
+    "Year": 2048,
+    "RandomDelay": 4.6299193131
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 28,
     "Year": 2044,
     "RandomDelay": 2.2641090223
@@ -6742,6 +7972,18 @@
     "Iteration": 29,
     "Year": 2043,
     "RandomDelay": 0.5489329476
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 30,
+    "Year": 2047,
+    "RandomDelay": 4.1407311801
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 31,
+    "Year": 2046,
+    "RandomDelay": 2.8861107282
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -6763,9 +8005,27 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 35,
+    "Year": 2046,
+    "RandomDelay": 2.1908426403
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 36,
     "Year": 2045,
     "RandomDelay": 3.0200688038
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 37,
+    "Year": 2047,
+    "RandomDelay": 3.8945957966
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 38,
+    "Year": 2046,
+    "RandomDelay": 3.7444028576
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -6778,6 +8038,12 @@
     "Iteration": 40,
     "Year": 2045,
     "RandomDelay": 3.9617546387
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 41,
+    "Year": 2046,
+    "RandomDelay": 4.4339248048
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -6832,6 +8098,12 @@
     "Iteration": 50,
     "Year": 2042,
     "RandomDelay": 0.8611255576
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 51,
+    "Year": 2046,
+    "RandomDelay": 1.8626454111
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -6892,6 +8164,12 @@
     "Iteration": 61,
     "Year": 2044,
     "RandomDelay": 2.6122674668
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 62,
+    "Year": 2048,
+    "RandomDelay": 4.4440459241
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7003,6 +8281,12 @@
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 81,
+    "Year": 2046,
+    "RandomDelay": 3.6103963627
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
     "Iteration": 82,
     "Year": 2044,
     "RandomDelay": 0.7410298228
@@ -7012,6 +8296,12 @@
     "Iteration": 83,
     "Year": 2043,
     "RandomDelay": 2.0570029661
+  },
+  {
+    "Node": "Milestone: HTGR Demo Reactor Operation",
+    "Iteration": 84,
+    "Year": 2046,
+    "RandomDelay": 3.3231007001
   },
   {
     "Node": "Milestone: HTGR Demo Reactor Operation",
@@ -7110,6 +8400,606 @@
     "RandomDelay": 1.5971684363
   },
   {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 1,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 2,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 3,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 4,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 5,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 6,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 7,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 8,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 9,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 10,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 11,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 12,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 13,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 14,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 15,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 16,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 17,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 18,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 19,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 20,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 21,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 22,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 23,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 24,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 25,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 26,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 27,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 28,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 29,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 30,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 31,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 32,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 33,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 34,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 35,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 36,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 37,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 38,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 39,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 40,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 41,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 42,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 43,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 44,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 45,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 46,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 47,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 48,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 49,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 50,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 51,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 52,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 53,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 54,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 55,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 56,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 57,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 58,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 59,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 60,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 61,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 62,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 63,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 64,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 65,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 66,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 67,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 68,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 69,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 70,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 71,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 72,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 73,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 74,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 75,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 76,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 77,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 78,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 79,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 80,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 81,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 82,
+    "Year": 2052,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 83,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 84,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 85,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 86,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 87,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 88,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 89,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 90,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 91,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 92,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 93,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 94,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 95,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 96,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 97,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 98,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 99,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: HTS Stellarator Coil Fabrication",
+    "Iteration": 100,
+    "Year": 2051,
+    "RandomDelay": null
+  },
+  {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 1,
     "Year": 2045,
@@ -7117,8 +9007,26 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 2,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 3,
     "Year": 2044,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 4,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 5,
+    "Year": 2046,
     "RandomDelay": null
   },
   {
@@ -7141,6 +9049,12 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 9,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 10,
     "Year": 2044,
     "RandomDelay": null
@@ -7153,6 +9067,18 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 12,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 13,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 14,
     "Year": 2045,
     "RandomDelay": null
@@ -7161,6 +9087,18 @@
     "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 15,
     "Year": 2045,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 16,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 17,
+    "Year": 2046,
     "RandomDelay": null
   },
   {
@@ -7189,14 +9127,38 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 22,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 23,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 24,
     "Year": 2045,
     "RandomDelay": null
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 25,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 26,
     "Year": 2045,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 27,
+    "Year": 2046,
     "RandomDelay": null
   },
   {
@@ -7213,8 +9175,26 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 30,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 31,
     "Year": 2045,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 32,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 33,
+    "Year": 2046,
     "RandomDelay": null
   },
   {
@@ -7225,14 +9205,62 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 35,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 36,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 37,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 38,
     "Year": 2044,
     "RandomDelay": null
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 39,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 40,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 41,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 42,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 43,
     "Year": 2045,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 44,
+    "Year": 2047,
     "RandomDelay": null
   },
   {
@@ -7249,8 +9277,38 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 47,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 48,
     "Year": 2045,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 49,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 50,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 51,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 52,
+    "Year": 2046,
     "RandomDelay": null
   },
   {
@@ -7261,8 +9319,20 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 54,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 55,
     "Year": 2045,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 56,
+    "Year": 2046,
     "RandomDelay": null
   },
   {
@@ -7273,8 +9343,56 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 58,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 59,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 60,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 61,
     "Year": 2045,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 62,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 63,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 64,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 65,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 66,
+    "Year": 2047,
     "RandomDelay": null
   },
   {
@@ -7291,6 +9409,12 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 69,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 70,
     "Year": 2045,
     "RandomDelay": null
@@ -7303,8 +9427,20 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 72,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 73,
     "Year": 2045,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 74,
+    "Year": 2047,
     "RandomDelay": null
   },
   {
@@ -7321,8 +9457,44 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 77,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 78,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 79,
     "Year": 2044,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 80,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 81,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 82,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 83,
+    "Year": 2046,
     "RandomDelay": null
   },
   {
@@ -7339,6 +9511,12 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 86,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 87,
     "Year": 2045,
     "RandomDelay": null
@@ -7351,8 +9529,38 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 89,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 90,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 91,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 92,
     "Year": 2045,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 93,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 94,
+    "Year": 2047,
     "RandomDelay": null
   },
   {
@@ -7363,8 +9571,26 @@
   },
   {
     "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 96,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
     "Iteration": 97,
     "Year": 2044,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 98,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: IFE High-Rep-Rate Driver",
+    "Iteration": 99,
+    "Year": 2046,
     "RandomDelay": null
   },
   {
@@ -7372,6 +9598,606 @@
     "Iteration": 100,
     "Year": 2044,
     "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 1,
+    "Year": 2053,
+    "RandomDelay": 4.9553837402
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 2,
+    "Year": 2050,
+    "RandomDelay": 2.0055511724
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 3,
+    "Year": 2051,
+    "RandomDelay": 3.2028062621
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 4,
+    "Year": 2051,
+    "RandomDelay": 2.1775644466
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 5,
+    "Year": 2051,
+    "RandomDelay": 2.5164988657
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 6,
+    "Year": 2048,
+    "RandomDelay": 1.1121544425
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 7,
+    "Year": 2050,
+    "RandomDelay": 0.3400298352
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 8,
+    "Year": 2049,
+    "RandomDelay": 2.5320949234
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 9,
+    "Year": 2052,
+    "RandomDelay": 3.5042863261
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 10,
+    "Year": 2048,
+    "RandomDelay": 0.5262863661
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 11,
+    "Year": 2050,
+    "RandomDelay": 2.1709254367
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 12,
+    "Year": 2050,
+    "RandomDelay": 2.0690944852
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 13,
+    "Year": 2051,
+    "RandomDelay": 3.16959933
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 14,
+    "Year": 2049,
+    "RandomDelay": 1.7562130659
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 15,
+    "Year": 2048,
+    "RandomDelay": 1.4737388025
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 16,
+    "Year": 2050,
+    "RandomDelay": 2.038903057
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 17,
+    "Year": 2053,
+    "RandomDelay": 2.9743812877
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 18,
+    "Year": 2050,
+    "RandomDelay": 2.1666727974
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 19,
+    "Year": 2050,
+    "RandomDelay": 2.8632410395
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 20,
+    "Year": 2051,
+    "RandomDelay": 3.7505561199
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 21,
+    "Year": 2052,
+    "RandomDelay": 3.641418841
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 22,
+    "Year": 2052,
+    "RandomDelay": 4.4528649947
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 23,
+    "Year": 2051,
+    "RandomDelay": 1.5303202401
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 24,
+    "Year": 2053,
+    "RandomDelay": 2.1084961598
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 25,
+    "Year": 2049,
+    "RandomDelay": 1.102981638
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 26,
+    "Year": 2051,
+    "RandomDelay": 2.0060229888
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 27,
+    "Year": 2050,
+    "RandomDelay": 1.6807194409
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 28,
+    "Year": 2051,
+    "RandomDelay": 3.4929812957
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 29,
+    "Year": 2051,
+    "RandomDelay": 1.9187747489
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 30,
+    "Year": 2050,
+    "RandomDelay": 1.4507081447
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 31,
+    "Year": 2051,
+    "RandomDelay": 3.4934434692
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 32,
+    "Year": 2052,
+    "RandomDelay": 2.634656779
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 33,
+    "Year": 2048,
+    "RandomDelay": 0.8639194648
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 34,
+    "Year": 2049,
+    "RandomDelay": 1.8005134934
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 35,
+    "Year": 2051,
+    "RandomDelay": 2.4551138372
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 36,
+    "Year": 2051,
+    "RandomDelay": 3.0766725712
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 37,
+    "Year": 2049,
+    "RandomDelay": 1.977505069
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 38,
+    "Year": 2051,
+    "RandomDelay": 2.467708217
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 39,
+    "Year": 2053,
+    "RandomDelay": 2.2744067937
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 40,
+    "Year": 2049,
+    "RandomDelay": 2.3802208146
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 41,
+    "Year": 2050,
+    "RandomDelay": 2.6557942962
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 42,
+    "Year": 2052,
+    "RandomDelay": 4.0205042967
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 43,
+    "Year": 2048,
+    "RandomDelay": 1.8491354658
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 44,
+    "Year": 2049,
+    "RandomDelay": 1.919723487
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 45,
+    "Year": 2054,
+    "RandomDelay": 4.70387123
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 46,
+    "Year": 2050,
+    "RandomDelay": 1.6794249226
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 47,
+    "Year": 2050,
+    "RandomDelay": 2.8365212791
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 48,
+    "Year": 2050,
+    "RandomDelay": 1.8739958831
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 49,
+    "Year": 2053,
+    "RandomDelay": 2.0014941213
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 50,
+    "Year": 2051,
+    "RandomDelay": 3.3519557394
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 51,
+    "Year": 2053,
+    "RandomDelay": 3.6353094546
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 52,
+    "Year": 2048,
+    "RandomDelay": 0.6082676103
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 53,
+    "Year": 2050,
+    "RandomDelay": 1.9586911286
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 54,
+    "Year": 2051,
+    "RandomDelay": 1.2038123054
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 55,
+    "Year": 2051,
+    "RandomDelay": 1.7357497988
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 56,
+    "Year": 2051,
+    "RandomDelay": 2.2155938264
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 57,
+    "Year": 2051,
+    "RandomDelay": 3.4474524942
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 58,
+    "Year": 2049,
+    "RandomDelay": 1.1768417213
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 59,
+    "Year": 2048,
+    "RandomDelay": 1.2565555271
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 60,
+    "Year": 2052,
+    "RandomDelay": 4.5527783992
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 61,
+    "Year": 2053,
+    "RandomDelay": 2.4548928729
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 62,
+    "Year": 2053,
+    "RandomDelay": 2.7536787182
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 63,
+    "Year": 2052,
+    "RandomDelay": 2.1160238192
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 64,
+    "Year": 2049,
+    "RandomDelay": 0.8121844217
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 65,
+    "Year": 2050,
+    "RandomDelay": 2.9022967183
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 66,
+    "Year": 2053,
+    "RandomDelay": 3.0078450883
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 67,
+    "Year": 2048,
+    "RandomDelay": 1.2672518829
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 68,
+    "Year": 2049,
+    "RandomDelay": 1.8742347397
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 69,
+    "Year": 2050,
+    "RandomDelay": 1.4268530707
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 70,
+    "Year": 2050,
+    "RandomDelay": 1.4491933942
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 71,
+    "Year": 2052,
+    "RandomDelay": 1.5255456863
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 72,
+    "Year": 2050,
+    "RandomDelay": 2.0577840831
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 73,
+    "Year": 2050,
+    "RandomDelay": 1.9873879914
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 74,
+    "Year": 2049,
+    "RandomDelay": 1.299852467
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 75,
+    "Year": 2049,
+    "RandomDelay": 1.7268280593
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 76,
+    "Year": 2051,
+    "RandomDelay": 2.259093768
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 77,
+    "Year": 2052,
+    "RandomDelay": 2.9321340132
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 78,
+    "Year": 2049,
+    "RandomDelay": 1.6562329313
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 79,
+    "Year": 2049,
+    "RandomDelay": 0.7341150901
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 80,
+    "Year": 2050,
+    "RandomDelay": 1.8524313998
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 81,
+    "Year": 2052,
+    "RandomDelay": 2.533023554
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 82,
+    "Year": 2048,
+    "RandomDelay": 0.8299196707
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 83,
+    "Year": 2051,
+    "RandomDelay": 1.7313306268
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 84,
+    "Year": 2052,
+    "RandomDelay": 2.4559594961
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 85,
+    "Year": 2051,
+    "RandomDelay": 4.4055478116
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 86,
+    "Year": 2049,
+    "RandomDelay": 1.9356778449
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 87,
+    "Year": 2051,
+    "RandomDelay": 1.0405409742
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 88,
+    "Year": 2051,
+    "RandomDelay": 1.84062148
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 89,
+    "Year": 2050,
+    "RandomDelay": 2.0935804982
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 90,
+    "Year": 2050,
+    "RandomDelay": 2.8301921378
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 91,
+    "Year": 2050,
+    "RandomDelay": 2.0106733333
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 92,
+    "Year": 2049,
+    "RandomDelay": 2.8003807311
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 93,
+    "Year": 2053,
+    "RandomDelay": 3.3429860396
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 94,
+    "Year": 2052,
+    "RandomDelay": 3.4085702645
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 95,
+    "Year": 2049,
+    "RandomDelay": 1.4885290031
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 96,
+    "Year": 2050,
+    "RandomDelay": 1.2663044084
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 97,
+    "Year": 2050,
+    "RandomDelay": 3.6600588097
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 98,
+    "Year": 2051,
+    "RandomDelay": 1.76881084
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 99,
+    "Year": 2051,
+    "RandomDelay": 2.6868873211
+  },
+  {
+    "Node": "Milestone: ITER Burning Plasma Demo",
+    "Iteration": 100,
+    "Year": 2050,
+    "RandomDelay": 2.8787797502
   },
   {
     "Node": "Milestone: LFR Materials Qualification",
@@ -8572,6 +11398,798 @@
     "Iteration": 100,
     "Year": 2038,
     "RandomDelay": 1.5041483835
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 2,
+    "Year": 2054,
+    "RandomDelay": 1.1959795395
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 5,
+    "Year": 2054,
+    "RandomDelay": 0.4992225798
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 12,
+    "Year": 2055,
+    "RandomDelay": 2.430556338
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 13,
+    "Year": 2054,
+    "RandomDelay": 0.2837089478
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 14,
+    "Year": 2055,
+    "RandomDelay": 2.4235099586
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 17,
+    "Year": 2055,
+    "RandomDelay": 1.4676635607
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 18,
+    "Year": 2055,
+    "RandomDelay": 2.2594804279
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 35,
+    "Year": 2054,
+    "RandomDelay": 0.9553903478
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 36,
+    "Year": 2055,
+    "RandomDelay": 2.0741661666
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 43,
+    "Year": 2055,
+    "RandomDelay": 2.0477575721
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 50,
+    "Year": 2055,
+    "RandomDelay": 2.1505125397
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 51,
+    "Year": 2053,
+    "RandomDelay": 1.3865485373
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 53,
+    "Year": 2054,
+    "RandomDelay": 0.8339763257
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 56,
+    "Year": 2055,
+    "RandomDelay": 1.908380416
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 57,
+    "Year": 2055,
+    "RandomDelay": 1.1940974353
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 60,
+    "Year": 2055,
+    "RandomDelay": 0.459415591
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 61,
+    "Year": 2055,
+    "RandomDelay": 2.2195300382
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 62,
+    "Year": 2055,
+    "RandomDelay": 0.8075846271
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 65,
+    "Year": 2054,
+    "RandomDelay": 1.0411074453
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 67,
+    "Year": 2054,
+    "RandomDelay": 2.0823817216
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 70,
+    "Year": 2055,
+    "RandomDelay": 0.80695131
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 72,
+    "Year": 2054,
+    "RandomDelay": 1.2685594815
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 73,
+    "Year": 2055,
+    "RandomDelay": 0.7446713849
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 76,
+    "Year": 2055,
+    "RandomDelay": 0.6687950739
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 78,
+    "Year": 2055,
+    "RandomDelay": 1.2834617384
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 80,
+    "Year": 2055,
+    "RandomDelay": 1.1141617406
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 84,
+    "Year": 2054,
+    "RandomDelay": 0.4430155451
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 85,
+    "Year": 2055,
+    "RandomDelay": 1.2442347157
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 86,
+    "Year": 2054,
+    "RandomDelay": 1.127921514
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 89,
+    "Year": 2055,
+    "RandomDelay": 1.8024234302
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 93,
+    "Year": 2055,
+    "RandomDelay": 1.4517965686
+  },
+  {
+    "Node": "Milestone: Large-Scale HTS Magnet Demo",
+    "Iteration": 96,
+    "Year": 2055,
+    "RandomDelay": 1.8945742769
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 1,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 2,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 3,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 4,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 5,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 6,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 7,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 8,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 9,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 10,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 11,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 12,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 13,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 14,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 15,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 16,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 17,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 18,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 19,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 20,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 21,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 22,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 23,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 24,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 25,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 26,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 27,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 28,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 29,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 30,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 31,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 32,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 33,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 34,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 35,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 36,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 37,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 38,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 39,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 40,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 41,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 42,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 43,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 44,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 45,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 46,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 47,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 48,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 49,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 50,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 51,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 52,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 53,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 54,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 55,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 56,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 57,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 58,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 59,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 60,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 61,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 62,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 63,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 64,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 65,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 66,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 67,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 68,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 69,
+    "Year": 2046,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 70,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 71,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 72,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 73,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 74,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 75,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 76,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 77,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 78,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 79,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 80,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 81,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 82,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 83,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 84,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 85,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 86,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 87,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 88,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 89,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 90,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 91,
+    "Year": 2047,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 92,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 93,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 94,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 95,
+    "Year": 2049,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 96,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 97,
+    "Year": 2048,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 98,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 99,
+    "Year": 2050,
+    "RandomDelay": null
+  },
+  {
+    "Node": "Milestone: MSR Materials & Chemistry Control",
+    "Iteration": 100,
+    "Year": 2050,
+    "RandomDelay": null
   },
   {
     "Node": "Milestone: MSRE Proof-of-Concept",
@@ -10975,15 +14593,603 @@
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 1,
+    "Year": 2049,
+    "RandomDelay": 3.2994969835
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 2,
+    "Year": 2049,
+    "RandomDelay": 2.726080628
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 3,
+    "Year": 2048,
+    "RandomDelay": 1.5774392344
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 4,
+    "Year": 2049,
+    "RandomDelay": 3.2121056514
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 5,
+    "Year": 2051,
+    "RandomDelay": 3.8925617445
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 6,
+    "Year": 2047,
+    "RandomDelay": 2.9518905131
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 7,
+    "Year": 2046,
+    "RandomDelay": 1.1774244969
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 8,
+    "Year": 2046,
+    "RandomDelay": 1.3061782604
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 9,
+    "Year": 2048,
+    "RandomDelay": 2.8065878492
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 10,
+    "Year": 2046,
+    "RandomDelay": 0.2731986355
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 11,
+    "Year": 2046,
+    "RandomDelay": 1.148325695
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 12,
+    "Year": 2048,
+    "RandomDelay": 1.5811160801
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 13,
+    "Year": 2048,
+    "RandomDelay": 3.2052099619
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 14,
+    "Year": 2049,
+    "RandomDelay": 2.661655803
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 15,
+    "Year": 2048,
+    "RandomDelay": 1.8942559713
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 16,
+    "Year": 2048,
+    "RandomDelay": 1.8914938429
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 17,
+    "Year": 2051,
+    "RandomDelay": 3.1728676691
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 18,
+    "Year": 2046,
+    "RandomDelay": 1.083347514
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 19,
+    "Year": 2047,
+    "RandomDelay": 2.3128566386
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 20,
+    "Year": 2050,
+    "RandomDelay": 2.6040043484
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 21,
+    "Year": 2048,
+    "RandomDelay": 1.7349898119
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 22,
+    "Year": 2048,
+    "RandomDelay": 2.4796184325
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 23,
+    "Year": 2048,
+    "RandomDelay": 2.8779978533
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 24,
+    "Year": 2049,
+    "RandomDelay": 3.3774525639
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 25,
+    "Year": 2049,
+    "RandomDelay": 1.9415891245
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 26,
+    "Year": 2047,
+    "RandomDelay": 0.7453490161
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 27,
+    "Year": 2049,
+    "RandomDelay": 3.1777252499
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 28,
+    "Year": 2047,
+    "RandomDelay": 1.7869389649
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 29,
+    "Year": 2048,
+    "RandomDelay": 1.9681891783
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 30,
+    "Year": 2049,
+    "RandomDelay": 2.6134125357
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 31,
+    "Year": 2046,
+    "RandomDelay": 2.3313342731
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 32,
+    "Year": 2047,
+    "RandomDelay": 1.627815256
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 33,
+    "Year": 2048,
+    "RandomDelay": 2.184379525
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 34,
+    "Year": 2052,
+    "RandomDelay": 4.3751976646
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 35,
+    "Year": 2047,
+    "RandomDelay": 2.4112492791
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 36,
+    "Year": 2049,
+    "RandomDelay": 3.5589309848
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 37,
+    "Year": 2048,
+    "RandomDelay": 1.6869203792
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 38,
+    "Year": 2047,
+    "RandomDelay": 1.668317954
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 39,
+    "Year": 2048,
+    "RandomDelay": 1.0248857095
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 40,
+    "Year": 2048,
+    "RandomDelay": 1.5180784392
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 41,
+    "Year": 2049,
+    "RandomDelay": 3.663043904
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 42,
+    "Year": 2049,
+    "RandomDelay": 2.8025998332
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 43,
     "Year": 2045,
     "RandomDelay": 0.8305293545
   },
   {
     "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 44,
+    "Year": 2047,
+    "RandomDelay": 2.1564224339
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 45,
+    "Year": 2047,
+    "RandomDelay": 2.674984256
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 46,
+    "Year": 2050,
+    "RandomDelay": 4.1723252004
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 47,
+    "Year": 2048,
+    "RandomDelay": 2.6899115256
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 48,
+    "Year": 2050,
+    "RandomDelay": 4.3388570322
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 49,
+    "Year": 2047,
+    "RandomDelay": 2.3191105272
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 50,
+    "Year": 2051,
+    "RandomDelay": 3.6160862007
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 51,
+    "Year": 2051,
+    "RandomDelay": 4.1054427745
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 52,
+    "Year": 2046,
+    "RandomDelay": 2.4085906816
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 53,
+    "Year": 2049,
+    "RandomDelay": 2.1492920646
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 54,
+    "Year": 2049,
+    "RandomDelay": 1.5139395775
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 55,
+    "Year": 2047,
+    "RandomDelay": 1.7875857512
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 56,
+    "Year": 2050,
+    "RandomDelay": 3.8269609957
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 57,
+    "Year": 2049,
+    "RandomDelay": 3.8660899493
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 58,
+    "Year": 2048,
+    "RandomDelay": 2.0268791293
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 59,
+    "Year": 2048,
+    "RandomDelay": 2.2268886835
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 60,
+    "Year": 2050,
+    "RandomDelay": 3.4650559428
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 61,
+    "Year": 2049,
+    "RandomDelay": 1.7847245085
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 62,
+    "Year": 2047,
+    "RandomDelay": 1.8470267778
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 63,
+    "Year": 2046,
+    "RandomDelay": 1.4852223515
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 64,
+    "Year": 2049,
+    "RandomDelay": 3.6809185482
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 65,
+    "Year": 2049,
+    "RandomDelay": 3.0496644542
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 66,
+    "Year": 2048,
+    "RandomDelay": 3.1421596419
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 67,
+    "Year": 2049,
+    "RandomDelay": 2.0763478245
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
     "Iteration": 68,
     "Year": 2045,
     "RandomDelay": 1.2940823555
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 69,
+    "Year": 2047,
+    "RandomDelay": 1.9640457565
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 70,
+    "Year": 2048,
+    "RandomDelay": 1.4848611305
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 71,
+    "Year": 2048,
+    "RandomDelay": 3.4630744495
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 72,
+    "Year": 2050,
+    "RandomDelay": 4.5235946311
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 73,
+    "Year": 2052,
+    "RandomDelay": 3.9042996403
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 74,
+    "Year": 2047,
+    "RandomDelay": 1.4441476133
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 75,
+    "Year": 2048,
+    "RandomDelay": 2.6780888417
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 76,
+    "Year": 2048,
+    "RandomDelay": 2.1469314333
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 77,
+    "Year": 2050,
+    "RandomDelay": 4.202813238
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 78,
+    "Year": 2050,
+    "RandomDelay": 4.1018577799
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 79,
+    "Year": 2049,
+    "RandomDelay": 1.6289538132
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 80,
+    "Year": 2047,
+    "RandomDelay": 2.3038214865
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 81,
+    "Year": 2050,
+    "RandomDelay": 4.5338640412
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 82,
+    "Year": 2047,
+    "RandomDelay": 0.6211395908
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 83,
+    "Year": 2046,
+    "RandomDelay": 1.0108752959
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 84,
+    "Year": 2050,
+    "RandomDelay": 4.1780651142
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 85,
+    "Year": 2048,
+    "RandomDelay": 2.0521419695
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 86,
+    "Year": 2049,
+    "RandomDelay": 3.0995824079
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 87,
+    "Year": 2047,
+    "RandomDelay": 0.6282903535
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 88,
+    "Year": 2047,
+    "RandomDelay": 1.5345457035
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 89,
+    "Year": 2046,
+    "RandomDelay": 1.4480087245
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 90,
+    "Year": 2047,
+    "RandomDelay": 1.0536046756
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 91,
+    "Year": 2049,
+    "RandomDelay": 3.4577824833
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 92,
+    "Year": 2050,
+    "RandomDelay": 2.0909827816
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 93,
+    "Year": 2050,
+    "RandomDelay": 4.2257233601
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 94,
+    "Year": 2050,
+    "RandomDelay": 3.0929407631
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 95,
+    "Year": 2048,
+    "RandomDelay": 3.4863695437
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 96,
+    "Year": 2048,
+    "RandomDelay": 1.4780987529
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 97,
+    "Year": 2047,
+    "RandomDelay": 1.3468785664
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 98,
+    "Year": 2048,
+    "RandomDelay": 4.0661650232
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 99,
+    "Year": 2046,
+    "RandomDelay": 1.2543878201
+  },
+  {
+    "Node": "Milestone: STEP sCO2 Demo Plant Operation",
+    "Iteration": 100,
+    "Year": 2050,
+    "RandomDelay": 4.8244328549
   },
   {
     "Node": "Milestone: Sheared-Flow Z-Pinch Stability",
@@ -11587,15 +15793,45 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 1,
+    "Year": 2047,
+    "RandomDelay": 2.8099276055
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 2,
+    "Year": 2048,
+    "RandomDelay": 3.6560641294
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 3,
     "Year": 2045,
     "RandomDelay": 1.1667165623
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 4,
+    "Year": 2048,
+    "RandomDelay": 3.9068033987
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 5,
+    "Year": 2047,
+    "RandomDelay": 2.8743512372
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 6,
     "Year": 2044,
     "RandomDelay": 0.4090446097
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 7,
+    "Year": 2046,
+    "RandomDelay": 2.3320916194
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -11617,9 +15853,117 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 11,
+    "Year": 2047,
+    "RandomDelay": 2.6979744752
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 12,
+    "Year": 2046,
+    "RandomDelay": 1.7085067242
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 13,
+    "Year": 2047,
+    "RandomDelay": 2.6790289956
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 14,
+    "Year": 2047,
+    "RandomDelay": 3.1434661078
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 15,
+    "Year": 2047,
+    "RandomDelay": 2.773980484
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 16,
+    "Year": 2046,
+    "RandomDelay": 1.9221799425
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 17,
+    "Year": 2046,
+    "RandomDelay": 1.8941321332
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 18,
+    "Year": 2047,
+    "RandomDelay": 2.561632094
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 19,
+    "Year": 2047,
+    "RandomDelay": 3.3949271267
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 20,
+    "Year": 2046,
+    "RandomDelay": 1.5690498503
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 21,
+    "Year": 2047,
+    "RandomDelay": 2.8730615559
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 22,
+    "Year": 2047,
+    "RandomDelay": 3.2936328629
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 23,
+    "Year": 2047,
+    "RandomDelay": 3.05854642
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 24,
+    "Year": 2046,
+    "RandomDelay": 2.1273352794
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 25,
     "Year": 2045,
     "RandomDelay": 1.3271982181
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 26,
+    "Year": 2046,
+    "RandomDelay": 1.5461084886
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 27,
+    "Year": 2046,
+    "RandomDelay": 1.5416584983
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 28,
+    "Year": 2046,
+    "RandomDelay": 2.3742252991
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 29,
+    "Year": 2046,
+    "RandomDelay": 1.8882955908
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -11629,9 +15973,21 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 31,
+    "Year": 2047,
+    "RandomDelay": 2.6633330454
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 32,
     "Year": 2045,
     "RandomDelay": 1.1430034975
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 33,
+    "Year": 2048,
+    "RandomDelay": 3.5750316601
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -11641,9 +15997,129 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 35,
+    "Year": 2046,
+    "RandomDelay": 2.2803628673
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 36,
+    "Year": 2046,
+    "RandomDelay": 1.9442875207
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 37,
+    "Year": 2048,
+    "RandomDelay": 4.0766951993
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 38,
+    "Year": 2046,
+    "RandomDelay": 1.6742694699
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 39,
     "Year": 2045,
     "RandomDelay": 1.4618055481
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 40,
+    "Year": 2046,
+    "RandomDelay": 2.0214199455
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 41,
+    "Year": 2046,
+    "RandomDelay": 2.2325509761
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 42,
+    "Year": 2046,
+    "RandomDelay": 1.828667694
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 43,
+    "Year": 2046,
+    "RandomDelay": 1.5740849206
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 44,
+    "Year": 2046,
+    "RandomDelay": 2.2776176861
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 45,
+    "Year": 2048,
+    "RandomDelay": 3.5308776299
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 46,
+    "Year": 2048,
+    "RandomDelay": 3.8456664012
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 47,
+    "Year": 2047,
+    "RandomDelay": 2.6213629067
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 48,
+    "Year": 2046,
+    "RandomDelay": 2.2053744634
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 49,
+    "Year": 2046,
+    "RandomDelay": 1.8374988135
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 50,
+    "Year": 2047,
+    "RandomDelay": 3.2077093358
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 51,
+    "Year": 2047,
+    "RandomDelay": 2.5493177903
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 52,
+    "Year": 2048,
+    "RandomDelay": 4.0957676898
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 53,
+    "Year": 2046,
+    "RandomDelay": 2.4420762034
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 54,
+    "Year": 2047,
+    "RandomDelay": 2.7729263256
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 55,
+    "Year": 2047,
+    "RandomDelay": 2.8036805929
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -11653,9 +16129,27 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 57,
+    "Year": 2047,
+    "RandomDelay": 3.0483507893
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 58,
     "Year": 2045,
     "RandomDelay": 1.3587477141
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 59,
+    "Year": 2046,
+    "RandomDelay": 2.464230786
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 60,
+    "Year": 2046,
+    "RandomDelay": 1.9963884989
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -11671,9 +16165,39 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 63,
+    "Year": 2047,
+    "RandomDelay": 2.8960348924
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 64,
     "Year": 2045,
     "RandomDelay": 0.7181477175
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 65,
+    "Year": 2047,
+    "RandomDelay": 3.064651238
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 66,
+    "Year": 2047,
+    "RandomDelay": 3.1418074028
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 67,
+    "Year": 2046,
+    "RandomDelay": 2.3821040386
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 68,
+    "Year": 2046,
+    "RandomDelay": 1.8124841618
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -11683,15 +16207,57 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 70,
+    "Year": 2047,
+    "RandomDelay": 3.1093855476
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 71,
+    "Year": 2046,
+    "RandomDelay": 2.1967060617
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 72,
+    "Year": 2047,
+    "RandomDelay": 3.4476790278
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 73,
+    "Year": 2046,
+    "RandomDelay": 2.3848875212
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 74,
     "Year": 2045,
     "RandomDelay": 0.6555121391
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 75,
+    "Year": 2046,
+    "RandomDelay": 2.067602405
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 76,
+    "Year": 2047,
+    "RandomDelay": 2.743677352
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 77,
     "Year": 2044,
     "RandomDelay": 0.4537613019
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 78,
+    "Year": 2046,
+    "RandomDelay": 1.6104877836
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -11704,6 +16270,84 @@
     "Iteration": 80,
     "Year": 2045,
     "RandomDelay": 1.4676393563
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 81,
+    "Year": 2046,
+    "RandomDelay": 1.860301752
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 82,
+    "Year": 2047,
+    "RandomDelay": 2.7899271275
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 83,
+    "Year": 2048,
+    "RandomDelay": 3.8627266738
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 84,
+    "Year": 2047,
+    "RandomDelay": 2.6843042707
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 85,
+    "Year": 2047,
+    "RandomDelay": 2.9961673559
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 86,
+    "Year": 2048,
+    "RandomDelay": 3.5956870505
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 87,
+    "Year": 2046,
+    "RandomDelay": 2.0016585924
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 88,
+    "Year": 2047,
+    "RandomDelay": 3.4149159746
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 89,
+    "Year": 2046,
+    "RandomDelay": 2.489357531
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 90,
+    "Year": 2047,
+    "RandomDelay": 3.4485115032
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 91,
+    "Year": 2048,
+    "RandomDelay": 3.5045234663
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 92,
+    "Year": 2047,
+    "RandomDelay": 2.9608001367
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 93,
+    "Year": 2049,
+    "RandomDelay": 4.5357089843
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
@@ -11725,9 +16369,27 @@
   },
   {
     "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 97,
+    "Year": 2046,
+    "RandomDelay": 1.6514696661
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
     "Iteration": 98,
     "Year": 2044,
     "RandomDelay": 0.2093707375
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 99,
+    "Year": 2048,
+    "RandomDelay": 3.5946495556
+  },
+  {
+    "Node": "Milestone: TWR Extreme-Burnup Fuel",
+    "Iteration": 100,
+    "Year": 2047,
+    "RandomDelay": 2.7493758153
   },
   {
     "Node": "Milestone: W7-X Optimized Physics Proof",

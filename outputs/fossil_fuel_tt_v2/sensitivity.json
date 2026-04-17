@@ -233,19 +233,27 @@
   },
   {
     "Node": "Large-Bore Liquid-Fuel Engines Approaching ~48\u201350% Electrical Efficiency",
-    "n_obs": 89,
-    "YearsPerTRL_rho": 0.5590111385,
-    "YearsPerTRL_p": 1.24e-08,
-    "RandomDelay_rho": 0.4188047653,
-    "RandomDelay_p": 4.41593e-05
+    "n_obs": 100,
+    "YearsPerTRL_rho": 0.6249000209,
+    "YearsPerTRL_p": 0.0,
+    "RandomDelay_rho": 0.4522910854,
+    "RandomDelay_p": 2.3113e-06
   },
   {
     "Node": "Liquid Cooling Systems for Turbine Blades",
-    "n_obs": 95,
-    "YearsPerTRL_rho": 0.8427024256,
-    "YearsPerTRL_p": 9.555458021e-27,
-    "RandomDelay_rho": 0.421592074,
-    "RandomDelay_p": 2.09165e-05
+    "n_obs": 100,
+    "YearsPerTRL_rho": 0.861676426,
+    "YearsPerTRL_p": 1.251990112e-30,
+    "RandomDelay_rho": 0.452857775,
+    "RandomDelay_p": 2.2368e-06
+  },
+  {
+    "Node": "Low Temperature Combustion (LTC) for Diesel/HFO Engines",
+    "n_obs": 24,
+    "YearsPerTRL_rho": 0.6630159405,
+    "YearsPerTRL_p": 0.0004140652,
+    "RandomDelay_rho": 0.0706676868,
+    "RandomDelay_p": 0.7428143703
   },
   {
     "Node": "Micro/Small-Scale Gas Turbines for Distributed Generation (<5 MW)",
@@ -257,11 +265,11 @@
   },
   {
     "Node": "Mikawa 700 \u00b0C A-USC Field Test",
-    "n_obs": 33,
-    "YearsPerTRL_rho": 0.8375093513,
-    "YearsPerTRL_p": 1.2e-09,
-    "RandomDelay_rho": 0.075826005,
-    "RandomDelay_p": 0.6749264412
+    "n_obs": 100,
+    "YearsPerTRL_rho": 0.8704739285,
+    "YearsPerTRL_p": 6.240497697e-32,
+    "RandomDelay_rho": 0.2297364872,
+    "RandomDelay_p": 0.0214863825
   },
   {
     "Node": "Miller/Atkinson-Type Valve Timing on Turbocharged Oil Engines",
@@ -281,19 +289,19 @@
   },
   {
     "Node": "NETL STEP 10 MWe Supercritical CO\u2082 Pilot Demonstration",
-    "n_obs": 10,
-    "YearsPerTRL_rho": 0.6621705252,
-    "YearsPerTRL_p": 0.0369790734,
-    "RandomDelay_rho": 0.1245667325,
-    "RandomDelay_p": 0.7316992411
+    "n_obs": 89,
+    "YearsPerTRL_rho": 0.8812236089,
+    "YearsPerTRL_p": 4.713808359e-30,
+    "RandomDelay_rho": 0.1100018732,
+    "RandomDelay_p": 0.3047956703
   },
   {
     "Node": "Plant Barry 760 \u00b0C A-USC Loop Test",
-    "n_obs": 76,
-    "YearsPerTRL_rho": 0.7630360626,
-    "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.3762529868,
-    "RandomDelay_p": 0.0008089001
+    "n_obs": 100,
+    "YearsPerTRL_rho": 0.8515846699,
+    "YearsPerTRL_p": 3.058124551e-29,
+    "RandomDelay_rho": 0.5237541512,
+    "RandomDelay_p": 2.25e-08
   },
   {
     "Node": "Plasma-Assisted Combustion System",
@@ -305,11 +313,11 @@
   },
   {
     "Node": "Plasma-Assisted Combustion for Diesel/HFO Ignition",
-    "n_obs": 69,
-    "YearsPerTRL_rho": 0.8724326971,
-    "YearsPerTRL_p": 1.631073676e-22,
-    "RandomDelay_rho": 0.1237466911,
-    "RandomDelay_p": 0.3110417447
+    "n_obs": 100,
+    "YearsPerTRL_rho": 0.9265181885,
+    "YearsPerTRL_p": 2.159470567e-43,
+    "RandomDelay_rho": 0.3354229945,
+    "RandomDelay_p": 0.0006461809
   },
   {
     "Node": "Printed Circuit Heat Exchanger (PCHE)",
@@ -345,11 +353,11 @@
   },
   {
     "Node": "Supercritical CO2 Waste Heat Recovery for Diesel/HFO Engines",
-    "n_obs": 84,
-    "YearsPerTRL_rho": 0.7091559506,
-    "YearsPerTRL_p": 0.0,
-    "RandomDelay_rho": 0.3514651272,
-    "RandomDelay_p": 0.0010446435
+    "n_obs": 100,
+    "YearsPerTRL_rho": 0.7946451938,
+    "YearsPerTRL_p": 5.757533792e-23,
+    "RandomDelay_rho": 0.4015558298,
+    "RandomDelay_p": 3.46169e-05
   },
   {
     "Node": "Two-Stage Turbocharging for Medium-Speed Diesel/HFO Engines",
