@@ -147,8 +147,7 @@ Remember: Format everything as HTML with proper tags and spacing. No plain text 
       const result = await model.generateContent({
         contents,
         generationConfig: {
-          maxOutputTokens: 2000,
-          temperature: 0.3,
+          temperature: 0.3, // #maxOutputTokens: 2000,
         },
       });
 
