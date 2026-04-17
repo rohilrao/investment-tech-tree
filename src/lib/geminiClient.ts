@@ -17,6 +17,8 @@ const fileToGenerativePart = async (file: File): Promise<Part> => {
   };
 };
 
+export type ChatMode = 'instant' | 'thinking';
+
 export class GeminiChatClient {
   private genAI: GoogleGenerativeAI;
 
@@ -30,6 +32,7 @@ export class GeminiChatClient {
     chatHistory: ChatMessage[] = [],
     topic: TopicKey, // NEW: Accept topic parameter
     file?: File,
+    mode: ChatMode = 'instant', // NEW
   ): Promise<string> {
     if (!message?.trim() && !file) {
       throw new Error('Message or file is required');
@@ -41,9 +44,8 @@ export class GeminiChatClient {
       throw new Error(`Invalid topic: ${topic}`);
     }
 
-    const model = this.genAI.getGenerativeModel({
-      model: 'gemini-2.5-flash',
-    });
+    const modelName = mode === 'thinking' ? 'gemini-2.5-pro' : 'gemini-2.5-flash';
+    const model = this.genAI.getGenerativeModel({ model: modelName });
 
     // Build the user's prompt parts, starting with the text message
     const userParts: Part[] = [{ text: message }];
@@ -91,8 +93,13 @@ export class GeminiChatClient {
       })
       .join('\n');
 
+    const modeInstruction =
+      mode === 'instant'
+        ? '\n\nBe concise and direct. Give short, focused answers unless the user explicitly asks you to elaborate or go deeper.'
+        : '\n\nThis is a deep-analysis request. Think step-by-step, consider nuances, trade-offs, and second-order effects. Provide a thorough, well-structured response.';
+
     // Use topic-specific system prompt from config
-    const systemPrompt = `${topicConfig.systemPrompt}
+    const systemPrompt = `${topicConfig.systemPrompt}${modeInstruction}
 
 Here is the current Tech Tree context for ${topicConfig.label}:
 
@@ -155,7 +162,8 @@ Remember: Format everything as HTML with proper tags and spacing. No plain text 
       return response.text();
     } catch (error) {
       console.error('Error generating content:', error);
-      throw new Error('Failed to generate response from Gemini');
+      const message = error instanceof Error ? error.message : 'Failed to generate response from Gemini';
+      throw new Error(message);
     }
   }
 }
