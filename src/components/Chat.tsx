@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Send, Loader2, Trash2, Upload } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { ChatMessage, ChatHistory } from '@/lib/types';
-import { GeminiChatClient } from '@/lib/geminiClient';
+import { GeminiChatClient, ChatMode } from '@/lib/geminiClient';
 import { TopicKey } from '@/lib/topicConfig';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -29,6 +29,7 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
   const [requestCount, setRequestCount] = useState(0);
   const [lastRequestTime, setLastRequestTime] = useState(0);
   const [rateLimitExceeded, setRateLimitExceeded] = useState(false);
+  const [mode, setMode] = useState<ChatMode>('instant');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -225,13 +226,13 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
     setRateLimitExceeded(false);
 
     try {
-      // Pass topic to sendMessage
       const response = await geminiClient.sendMessage(
         userMessage.content,
         techTree || { nodes: [], edges: [] },
         messages,
-        topic, // NEW: Pass topic parameter
+        topic,
         file || undefined,
+        mode, // NEW
       );
 
       const assistantMessage: ChatMessage = {
@@ -297,6 +298,7 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-lg font-semibold">Tech Tree Chat</CardTitle>
         <div className="flex items-center space-x-2">
+          {/* Mode toggle removed from here */}
           {rateLimitExceeded && (
             <Badge variant="destructive" className="text-xs">
               Rate Limited
@@ -463,7 +465,7 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
                 <div className="flex items-center space-x-2">
                   <Loader2 size={16} className="animate-spin text-gray-500" />
                   <span className="text-gray-500">
-                    {uploadStatus || 'Thinking...'}
+                    {uploadStatus || (mode === 'thinking' ? 'Thinking...' : 'Analysing...')}
                   </span>
                 </div>
               </CardContent>
@@ -498,11 +500,22 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask a question or upload a PDF for analysis..."
-              className="w-full resize-none pr-24 max-h-32"
+              className="w-full resize-none pr-32 max-h-32"
               rows={1}
               disabled={isLoading || rateLimitExceeded}
             />
-            <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex gap-1">
+            <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center gap-1">
+              {/* Mode dropdown */}
+              <select
+                value={mode}
+                onChange={(e) => setMode(e.target.value as ChatMode)}
+                disabled={isLoading}
+                className="h-8 text-xs border border-gray-200 rounded px-1 bg-white text-gray-600 focus:outline-none focus:ring-1 focus:ring-indigo-400 cursor-pointer"
+                title="Response mode"
+              >
+                <option value="instant">Flash</option>
+                <option value="thinking">Thinking</option>
+              </select>
               <label htmlFor="file-upload-chat">
                 <Button
                   type="button"
