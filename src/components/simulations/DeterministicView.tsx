@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { TopicKey } from '@/lib/topicConfig';
+import { TechTree } from '@/lib/types';
 
 const TREE_FOLDER: Record<TopicKey, string> = {
   nuclear: 'nuclear_tt',
@@ -40,6 +41,8 @@ interface Props {
   data: SimulationData | null;
   topic: TopicKey;
   yearOptions: string[];
+  techTree: TechTree | null;
+  onNodeSelect?: (nodeId: string) => void;
 }
 
 function downloadJson(data: object, filename: string) {
@@ -60,13 +63,26 @@ export const DeterministicView: React.FC<Props> = ({
   data,
   topic,
   yearOptions,
+  techTree,
+  onNodeSelect,
 }) => {
   const [topN, setTopN] = useState(3);
   const [selectedPanelYear, setSelectedPanelYear] = useState<string>('');
+  const [highlightedLabel, setHighlightedLabel] = useState<string | null>(null);
 
   const [analysis, setAnalysis] = useState<DeterministicAnalysis | null>(null);
   const [analysisLoading, setAnalysisLoading] = useState(false);
   const [analysisError, setAnalysisError] = useState<string | null>(null);
+
+  // Build a map from node label → node id using the techTree prop
+  const labelToId = useMemo(() => {
+    if (!techTree) return new Map<string, string>();
+    const map = new Map<string, string>();
+    for (const node of techTree.nodes) {
+      map.set(node.data.label, node.id);
+    }
+    return map;
+  }, [techTree]);
 
   // Load deterministic_analysis.json from public/outputs whenever topic changes
   useEffect(() => {
@@ -85,10 +101,11 @@ export const DeterministicView: React.FC<Props> = ({
       .finally(() => setAnalysisLoading(false));
   }, [topic]);
 
-  // Reset panel year when topic or time horizon changes
+  // Reset panel year and highlight when topic or time horizon changes
   useEffect(() => {
     setSelectedPanelYear('');
     setTopN(3);
+    setHighlightedLabel(null);
   }, [topic, selectedYears]);
 
   const allSortedYears = useMemo(() => {
@@ -102,7 +119,7 @@ export const DeterministicView: React.FC<Props> = ({
 
   const panelYear = selectedPanelYear || allSortedYears[0] || '';
 
-  // All active nodes in selected year that have a positive delta — used for slider max
+  // All active nodes in selected year that have a positive delta
   const activeNodesInYear = useMemo(() => {
     if (!analysis || !panelYear) return [];
     return Object.entries(analysis).filter(([key, value]) => {
@@ -129,6 +146,22 @@ export const DeterministicView: React.FC<Props> = ({
       .sort((a, b) => b.delta_twh - a.delta_twh)
       .slice(0, topN);
   }, [activeNodesInYear, panelYear, topN]);
+
+  const handleNodeRowClick = (label: string) => {
+    if (!onNodeSelect) return;
+    const nodeId = labelToId.get(label);
+    if (!nodeId) return;
+
+    if (highlightedLabel === label) {
+      // Clicking the same row again clears the highlight
+      setHighlightedLabel(null);
+      // We don't have a "deselect" callback, so just re-trigger — the parent
+      // can decide behaviour. For now we do nothing to keep it simple.
+    } else {
+      setHighlightedLabel(label);
+      onNodeSelect(nodeId);
+    }
+  };
 
   const heatmapData = useMemo(() => {
     if (!data) return { years: [], data: [] };
@@ -213,12 +246,21 @@ export const DeterministicView: React.FC<Props> = ({
             <h3 className="text-xl font-semibold text-gray-800 mb-1">
               Top Investment Priorities
             </h3>
-            <p className="text-sm text-gray-500 mb-5">
+            <p className="text-sm text-gray-500 mb-2">
               Active nodes ranked by acceleration gain for the selected year. Baseline and
               accelerated are total discounted pathway MWh (TWh) across all downstream reactor
               concepts. Delta is the gain from completing this node one year earlier. Downstream
               is the count of all nodes unlocked by this node in the entire tech tree.
             </p>
+            {onNodeSelect && (
+              <p className="text-xs text-blue-600 mb-5 flex items-center gap-1">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Click a row to highlight that node and its connections in the tech tree
+              </p>
+            )}
 
             {/* Controls */}
             <div className="flex flex-wrap items-center gap-6 mb-5">
@@ -238,7 +280,6 @@ export const DeterministicView: React.FC<Props> = ({
                 <span className="text-sm font-semibold text-blue-600 min-w-[20px]">
                   {Math.min(topN, activeNodesInYear.length)}
                 </span>
-
               </div>
 
               <div className="flex items-center gap-3">
@@ -250,6 +291,7 @@ export const DeterministicView: React.FC<Props> = ({
                   onChange={(e) => {
                     setSelectedPanelYear(e.target.value);
                     setTopN(3);
+                    setHighlightedLabel(null);
                   }}
                   className="block px-3 py-1.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
@@ -299,53 +341,76 @@ export const DeterministicView: React.FC<Props> = ({
                   </thead>
                   <tbody>
                     {topNNodes.map(
-                      ({ label, baseline_twh, accelerated_twh, delta_twh, downstream_count }, idx) => (
-                        <tr
-                          key={label}
-                          className="border-b border-gray-100 hover:bg-white transition-colors"
-                        >
-                          <td className="py-3 pr-3 text-gray-400 text-xs font-medium">
-                            {idx + 1}
-                          </td>
-                          <td className="py-3 pr-4 font-medium text-gray-800 max-w-[200px]">
-                            <span className="block truncate" title={label}>
-                              {label}
-                            </span>
-                          </td>
-                          <td className="py-3 pr-4 text-right font-mono text-gray-700">
-                            {baseline_twh.toFixed(3)}
-                          </td>
-                          <td className="py-3 pr-4 text-right font-mono text-green-600">
-                            {accelerated_twh.toFixed(3)}
-                          </td>
-                          <td className="py-3 pr-4 text-right">
-                            <span className="font-mono text-blue-600 font-medium">
-                              +{delta_twh.toFixed(4)}
-                            </span>
-                          </td>
-                          <td className="py-3 text-right">
-                            <span
-                              className="inline-block px-2 py-0.5 rounded-full text-xs font-medium"
-                              style={{
-                                background:
-                                  downstream_count > 10
-                                    ? '#dbeafe'
-                                    : downstream_count > 5
-                                    ? '#fef3c7'
-                                    : '#f3f4f6',
-                                color:
-                                  downstream_count > 10
-                                    ? '#1e40af'
-                                    : downstream_count > 5
-                                    ? '#92400e'
-                                    : '#6b7280',
-                              }}
-                            >
-                              {downstream_count}
-                            </span>
-                          </td>
-                        </tr>
-                      ),
+                      ({ label, baseline_twh, accelerated_twh, delta_twh, downstream_count }, idx) => {
+                        const isHighlighted = highlightedLabel === label;
+                        const isClickable = !!onNodeSelect && labelToId.has(label);
+                        return (
+                          <tr
+                            key={label}
+                            onClick={() => isClickable && handleNodeRowClick(label)}
+                            className={`border-b border-gray-100 transition-colors ${
+                              isClickable
+                                ? 'cursor-pointer'
+                                : ''
+                            } ${
+                              isHighlighted
+                                ? 'bg-orange-50 ring-1 ring-inset ring-orange-300'
+                                : isClickable
+                                ? 'hover:bg-blue-50'
+                                : 'hover:bg-white'
+                            }`}
+                          >
+                            <td className="py-3 pr-3 text-gray-400 text-xs font-medium">
+                              {idx + 1}
+                            </td>
+                            <td className="py-3 pr-4 font-medium text-gray-800 max-w-[200px]">
+                              <span
+                                className={`block truncate ${isClickable ? 'group-hover:underline' : ''}`}
+                                title={label}
+                              >
+                                {label}
+                              </span>
+                              {isHighlighted && (
+                                <span className="text-xs text-orange-500 font-normal">
+                                  ↗ highlighted in tree
+                                </span>
+                              )}
+                            </td>
+                            <td className="py-3 pr-4 text-right font-mono text-gray-700">
+                              {baseline_twh.toFixed(3)}
+                            </td>
+                            <td className="py-3 pr-4 text-right font-mono text-green-600">
+                              {accelerated_twh.toFixed(3)}
+                            </td>
+                            <td className="py-3 pr-4 text-right">
+                              <span className="font-mono text-blue-600 font-medium">
+                                +{delta_twh.toFixed(4)}
+                              </span>
+                            </td>
+                            <td className="py-3 text-right">
+                              <span
+                                className="inline-block px-2 py-0.5 rounded-full text-xs font-medium"
+                                style={{
+                                  background:
+                                    downstream_count > 10
+                                      ? '#dbeafe'
+                                      : downstream_count > 5
+                                      ? '#fef3c7'
+                                      : '#f3f4f6',
+                                  color:
+                                    downstream_count > 10
+                                      ? '#1e40af'
+                                      : downstream_count > 5
+                                      ? '#92400e'
+                                      : '#6b7280',
+                                }}
+                              >
+                                {downstream_count}
+                              </span>
+                            </td>
+                          </tr>
+                        );
+                      },
                     )}
                   </tbody>
                 </table>

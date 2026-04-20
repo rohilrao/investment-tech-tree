@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { TopicKey } from '@/lib/topicConfig';
+import { TechTree } from '@/lib/types';
 import { SimulationMode, MODE_LABELS, McsData, DistributionData } from './simulations/mcsTypes';
 import { DeterministicView } from './simulations/DeterministicView';
 import { McsView } from './simulations/McsView';
@@ -26,9 +27,11 @@ const MODE_DESCRIPTIONS: Record<SimulationMode, string> = {
 
 interface Props {
   topic: TopicKey;
+  techTree: TechTree | null;
+  onNodeSelect?: (nodeId: string) => void;
 }
 
-const Simulations: React.FC<Props> = ({ topic }) => {
+const Simulations: React.FC<Props> = ({ topic, techTree, onNodeSelect }) => {
   const [mode, setMode] = useState<SimulationMode>('deterministic');
 
   // ── Deterministic ────────────────────────────────────────────────────────
@@ -66,8 +69,6 @@ const Simulations: React.FC<Props> = ({ topic }) => {
 
     (async () => {
       try {
-        // Load distributions_option*.json instead of the heavy simulation_runs_option*.json.
-        // distributions_option*.json is pre-aggregated: { NodeLabel: { "year": count, ... } }
         const [statsRes, distRes, riskRes] = await Promise.all([
           fetch(`${base}/stats_${mode}.json`),
           fetch(`${base}/distributions_${mode}.json`),
@@ -137,6 +138,8 @@ const Simulations: React.FC<Props> = ({ topic }) => {
           data={detData}
           topic={topic}
           yearOptions={YEAR_OPTIONS}
+          techTree={techTree}
+          onNodeSelect={onNodeSelect}
         />
       )}
 
@@ -155,7 +158,14 @@ const Simulations: React.FC<Props> = ({ topic }) => {
               <span className="ml-3 text-gray-600">Loading Monte Carlo results…</span>
             </div>
           )}
-          {!mcsLoading && mcsData && <McsView data={mcsData} mode={mode} />}
+          {!mcsLoading && mcsData && (
+            <McsView
+              data={mcsData}
+              mode={mode}
+              techTree={techTree}
+              onNodeSelect={onNodeSelect}
+            />
+          )}
         </>
       )}
     </div>

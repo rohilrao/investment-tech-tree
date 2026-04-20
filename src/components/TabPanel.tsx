@@ -16,11 +16,12 @@ interface TabPanelProps {
   isPanelExpanded: boolean;
   onTogglePanel: () => void;
   topic: TopicKey;
+  onNodeSelect?: (nodeId: string) => void;
 }
 
 type TabType = 'details' | 'chat' | 'simulations';
 
-const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel, topic }: TabPanelProps) => {
+const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel, topic, onNodeSelect }: TabPanelProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('chat');
   const previousNodeIdRef = useRef<string | undefined>(undefined);
 
@@ -91,7 +92,11 @@ const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel, topi
           </TabsContent>
 
           <TabsContent value="simulations" className="flex-1 overflow-y-auto mt-0">
-            <Simulations topic={topic} />
+            <Simulations
+              topic={topic}
+              techTree={techTree}
+              onNodeSelect={onNodeSelect}
+            />
           </TabsContent>
         </Tabs>
       </div>

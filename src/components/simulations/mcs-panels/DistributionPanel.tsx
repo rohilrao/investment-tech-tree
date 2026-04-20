@@ -4,6 +4,8 @@ import { NodeStat, DistributionData } from '../mcsTypes';
 interface Props {
   stats: NodeStat[];
   distributions: DistributionData;
+  labelToId: Map<string, string>;
+  onNodeSelect?: (nodeId: string) => void;
 }
 
 const BIN_COUNT = 20;
@@ -11,7 +13,6 @@ const SVG_W = 600;
 const SVG_H = 160;
 const PAD = { top: 16, right: 16, bottom: 32, left: 36 };
 
-/** Catmull-Rom spline through a set of points → SVG path d string */
 function smoothPath(pts: { x: number; y: number }[]): string {
   if (pts.length < 2) return '';
   let d = `M ${pts[0].x} ${pts[0].y}`;
@@ -29,21 +30,31 @@ function smoothPath(pts: { x: number; y: number }[]): string {
   return d;
 }
 
-export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => {
+export const DistributionPanel: React.FC<Props> = ({
+  stats,
+  distributions,
+  labelToId,
+  onNodeSelect,
+}) => {
   const [selected, setSelected] = useState<string>('');
 
   useEffect(() => {
     if (stats.length > 0) setSelected(stats[0].Node);
   }, [stats]);
 
-  // Pull the pre-aggregated { "year": count } map for the selected node.
-  // The distributions object uses node labels as keys — same as stats[].Node.
+  const handleSelect = (label: string) => {
+    setSelected(label);
+    if (onNodeSelect) {
+      const nodeId = labelToId.get(label);
+      if (nodeId) onNodeSelect(nodeId);
+    }
+  };
+
   const nodeDist = useMemo(
     () => (selected ? distributions[selected] ?? {} : {}),
     [distributions, selected],
   );
 
-  // Derive sorted (year, count) pairs from the pre-aggregated map.
   const sortedEntries = useMemo(
     () =>
       Object.entries(nodeDist)
@@ -68,7 +79,6 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
       bins.push({ year: Math.round(lo + binSize / 2), lo, hi, count: 0 });
     }
 
-    // Distribute pre-aggregated counts into bins
     for (const { year, count } of sortedEntries) {
       const idx = bins.findIndex((b) => year >= b.lo && year < b.hi);
       if (idx !== -1) bins[idx].count += count;
@@ -129,6 +139,8 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
     return PAD.left + t * chartW;
   }, [stat, bins, minYear, maxYear, chartW]);
 
+  const isClickable = !!onNodeSelect;
+
   return (
     <div className="space-y-5">
       {/* Node selector */}
@@ -136,7 +148,7 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
         <label className="text-sm font-medium text-gray-700">Node:</label>
         <select
           value={selected}
-          onChange={(e) => setSelected(e.target.value)}
+          onChange={(e) => handleSelect(e.target.value)}
           className="border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           {stats.map((s) => (
@@ -145,6 +157,16 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
             </option>
           ))}
         </select>
+        {isClickable && selected && labelToId.has(selected) && (
+          <span className="text-xs text-orange-500 flex items-center gap-1">
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" strokeWidth="2" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                d="M12 8v4m0 4h.01" />
+            </svg>
+            highlighted in tree
+          </span>
+        )}
       </div>
 
       {/* Stat cards */}
@@ -179,7 +201,6 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
               </linearGradient>
             </defs>
 
-            {/* Horizontal grid lines */}
             {[0.25, 0.5, 0.75, 1].map((t) => (
               <line
                 key={t}
@@ -192,10 +213,8 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
               />
             ))}
 
-            {/* Area fill */}
             <path d={areaPath} fill="url(#distGrad)" />
 
-            {/* Median dashed line */}
             {medianX !== null && (
               <>
                 <line
@@ -219,7 +238,6 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
               </>
             )}
 
-            {/* Curve line */}
             <path
               d={linePath}
               fill="none"
@@ -229,7 +247,6 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
               strokeLinecap="round"
             />
 
-            {/* X-axis baseline */}
             <line
               x1={PAD.left}
               y1={PAD.top + chartH}
@@ -239,7 +256,6 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
               strokeWidth="1"
             />
 
-            {/* X-axis year labels */}
             {xLabels.map(({ x, year }) => (
               <text
                 key={year}
@@ -254,7 +270,6 @@ export const DistributionPanel: React.FC<Props> = ({ stats, distributions }) => 
               </text>
             ))}
 
-            {/* Y-axis label */}
             <text
               x={PAD.left - 4}
               y={PAD.top + chartH / 2}

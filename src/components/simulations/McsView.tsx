@@ -4,16 +4,29 @@ import { DistributionPanel } from './mcs-panels/DistributionPanel';
 import { StatsPanel } from './mcs-panels/StatsPanel';
 import { RiskPanel } from './mcs-panels/RiskPanel';
 import { SensitivityPanel } from './mcs-panels/SensitivityPanel';
+import { TechTree } from '@/lib/types';
 
 type McsTab = 'distribution' | 'stats' | 'risk' | 'sensitivity';
 
 interface Props {
   data: McsData;
   mode: SimulationMode;
+  techTree: TechTree | null;
+  onNodeSelect?: (nodeId: string) => void;
 }
 
-export const McsView: React.FC<Props> = ({ data, mode }) => {
+export const McsView: React.FC<Props> = ({ data, mode, techTree, onNodeSelect }) => {
   const [activeTab, setActiveTab] = useState<McsTab>('distribution');
+
+  // Build label → id map once
+  const labelToId = useMemo(() => {
+    if (!techTree) return new Map<string, string>();
+    const map = new Map<string, string>();
+    for (const node of techTree.nodes) {
+      map.set(node.data.label, node.id);
+    }
+    return map;
+  }, [techTree]);
 
   const tabs = useMemo(() => {
     const base: { key: McsTab; label: string }[] = [
@@ -25,8 +38,6 @@ export const McsView: React.FC<Props> = ({ data, mode }) => {
     return base;
   }, [mode]);
 
-  // Derive total iterations from the distributions data: sum all bin counts for
-  // the first node that has any data, which equals the number of completed runs.
   const numIterations = useMemo(() => {
     const firstNode = Object.values(data.distributions)[0];
     if (!firstNode) return 0;
@@ -90,12 +101,33 @@ export const McsView: React.FC<Props> = ({ data, mode }) => {
       {/* Panel content */}
       <div className="pt-2 min-h-[300px]">
         {activeTab === 'distribution' && (
-          <DistributionPanel stats={data.stats} distributions={data.distributions} />
+          <DistributionPanel
+            stats={data.stats}
+            distributions={data.distributions}
+            labelToId={labelToId}
+            onNodeSelect={onNodeSelect}
+          />
         )}
-        {activeTab === 'stats' && <StatsPanel stats={data.stats} />}
-        {activeTab === 'risk' && <RiskPanel risk={data.risk} />}
+        {activeTab === 'stats' && (
+          <StatsPanel
+            stats={data.stats}
+            labelToId={labelToId}
+            onNodeSelect={onNodeSelect}
+          />
+        )}
+        {activeTab === 'risk' && (
+          <RiskPanel
+            risk={data.risk}
+            labelToId={labelToId}
+            onNodeSelect={onNodeSelect}
+          />
+        )}
         {activeTab === 'sensitivity' && data.sensitivity && (
-          <SensitivityPanel sensitivity={data.sensitivity} />
+          <SensitivityPanel
+            sensitivity={data.sensitivity}
+            labelToId={labelToId}
+            onNodeSelect={onNodeSelect}
+          />
         )}
       </div>
     </div>
