@@ -242,6 +242,21 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
     [nodes, edges, findConnectedElements],
   );
 
+  // Called from the simulation panel when a top-N row is clicked.
+  // Highlights the node and its connections just like clicking the info button,
+  // but does NOT switch the tab to "details".
+  const handleSimulationNodeSelect = useCallback(
+    (nodeId: string) => {
+      const node = nodes.find((n) => n.id === nodeId);
+      if (node) {
+        setSelectedNode(() => ({ ...node }));
+        const connected = findConnectedElements(nodeId, edges);
+        setHighlightedElements(connected);
+      }
+    },
+    [nodes, edges, findConnectedElements],
+  );
+
   const handleShowConnected = useCallback(
     (nodeId: string) => {
       const node = nodes.find((n) => n.id === nodeId);
@@ -376,6 +391,7 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
             isPanelExpanded={isPanelExpanded}
             onTogglePanel={() => setIsPanelExpanded(!isPanelExpanded)}
             topic={topic}
+            onNodeSelect={handleSimulationNodeSelect}
           />
         )}
       </div>

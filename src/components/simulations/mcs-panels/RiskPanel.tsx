@@ -5,6 +5,8 @@ import { RiskRow, riskColor, riskLabel } from '../mcsTypes';
 
 interface Props {
   risk: RiskRow[];
+  labelToId: Map<string, string>;
+  onNodeSelect?: (nodeId: string) => void;
 }
 
 const AXES = [
@@ -23,16 +25,14 @@ const LEGEND_SCORES = [1.0, 2.0, 3.0, 4.0, 5.0];
 const N = AXES.length;
 const CX = 110;
 const CY = 110;
-const R = 80;          // outer radius at score = 5
-const TICK_R = [16, 32, 48, 64, 80]; // radii for score levels 1–5
+const R = 80;
+const TICK_R = [16, 32, 48, 64, 80];
 
-/** Convert polar (angle from top, radius) to Cartesian. */
 function polar(angleDeg: number, r: number): [number, number] {
   const rad = ((angleDeg - 90) * Math.PI) / 180;
   return [CX + r * Math.cos(rad), CY + r * Math.sin(rad)];
 }
 
-/** Build the polygon points string for a set of 5 scores (1–5). */
 function dataPolygon(scores: number[]): string {
   return scores
     .map((s, i) => {
@@ -43,7 +43,6 @@ function dataPolygon(scores: number[]): string {
     .join(' ');
 }
 
-/** Build the axis label position (slightly outside the outer ring). */
 function labelPos(i: number): [number, number] {
   const angle = (i / N) * 360;
   return polar(angle, R + 18);
@@ -56,13 +55,10 @@ interface SpiderProps {
 const Spider: React.FC<SpiderProps> = ({ row }) => {
   const scores = AXES.map((a) => row[a.key as AxisKey] as number);
   const color = riskColor(row.Score);
-
-  // Hex color → rgba for fill (0.25 alpha)
-  const fillColor = color + '40'; // 0x40 ≈ 0.25 alpha in hex
+  const fillColor = color + '40';
 
   return (
     <svg viewBox="0 0 220 220" width="220" height="220" aria-label={`Spider chart for ${row.Node}`}>
-      {/* Background rings */}
       {TICK_R.map((r, lvl) => {
         const pts = Array.from({ length: N }, (_, i) => {
           const [x, y] = polar((i / N) * 360, r);
@@ -79,23 +75,13 @@ const Spider: React.FC<SpiderProps> = ({ row }) => {
         );
       })}
 
-      {/* Axis spokes */}
       {AXES.map((_, i) => {
         const [x, y] = polar((i / N) * 360, R);
         return (
-          <line
-            key={i}
-            x1={CX}
-            y1={CY}
-            x2={x}
-            y2={y}
-            stroke="#e5e7eb"
-            strokeWidth="1"
-          />
+          <line key={i} x1={CX} y1={CY} x2={x} y2={y} stroke="#e5e7eb" strokeWidth="1" />
         );
       })}
 
-      {/* Data polygon */}
       <polygon
         points={dataPolygon(scores)}
         fill={fillColor}
@@ -104,16 +90,13 @@ const Spider: React.FC<SpiderProps> = ({ row }) => {
         strokeLinejoin="round"
       />
 
-      {/* Data points */}
       {scores.map((s, i) => {
         const [x, y] = polar((i / N) * 360, (s / 5) * R);
         return <circle key={i} cx={x} cy={y} r="3" fill={color} />;
       })}
 
-      {/* Axis labels */}
       {AXES.map((a, i) => {
         const [lx, ly] = labelPos(i);
-        // Anchor: left side → start, right side → end, top/bottom → middle
         const angleDeg = (i / N) * 360;
         const anchor =
           angleDeg < 15 || angleDeg > 345
@@ -123,7 +106,6 @@ const Spider: React.FC<SpiderProps> = ({ row }) => {
             : angleDeg > 180
             ? 'end'
             : 'middle';
-        // Wrap label text into up to two lines
         const words = a.label.split(' ');
         const line1 = words.slice(0, Math.ceil(words.length / 2)).join(' ');
         const line2 = words.slice(Math.ceil(words.length / 2)).join(' ');
@@ -150,7 +132,6 @@ const Spider: React.FC<SpiderProps> = ({ row }) => {
         );
       })}
 
-      {/* Ring score labels (1–5) on the first axis) */}
       {TICK_R.map((r, lvl) => {
         const [x, y] = polar(0, r);
         return (
@@ -171,20 +152,40 @@ const Spider: React.FC<SpiderProps> = ({ row }) => {
   );
 };
 
-export const RiskPanel: React.FC<Props> = ({ risk }) => {
+export const RiskPanel: React.FC<Props> = ({ risk, labelToId, onNodeSelect }) => {
   const sorted = useMemo(() => [...risk].sort((a, b) => b.Score - a.Score), [risk]);
   const [selectedNode, setSelectedNode] = useState<string>(sorted[0]?.Node ?? '');
+  const [highlightedNode, setHighlightedNode] = useState<string | null>(null);
 
   const selectedRow = useMemo(
     () => sorted.find((r) => r.Node === selectedNode) ?? sorted[0],
     [sorted, selectedNode],
   );
 
+  const handleNodeClick = (label: string) => {
+    // Always update spider chart selection
+    setSelectedNode(label);
+
+    if (!onNodeSelect) return;
+    const nodeId = labelToId.get(label);
+    if (!nodeId) return;
+
+    if (highlightedNode === label) {
+      setHighlightedNode(null);
+    } else {
+      setHighlightedNode(label);
+      onNodeSelect(nodeId);
+    }
+  };
+
+  const isClickable = !!onNodeSelect;
+
   return (
     <div className="space-y-4">
       <p className="text-sm text-gray-500">
         Composite risk score (1–5) based on timing variance, tail risk, successor count,
-        dependency count, and schedule span. Click a node to inspect its risk profile.
+        dependency count, and schedule span. Click a node to inspect its risk profile
+        {isClickable ? ' and highlight it in the tech tree' : ''}.
       </p>
 
       {/* Legend */}
@@ -200,45 +201,66 @@ export const RiskPanel: React.FC<Props> = ({ risk }) => {
         ))}
       </div>
 
+      {isClickable && (
+        <p className="text-xs text-blue-600 flex items-center gap-1">
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Click a row to highlight that node and its connections in the tech tree
+        </p>
+      )}
+
       <div className="flex flex-col lg:flex-row gap-6">
         {/* ── Bar list ── */}
         <div className="flex-1 space-y-2 min-w-0">
-          {sorted.map((row) => (
-            <button
-              key={row.Node}
-              onClick={() => setSelectedNode(row.Node)}
-              className={`w-full flex items-center gap-3 rounded-md px-2 py-1 text-left transition-colors ${
-                row.Node === selectedNode
-                  ? 'bg-gray-100 ring-1 ring-gray-300'
-                  : 'hover:bg-gray-50'
-              }`}
-            >
-              <span
-                className="w-52 text-xs text-gray-700 truncate flex-shrink-0"
-                title={row.Node}
+          {sorted.map((row) => {
+            const isHighlighted = highlightedNode === row.Node;
+            const canClick = labelToId.has(row.Node);
+            return (
+              <button
+                key={row.Node}
+                onClick={() => handleNodeClick(row.Node)}
+                className={`w-full flex items-center gap-3 rounded-md px-2 py-1 text-left transition-colors ${
+                  isHighlighted
+                    ? 'bg-orange-50 ring-1 ring-orange-300'
+                    : row.Node === selectedNode
+                    ? 'bg-gray-100 ring-1 ring-gray-300'
+                    : canClick
+                    ? 'hover:bg-blue-50'
+                    : 'hover:bg-gray-50'
+                }`}
               >
-                {row.Node}
-              </span>
-              <div className="flex-1 bg-gray-100 rounded-full h-4 overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-300"
-                  style={{
-                    width: `${(row.Score / 5) * 100}%`,
-                    backgroundColor: riskColor(row.Score),
-                  }}
-                />
-              </div>
-              <span
-                className="text-xs font-semibold w-16 text-right flex-shrink-0"
-                style={{ color: riskColor(row.Score) }}
-              >
-                {riskLabel(row.Score)}
-              </span>
-              <span className="text-xs text-gray-400 w-8 text-right flex-shrink-0">
-                {row.Score.toFixed(1)}
-              </span>
-            </button>
-          ))}
+                <span
+                  className="w-52 text-xs text-gray-700 truncate flex-shrink-0"
+                  title={row.Node}
+                >
+                  {row.Node}
+                  {isHighlighted && (
+                    <span className="ml-1 text-orange-500">↗</span>
+                  )}
+                </span>
+                <div className="flex-1 bg-gray-100 rounded-full h-4 overflow-hidden">
+                  <div
+                    className="h-full rounded-full transition-all duration-300"
+                    style={{
+                      width: `${(row.Score / 5) * 100}%`,
+                      backgroundColor: riskColor(row.Score),
+                    }}
+                  />
+                </div>
+                <span
+                  className="text-xs font-semibold w-16 text-right flex-shrink-0"
+                  style={{ color: riskColor(row.Score) }}
+                >
+                  {riskLabel(row.Score)}
+                </span>
+                <span className="text-xs text-gray-400 w-8 text-right flex-shrink-0">
+                  {row.Score.toFixed(1)}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* ── Spider chart ── */}
@@ -250,6 +272,9 @@ export const RiskPanel: React.FC<Props> = ({ risk }) => {
               style={{ color: riskColor(selectedRow.Score) }}
             >
               {selectedRow.Node}
+              {highlightedNode === selectedRow.Node && (
+                <span className="ml-1 text-orange-500">↗</span>
+              )}
             </p>
             <Spider row={selectedRow} />
             {/* Dimension breakdown table */}
