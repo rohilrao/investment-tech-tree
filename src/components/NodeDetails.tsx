@@ -29,6 +29,20 @@ const formatTextWithBreaks = (text: string): string => {
   return formattedParagraphs.join('\n\n');
 };
 
+// Returns the same Tailwind bg color class as CustomNode
+const getProbabilityColor = (probabilityText: string): string => {
+  let probValue = parseFloat(probabilityText.replace(/[^0-9.]/g, ''));
+  if (probValue > 0 && probValue <= 1 && !probabilityText.includes('%')) {
+    probValue *= 100;
+  }
+  if (isNaN(probValue)) return '';
+  if (probValue < 20) return 'bg-red-600';
+  if (probValue < 40) return 'bg-red-400';
+  if (probValue < 60) return 'bg-yellow-400';
+  if (probValue < 80) return 'bg-green-400';
+  return 'bg-green-600';
+};
+
 const NodeDetails = ({ selectedNode }: NodeDetailsProps) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -37,6 +51,10 @@ const NodeDetails = ({ selectedNode }: NodeDetailsProps) => {
   const infactAnalysis = selectedNode.data?.infact_analysis as any;
   const infactStatus = selectedNode.data?.infact_status as string;
   let infactHtmlContent = selectedNode.data?.infact_analysis_html_content as string;
+
+  const probabilityColorClass = infactAnalysis?.probability
+    ? getProbabilityColor(String(infactAnalysis.probability))
+    : '';
 
   // Inject mobile-responsive styles and viewport meta tag into the HTML content
   if (infactHtmlContent && !infactHtmlContent.includes('viewport')) {
@@ -162,7 +180,16 @@ const NodeDetails = ({ selectedNode }: NodeDetailsProps) => {
                 TRL InFact Analysis
               </h4>
               <div className="space-y-1 text-sm">
-                <p><strong>TRL Probability:</strong> {infactAnalysis.probability}</p>
+                <p className="flex items-center gap-2">
+                  <strong>TRL Probability:</strong>
+                  {probabilityColorClass && (
+                    <span
+                      className={`inline-block w-3 h-3 rounded-full border border-white shadow-sm flex-shrink-0 ${probabilityColorClass}`}
+                      title={`Confidence: ${infactAnalysis.probability}`}
+                    />
+                  )}
+                  <span>{infactAnalysis.probability}</span>
+                </p>
                 <p><strong>Uncertainty:</strong> {infactAnalysis.uncertainty}</p>
                 <p><strong>Interpretation:</strong> {infactAnalysis.interpretation}</p>
                 <p><strong>InFact Analysis Status:</strong> {infactStatus}</p>
