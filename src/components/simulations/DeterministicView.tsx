@@ -69,6 +69,8 @@ export const DeterministicView: React.FC<Props> = ({
   const [topN, setTopN] = useState(3);
   const [selectedPanelYear, setSelectedPanelYear] = useState<string>('');
   const [highlightedLabel, setHighlightedLabel] = useState<string | null>(null);
+  const [highlightedHeatmapLabel, setHighlightedHeatmapLabel] = useState<string | null>(null);
+  const [highlightedTimelineLabel, setHighlightedTimelineLabel] = useState<string | null>(null);
 
   const [analysis, setAnalysis] = useState<DeterministicAnalysis | null>(null);
   const [analysisLoading, setAnalysisLoading] = useState(false);
@@ -106,6 +108,8 @@ export const DeterministicView: React.FC<Props> = ({
     setSelectedPanelYear('');
     setTopN(3);
     setHighlightedLabel(null);
+    setHighlightedHeatmapLabel(null);
+    setHighlightedTimelineLabel(null);
   }, [topic, selectedYears]);
 
   const allSortedYears = useMemo(() => {
@@ -153,12 +157,35 @@ export const DeterministicView: React.FC<Props> = ({
     if (!nodeId) return;
 
     if (highlightedLabel === label) {
-      // Clicking the same row again clears the highlight
       setHighlightedLabel(null);
-      // We don't have a "deselect" callback, so just re-trigger — the parent
-      // can decide behaviour. For now we do nothing to keep it simple.
     } else {
       setHighlightedLabel(label);
+      onNodeSelect(nodeId);
+    }
+  };
+
+  const handleHeatmapLabelClick = (label: string) => {
+    if (!onNodeSelect) return;
+    const nodeId = labelToId.get(label);
+    if (!nodeId) return;
+
+    if (highlightedHeatmapLabel === label) {
+      setHighlightedHeatmapLabel(null);
+    } else {
+      setHighlightedHeatmapLabel(label);
+      onNodeSelect(nodeId);
+    }
+  };
+
+  const handleTimelineLabelClick = (label: string) => {
+    if (!onNodeSelect) return;
+    const nodeId = labelToId.get(label);
+    if (!nodeId) return;
+
+    if (highlightedTimelineLabel === label) {
+      setHighlightedTimelineLabel(null);
+    } else {
+      setHighlightedTimelineLabel(label);
       onNodeSelect(nodeId);
     }
   };
@@ -204,6 +231,8 @@ export const DeterministicView: React.FC<Props> = ({
     const intensity = Math.min(impact / maxImpact, 1);
     return `rgba(59,130,246,${0.1 + intensity * 0.9})`;
   };
+
+  const isClickable = !!onNodeSelect;
 
   return (
     <>
@@ -252,7 +281,7 @@ export const DeterministicView: React.FC<Props> = ({
               concepts. Delta is the gain from completing this node one year earlier. Downstream
               is the count of all nodes unlocked by this node in the entire tech tree.
             </p>
-            {onNodeSelect && (
+            {isClickable && (
               <p className="text-xs text-blue-600 mb-5 flex items-center gap-1">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -343,19 +372,17 @@ export const DeterministicView: React.FC<Props> = ({
                     {topNNodes.map(
                       ({ label, baseline_twh, accelerated_twh, delta_twh, downstream_count }, idx) => {
                         const isHighlighted = highlightedLabel === label;
-                        const isClickable = !!onNodeSelect && labelToId.has(label);
+                        const isRowClickable = isClickable && labelToId.has(label);
                         return (
                           <tr
                             key={label}
-                            onClick={() => isClickable && handleNodeRowClick(label)}
+                            onClick={() => isRowClickable && handleNodeRowClick(label)}
                             className={`border-b border-gray-100 transition-colors ${
-                              isClickable
-                                ? 'cursor-pointer'
-                                : ''
+                              isRowClickable ? 'cursor-pointer' : ''
                             } ${
                               isHighlighted
                                 ? 'bg-orange-50 ring-1 ring-inset ring-orange-300'
-                                : isClickable
+                                : isRowClickable
                                 ? 'hover:bg-blue-50'
                                 : 'hover:bg-white'
                             }`}
@@ -365,7 +392,7 @@ export const DeterministicView: React.FC<Props> = ({
                             </td>
                             <td className="py-3 pr-4 font-medium text-gray-800 max-w-[200px]">
                               <span
-                                className={`block truncate ${isClickable ? 'group-hover:underline' : ''}`}
+                                className={`block truncate ${isRowClickable ? 'group-hover:underline' : ''}`}
                                 title={label}
                               >
                                 {label}
@@ -423,7 +450,16 @@ export const DeterministicView: React.FC<Props> = ({
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               Technology Impact Heatmap (TWh)
             </h3>
-            <p className="text-sm text-gray-600 mb-4">Only impact &gt; 0.01 TWh shown</p>
+            <p className="text-sm text-gray-600 mb-1">Only impact &gt; 0.01 TWh shown</p>
+            {isClickable && (
+              <p className="text-xs text-blue-600 mb-4 flex items-center gap-1">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Click a node name to highlight it in the tech tree
+              </p>
+            )}
             <div className="overflow-x-auto">
               <div className="min-w-max">
                 <div className="flex">
@@ -437,26 +473,40 @@ export const DeterministicView: React.FC<Props> = ({
                     </div>
                   ))}
                 </div>
-                {heatmapData.data.map((tech) => (
-                  <div key={tech.technology} className="flex border-t border-gray-200">
-                    <div
-                      className="w-64 p-2 text-sm text-gray-800 truncate"
-                      title={tech.technology}
-                    >
-                      {tech.technology}
-                    </div>
-                    {tech.yearlyData.map(({ year, impact }) => (
+                {heatmapData.data.map((tech) => {
+                  const isHighlighted = highlightedHeatmapLabel === tech.technology;
+                  const canClick = isClickable && labelToId.has(tech.technology);
+                  return (
+                    <div key={tech.technology} className="flex border-t border-gray-200">
                       <div
-                        key={year}
-                        className="w-16 p-2 text-center text-xs border-l border-gray-200"
-                        style={{ backgroundColor: getImpactColor(impact) }}
-                        title={`${tech.technology} (${year}): ${impact.toFixed(3)} TWh`}
+                        className={`w-64 p-2 text-sm truncate flex items-center gap-1 ${
+                          canClick ? 'cursor-pointer' : ''
+                        } ${
+                          isHighlighted
+                            ? 'text-orange-600 font-semibold'
+                            : canClick
+                            ? 'text-gray-800 hover:text-blue-600'
+                            : 'text-gray-800'
+                        }`}
+                        title={tech.technology}
+                        onClick={() => canClick && handleHeatmapLabelClick(tech.technology)}
                       >
-                        {impact > 0 ? impact.toFixed(2) : ''}
+                        {isHighlighted && <span className="text-orange-500 flex-shrink-0">↗</span>}
+                        <span className="truncate">{tech.technology}</span>
                       </div>
-                    ))}
-                  </div>
-                ))}
+                      {tech.yearlyData.map(({ year, impact }) => (
+                        <div
+                          key={year}
+                          className="w-16 p-2 text-center text-xs border-l border-gray-200"
+                          style={{ backgroundColor: getImpactColor(impact) }}
+                          title={`${tech.technology} (${year}): ${impact.toFixed(3)} TWh`}
+                        >
+                          {impact > 0 ? impact.toFixed(2) : ''}
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -466,7 +516,7 @@ export const DeterministicView: React.FC<Props> = ({
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Technology Status Timeline
             </h3>
-            <div className="mb-4 flex items-center space-x-4 text-sm">
+            <div className="mb-2 flex items-center space-x-4 text-sm">
               {Object.entries(STATUS_COLORS).map(([label, color]) => (
                 <div key={label} className="flex items-center">
                   <div className="w-4 h-4 rounded mr-2" style={{ backgroundColor: color }} />
@@ -474,6 +524,15 @@ export const DeterministicView: React.FC<Props> = ({
                 </div>
               ))}
             </div>
+            {isClickable && (
+              <p className="text-xs text-blue-600 mb-4 flex items-center gap-1">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Click a node name to highlight it in the tech tree
+              </p>
+            )}
             <div className="overflow-x-auto">
               <div className="min-w-max">
                 <div className="flex">
@@ -487,28 +546,42 @@ export const DeterministicView: React.FC<Props> = ({
                     </div>
                   ))}
                 </div>
-                {timelineData.data.map((tech) => (
-                  <div key={tech.technology} className="flex border-t border-gray-200">
-                    <div
-                      className="w-64 p-2 text-sm text-gray-800 truncate"
-                      title={tech.technology}
-                    >
-                      {tech.technology}
-                    </div>
-                    {tech.yearlyData.map(({ year, status }) => (
+                {timelineData.data.map((tech) => {
+                  const isHighlighted = highlightedTimelineLabel === tech.technology;
+                  const canClick = isClickable && labelToId.has(tech.technology);
+                  return (
+                    <div key={tech.technology} className="flex border-t border-gray-200">
                       <div
-                        key={year}
-                        className="w-16 p-1 text-center border-l border-gray-200"
-                        title={`${tech.technology} (${year}): ${status}`}
+                        className={`w-64 p-2 text-sm truncate flex items-center gap-1 ${
+                          canClick ? 'cursor-pointer' : ''
+                        } ${
+                          isHighlighted
+                            ? 'text-orange-600 font-semibold'
+                            : canClick
+                            ? 'text-gray-800 hover:text-blue-600'
+                            : 'text-gray-800'
+                        }`}
+                        title={tech.technology}
+                        onClick={() => canClick && handleTimelineLabelClick(tech.technology)}
                       >
-                        <div
-                          className="w-full h-6 rounded"
-                          style={{ backgroundColor: STATUS_COLORS[status] ?? '#6b7280' }}
-                        />
+                        {isHighlighted && <span className="text-orange-500 flex-shrink-0">↗</span>}
+                        <span className="truncate">{tech.technology}</span>
                       </div>
-                    ))}
-                  </div>
-                ))}
+                      {tech.yearlyData.map(({ year, status }) => (
+                        <div
+                          key={year}
+                          className="w-16 p-1 text-center border-l border-gray-200"
+                          title={`${tech.technology} (${year}): ${status}`}
+                        >
+                          <div
+                            className="w-full h-6 rounded"
+                            style={{ backgroundColor: STATUS_COLORS[status] ?? '#6b7280' }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

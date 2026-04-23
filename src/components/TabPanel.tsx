@@ -17,14 +17,23 @@ interface TabPanelProps {
   onTogglePanel: () => void;
   topic: TopicKey;
   onNodeSelect?: (nodeId: string) => void;
+  onShowNodeDetailsRef?: (fn: () => void) => void;
 }
 
 type TabType = 'details' | 'chat' | 'simulations';
 
-const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel, topic, onNodeSelect }: TabPanelProps) => {
+const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel, topic, onNodeSelect, onShowNodeDetailsRef }: TabPanelProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('chat');
   const previousNodeIdRef = useRef<string | undefined>(undefined);
 
+  // Expose a callback so TechTree can imperatively switch to details tab
+  useEffect(() => {
+    if (onShowNodeDetailsRef) {
+      onShowNodeDetailsRef(() => setActiveTab('details'));
+    }
+  }, [onShowNodeDetailsRef]);
+
+  // Auto-switch to details when a node is selected from chat tab
   useEffect(() => {
     if (
       selectedNode &&

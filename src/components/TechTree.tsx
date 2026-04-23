@@ -12,7 +12,7 @@ import {
   ReactFlow,
   useReactFlow,
 } from '@xyflow/react';
-import React, { useCallback, useEffect, useState, useMemo } from 'react';
+import React, { useCallback, useEffect, useState, useMemo, useRef } from 'react';
 import { Legend } from './Legend';
 import { LoadingSpinner } from './LoadingSpinner';
 import { GroupSelector } from './GroupSelector';
@@ -64,6 +64,9 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
   
   // Category filtering state
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+
+  // Ref to imperatively switch TabPanel to the details tab
+  const showNodeDetailsTabRef = useRef<(() => void) | null>(null);
   
   const { fitView } = useReactFlow();
 
@@ -233,6 +236,11 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
         const connected = findConnectedElements(nodeId, edges);
         setHighlightedElements(connected);
         
+        // Always switch to details tab when clicking node buttons
+        if (showNodeDetailsTabRef.current) {
+          showNodeDetailsTabRef.current();
+        }
+
         // Auto-expand panel on mobile when node details are shown
         if (window.innerWidth < 768) {
           setIsPanelExpanded(true);
@@ -392,6 +400,7 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
             onTogglePanel={() => setIsPanelExpanded(!isPanelExpanded)}
             topic={topic}
             onNodeSelect={handleSimulationNodeSelect}
+            onShowNodeDetailsRef={(fn) => { showNodeDetailsTabRef.current = fn; }}
           />
         )}
       </div>

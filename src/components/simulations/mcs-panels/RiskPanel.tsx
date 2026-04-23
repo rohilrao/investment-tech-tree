@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { RiskRow, riskColor, riskLabel } from '../mcsTypes';
 
 interface Props {
@@ -155,7 +155,17 @@ const Spider: React.FC<SpiderProps> = ({ row }) => {
 export const RiskPanel: React.FC<Props> = ({ risk, labelToId, onNodeSelect }) => {
   const sorted = useMemo(() => [...risk].sort((a, b) => b.Score - a.Score), [risk]);
   const [selectedNode, setSelectedNode] = useState<string>(sorted[0]?.Node ?? '');
-  const [highlightedNode, setHighlightedNode] = useState<string | null>(null);
+  const [highlightedNode, setHighlightedNode] = useState<string | null>(sorted[0]?.Node ?? null);
+
+  // Auto-highlight the first (highest risk) node on mount
+  useEffect(() => {
+    if (sorted[0] && onNodeSelect) {
+      const nodeId = labelToId.get(sorted[0].Node);
+      if (nodeId) {
+        onNodeSelect(nodeId);
+      }
+    }
+  }, []);
 
   const selectedRow = useMemo(
     () => sorted.find((r) => r.Node === selectedNode) ?? sorted[0],
