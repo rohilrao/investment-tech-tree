@@ -56,7 +56,7 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({
     return `${option}`;
   };
 
-  const shouldShowReset = selectedNode !== undefined && showingConnectedNodes;
+  const shouldShowReset = showingConnectedNodes;
 
   return (
     <div className="absolute top-4 left-4 md:left-auto md:right-4 z-10">

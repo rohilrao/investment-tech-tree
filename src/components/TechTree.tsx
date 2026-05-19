@@ -261,6 +261,11 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
         return;
       }
 
+      // Collapse any previously expanded company nodes before showing new ones
+      setCompanyNodes([]);
+      setCompanyEdges([]);
+      setExpandedCompanyNodeIds(new Set());
+
       try {
         const res = await fetch(`/investment-tech-tree/api/companies?nodeId=${encodeURIComponent(nodeId)}&topic=${topic}`);
         if (!res.ok) return;
