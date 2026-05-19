@@ -3,15 +3,17 @@
 import { useState, useEffect, useRef } from 'react';
 import { MessageSquare, Info, BarChart3, ChevronLeft, ChevronRight } from 'lucide-react';
 import NodeDetails from './NodeDetails';
+import CompanyDetails from './CompanyDetails';
 import Chat from './Chat';
 import Simulations from './Simulations';
-import { UiNode, TechTree } from '@/lib/types';
+import { UiNode, TechTree, CompanyInfo } from '@/lib/types';
 import { TopicKey } from '@/lib/topicConfig';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 
 interface TabPanelProps {
   selectedNode?: UiNode;
+  selectedCompany?: CompanyInfo;
   techTree: TechTree | null;
   isPanelExpanded: boolean;
   onTogglePanel: () => void;
@@ -22,7 +24,7 @@ interface TabPanelProps {
 
 type TabType = 'details' | 'chat' | 'simulations';
 
-const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel, topic, onNodeSelect, onShowNodeDetailsRef }: TabPanelProps) => {
+const TabPanel = ({ selectedNode, selectedCompany, techTree, isPanelExpanded, onTogglePanel, topic, onNodeSelect, onShowNodeDetailsRef }: TabPanelProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('chat');
   const previousNodeIdRef = useRef<string | undefined>(undefined);
 
@@ -97,7 +99,11 @@ const TabPanel = ({ selectedNode, techTree, isPanelExpanded, onTogglePanel, topi
           </TabsContent>
 
           <TabsContent value="details" className="flex-1 overflow-y-auto mt-0">
-            <NodeDetails selectedNode={selectedNode} />
+            {selectedCompany ? (
+              <CompanyDetails company={selectedCompany} />
+            ) : (
+              <NodeDetails selectedNode={selectedNode} />
+            )}
           </TabsContent>
 
           <TabsContent value="simulations" className="flex-1 overflow-y-auto mt-0">

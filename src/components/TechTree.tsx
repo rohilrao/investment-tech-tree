@@ -1,7 +1,7 @@
 'use client';
 
 import { getLayoutedElements } from '@/lib/elkjs';
-import { HighlightedElements, UiNode, GroupingMode } from '@/lib/types';
+import { HighlightedElements, UiNode, GroupingMode, CompanyInfo, CompanyNodeData } from '@/lib/types';
 import { TopicKey } from '@/lib/topicConfig';
 import {
   Background,
@@ -18,6 +18,7 @@ import { LoadingSpinner } from './LoadingSpinner';
 import { GroupSelector } from './GroupSelector';
 import { KnowledgeBaseSelector } from './KnowledgeBaseSelector';
 import { CustomNode } from './CustomNode';
+import { CompanyNode } from './CompanyNode';
 import TabPanel from './TabPanel';
 import EditInterface from './EditInterface';
 import { useTechTree } from '@/hooks/useTechTree';
@@ -61,6 +62,12 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
   const [isPanelExpanded, setIsPanelExpanded] = useState(true);
   const [showLegend, setShowLegend] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
+
+  // Company overlay state
+  const [companyNodes, setCompanyNodes] = useState<UiNode[]>([]);
+  const [companyEdges, setCompanyEdges] = useState<Edge[]>([]);
+  const [expandedCompanyNodeIds, setExpandedCompanyNodeIds] = useState<Set<string>>(new Set());
+  const [selectedCompany, setSelectedCompany] = useState<CompanyInfo | undefined>(undefined);
   
   // Category filtering state
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -145,6 +152,14 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
     setSearchTerm(searchInput);
   }, [searchInput, searchTerm]);
 
+  // Clear company overlay whenever the ELK layout is about to regenerate
+  // so company nodes don't linger at stale positions.
+  useEffect(() => {
+    setCompanyNodes([]);
+    setCompanyEdges([]);
+    setExpandedCompanyNodeIds(new Set());
+  }, [techTree, groupingMode, showingRelatedNodes, showOnlyConnected, searchTerm, selectedCategory]);
+
   useEffect(() => {
     if (!techTree) return;
 
@@ -228,11 +243,113 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
     );
   }, [highlightedElements]);
 
+  const handleShowCompanies = useCallback(
+    async (nodeId: string) => {
+      if (expandedCompanyNodeIds.has(nodeId)) {
+        // Toggle off
+        setCompanyNodes((prev) =>
+          prev.filter((n) => (n.data as unknown as CompanyNodeData).parentNodeId !== nodeId),
+        );
+        setCompanyEdges((prev) =>
+          prev.filter((e) => !e.id.startsWith(`company-edge-${nodeId}-`)),
+        );
+        setExpandedCompanyNodeIds((prev) => {
+          const next = new Set(prev);
+          next.delete(nodeId);
+          return next;
+        });
+        return;
+      }
+
+      try {
+        const res = await fetch(`/investment-tech-tree/api/companies?nodeId=${encodeURIComponent(nodeId)}&topic=${topic}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const companies: CompanyInfo[] = data.companies ?? [];
+        if (!companies.length) return;
+
+        const parentNode = nodes.find((n) => n.id === nodeId);
+        if (!parentNode) return;
+
+        const companyWidth = 140;
+        const companyHeight = 80;
+        const companyGap = 10;
+        const px = parentNode.position.x - companyWidth - 30; // left of the parent
+        const totalHeight = companies.length * (companyHeight + companyGap) - companyGap;
+        const startY = parentNode.position.y + 40 - totalHeight / 2;
+
+        const newCompanyNodes: UiNode[] = companies.map((company, index) => ({
+          id: `company-${company.id}`,
+          type: 'company',
+          position: { x: px, y: startY + index * (companyHeight + companyGap) },
+          width: companyWidth,
+          height: companyHeight,
+          data: {
+            label: company.canonical_name,
+            nodeType: 'company',
+            company,
+            parentNodeId: nodeId,
+          } as unknown as UiNode['data'],
+          style: {
+            background: '#ffffff',
+            borderColor: company.is_primary ? '#ca8a04' : '#eab308',
+            borderStyle: 'solid',
+            borderWidth: company.is_primary ? '2px' : '1px',
+            borderRadius: '6px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+        }));
+
+        const newCompanyEdges: Edge[] = companies.map((company) => ({
+          id: `company-edge-${nodeId}-${company.id}`,
+          source: `company-${company.id}`,
+          target: nodeId,
+          style: { strokeWidth: 1, stroke: '#eab308', strokeDasharray: '4 2' },
+          markerEnd: {
+            type: MarkerType.ArrowClosed,
+            width: 16,
+            height: 16,
+            color: '#eab308',
+          },
+        }));
+
+        setCompanyNodes((prev) => [...prev, ...newCompanyNodes]);
+        setCompanyEdges((prev) => [...prev, ...newCompanyEdges]);
+        setExpandedCompanyNodeIds((prev) => new Set([...prev, nodeId]));
+      } catch (err) {
+        console.error('Error fetching companies:', err);
+      }
+    },
+    [nodes, topic, expandedCompanyNodeIds],
+  );
+
+  const handleShowCompanyDetails = useCallback(
+    (companyId: string) => {
+      const companyNode = companyNodes.find(
+        (n) => (n.data as unknown as CompanyNodeData).company?.id === companyId,
+      );
+      if (companyNode) {
+        setSelectedCompany((companyNode.data as unknown as CompanyNodeData).company);
+        setSelectedNode(undefined);
+        if (showNodeDetailsTabRef.current) {
+          showNodeDetailsTabRef.current();
+        }
+        if (window.innerWidth < 768) {
+          setIsPanelExpanded(true);
+        }
+      }
+    },
+    [companyNodes],
+  );
+
   const handleShowDetails = useCallback(
     (nodeId: string) => {
       const node = nodes.find((n) => n.id === nodeId);
       if (node) {
         setSelectedNode(() => ({ ...node }));
+        setSelectedCompany(undefined);
         const connected = findConnectedElements(nodeId, edges);
         setHighlightedElements(connected);
         
@@ -290,6 +407,7 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
 
   const handleReset = useCallback(() => {
     setSelectedNode(undefined);
+    setSelectedCompany(undefined);
     setShowingRelatedNodes(null);
     setShowOnlyConnected(false);
     setSearchInput('');
@@ -338,16 +456,28 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
         ) : (
           <div className="flex-grow relative">
             <ReactFlow
-              nodes={nodes}
-              edges={edges}
+              nodes={[...nodes, ...companyNodes]}
+              edges={[...edges, ...companyEdges]}
               nodeTypes={{
                 default: (props) => (
                   <CustomNode
                     {...props}
                     onShowDetails={handleShowDetails}
                     onShowConnected={handleShowConnected}
+                    onShowCompanies={handleShowCompanies}
+                    isCompaniesExpanded={(id) => expandedCompanyNodeIds.has(id)}
                   />
                 ),
+                company: (props) => {
+                  const companyData = props.data as unknown as CompanyNodeData;
+                  return (
+                    <CompanyNode
+                      {...props}
+                      data={companyData}
+                      onShowCompanyDetails={handleShowCompanyDetails}
+                    />
+                  );
+                },
               }}
               onNodesChange={undefined}
               onEdgesChange={undefined}
@@ -394,7 +524,8 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
           <EditInterface onExit={handleExitEditMode} topic={topic} />
         ) : (
           <TabPanel 
-            selectedNode={selectedNode} 
+            selectedNode={selectedNode}
+            selectedCompany={selectedCompany}
             techTree={techTree}
             isPanelExpanded={isPanelExpanded}
             onTogglePanel={() => setIsPanelExpanded(!isPanelExpanded)}
