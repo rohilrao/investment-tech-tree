@@ -1,6 +1,6 @@
 # Investment Tech Tree
 
-An interactive visualization platform for exploring energy technology development pathways and investment opportunities. This web application provides a comprehensive view of various energy sectors—including Nuclear (fusion and fission), Fossil Fuels and their enabling technologies, core concepts, and key milestones.
+An interactive visualization platform for exploring energy technology development pathways and investment opportunities. This web application provides a comprehensive view of various energy sectors - including Nuclear (fusion and fission), Fossil Fuels and their enabling technologies, core concepts, and key milestones.
 
 ## Project Purpose
 
