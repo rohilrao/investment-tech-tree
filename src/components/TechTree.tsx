@@ -19,6 +19,7 @@ import { GroupSelector } from './GroupSelector';
 import { KnowledgeBaseSelector } from './KnowledgeBaseSelector';
 import { CustomNode } from './CustomNode';
 import { CompanyNode } from './CompanyNode';
+import { MoreCompaniesNode, MoreCompaniesNodeData } from './MoreCompaniesNode';
 import TabPanel from './TabPanel';
 import EditInterface from './EditInterface';
 import { useTechTree } from '@/hooks/useTechTree';
@@ -67,13 +68,15 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
   const [companyNodes, setCompanyNodes] = useState<UiNode[]>([]);
   const [companyEdges, setCompanyEdges] = useState<Edge[]>([]);
   const [expandedCompanyNodeIds, setExpandedCompanyNodeIds] = useState<Set<string>>(new Set());
-  const [selectedCompany, setSelectedCompany] = useState<CompanyInfo | undefined>(undefined);
-  
+ 
   // Category filtering state
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  // Ref to imperatively switch TabPanel to the details tab
+  // Refs to imperatively switch TabPanel tabs / sub-views
   const showNodeDetailsTabRef = useRef<(() => void) | null>(null);
+  const showCompaniesSubViewRef = useRef<(() => void) | null>(null);
+
+  const MAX_VISIBLE_COMPANIES = 5;
   
   const { fitView } = useReactFlow();
 
@@ -248,7 +251,10 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
       if (expandedCompanyNodeIds.has(nodeId)) {
         // Toggle off
         setCompanyNodes((prev) =>
-          prev.filter((n) => (n.data as unknown as CompanyNodeData).parentNodeId !== nodeId),
+          prev.filter((n) => {
+            const d = n.data as unknown as CompanyNodeData | MoreCompaniesNodeData;
+            return d.parentNodeId !== nodeId;
+          }),
         );
         setCompanyEdges((prev) =>
           prev.filter((e) => !e.id.startsWith(`company-edge-${nodeId}-`)),
@@ -265,25 +271,37 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
       setCompanyNodes([]);
       setCompanyEdges([]);
       setExpandedCompanyNodeIds(new Set());
+      
+      // update selected node and highlights when expanding a new node
+      const targetNode = nodes.find((n) => n.id === nodeId);
+      if (targetNode) {
+        setSelectedNode(() => ({ ...targetNode }));
+        const connected = findConnectedElements(nodeId, edges);
+        setHighlightedElements(connected);
+      }
 
       try {
         const res = await fetch(`/investment-tech-tree/api/companies?nodeId=${encodeURIComponent(nodeId)}&topic=${topic}`);
         if (!res.ok) return;
         const data = await res.json();
-        const companies: CompanyInfo[] = data.companies ?? [];
-        if (!companies.length) return;
+        const allCompanies: CompanyInfo[] = data.companies ?? [];
+        if (!allCompanies.length) return;
 
         const parentNode = nodes.find((n) => n.id === nodeId);
         if (!parentNode) return;
 
+        const visibleCompanies = allCompanies.slice(0, MAX_VISIBLE_COMPANIES);
+        const remainingCount = allCompanies.length - visibleCompanies.length;
+
         const companyWidth = 140;
         const companyHeight = 80;
         const companyGap = 10;
-        const px = parentNode.position.x - companyWidth - 30; // left of the parent
-        const totalHeight = companies.length * (companyHeight + companyGap) - companyGap;
+        const px = parentNode.position.x - companyWidth - 30;
+        const visibleCount = visibleCompanies.length + (remainingCount > 0 ? 1 : 0);
+        const totalHeight = visibleCount * (companyHeight + companyGap) - companyGap;
         const startY = parentNode.position.y + 40 - totalHeight / 2;
 
-        const newCompanyNodes: UiNode[] = companies.map((company, index) => ({
+        const newCompanyNodes: UiNode[] = visibleCompanies.map((company, index) => ({
           id: `company-${company.id}`,
           type: 'company',
           position: { x: px, y: startY + index * (companyHeight + companyGap) },
@@ -307,7 +325,33 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
           },
         }));
 
-        const newCompanyEdges: Edge[] = companies.map((company) => ({
+        if (remainingCount > 0) {
+          const moreY = startY + visibleCompanies.length * (companyHeight + companyGap);
+          newCompanyNodes.push({
+            id: `more-companies-${nodeId}`,
+            type: 'moreCompanies',
+            position: { x: px, y: moreY },
+            width: companyWidth,
+            height: companyHeight,
+            data: {
+              label: `+${remainingCount} More Companies`,
+              nodeType: 'moreCompanies',
+              parentNodeId: nodeId,
+            } as unknown as UiNode['data'],
+            style: {
+              background: '#f8fafc',
+              borderColor: '#94a3b8',
+              borderStyle: 'dashed',
+              borderWidth: '2px',
+              borderRadius: '6px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+          });
+        }
+
+        const newCompanyEdges: Edge[] = visibleCompanies.map((company) => ({
           id: `company-edge-${nodeId}-${company.id}`,
           source: `company-${company.id}`,
           target: nodeId,
@@ -320,6 +364,21 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
           },
         }));
 
+        if (remainingCount > 0) {
+          newCompanyEdges.push({
+            id: `company-edge-${nodeId}-more`,
+            source: `more-companies-${nodeId}`,
+            target: nodeId,
+            style: { strokeWidth: 1, stroke: '#94a3b8', strokeDasharray: '4 2' },
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              width: 16,
+              height: 16,
+              color: '#94a3b8',
+            },
+          });
+        }
+
         setCompanyNodes((prev) => [...prev, ...newCompanyNodes]);
         setCompanyEdges((prev) => [...prev, ...newCompanyEdges]);
         setExpandedCompanyNodeIds((prev) => new Set([...prev, nodeId]));
@@ -327,7 +386,7 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
         console.error('Error fetching companies:', err);
       }
     },
-    [nodes, topic, expandedCompanyNodeIds],
+    [nodes, topic, expandedCompanyNodeIds, MAX_VISIBLE_COMPANIES],
   );
 
   const handleShowCompanyDetails = useCallback(
@@ -336,17 +395,47 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
         (n) => (n.data as unknown as CompanyNodeData).company?.id === companyId,
       );
       if (companyNode) {
-        setSelectedCompany((companyNode.data as unknown as CompanyNodeData).company);
-        setSelectedNode(undefined);
-        if (showNodeDetailsTabRef.current) {
-          showNodeDetailsTabRef.current();
-        }
-        if (window.innerWidth < 768) {
+        const parentNodeId = (companyNode.data as unknown as CompanyNodeData).parentNodeId;
+        const parentNode = nodes.find((n) => n.id === parentNodeId);
+        if (parentNode) {
+          setSelectedNode(() => ({ ...parentNode }));
+          const connected = findConnectedElements(parentNodeId, edges);
+          setHighlightedElements(connected);
+          // Ensure panel is expanded then switch to companies sub-view
           setIsPanelExpanded(true);
+          if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
         }
       }
     },
-    [companyNodes],
+    [companyNodes, nodes, edges, findConnectedElements],
+  );
+
+  const handleShowMoreCompanies = useCallback(
+    (parentNodeId: string) => {
+      const parentNode = nodes.find((n) => n.id === parentNodeId);
+      if (parentNode) {
+        const isSameNode = selectedNode?.id === parentNodeId;
+
+        setSelectedNode(() => ({ ...parentNode }));
+        const connected = findConnectedElements(parentNodeId, edges);
+        setHighlightedElements(connected);
+
+        // Always expand the panel
+        setIsPanelExpanded(true);
+
+        if (isSameNode) {
+          // selectedNode.id won't change, so the TabPanel effect won't fire.
+          // Call both refs directly: first switch to details tab, then set sub-view.
+          if (showNodeDetailsTabRef.current) showNodeDetailsTabRef.current();
+          if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
+        } else {
+          // selectedNode.id will change, TabPanel's useEffect will consume pendingSubViewRef.
+          // Set pending before the state update propagates.
+          if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
+        }
+      }
+    },
+    [nodes, edges, findConnectedElements, selectedNode],
   );
 
   const handleShowDetails = useCallback(
@@ -354,7 +443,6 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
       const node = nodes.find((n) => n.id === nodeId);
       if (node) {
         setSelectedNode(() => ({ ...node }));
-        setSelectedCompany(undefined);
         const connected = findConnectedElements(nodeId, edges);
         setHighlightedElements(connected);
         
@@ -412,7 +500,6 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
 
   const handleReset = useCallback(() => {
     setSelectedNode(undefined);
-    setSelectedCompany(undefined);
     setShowingRelatedNodes(null);
     setShowOnlyConnected(false);
     setSearchInput('');
@@ -483,6 +570,16 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
                     />
                   );
                 },
+                moreCompanies: (props) => {
+                  const moreData = props.data as unknown as MoreCompaniesNodeData;
+                  return (
+                    <MoreCompaniesNode
+                      {...props}
+                      data={moreData}
+                      onShowParentCompanies={handleShowMoreCompanies}
+                    />
+                  );
+                },
               }}
               onNodesChange={undefined}
               onEdgesChange={undefined}
@@ -530,13 +627,13 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
         ) : (
           <TabPanel 
             selectedNode={selectedNode}
-            selectedCompany={selectedCompany}
             techTree={techTree}
             isPanelExpanded={isPanelExpanded}
             onTogglePanel={() => setIsPanelExpanded(!isPanelExpanded)}
             topic={topic}
             onNodeSelect={handleSimulationNodeSelect}
             onShowNodeDetailsRef={(fn) => { showNodeDetailsTabRef.current = fn; }}
+            onShowCompaniesViewRef={(fn) => { showCompaniesSubViewRef.current = fn; }}
           />
         )}
       </div>
