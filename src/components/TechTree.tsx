@@ -401,8 +401,9 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
           setSelectedNode(() => ({ ...parentNode }));
           const connected = findConnectedElements(parentNodeId, edges);
           setHighlightedElements(connected);
+          // Ensure panel is expanded then switch to companies sub-view
+          setIsPanelExpanded(true);
           if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
-          if (window.innerWidth < 768) setIsPanelExpanded(true);
         }
       }
     },
@@ -413,14 +414,28 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
     (parentNodeId: string) => {
       const parentNode = nodes.find((n) => n.id === parentNodeId);
       if (parentNode) {
+        const isSameNode = selectedNode?.id === parentNodeId;
+
         setSelectedNode(() => ({ ...parentNode }));
         const connected = findConnectedElements(parentNodeId, edges);
         setHighlightedElements(connected);
-        if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
-        if (window.innerWidth < 768) setIsPanelExpanded(true);
+
+        // Always expand the panel
+        setIsPanelExpanded(true);
+
+        if (isSameNode) {
+          // selectedNode.id won't change, so the TabPanel effect won't fire.
+          // Call both refs directly: first switch to details tab, then set sub-view.
+          if (showNodeDetailsTabRef.current) showNodeDetailsTabRef.current();
+          if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
+        } else {
+          // selectedNode.id will change, TabPanel's useEffect will consume pendingSubViewRef.
+          // Set pending before the state update propagates.
+          if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
+        }
       }
     },
-    [nodes, edges, findConnectedElements],
+    [nodes, edges, findConnectedElements, selectedNode],
   );
 
   const handleShowDetails = useCallback(

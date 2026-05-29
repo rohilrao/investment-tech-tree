@@ -40,12 +40,18 @@ const TabPanel = ({
   // tracks what sub-view should be applied on the next node selection
   const pendingSubViewRef = useRef<NodeDetailsSubView | null>(null);
 
-  // Expose imperative callbacks to TechTree
+  // Expose imperative callbacks to TechTree.
+  // These set pendingSubViewRef then switch the active tab.
+  // When the same node is already selected, TechTree calls both
+  // showNodeDetailsTabRef and showCompaniesSubViewRef directly so the
+  // sub-view is applied immediately via setNodeDetailsSubView below.
   useEffect(() => {
     if (onShowNodeDetailsRef) {
       onShowNodeDetailsRef(() => {
-        pendingSubViewRef.current = 'info'; // set pending before tab switch
+        pendingSubViewRef.current = 'info';
         setActiveTab('details');
+        // Apply immediately in case selectedNode hasn't changed
+        setNodeDetailsSubView('info');
       });
     }
   }, [onShowNodeDetailsRef]);
@@ -53,8 +59,10 @@ const TabPanel = ({
   useEffect(() => {
     if (onShowCompaniesViewRef) {
       onShowCompaniesViewRef(() => {
-        pendingSubViewRef.current = 'companies'; // set pending before tab switch
+        pendingSubViewRef.current = 'companies';
         setActiveTab('details');
+        // Apply immediately in case selectedNode hasn't changed
+        setNodeDetailsSubView('companies');
       });
     }
   }, [onShowCompaniesViewRef]);
@@ -71,13 +79,19 @@ const TabPanel = ({
     previousNodeIdRef.current = selectedNode?.id;
   }, [selectedNode, activeTab]);
 
-  // checks for a pending sub-view set by the imperative callbacks above.
+  // When the selected node changes, consume any pending sub-view.
+  // Only reset to 'info' when there is no pending sub-view queued.
   useEffect(() => {
     if (pendingSubViewRef.current !== null) {
       setNodeDetailsSubView(pendingSubViewRef.current);
       pendingSubViewRef.current = null;
     } else {
-      setNodeDetailsSubView('info');
+      // Only reset to 'info' on a genuine node change (not on initial mount
+      // where previousNodeIdRef hasn't been set yet), and only when no
+      // sub-view was explicitly requested.
+      if (previousNodeIdRef.current !== undefined) {
+        setNodeDetailsSubView('info');
+      }
     }
   }, [selectedNode?.id]);
 
