@@ -271,6 +271,14 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
       setCompanyNodes([]);
       setCompanyEdges([]);
       setExpandedCompanyNodeIds(new Set());
+      
+      // update selected node and highlights when expanding a new node
+      const targetNode = nodes.find((n) => n.id === nodeId);
+      if (targetNode) {
+        setSelectedNode(() => ({ ...targetNode }));
+        const connected = findConnectedElements(nodeId, edges);
+        setHighlightedElements(connected);
+      }
 
       try {
         const res = await fetch(`/investment-tech-tree/api/companies?nodeId=${encodeURIComponent(nodeId)}&topic=${topic}`);
@@ -477,7 +485,6 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
 
   const handleReset = useCallback(() => {
     setSelectedNode(undefined);
-    setSelectedCompany(undefined);
     setShowingRelatedNodes(null);
     setShowOnlyConnected(false);
     setSearchInput('');

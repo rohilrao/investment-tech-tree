@@ -36,13 +36,16 @@ const TabPanel = ({
   const [activeTab, setActiveTab] = useState<TabType>('chat');
   const [nodeDetailsSubView, setNodeDetailsSubView] = useState<NodeDetailsSubView>('info');
   const previousNodeIdRef = useRef<string | undefined>(undefined);
+  
+  // tracks what sub-view should be applied on the next node selection
+  const pendingSubViewRef = useRef<NodeDetailsSubView | null>(null);
 
   // Expose imperative callbacks to TechTree
   useEffect(() => {
     if (onShowNodeDetailsRef) {
       onShowNodeDetailsRef(() => {
+        pendingSubViewRef.current = 'info'; // set pending before tab switch
         setActiveTab('details');
-        setNodeDetailsSubView('info');
       });
     }
   }, [onShowNodeDetailsRef]);
@@ -50,8 +53,8 @@ const TabPanel = ({
   useEffect(() => {
     if (onShowCompaniesViewRef) {
       onShowCompaniesViewRef(() => {
+        pendingSubViewRef.current = 'companies'; // set pending before tab switch
         setActiveTab('details');
-        setNodeDetailsSubView('companies');
       });
     }
   }, [onShowCompaniesViewRef]);
@@ -68,9 +71,14 @@ const TabPanel = ({
     previousNodeIdRef.current = selectedNode?.id;
   }, [selectedNode, activeTab]);
 
-  // Reset sub-view to "info" when the selected node changes
+  // checks for a pending sub-view set by the imperative callbacks above.
   useEffect(() => {
-    setNodeDetailsSubView('info');
+    if (pendingSubViewRef.current !== null) {
+      setNodeDetailsSubView(pendingSubViewRef.current);
+      pendingSubViewRef.current = null;
+    } else {
+      setNodeDetailsSubView('info');
+    }
   }, [selectedNode?.id]);
 
   return (
