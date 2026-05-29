@@ -9,6 +9,8 @@ interface CustomNodeProps extends NodeProps {
   data: UiNode['data'];
   onShowDetails: (nodeId: string) => void;
   onShowConnected: (nodeId: string) => void;
+  onShowCompanies?: (nodeId: string) => void;
+  isCompaniesExpanded?: (nodeId: string) => boolean;
 }
 
 export const CustomNode: React.FC<CustomNodeProps> = ({
@@ -16,6 +18,8 @@ export const CustomNode: React.FC<CustomNodeProps> = ({
   id,
   onShowDetails,
   onShowConnected,
+  onShowCompanies,
+  isCompaniesExpanded,
 }) => {
   // Determine color based on probability
   let statusColor = 'bg-transparent';
@@ -79,6 +83,8 @@ export const CustomNode: React.FC<CustomNodeProps> = ({
           nodeId={id}
           onShowDetails={onShowDetails}
           onShowConnected={onShowConnected}
+          onShowCompanies={onShowCompanies}
+          companiesExpanded={isCompaniesExpanded?.(id)}
         />
       </div>
     </div>

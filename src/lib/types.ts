@@ -101,3 +101,67 @@ export interface GroupState {
   mode: GroupingMode;
   expandedGroups: Set<string>;
 }
+
+// Company-related types
+export interface CompanyInfo {
+  id: string;
+  canonical_name: string;
+  country_iso?: string | null;
+  country_tier?: number | null;
+  country_tier_label?: string | null;
+  trl_level?: number | null;
+  trl_band?: string | null;
+  trl_confidence?: number | null;
+  primary_approach?: string | null;
+  all_approaches?: string[];
+  tech_tree_primary_node?: string | null;
+  key_investors?: string[];
+  manufacturing_countries?: string[];
+  critical_material_deps?: string[];
+  ownership_top_shareholders?: string[];
+  is_primary?: boolean;
+  relation_confidence?: number | null;
+  relation_method?: string | null;
+  relation_reasoning?: string | null;
+
+  // Financials & Scale
+  founded_year?: number | null;
+  funding_total_usd?: number | null;
+  vc_funding_stage?: string | null;
+  customer_count_band?: string | null;
+  headcount_range?: string | null;
+  description?: string | null;
+  domain?: string | null;
+
+  // Risk Scores
+  financial_risk_score?: number | null;
+  financial_risk_label?: string | null;
+  financial_risk_summary?: string | null;
+
+  commercial_risk_score?: number | null;
+  commercial_risk_label?: string | null;
+  commercial_risk_summary?: string | null;
+
+  manufacturing_risk_score?: number | null;
+  manufacturing_risk_label?: string | null;
+  manufacturing_risk_summary?: string | null;
+
+  geopolitical_risk_score?: number | null;
+  geopolitical_risk_label?: string | null;
+  geopolitical_risk_summary?: string | null;
+
+  regulatory_risk_score?: number | null;
+  regulatory_risk_score_reasoning?: string | null;
+
+  export_control_exposure?: string | null;
+  export_control_exposure_reasoning?: string | null;
+
+  [key: string]: unknown;
+}
+
+export interface CompanyNodeData {
+  label: string;
+  nodeType: 'company';
+  company: CompanyInfo;
+  parentNodeId: string;
+}

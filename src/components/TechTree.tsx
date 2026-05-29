@@ -1,7 +1,7 @@
 'use client';
 
 import { getLayoutedElements } from '@/lib/elkjs';
-import { HighlightedElements, UiNode, GroupingMode } from '@/lib/types';
+import { HighlightedElements, UiNode, GroupingMode, CompanyInfo, CompanyNodeData } from '@/lib/types';
 import { TopicKey } from '@/lib/topicConfig';
 import {
   Background,
@@ -18,6 +18,8 @@ import { LoadingSpinner } from './LoadingSpinner';
 import { GroupSelector } from './GroupSelector';
 import { KnowledgeBaseSelector } from './KnowledgeBaseSelector';
 import { CustomNode } from './CustomNode';
+import { CompanyNode } from './CompanyNode';
+import { MoreCompaniesNode, MoreCompaniesNodeData } from './MoreCompaniesNode';
 import TabPanel from './TabPanel';
 import EditInterface from './EditInterface';
 import { useTechTree } from '@/hooks/useTechTree';
@@ -61,12 +63,20 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
   const [isPanelExpanded, setIsPanelExpanded] = useState(true);
   const [showLegend, setShowLegend] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
-  
+
+  // Company overlay state
+  const [companyNodes, setCompanyNodes] = useState<UiNode[]>([]);
+  const [companyEdges, setCompanyEdges] = useState<Edge[]>([]);
+  const [expandedCompanyNodeIds, setExpandedCompanyNodeIds] = useState<Set<string>>(new Set());
+ 
   // Category filtering state
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  // Ref to imperatively switch TabPanel to the details tab
+  // Refs to imperatively switch TabPanel tabs / sub-views
   const showNodeDetailsTabRef = useRef<(() => void) | null>(null);
+  const showCompaniesSubViewRef = useRef<(() => void) | null>(null);
+
+  const MAX_VISIBLE_COMPANIES = 5;
   
   const { fitView } = useReactFlow();
 
@@ -144,6 +154,14 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
   useEffect(() => {
     setSearchTerm(searchInput);
   }, [searchInput, searchTerm]);
+
+  // Clear company overlay whenever the ELK layout is about to regenerate
+  // so company nodes don't linger at stale positions.
+  useEffect(() => {
+    setCompanyNodes([]);
+    setCompanyEdges([]);
+    setExpandedCompanyNodeIds(new Set());
+  }, [techTree, groupingMode, showingRelatedNodes, showOnlyConnected, searchTerm, selectedCategory]);
 
   useEffect(() => {
     if (!techTree) return;
@@ -227,6 +245,198 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
       })),
     );
   }, [highlightedElements]);
+
+  const handleShowCompanies = useCallback(
+    async (nodeId: string) => {
+      if (expandedCompanyNodeIds.has(nodeId)) {
+        // Toggle off
+        setCompanyNodes((prev) =>
+          prev.filter((n) => {
+            const d = n.data as unknown as CompanyNodeData | MoreCompaniesNodeData;
+            return d.parentNodeId !== nodeId;
+          }),
+        );
+        setCompanyEdges((prev) =>
+          prev.filter((e) => !e.id.startsWith(`company-edge-${nodeId}-`)),
+        );
+        setExpandedCompanyNodeIds((prev) => {
+          const next = new Set(prev);
+          next.delete(nodeId);
+          return next;
+        });
+        return;
+      }
+
+      // Collapse any previously expanded company nodes before showing new ones
+      setCompanyNodes([]);
+      setCompanyEdges([]);
+      setExpandedCompanyNodeIds(new Set());
+      
+      // update selected node and highlights when expanding a new node
+      const targetNode = nodes.find((n) => n.id === nodeId);
+      if (targetNode) {
+        setSelectedNode(() => ({ ...targetNode }));
+        const connected = findConnectedElements(nodeId, edges);
+        setHighlightedElements(connected);
+      }
+
+      try {
+        const res = await fetch(`/investment-tech-tree/api/companies?nodeId=${encodeURIComponent(nodeId)}&topic=${topic}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const allCompanies: CompanyInfo[] = data.companies ?? [];
+        if (!allCompanies.length) return;
+
+        const parentNode = nodes.find((n) => n.id === nodeId);
+        if (!parentNode) return;
+
+        const visibleCompanies = allCompanies.slice(0, MAX_VISIBLE_COMPANIES);
+        const remainingCount = allCompanies.length - visibleCompanies.length;
+
+        const companyWidth = 140;
+        const companyHeight = 80;
+        const companyGap = 10;
+        const px = parentNode.position.x - companyWidth - 30;
+        const visibleCount = visibleCompanies.length + (remainingCount > 0 ? 1 : 0);
+        const totalHeight = visibleCount * (companyHeight + companyGap) - companyGap;
+        const startY = parentNode.position.y + 40 - totalHeight / 2;
+
+        const newCompanyNodes: UiNode[] = visibleCompanies.map((company, index) => ({
+          id: `company-${company.id}`,
+          type: 'company',
+          position: { x: px, y: startY + index * (companyHeight + companyGap) },
+          width: companyWidth,
+          height: companyHeight,
+          data: {
+            label: company.canonical_name,
+            nodeType: 'company',
+            company,
+            parentNodeId: nodeId,
+          } as unknown as UiNode['data'],
+          style: {
+            background: '#ffffff',
+            borderColor: company.is_primary ? '#ca8a04' : '#eab308',
+            borderStyle: 'solid',
+            borderWidth: company.is_primary ? '2px' : '1px',
+            borderRadius: '6px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+        }));
+
+        if (remainingCount > 0) {
+          const moreY = startY + visibleCompanies.length * (companyHeight + companyGap);
+          newCompanyNodes.push({
+            id: `more-companies-${nodeId}`,
+            type: 'moreCompanies',
+            position: { x: px, y: moreY },
+            width: companyWidth,
+            height: companyHeight,
+            data: {
+              label: `+${remainingCount} More Companies`,
+              nodeType: 'moreCompanies',
+              parentNodeId: nodeId,
+            } as unknown as UiNode['data'],
+            style: {
+              background: '#f8fafc',
+              borderColor: '#94a3b8',
+              borderStyle: 'dashed',
+              borderWidth: '2px',
+              borderRadius: '6px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+          });
+        }
+
+        const newCompanyEdges: Edge[] = visibleCompanies.map((company) => ({
+          id: `company-edge-${nodeId}-${company.id}`,
+          source: `company-${company.id}`,
+          target: nodeId,
+          style: { strokeWidth: 1, stroke: '#eab308', strokeDasharray: '4 2' },
+          markerEnd: {
+            type: MarkerType.ArrowClosed,
+            width: 16,
+            height: 16,
+            color: '#eab308',
+          },
+        }));
+
+        if (remainingCount > 0) {
+          newCompanyEdges.push({
+            id: `company-edge-${nodeId}-more`,
+            source: `more-companies-${nodeId}`,
+            target: nodeId,
+            style: { strokeWidth: 1, stroke: '#94a3b8', strokeDasharray: '4 2' },
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+              width: 16,
+              height: 16,
+              color: '#94a3b8',
+            },
+          });
+        }
+
+        setCompanyNodes((prev) => [...prev, ...newCompanyNodes]);
+        setCompanyEdges((prev) => [...prev, ...newCompanyEdges]);
+        setExpandedCompanyNodeIds((prev) => new Set([...prev, nodeId]));
+      } catch (err) {
+        console.error('Error fetching companies:', err);
+      }
+    },
+    [nodes, topic, expandedCompanyNodeIds, MAX_VISIBLE_COMPANIES],
+  );
+
+  const handleShowCompanyDetails = useCallback(
+    (companyId: string) => {
+      const companyNode = companyNodes.find(
+        (n) => (n.data as unknown as CompanyNodeData).company?.id === companyId,
+      );
+      if (companyNode) {
+        const parentNodeId = (companyNode.data as unknown as CompanyNodeData).parentNodeId;
+        const parentNode = nodes.find((n) => n.id === parentNodeId);
+        if (parentNode) {
+          setSelectedNode(() => ({ ...parentNode }));
+          const connected = findConnectedElements(parentNodeId, edges);
+          setHighlightedElements(connected);
+          // Ensure panel is expanded then switch to companies sub-view
+          setIsPanelExpanded(true);
+          if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
+        }
+      }
+    },
+    [companyNodes, nodes, edges, findConnectedElements],
+  );
+
+  const handleShowMoreCompanies = useCallback(
+    (parentNodeId: string) => {
+      const parentNode = nodes.find((n) => n.id === parentNodeId);
+      if (parentNode) {
+        const isSameNode = selectedNode?.id === parentNodeId;
+
+        setSelectedNode(() => ({ ...parentNode }));
+        const connected = findConnectedElements(parentNodeId, edges);
+        setHighlightedElements(connected);
+
+        // Always expand the panel
+        setIsPanelExpanded(true);
+
+        if (isSameNode) {
+          // selectedNode.id won't change, so the TabPanel effect won't fire.
+          // Call both refs directly: first switch to details tab, then set sub-view.
+          if (showNodeDetailsTabRef.current) showNodeDetailsTabRef.current();
+          if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
+        } else {
+          // selectedNode.id will change, TabPanel's useEffect will consume pendingSubViewRef.
+          // Set pending before the state update propagates.
+          if (showCompaniesSubViewRef.current) showCompaniesSubViewRef.current();
+        }
+      }
+    },
+    [nodes, edges, findConnectedElements, selectedNode],
+  );
 
   const handleShowDetails = useCallback(
     (nodeId: string) => {
@@ -338,16 +548,38 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
         ) : (
           <div className="flex-grow relative">
             <ReactFlow
-              nodes={nodes}
-              edges={edges}
+              nodes={[...nodes, ...companyNodes]}
+              edges={[...edges, ...companyEdges]}
               nodeTypes={{
                 default: (props) => (
                   <CustomNode
                     {...props}
                     onShowDetails={handleShowDetails}
                     onShowConnected={handleShowConnected}
+                    onShowCompanies={handleShowCompanies}
+                    isCompaniesExpanded={(id) => expandedCompanyNodeIds.has(id)}
                   />
                 ),
+                company: (props) => {
+                  const companyData = props.data as unknown as CompanyNodeData;
+                  return (
+                    <CompanyNode
+                      {...props}
+                      data={companyData}
+                      onShowCompanyDetails={handleShowCompanyDetails}
+                    />
+                  );
+                },
+                moreCompanies: (props) => {
+                  const moreData = props.data as unknown as MoreCompaniesNodeData;
+                  return (
+                    <MoreCompaniesNode
+                      {...props}
+                      data={moreData}
+                      onShowParentCompanies={handleShowMoreCompanies}
+                    />
+                  );
+                },
               }}
               onNodesChange={undefined}
               onEdgesChange={undefined}
@@ -394,13 +626,14 @@ const TechTree: React.FC<TechTreeProps> = ({ topic, onTopicChange }) => {
           <EditInterface onExit={handleExitEditMode} topic={topic} />
         ) : (
           <TabPanel 
-            selectedNode={selectedNode} 
+            selectedNode={selectedNode}
             techTree={techTree}
             isPanelExpanded={isPanelExpanded}
             onTogglePanel={() => setIsPanelExpanded(!isPanelExpanded)}
             topic={topic}
             onNodeSelect={handleSimulationNodeSelect}
             onShowNodeDetailsRef={(fn) => { showNodeDetailsTabRef.current = fn; }}
+            onShowCompaniesViewRef={(fn) => { showCompaniesSubViewRef.current = fn; }}
           />
         )}
       </div>
