@@ -2,40 +2,61 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { MessageSquare, Info, BarChart3, ChevronLeft, ChevronRight } from 'lucide-react';
-import NodeDetails from './NodeDetails';
-import CompanyDetails from './CompanyDetails';
+import NodeDetails, { NodeDetailsSubView } from './NodeDetails';
 import Chat from './Chat';
 import Simulations from './Simulations';
-import { UiNode, TechTree, CompanyInfo } from '@/lib/types';
+import { UiNode, TechTree } from '@/lib/types';
 import { TopicKey } from '@/lib/topicConfig';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 
 interface TabPanelProps {
   selectedNode?: UiNode;
-  selectedCompany?: CompanyInfo;
   techTree: TechTree | null;
   isPanelExpanded: boolean;
   onTogglePanel: () => void;
   topic: TopicKey;
   onNodeSelect?: (nodeId: string) => void;
   onShowNodeDetailsRef?: (fn: () => void) => void;
+  onShowCompaniesViewRef?: (fn: () => void) => void;
 }
 
 type TabType = 'details' | 'chat' | 'simulations';
 
-const TabPanel = ({ selectedNode, selectedCompany, techTree, isPanelExpanded, onTogglePanel, topic, onNodeSelect, onShowNodeDetailsRef }: TabPanelProps) => {
+const TabPanel = ({
+  selectedNode,
+  techTree,
+  isPanelExpanded,
+  onTogglePanel,
+  topic,
+  onNodeSelect,
+  onShowNodeDetailsRef,
+  onShowCompaniesViewRef,
+}: TabPanelProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('chat');
+  const [nodeDetailsSubView, setNodeDetailsSubView] = useState<NodeDetailsSubView>('info');
   const previousNodeIdRef = useRef<string | undefined>(undefined);
 
-  // Expose a callback so TechTree can imperatively switch to details tab
+  // Expose imperative callbacks to TechTree
   useEffect(() => {
     if (onShowNodeDetailsRef) {
-      onShowNodeDetailsRef(() => setActiveTab('details'));
+      onShowNodeDetailsRef(() => {
+        setActiveTab('details');
+        setNodeDetailsSubView('info');
+      });
     }
   }, [onShowNodeDetailsRef]);
 
-  // Auto-switch to details when a node is selected from chat tab
+  useEffect(() => {
+    if (onShowCompaniesViewRef) {
+      onShowCompaniesViewRef(() => {
+        setActiveTab('details');
+        setNodeDetailsSubView('companies');
+      });
+    }
+  }, [onShowCompaniesViewRef]);
+
+  // Auto-switch to details when a node is selected from the chat tab
   useEffect(() => {
     if (
       selectedNode &&
@@ -47,15 +68,20 @@ const TabPanel = ({ selectedNode, selectedCompany, techTree, isPanelExpanded, on
     previousNodeIdRef.current = selectedNode?.id;
   }, [selectedNode, activeTab]);
 
+  // Reset sub-view to "info" when the selected node changes
+  useEffect(() => {
+    setNodeDetailsSubView('info');
+  }, [selectedNode?.id]);
+
   return (
     <>
-      {/* Toggle Button - Always visible */}
+      {/* Toggle Button */}
       <Button
         variant="ghost"
         size="sm"
         onClick={onTogglePanel}
         className={`fixed z-50 bg-white border border-gray-200 shadow-md hover:bg-gray-50 transition-all duration-300 ${
-          isPanelExpanded 
+          isPanelExpanded
             ? 'top-4 right-4 md:top-4 md:right-[calc(50%-2.5rem)]'
             : 'top-4 right-4'
         }`}
@@ -69,7 +95,7 @@ const TabPanel = ({ selectedNode, selectedCompany, techTree, isPanelExpanded, on
       </Button>
 
       {/* Panel container */}
-      <div 
+      <div
         className={`fixed top-0 right-0 z-40 h-full w-full md:w-1/2 flex flex-col bg-white shadow-lg transition-all duration-300 ${
           isPanelExpanded ? 'translate-x-0' : 'translate-x-full'
         }`}
@@ -99,19 +125,16 @@ const TabPanel = ({ selectedNode, selectedCompany, techTree, isPanelExpanded, on
           </TabsContent>
 
           <TabsContent value="details" className="flex-1 overflow-y-auto mt-0">
-            {selectedCompany ? (
-              <CompanyDetails company={selectedCompany} />
-            ) : (
-              <NodeDetails selectedNode={selectedNode} />
-            )}
+            <NodeDetails
+              selectedNode={selectedNode}
+              topic={topic}
+              activeSubView={nodeDetailsSubView}
+              onSubViewChange={setNodeDetailsSubView}
+            />
           </TabsContent>
 
           <TabsContent value="simulations" className="flex-1 overflow-y-auto mt-0">
-            <Simulations
-              topic={topic}
-              techTree={techTree}
-              onNodeSelect={onNodeSelect}
-            />
+            <Simulations topic={topic} techTree={techTree} onNodeSelect={onNodeSelect} />
           </TabsContent>
         </Tabs>
       </div>
