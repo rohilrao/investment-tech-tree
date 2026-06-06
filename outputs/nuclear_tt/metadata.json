@@ -2,8 +2,8 @@
   "tree_name": "nuclear_tt",
   "source_file": "data/nuclear_tt.json",
   "file_md5": "b345ec16326c5e1d731b8236226dc408",
-  "git_commit": "91cc183",
-  "run_timestamp_utc": "2026-06-05T06:17:51.029637+00:00",
+  "git_commit": "da45b44",
+  "run_timestamp_utc": "2026-06-06T05:51:01.629034+00:00",
   "num_simulations": 100,
   "simulation_option": "option_3"
 }
