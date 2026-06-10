@@ -1,71 +1,68 @@
+import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI, Part, Content } from '@google/generative-ai';
-import { TechTree, ChatMessage } from './types';
-import { TOPICS, TopicKey } from './topicConfig';
+import { TOPICS, TopicKey } from '@/lib/topicConfig';
 
-const fileToGenerativePart = async (file: File): Promise<Part> => {
-  const base64EncodedDataPromise = new Promise<string>((resolve) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve((reader.result as string).split(',')[1]);
-    reader.readAsDataURL(file);
-  });
+// Helper function to convert base64 file data to a generative part
+function base64ToGenerativePart(base64Data: string, mimeType: string): Part {
   return {
     inlineData: {
-      data: await base64EncodedDataPromise,
-      mimeType: file.type,
+      data: base64Data,
+      mimeType,
     },
   };
-};
+}
 
-export type ChatMode = 'instant' | 'thinking';
-
-export class GeminiChatClient {
-  private genAI: GoogleGenerativeAI;
-
-  constructor(apiKey: string) {
-    this.genAI = new GoogleGenerativeAI(apiKey);
-  }
-
-  async sendMessage(
-    message: string,
-    context: TechTree,
-    chatHistory: ChatMessage[] = [],
-    topic: TopicKey,
-    file?: File,
-    mode: ChatMode = 'instant',
-  ): Promise<string> {
-    if (!message?.trim() && !file) {
-      throw new Error('Message or file is required');
+export async function POST(request: NextRequest) {
+  try {
+    const apiKey = process.env.GEMINI_API_KEY; 
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: 'Gemini API key not configured' },
+        { status: 500 },
+      );
     }
 
-    const topicConfig = TOPICS[topic];
+    const body = await request.json();
+    const { message, context, history, topic, fileData, mode } = body;
+
+    if (!message && !fileData) {
+      return NextResponse.json(
+        { error: 'Message or file is required' },
+        { status: 400 },
+      );
+    }
+
+    const topicConfig = TOPICS[topic as TopicKey];
     if (!topicConfig) {
-      throw new Error(`Invalid topic: ${topic}`);
+      return NextResponse.json(
+        { error: 'Invalid topic' },
+        { status: 400 },
+      );
     }
 
     const modelName =
       mode === 'thinking' ? 'gemini-2.5-pro' : 'gemini-2.5-flash';
-    const model = this.genAI.getGenerativeModel({ model: modelName });
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({ model: modelName });
 
-    const userParts: Part[] = [{ text: message }];
-    if (file) {
-      try {
-        const filePart = await fileToGenerativePart(file);
-        userParts.push(filePart);
-      } catch (error) {
-        console.error('Error processing file:', error);
-        throw new Error('Failed to read the PDF file.');
-      }
+    // Build user parts
+    const userParts: Part[] = [{ text: message || '' }];
+    if (fileData) {
+      userParts.push(
+        base64ToGenerativePart(fileData.base64, fileData.mimeType),
+      );
     }
 
-    const nodesContext = context.nodes
-      .map((node) => {
+    // Build node/edge context
+    const nodesContext = (context?.nodes || [])
+      .map((node: any) => {
         const references = Array.isArray(node.data.references)
           ? node.data.references
           : [];
         const referencesBlock =
           references.length > 0
             ? `\n      - References:\n${references
-                .map((ref, i) => `        ${i + 1}. ${ref}`)
+                .map((ref: string, i: number) => `        ${i + 1}. ${ref}`)
                 .join('\n')}`
             : '';
         return `Node: ${node.data.label} (${node.data.nodeLabel})
@@ -80,8 +77,8 @@ export class GeminiChatClient {
       })
       .join('\n\n');
 
-    const edgesContext = context.edges
-      .map((edge) => `Edge: ${edge.source} → ${edge.target}`)
+    const edgesContext = (context?.edges || [])
+      .map((edge: any) => `Edge: ${edge.source} → ${edge.target}`)
       .join('\n');
 
     const modeInstruction =
@@ -121,7 +118,7 @@ PRESENT YOUR OUTPUT SUGGESTIONS IN THE FOLLOWING FORMAT:
 
 Remember: Format everything as HTML with proper tags and spacing. No plain text or markdown formatting.`;
 
-    const conversationHistory: Content[] = chatHistory.map((msg) => ({
+    const conversationHistory: Content[] = (history || []).map((msg: any) => ({
       role: msg.type === 'user' ? 'user' : 'model',
       parts: [{ text: msg.content }],
     }));
@@ -132,19 +129,20 @@ Remember: Format everything as HTML with proper tags and spacing. No plain text 
       { role: 'user', parts: userParts },
     ];
 
-    try {
-      const result = await model.generateContent({
-        contents,
-        generationConfig: { temperature: 0.3 },
-      });
-      return result.response.text();
-    } catch (error) {
-      console.error('Error generating content:', error);
-      throw new Error(
-        error instanceof Error
-          ? error.message
-          : 'Failed to generate response from Gemini',
-      );
-    }
+    const result = await model.generateContent({
+      contents,
+      generationConfig: { temperature: 0.3 },
+    });
+
+    return NextResponse.json({ response: result.response.text() });
+  } catch (error) {
+    console.error('Error in chat API:', error);
+    return NextResponse.json(
+      {
+        error:
+          error instanceof Error ? error.message : 'Failed to generate response',
+      },
+      { status: 500 },
+    );
   }
 }
