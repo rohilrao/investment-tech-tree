@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Send, Loader2, Trash2, Upload } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { ChatMessage, ChatHistory } from '@/lib/types';
-import { GeminiChatClient, ChatMode } from '@/lib/geminiClient';
 import { TopicKey } from '@/lib/topicConfig';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -12,20 +11,19 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useTechTree } from '@/hooks/useTechTree';
 
+type ChatMode = 'instant' | 'thinking';
+
 interface ChatProps {
-  topic: TopicKey; // NEW: Accept topic prop
+  topic: TopicKey;
 }
 
 const Chat: React.FC<ChatProps> = ({ topic }) => {
-  const { techTree } = useTechTree(topic); // Use topic to fetch correct tree
+  const { techTree } = useTechTree(topic);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [uploadStatus, setUploadStatus] = useState<string>('');
-  const [geminiClient, setGeminiClient] = useState<GeminiChatClient | null>(
-    null,
-  );
   const [requestCount, setRequestCount] = useState(0);
   const [lastRequestTime, setLastRequestTime] = useState(0);
   const [rateLimitExceeded, setRateLimitExceeded] = useState(false);
@@ -34,33 +32,17 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Rate limiting configuration
   const MAX_REQUESTS_PER_HOUR = 20;
   const MIN_REQUEST_INTERVAL = 3000;
 
-  // Initialize Gemini client
   useEffect(() => {
-    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-    if (apiKey) {
-      setGeminiClient(new GeminiChatClient(apiKey));
-    } else {
-      console.error('NEXT_PUBLIC_GEMINI_API_KEY is not set');
-    }
-  }, []);
-
-  // Load chat history and rate limiting data from localStorage on mount
-  useEffect(() => {
-    // Reset messages immediately when topic changes
     setMessages([]);
     try {
-      // Use topic-specific storage key
       const storageKey = `tech-tree-chat-history-${topic}`;
       const savedHistory = localStorage.getItem(storageKey);
       if (savedHistory) {
         const history: ChatHistory = JSON.parse(savedHistory);
         setMessages(history.messages);
-
-        // Restore scroll position after messages are loaded
         setTimeout(() => {
           const savedScrollPosition = localStorage.getItem(
             `tech-tree-chat-scroll-${topic}`,
@@ -74,32 +56,22 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
         }, 100);
       }
 
-      // Load rate limiting data (shared across topics)
       const savedRequestCount = localStorage.getItem('tech-tree-request-count');
       const savedLastRequestTime = localStorage.getItem(
         'tech-tree-last-request-time',
       );
-
-      if (savedRequestCount) {
-        setRequestCount(parseInt(savedRequestCount, 10));
-      }
-      if (savedLastRequestTime) {
+      if (savedRequestCount) setRequestCount(parseInt(savedRequestCount, 10));
+      if (savedLastRequestTime)
         setLastRequestTime(parseInt(savedLastRequestTime, 10));
-      }
     } catch (error) {
       console.error('Error loading chat history:', error);
     }
-  }, [topic]); // Reload when topic changes
+  }, [topic]);
 
-  // Save chat history to localStorage whenever messages change
   useEffect(() => {
     if (messages.length > 0) {
-      const history: ChatHistory = {
-        messages,
-        lastUpdated: Date.now(),
-      };
+      const history: ChatHistory = { messages, lastUpdated: Date.now() };
       try {
-        // Use topic-specific storage key
         const storageKey = `tech-tree-chat-history-${topic}`;
         localStorage.setItem(storageKey, JSON.stringify(history));
       } catch (error) {
@@ -108,7 +80,6 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
     }
   }, [messages, topic]);
 
-  // Save rate limiting data to localStorage
   useEffect(() => {
     try {
       localStorage.setItem('tech-tree-request-count', requestCount.toString());
@@ -121,9 +92,7 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
     }
   }, [requestCount, lastRequestTime]);
 
-  // Auto-scroll to bottom only when user sends a message
   useEffect(() => {
-    // Only scroll if the last message is from the user or if it's the first message
     if (messages.length > 0) {
       const lastMessage = messages[messages.length - 1];
       if (lastMessage.type === 'user') {
@@ -135,25 +104,16 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
   const checkRateLimit = (): boolean => {
     const now = Date.now();
     const oneHourAgo = now - 60 * 60 * 1000;
-
-    // Reset counter if more than 1 hour has passed
     if (lastRequestTime < oneHourAgo) {
       setRequestCount(0);
       setLastRequestTime(now);
       return true;
     }
-
-    // Check hourly limit
     if (requestCount >= MAX_REQUESTS_PER_HOUR) {
       setRateLimitExceeded(true);
       return false;
     }
-
-    // Check minimum interval between requests
-    if (now - lastRequestTime < MIN_REQUEST_INTERVAL) {
-      return false;
-    }
-
+    if (now - lastRequestTime < MIN_REQUEST_INTERVAL) return false;
     return true;
   };
 
@@ -164,7 +124,7 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
         alert('Please select a PDF file');
         return;
       }
-      if (selectedFile.size > 10 * 1024 * 1024) { // 10MB limit
+      if (selectedFile.size > 10 * 1024 * 1024) {
         alert('File size must be less than 10MB');
         return;
       }
@@ -175,38 +135,17 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!input.trim() && !file) return;
-    if (!geminiClient) {
-        const errorMsg: ChatMessage = {
-            id: Date.now().toString(),
-            type: 'assistant',
-            content: 'Error: Gemini API key not configured.',
-            timestamp: Date.now(),
-        };
-        setMessages((prev) => [...prev, errorMsg]);
-        return;
-    }
 
-    // Check rate limits
     if (!checkRateLimit()) {
-      if (rateLimitExceeded) {
-        const errorMessage: ChatMessage = {
-          id: Date.now().toString(),
-          type: 'assistant',
-          content: `Rate limit exceeded. You can make up to ${MAX_REQUESTS_PER_HOUR} requests per hour. Please try again later.`,
-          timestamp: Date.now(),
-        };
-        setMessages((prev) => [...prev, errorMessage]);
-      } else {
-        const errorMessage: ChatMessage = {
-          id: Date.now().toString(),
-          type: 'assistant',
-          content: `Please wait at least ${
-            MIN_REQUEST_INTERVAL / 1000
-          } seconds between requests.`,
-          timestamp: Date.now(),
-        };
-        setMessages((prev) => [...prev, errorMessage]);
-      }
+      const errorMessage: ChatMessage = {
+        id: Date.now().toString(),
+        type: 'assistant',
+        content: rateLimitExceeded
+          ? `Rate limit exceeded. You can make up to ${MAX_REQUESTS_PER_HOUR} requests per hour. Please try again later.`
+          : `Please wait at least ${MIN_REQUEST_INTERVAL / 1000} seconds between requests.`,
+        timestamp: Date.now(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
       return;
     }
 
@@ -226,31 +165,55 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
     setRateLimitExceeded(false);
 
     try {
-      const response = await geminiClient.sendMessage(
-        userMessage.content,
-        techTree || { nodes: [], edges: [] },
-        messages,
-        topic,
-        file || undefined,
-        mode, // NEW
-      );
+      // Convert file to base64 on the client if present
+      let fileData: { base64: string; mimeType: string } | null = null;
+      if (file) {
+        const base64 = await new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () =>
+            resolve((reader.result as string).split(',')[1]);
+          reader.readAsDataURL(file);
+        });
+        fileData = { base64, mimeType: file.type };
+      }
+
+      // Call server-side API route — API key never touches the browser
+      const res = await fetch('/investment-tech-tree/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: userMessage.content,
+          context: techTree || { nodes: [], edges: [] },
+          history: messages,
+          topic,
+          fileData,
+          mode,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || 'Failed to get response');
+      }
+
+      const data = await res.json();
 
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         type: 'assistant',
-        content: response,
+        content: data.response,
         timestamp: Date.now(),
       };
-
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         type: 'assistant',
-        content: error instanceof Error 
-          ? `Error: ${error.message}` 
-          : 'Sorry, there was an error processing your request. Please try again.',
+        content:
+          error instanceof Error
+            ? `Error: ${error.message}`
+            : 'Sorry, there was an error processing your request. Please try again.',
         timestamp: Date.now(),
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -286,10 +249,7 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
 
   const handleSuggestedQuestion = (question: string) => {
     setInput(question);
-    // Focus the textarea after setting the input
-    setTimeout(() => {
-      textareaRef.current?.focus();
-    }, 0);
+    setTimeout(() => textareaRef.current?.focus(), 0);
   };
 
   return (
@@ -298,7 +258,6 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-lg font-semibold">Tech Tree Chat</CardTitle>
         <div className="flex items-center space-x-2">
-          {/* Mode toggle removed from here */}
           {rateLimitExceeded && (
             <Badge variant="destructive" className="text-xs">
               Rate Limited
@@ -332,48 +291,30 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
             <CardContent className="text-center text-gray-500 mt-8">
               <p className="text-lg mb-4">Ask anything about the Tech Tree:</p>
               <div className="flex flex-wrap gap-2 justify-center max-w-md mx-auto">
-                <Badge
-                  variant="outline"
-                  className="cursor-pointer hover:bg-gray-100 transition-colors"
-                  onClick={() =>
-                    handleSuggestedQuestion('What is this Tech Tree about?')
-                  }
-                >
-                  Explanation of Tech Tree
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="cursor-pointer hover:bg-gray-100 transition-colors"
-                  onClick={() =>
-                    handleSuggestedQuestion(
-                      'What are the enabling technologies with the highest impact?',
-                    )
-                  }
-                >
-                  Highest Impact
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="cursor-pointer hover:bg-gray-100 transition-colors"
-                  onClick={() =>
-                    handleSuggestedQuestion(
-                      'Which technologies have the highest TRL?',
-                    )
-                  }
-                >
-                  Highest TRL Technologies
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="cursor-pointer hover:bg-gray-100 transition-colors"
-                  onClick={() =>
-                    handleSuggestedQuestion(
-                      'What are the most promising investments?',
-                    )
-                  }
-                >
-                  Investment Opportunities
-                </Badge>
+                {[
+                  ['Explanation of Tech Tree', 'What is this Tech Tree about?'],
+                  [
+                    'Highest Impact',
+                    'What are the enabling technologies with the highest impact?',
+                  ],
+                  [
+                    'Highest TRL Technologies',
+                    'Which technologies have the highest TRL?',
+                  ],
+                  [
+                    'Investment Opportunities',
+                    'What are the most promising investments?',
+                  ],
+                ].map(([label, question]) => (
+                  <Badge
+                    key={label}
+                    variant="outline"
+                    className="cursor-pointer hover:bg-gray-100 transition-colors"
+                    onClick={() => handleSuggestedQuestion(question)}
+                  >
+                    {label}
+                  </Badge>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -402,31 +343,14 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
                       <div
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(
-                            // Remove ```html and ``` markers from the response
                             message.content
                               .replace(/^```html\s*/i, '')
                               .replace(/```[\s\n]*$/, ''),
                             {
                               ALLOWED_TAGS: [
-                                'h2',
-                                'h3',
-                                'h4',
-                                'p',
-                                'ul',
-                                'ol',
-                                'li',
-                                'strong',
-                                'em',
-                                'table',
-                                'thead',
-                                'tbody',
-                                'tr',
-                                'td',
-                                'th',
-                                'code',
-                                'pre',
-                                'br',
-                                'a',
+                                'h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li',
+                                'strong', 'em', 'table', 'thead', 'tbody',
+                                'tr', 'td', 'th', 'code', 'pre', 'br', 'a',
                               ],
                               ALLOWED_ATTR: ['class', 'href', 'target', 'rel'],
                             },
@@ -442,9 +366,7 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
                   </div>
                   <div
                     className={`text-xs mt-2 ${
-                      message.type === 'user'
-                        ? 'text-slate-100'
-                        : 'text-gray-500'
+                      message.type === 'user' ? 'text-slate-100' : 'text-gray-500'
                     }`}
                   >
                     {new Date(message.timestamp).toLocaleTimeString('de-DE', {
@@ -465,7 +387,8 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
                 <div className="flex items-center space-x-2">
                   <Loader2 size={16} className="animate-spin text-gray-500" />
                   <span className="text-gray-500">
-                    {uploadStatus || (mode === 'thinking' ? 'Thinking...' : 'Analysing...')}
+                    {uploadStatus ||
+                      (mode === 'thinking' ? 'Thinking...' : 'Analysing...')}
                   </span>
                 </div>
               </CardContent>
@@ -481,7 +404,9 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
         {file && (
           <div className="mb-2 flex items-center gap-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
             <Upload size={14} />
-            <span className="flex-1">{file.name} ({(file.size / 1024 / 1024).toFixed(1)}MB)</span>
+            <span className="flex-1">
+              {file.name} ({(file.size / 1024 / 1024).toFixed(1)}MB)
+            </span>
             <Button
               variant="ghost"
               size="sm"
@@ -505,7 +430,6 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
               disabled={isLoading || rateLimitExceeded}
             />
             <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center gap-1">
-              {/* Mode dropdown */}
               <select
                 value={mode}
                 onChange={(e) => setMode(e.target.value as ChatMode)}
@@ -523,7 +447,9 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
                   variant="ghost"
                   className="p-1 h-8 w-8 cursor-pointer"
                   disabled={isLoading}
-                  onClick={() => document.getElementById('file-upload-chat')?.click()}
+                  onClick={() =>
+                    document.getElementById('file-upload-chat')?.click()
+                  }
                 >
                   <Upload size={18} />
                 </Button>
@@ -538,7 +464,9 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
               <Button
                 type="submit"
                 size="sm"
-                disabled={(!input.trim() && !file) || isLoading || !geminiClient || rateLimitExceeded}
+                disabled={
+                  (!input.trim() && !file) || isLoading || rateLimitExceeded
+                }
                 className="p-1 h-8 w-8"
               >
                 <Send size={18} />
@@ -547,7 +475,8 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
           </div>
         </form>
         <p className="text-xs text-gray-500 mt-2">
-          Press Enter to send, Shift+Enter for new line. PDF files up to 10MB supported.
+          Press Enter to send, Shift+Enter for new line. PDF files up to 10MB
+          supported.
         </p>
       </div>
     </div>
